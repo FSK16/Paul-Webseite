@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Poppins:wght@400;500;600;700&display=swap");
+
+body {
+    font-family: "Poppins", sans-serif !important;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color:  rgb(241, 241, 241);
+}
+
+.website_content{
+    width: 100vw;
+    max-width: 1500px;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#stationSearch{
+    margin-top: 25px;
+}
+
+#stationResult{
+    margin-top: 20px;
+}

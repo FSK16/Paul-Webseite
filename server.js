@@ -12,6 +12,7 @@ const { parse } = require('csv-parse'); // Für Version 4.x von csv-parse
 const { PrismaClient } = require("@prisma/client");
 const { promiseHooks } = require("v8");
 const prisma = new PrismaClient();
+const cors = require("cors");
 
 
 // Nicht nutzen! Session stattdessen
@@ -32,15 +33,30 @@ const port = 3000;
 let app = express();
 
 app.use(express.json());
+app.use(cors())
+
+app.get("/search/:name", async function (req, res) {
+    let name = req.params["name"];
+    const station = await prisma.station.findMany({
+        where:{
+            stationName: name
+        },
+        include:{
+            stationLine:{
+                include:{
+                    line:true
+                }
+            }
+        }
+    })
+    res.send(station);
+})
 
 async function insertDataofCSVFiles(){
-
     try {
         var DataSheetStations = path.join(__dirname, "daten", "stops.csv");
         var DataSheetLines = path.join(__dirname, "daten", "line.csv");
-
         let inserts = 0;
-
         let stations = [];
 
 
@@ -243,13 +259,12 @@ async function insertCombos(){
 }
 
 
-app.get("/", function(req, res) {
-    res.sendFile("index.html");
-})
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname));
+});
 
 app.listen(port, async function () {
-
-    // Lösche alle vorhandenen Daten
+    /*
     await prisma.lineStation.deleteMany();
     await prisma.line.deleteMany();
     await prisma.station.deleteMany();
@@ -257,7 +272,7 @@ app.listen(port, async function () {
     // Warte auf das Einfügen von Daten und führe dann die Combo-Funktion aus
     await insertDataofCSVFiles();  // Warten, bis das Einfügen der Daten abgeschlossen ist
 
-    // Jetzt rufst du insertCombos() auf, nachdem insertDataofCSVFiles() abgeschlossen ist
+    // Jetzt rufst du insertCombos() auf, nachdem insertDataofCSVFiles() abgeschlossen ist*/
 
     console.log("Server is running on http://localhost:3000");
 });
