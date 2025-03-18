@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Station {
+  id Int @id @default(autoincrement())
+  stationID Int @unique()
+  stationName String @default("Keine Daten")
+  city String?
+  divaNr Int @default(99999999999999)
+  longitude Decimal?
+  latitude Decimal?
+
+  stationLine LineStation[]
+
+}
+
+model LineStation {
+  combinationID Int @id @default(autoincrement())
+  stationID Int @default(99999999999999)
+  lineID Int @default(99999999999999)
+  patternID Int @default(99999999999999)
+  stopSequenceNumber Int @default(99999999999999)
+  direction Int @default(99999999999999)
+
+  line Line @relation(fields: [lineID], references: [lineID], onDelete: Cascade)
+  station Station @relation(fields: [stationID], references: [stationID], onDelete: Cascade)
+
+}
+
+model Line {
+  lineID Int @id @default(autoincrement())
+  lineName String @default("Keine Daten")
+  sortingHelp Int @default(99999999999999)
+  realtime Int @default(99999999999999)
+  linetype String @default("Keine Daten")
+
+  lineStaion LineStation[]
+
+
+}
+
+
+
