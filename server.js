@@ -58,8 +58,6 @@ async function insertDataofCSVFiles(){
         var DataSheetLines = path.join(__dirname, "daten", "line.csv");
         let inserts = 0;
         let stations = [];
-
-
         fs.createReadStream(DataSheetStations)
             .pipe(
                 parse({
@@ -173,6 +171,41 @@ async function insertDataofCSVFiles(){
     }
 }
 
+async function getLastStationofLines() {
+
+    const connectionsLastStop = await prisma.lineStation.findMany({
+        distinct: ['patternID', 'lineID'],
+        orderBy: {
+            stopSequenceNumber: 'desc'
+        },
+        include: {
+            station: true
+        }
+    })
+    if(!Array.isArray(connectionsLastStop)){
+        console.log("Kein Array!");
+    }
+
+    for (const entry of connectionsLastStop) {
+        console.log(entry);
+        let lastStationName = entry.station.stationName;
+        let lineID = entry.lineID;
+        let patternID = entry.patternID;
+
+        let lastStationAdded = await prisma.lineStation.updateMany({
+            data: {
+                directionTo: lastStationName
+            },
+            where: {
+                lineID: lineID,
+                patternID: patternID
+            }
+        });
+        console.log(lastStationAdded);
+    }
+    
+}
+
 async function insertCombos(){
 
     var DataSheetCombinations = path.join(__dirname, "daten", "lineStation.csv");
@@ -275,6 +308,7 @@ app.listen(port, async function () {
     // Jetzt rufst du insertCombos() auf, nachdem insertDataofCSVFiles() abgeschlossen ist*/
 
     console.log("Server is running on http://localhost:3000");
+    getLastStationofLines();
 });
 
 app.get("/test/", async function () {

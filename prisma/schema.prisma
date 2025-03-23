@@ -33,6 +33,7 @@ model LineStation {
   patternID Int @default(99999999999999)
   stopSequenceNumber Int @default(99999999999999)
   direction Int @default(99999999999999)
+  directionTo String?
 
   line Line @relation(fields: [lineID], references: [lineID], onDelete: Cascade)
   station Station @relation(fields: [stationID], references: [stationID], onDelete: Cascade)

@@ -71,6 +71,8 @@
       let search = document.getElementById('station').value;
       let contentDiv = document.getElementById('stationResultContent')
 
+      contentDiv.innerHTML = "";
+
       fetch(`http://localhost:3000/search/${search}`, {
         method: "GET"
       })
@@ -84,13 +86,26 @@
           console.log(data);
           data.forEach(station => {
 
+            let lineContent = "";
+            let stationName = station.stationName;
+
+            if(Array.isArray(station.stationLine)){
+              station.stationLine.forEach(connection => {
+                if(connection.patternID === 1 || connection.patternID === 2 && connection.directionTo !== station.stationName){
+                  lineContent += `${connection.line.lineName} in Richtung ${connection.directionTo} </br>`;
+                }
+              });
+            }
+
+            console.log(lineContent)
+
             contentDiv.innerHTML += 
             `<div class="card m-1" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title">${station.stationName}</h5>
-                <p class="card-text">Linien:</p>
+                <p class="card-text">Linien: ${lineContent}</p>
                 <form action="http://straba.local/config" method="POST">
-                  <input type="hidden" name="stop-id" value="${station.stationID}">
+                  <input type="hidden" name="stop-id" value="">
                   <input type="hidden" name="anzeige">
                   <input type="hidden" name="filter">
                   <button type="submit" class="btn btn-primary">Als Straba Haltestelle verwenden</button>
