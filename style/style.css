@@ -26,3 +26,7 @@ body {
 #stationResult{
     margin-top: 20px;
 }
+.dropdown_items{
+    width: 600px;
+    background-color: rgb(141, 12, 12);
+}

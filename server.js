@@ -52,6 +52,31 @@ app.get("/search/:name", async function (req, res) {
     res.send(station);
 })
 
+app.get("/search", async function (req, res) {
+    const stations = await prisma.line.findMany({
+        include: {
+            lineStation: {
+                select: {
+                    stopSequenceNumber: true,
+                    direction: true,
+                    patternID: true,
+                    station: {  // Hier wird die Relation korrekt eingebunden
+                        select: {
+                            divaNr: true,
+                            stationName: true
+                        }
+                    }
+                },
+                where: {
+                    patternID: { in: [1, 2] }
+                }
+            }
+        }
+    });
+    res.send(stations);
+});
+
+
 async function insertDataofCSVFiles(){
     try {
         var DataSheetStations = path.join(__dirname, "daten", "stops.csv");
@@ -308,7 +333,7 @@ app.listen(port, async function () {
     // Jetzt rufst du insertCombos() auf, nachdem insertDataofCSVFiles() abgeschlossen ist*/
 
     console.log("Server is running on http://localhost:3000");
-    getLastStationofLines();
+    //getLastStationofLines();
 });
 
 app.get("/test/", async function () {

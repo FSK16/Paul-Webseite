@@ -23,15 +23,18 @@
           <div class="mt-5">
             <div class="custom_input">
               <label for="lineInput" class="straba_label">Linie:</label>
-              <input type="text" name="line" id="lineInput" class="straba_input">
+              <input type="text" name="line" id="lineInput" class="straba_input" onkeyup="searchLine()">
+              <ul class="dropdown_items" id="list">
+               
+              </ul>
             </div>
             <div class="custom_input mt-3">
               <label for="lineInput" class="straba_label">Richtung:</label>
-              <input type="text" name="line" id="lineInput" class="straba_input">
+              <input type="text" name="line" id="directionInput" class="straba_input">
             </div>
             <div class="custom_input mt-3">
               <label for="lineInput" class="straba_label">Station:</label>
-              <input type="text" name="line" id="lineInput" class="straba_input">
+              <input type="text" name="line" id="stationInput" class="straba_input">
             </div>
           </div>
         </div>
@@ -44,20 +47,13 @@
         </div>
       </div>
     </div>
-
-
-  
-
-
   <script>
-    function searchStation(){
-      let search = document.getElementById('station').value;
-      let contentDiv = document.getElementById('stationResultContent')
+    let stationData = [];
+    let station = document.getElementById('stationInput');
 
-      contentDiv.innerHTML = "";
-
-      fetch(`http://localhost:3000/search/${search}`, {
-        method: "GET"
+    window.onload = function(){
+        fetch(`http://localhost:3000/search/`, {
+          method: "GET"
       })
       .then(response => {
           if (!response.ok) {
@@ -66,45 +62,53 @@
           return response.json();
       })
       .then(data => {
-          console.log(data);
-          data.forEach(station => {
-
-            let lineContent = "";
-            let stationName = station.stationName;
-
-            if(Array.isArray(station.stationLine)){
-              station.stationLine.forEach(connection => {
-                if(connection.patternID === 1 || connection.patternID === 2 && connection.directionTo !== station.stationName){
-                  lineContent += `${connection.line.lineName} in Richtung ${connection.directionTo} </br>`;
-                }
-              });
-            }
-
-            console.log(lineContent)
-
-            contentDiv.innerHTML += 
-            `<div class="card m-1" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title">${station.stationName}</h5>
-                <p class="card-text">Linien: ${lineContent}</p>
-                <form action="http://straba.local/config" method="POST">
-                  <input type="hidden" name="stop-id" value="">
-                  <input type="hidden" name="anzeige">
-                  <input type="hidden" name="filter">
-                  <button type="submit" class="btn btn-primary">Als Straba Haltestelle verwenden</button>
-                </form>
-              </div>
-            </div>`;
-
-            
-            console.log(station);
-          })
+          stationData = data;
       })
       .catch(error => {
-        console.error(error)
-        });
+        console.error(error);
+      })
     }
 
+    function searchLine(){
+      let lineSearch = document.getElementById('lineInput');
+      document.getElementById('list').innerHTML = "";
+      console.log("Funktion wird aufgerufen");
+      stationData.forEach(line => {
+        if(line.lineName.toLowerCase().includes(lineSearch.value.toLowerCase()) ){
+          if(Array.isArray(line.lineStation)){
+            let lastItem = line.lineStation.length -1;
+            let firstStation = line.lineStation[0].station.stationName;
+            let durchlauf = 0;
+            let lastStationPattern;
+            let currentStationPattern;
+            let lastStation;
+            line.lineStation.forEach(station => {
+              if(currentStationPattern){
+                lastStationPattern = currentStationPattern;
+                if(lastStationPattern != station.patternID){
+                  lastStation = station.station.stationName
+                }
+              }
+              currentStationPattern = station.patternID
+            })
+            document.getElementById('list').innerHTML 
+            += `<li>
+                  <span><b>${line.lineName}</b></span>
+                  <span style="float: right; margin-right: 15px;">${firstStation} <-> ${lastStation}</span>
+                </li>`;
+          }
+          else{
+            document.getElementById('list').innerHTML 
+            += `<li>
+                  <span>${line.lineName}</span0>
+                  </li>`;
+          }
+          document.getElementById('list').style.opacity = 1;
+          
+        }
+
+      })
+    }
   </script>
 
 

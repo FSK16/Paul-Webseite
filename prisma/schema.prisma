@@ -14,43 +14,36 @@ datasource db {
 }
 
 model Station {
-  id Int @id @default(autoincrement())
-  stationID Int @unique()
-  stationName String @default("Keine Daten")
-  city String?
-  divaNr Int @default(99999999999999)
-  longitude Decimal?
-  latitude Decimal?
+  id          Int      @id @default(autoincrement())
+  stationID   Int      @unique()
+  stationName String   @default("Keine Daten")
+  city        String?
+  divaNr      Int      @default(99999999999999)
+  longitude   Decimal?
+  latitude    Decimal?
 
   stationLine LineStation[]
-
 }
 
 model LineStation {
-  combinationID Int @id @default(autoincrement())
-  stationID Int @default(99999999999999)
-  lineID Int @default(99999999999999)
-  patternID Int @default(99999999999999)
-  stopSequenceNumber Int @default(99999999999999)
-  direction Int @default(99999999999999)
-  directionTo String?
+  combinationID      Int     @id @default(autoincrement())
+  stationID          Int     @default(99999999999999)
+  lineID             Int     @default(99999999999999)
+  patternID          Int     @default(99999999999999)
+  stopSequenceNumber Int     @default(99999999999999)
+  direction          Int     @default(99999999999999)
+  directionTo        String?
 
-  line Line @relation(fields: [lineID], references: [lineID], onDelete: Cascade)
+  line    Line    @relation(fields: [lineID], references: [lineID], onDelete: Cascade)
   station Station @relation(fields: [stationID], references: [stationID], onDelete: Cascade)
-
 }
 
 model Line {
-  lineID Int @id @default(autoincrement())
-  lineName String @default("Keine Daten")
-  sortingHelp Int @default(99999999999999)
-  realtime Int @default(99999999999999)
-  linetype String @default("Keine Daten")
+  lineID      Int    @id @default(autoincrement())
+  lineName    String @default("Keine Daten")
+  sortingHelp Int    @default(99999999999999)
+  realtime    Int    @default(99999999999999)
+  linetype    String @default("Keine Daten")
 
-  lineStaion LineStation[]
-
-
+  lineStation LineStation[]
 }
-
-
-
