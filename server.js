@@ -60,21 +60,79 @@ app.get("/search", async function (req, res) {
                     stopSequenceNumber: true,
                     direction: true,
                     patternID: true,
-                    station: {  // Hier wird die Relation korrekt eingebunden
+                    station: {
                         select: {
                             divaNr: true,
                             stationName: true
+                        }
+                    },
+                    line: {  // Hier `line` explizit einbinden
+                        select: {
+                            linetype: true
                         }
                     }
                 },
                 where: {
                     patternID: { in: [1, 2] }
-                }
+                },
             }
+        },
+        orderBy:{
+            priority: "asc"
         }
     });
+    
     res.send(stations);
 });
+
+async function generatePriorities() {
+    const MetroPriority = await prisma.line.updateMany({
+        data:{
+            priority: 1
+        },
+        where:{
+            linetype: "Metro"
+        }
+    })
+
+    const TramPriority = await prisma.line.updateMany({
+        data:{
+            priority: 2
+        },
+        where:{
+            linetype: "Tram"
+        }
+    })
+
+    const BusPriority = await prisma.line.updateMany({
+        data:{
+            priority: 3
+        },
+        where:{
+            linetype: "BusCity"
+        }
+    })
+
+    const BusNightPriority = await prisma.line.updateMany({
+        data:{
+            priority: 4
+        },
+        where:{
+            linetype: "BusNight"
+        }
+    })
+
+    const BusCallPriority = await prisma.line.updateMany({
+        data:{
+            priority: 5
+        },
+        where:{
+            linetype: "RufBus"
+        }
+    })
+    
+    
+}
 
 
 async function insertDataofCSVFiles(){
@@ -322,6 +380,9 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, async function () {
+
+
+    //generatePriorities();
     /*
     await prisma.lineStation.deleteMany();
     await prisma.line.deleteMany();

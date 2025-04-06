@@ -44,6 +44,7 @@ model Line {
   sortingHelp Int    @default(99999999999999)
   realtime    Int    @default(99999999999999)
   linetype    String @default("Keine Daten")
+  priority    Int    @default(10)
 
   lineStation LineStation[]
 }
