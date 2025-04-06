@@ -21,22 +21,38 @@
           </div>
           <span id="title_description">Pro Tipp: Du kannst mehr als nur eine Station angeben</span>
           <div class="mt-5">
+            <form action="https://straba.local/config" method="post">
             <div class="custom_input">
               <label for="lineInput" class="straba_label">Linie:</label>
-              <input type="text" name="line" id="lineInput" class="straba_input" onkeyup="searchLine()" onfocus="searchLine()">
+              <input type="text" name="lineText" id="lineInput" class="straba_input" onkeyup="searchLine()" onfocus="searchLine()">
+              <input type="hidden" name="line" id="lineInputID" class="straba_input">
+
               <ul class="dropdown_items" id="list">
                
               </ul>
             </div>
             <div class="custom_input mt-3">
               <label for="lineInput" class="straba_label">Richtung:</label>
-              <input type="text" name="line" id="directionInput" class="straba_input">
+              <input type="text" name="direction" id="directionInput" class="straba_input">
+              <input type="hidden" name="direction" id="directionInputID" class="straba_input">
+              <ul class="dropdown_items" id="directionlist">
+
             </div>
             <div class="custom_input mt-3">
               <label for="lineInput" class="straba_label">Station:</label>
-              <input type="text" name="line" id="stationInput" class="straba_input">
+              <input type="text" name="station" id="stationInput" class="straba_input">
+              <input type="hidden" name="stop-id" id="stationInputID" class="straba_input">
+
+              <ul class="dropdown_items" id="stationlist">
+
             </div>
           </div>
+          <button type="submit " class="mt-4" id="submitbutton">
+            <span id="submitbutton_notice">
+              An den Straba senden
+            </span>
+          </button>
+          </form>
         </div>
         <div></div>
         <div id="addedStations" class="mt-5">
@@ -73,26 +89,32 @@
       let lineSearch = document.getElementById('lineInput');
       document.getElementById('list').innerHTML = "";
       stationData.forEach(line => {
+
         if (line.lineName.toLowerCase().includes(lineSearch.value.toLowerCase())) {
           if (Array.isArray(line.lineStation)) {
             if (line.lineStation.length !== 0) {
               let lastItem = line.lineStation.length - 1;
               let firstStation = line.lineStation[0].station.stationName;
+              let lastStationID = line.lineStation[0].patternID;
               let lastStationPattern;
               let currentStationPattern;
               let lastStation;
+              let firstStationID;
       
               line.lineStation.forEach(station => {
                 if (currentStationPattern) {
                   lastStationPattern = currentStationPattern;
                   if (lastStationPattern != station.patternID) {
                     lastStation = station.station.stationName;
+                    firstStationID = station.patternID
                   }
                 }
                 currentStationPattern = station.patternID;
               });
+
+
               document.getElementById('list').innerHTML += `
-              <li onclick='insertLine("${line.lineName}", "${line.lineID}")'>
+              <li onclick='insertLine("${line.lineName}", "${line.lineID}", "${firstStation}", "${firstStationID}", "${lastStation}", "${lastStationID}")'>
                 <span><b>${line.lineName}</b></span>
                 <span style="float: right; margin-right: 15px;">${firstStation} <-> ${lastStation}</span>
               </li>`;
@@ -115,8 +137,67 @@
       }); 
       
     };
-    function insertLine(line, lineID){
-      
+    function insertLine(line, lineID, firstStation, firstStationID, lastStation, lastStationID){
+
+      document.getElementById('list').style.opacity = 0;
+      document.getElementById('list').innerHTML = "";
+      document.getElementById('lineInput').value = line;
+      document.getElementById('lineInputID').value = lineID;
+
+      getDirectiions(lineID, firstStation, firstStationID, lastStation, lastStationID)
+    }
+
+    function getDirectiions(lineID, firstStation, firstStationID, lastStation, lastStationID){      
+      document.getElementById('directionlist').innerHTML += `
+              <li onclick='insertDirection("${lineID}", "${firstStationID}", "${firstStation}")'>
+                <span><b>${firstStation}</b></span>
+              </li>`;
+
+      document.getElementById('directionlist').innerHTML += `
+      <li onclick='insertDirection("${lineID}", "${lastStationID}", "${lastStation}")'>
+        <span><b>${lastStation}</b></span>
+      </li>`;
+
+
+      document.getElementById('directionlist').style.opacity = 1;
+
+    }
+
+    function insertDirection(lineID, patternID, station){
+      document.getElementById('directionlist').style.opacity = 0;
+      document.getElementById('directionlist').innerHTML = "";
+
+      document.getElementById('directionInput').value = station;
+
+      getStation(lineID, patternID)
+    }
+
+    function getStation(lineID, patternID){
+      stationData.forEach(line => {
+        if(line.lineID === Number(lineID)){
+          line.lineStation.forEach(station => {
+            if(station.patternID == Number(patternID)){
+              document.getElementById('stationlist').innerHTML += `
+              <li onclick='insertStation("${station.station.stationName}", "${station.station.id}")'>
+                <span><b>${station.station.stationName}</b></span>
+              </li>`;
+            }
+            
+          });
+        }
+
+        document.getElementById('stationlist').style.opacity = 1;
+
+      });
+    }
+
+    function insertStation(name, diva){
+      document.getElementById('stationlist').style.opacity = 0;
+      document.getElementById('stationlist').innerHTML = "";
+
+      document.getElementById('stationInput').value = name;
+      document.getElementById('stationInputID').value = diva;
+
     }
     
   </script>

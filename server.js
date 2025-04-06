@@ -62,6 +62,7 @@ app.get("/search", async function (req, res) {
                     patternID: true,
                     station: {
                         select: {
+                            id: true,
                             divaNr: true,
                             stationName: true
                         }

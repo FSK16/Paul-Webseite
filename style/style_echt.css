@@ -123,3 +123,15 @@ body {
     filter: brightness(95%);
     transition: 0.2s ease;
 }
+#submitbutton{
+    width: 600px;
+    height: 55px;
+    border: none;
+    background-color: rgb(211, 22, 22)!important;
+    border-radius: 5px;
+    color: white;
+}
+#submitbutton_notice{
+    font-size: x-large;
+    font-weight: 800;
+}
