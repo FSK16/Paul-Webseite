@@ -24,6 +24,7 @@
             <form action="https://straba.local/config" method="post">
             <div class="custom_input">
               <label for="lineInput" class="straba_label">Linie:</label>
+              <label for="lineInput" class="straba_input_pfeil"><img src="pics/pfeiloben.svg" alt="Pfeil nach oben"></label>
               <input type="text" name="lineText" id="lineInput" class="straba_input" onkeyup="searchLine()" onfocus="searchLine()">
               <input type="hidden" name="line" id="lineInputID" class="straba_input">
 
@@ -46,10 +47,11 @@
               <ul class="dropdown_items" id="stationlist">
 
             </div>
+            <span id="stopNumber" class="mt-2"></span>
           </div>
           <button type="submit " class="mt-4" id="submitbutton">
             <span id="submitbutton_notice">
-              An den Straba senden
+              Station hinzufügen
             </span>
           </button>
           </form>
@@ -197,6 +199,7 @@
 
       document.getElementById('stationInput').value = name;
       document.getElementById('stationInputID').value = diva;
+      document.getElementById('stopNumber').innerHTML = "Gewählte StopID" + diva;
 
     }
     

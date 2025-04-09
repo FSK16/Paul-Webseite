@@ -118,11 +118,14 @@ async function generatePriorities() {
     })
 
     const BusNightPriority = await prisma.line.updateMany({
-        data:{
+        data: {
             priority: 4
         },
-        where:{
-            linetype: "BusNight"
+        where: {
+            OR: [
+                { linetype: "BusNight" },
+                { linetype: "TramWLB" }
+            ]
         }
     })
 
@@ -382,6 +385,10 @@ async function insertCombos(){
 app.get('/', (req, res) => {
     res.redirect("echt.html");
 });
+
+app.get('/newpriority', (req,res) => {
+    generatePriorities();
+})
 app.get('/config', (req, res) => {
     res.sendFile(path.join(__dirname, 'echt.html'));
 });
