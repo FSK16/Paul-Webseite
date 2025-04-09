@@ -379,6 +379,9 @@ async function insertCombos(){
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname));
 });
+app.get('/config', (req, res) => {
+    res.sendFile(path.join(__dirname, 'echt.html'));
+});
 
 app.listen(port, "0.0.0.0", async function () {
 
@@ -402,6 +405,8 @@ app.listen(port, "0.0.0.0", async function () {
 app.get("/test/", async function () {
     insertCombos();
 })
+
+
 
 function Sleep(milliseconds) {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
