@@ -47,8 +47,9 @@
               <ul class="dropdown_items" id="stationlist">
 
             </div>
-            <span id="stopNumber" class="mt-2"></span>
           </div>
+          <span id="stopNumber" class="mt-2"></span>
+
           <button type="submit " class="mt-4" id="submitbutton">
             <span id="submitbutton_notice">
               Station hinzufügen
@@ -199,7 +200,7 @@
 
       document.getElementById('stationInput').value = name;
       document.getElementById('stationInputID').value = diva;
-      document.getElementById('stopNumber').innerHTML = "Gewählte StopID" + diva;
+      document.getElementById('stopNumber').innerHTML = "Gewählte StopID: " + diva;
 
     }
     
