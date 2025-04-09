@@ -34,8 +34,7 @@ let app = express();
 
 app.use(express.json());
 app.use(cors())
-app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.static(path.join(__dirname, "/")));
 
 app.get("/search/:name", async function (req, res) {
     let name = req.params["name"];
