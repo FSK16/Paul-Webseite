@@ -55,6 +55,7 @@ app.get("/search/:name", async function (req, res) {
 })
 
 app.get("/search", async function (req, res) {
+    console.log("Test");
     const stations = await prisma.line.findMany({
         include: {
             lineStation: {
@@ -86,6 +87,7 @@ app.get("/search", async function (req, res) {
     });
     
     res.send(stations);
+    console.log(stations);
 });
 
 async function generatePriorities() {
