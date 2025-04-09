@@ -29,7 +29,7 @@ const cors = require("cors");
 // npm i -g nodemon
 // Zum Starten: nodemon server.js
 
-const port = 3000;
+const port = 8080;
 let app = express();
 
 app.use(express.json());
@@ -380,8 +380,9 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname));
 });
 
-app.listen(port, async function () {
+app.listen(port, "0.0.0.0", async function () {
 
+    //0.0.0.0 für docker Container!!!!
 
     //generatePriorities();
     /*
@@ -394,7 +395,7 @@ app.listen(port, async function () {
 
     // Jetzt rufst du insertCombos() auf, nachdem insertDataofCSVFiles() abgeschlossen ist*/
 
-    console.log("Server is running on http://localhost:3000");
+    console.log("Server is running on http://localhost:" + port);
     //getLastStationofLines();
 });
 
