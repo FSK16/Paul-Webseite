@@ -377,7 +377,7 @@ async function insertCombos(){
 
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname));
+    res.redirect("echt.html");
 });
 app.get('/config', (req, res) => {
     res.sendFile(path.join(__dirname, 'echt.html'));
