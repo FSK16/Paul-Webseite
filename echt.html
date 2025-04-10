@@ -203,14 +203,12 @@
     function insertStation(name, stopID){
       document.getElementById('stationlist').style.opacity = 0;
       document.getElementById('stationlist').innerHTML = "";
-
       document.getElementById('stationInput').value = name;
       document.getElementById('stationInputID').value = stopID;
       document.getElementById('stopNumber').innerHTML = "Gewählte StopID: " + stopID;
       let zeile = document.getElementById('strabaZeile').value;
       let lines = document.getElementById('strabaLines').value;
-      window.parent.postMessage({ type: "setRBL", rbl: stopID, zeile: zeile, filter: lines}, "*")
-
+      window.parent.postMessage({ type: "setRBL", rbl: stopID, zeilen: zeile, filter: lines}, "*")
     }
     
   </script>

@@ -14,7 +14,6 @@ const { promiseHooks } = require("v8");
 const prisma = new PrismaClient();
 const cors = require("cors");
 
-
 // Nicht nutzen! Session stattdessen
 // https://www.npmjs.com/package/express-session
 // Wird genutzt um sichere Token zu erstellen
