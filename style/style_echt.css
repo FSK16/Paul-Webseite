@@ -74,6 +74,7 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative;
+    float: left;
 }
 .straba_label{
     padding: 5px;
@@ -144,7 +145,7 @@ body {
 
 }
 .input_small{
-    width: 300px!important;
+    width: 290px!important;
 }
 .straba_input_pfeil img{
     height: 25px;
