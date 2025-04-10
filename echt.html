@@ -180,8 +180,9 @@
         if(line.lineID === Number(lineID)){
           line.lineStation.forEach(station => {
             if(station.patternID == Number(patternID)){
+              console.log(station.station);
               document.getElementById('stationlist').innerHTML += `
-              <li onclick='insertStation("${station.station.stationName}", "${station.station.id}")'>
+              <li onclick='insertStation("${station.station.stationName}", "${station.station.stationID}")'>
                 <span><b>${station.station.stationName}</b></span>
               </li>`;
             }
