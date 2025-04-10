@@ -208,7 +208,7 @@
       document.getElementById('stationInputID').value = stopID;
       document.getElementById('stopNumber').innerHTML = "Gewählte StopID: " + stopID;
       let zeile = document.getElementById('strabaZeile').value;
-      let lines = document.getElementById('strabaLines')
+      let lines = document.getElementById('strabaLines').value;
       window.parent.postMessage({ type: "setRBL", rbl: stopID, zeile: zeile, filter: lines}, "*")
 
     }
