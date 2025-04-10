@@ -195,13 +195,15 @@
       });
     }
 
-    function insertStation(name, diva){
+    function insertStation(name, stopID){
       document.getElementById('stationlist').style.opacity = 0;
       document.getElementById('stationlist').innerHTML = "";
 
       document.getElementById('stationInput').value = name;
-      document.getElementById('stationInputID').value = diva;
-      document.getElementById('stopNumber').innerHTML = "Gewählte StopID: " + diva;
+      document.getElementById('stationInputID').value = stopID;
+      document.getElementById('stopNumber').innerHTML = "Gewählte StopID: " + stopID;
+
+      window.parent.postMessage({ type: "setRBL", rbl: stopID}, "*")
 
     }
     
