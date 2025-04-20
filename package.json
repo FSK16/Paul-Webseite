@@ -17,5 +17,8 @@
     "express": "^4.21.2",
     "fs": "^0.0.1-security",
     "prisma": "^6.5.0"
-  }
+  },
+  "engines": {
+  "node": "20.x"
+}
 }
