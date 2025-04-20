@@ -28,6 +28,8 @@ body {
     width: 100vw;
     max-width: 100vw;
     max-height: 100vw;
+    height: 100vh;
+    overflow-y: auto;
 
 
     margin: auto;
@@ -69,8 +71,9 @@ body {
     padding-left: 35px!important;
     padding: 25px;
     height: 190px;
-    margin-top: 10px;
+    margin-top: 25px;
     padding-right: 30px!important;
+    border-radius: 5px;
 
 }
 .container_dark h5{
@@ -199,6 +202,7 @@ body {
 }
 #mobile_container{
     width: 600px;
+    border-radius: 5px;
 }
 
 .selection_note_directions{
