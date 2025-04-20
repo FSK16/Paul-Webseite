@@ -20,7 +20,7 @@
             <span>Wähle nun deine Station, die dein Straba anzeigen soll!</span>
           </div>
           -->
-          <span id="title_description" style=""><b>Füge hier die Haltestellen hinzu, die auf deiner Straßenbahnanzeige erscheinen sollen. </b><br></span>
+          <span id="title_description" style=""><b>Füge hier die Haltestelle hinzu, die auf deinem Straba erscheinen soll. </b><br></span>
           <div class="station_form">
             <form action="https://straba.local/config" method="post">
 
@@ -57,16 +57,18 @@
               <span id="stationAddedText"></span>
             </div>
 
-            <span id="new_note">Außerdem kannst du weitere Einstellungen vornehmen.          
-              Für Hilfe wirf einen Blick auf das Einrichtungsblatt.</span>
+            <div class="container_dark">
+              <h5>&#9881 Erweiterte Einstellungen</h5>
+              <span id="new_note">Für Hilfe wirf einen Blick auf das Einrichtungsblatt.</span>
 
-            <div class="custom_input w-50 fl">
-              <label for="strabaZeile" class="straba_label">Zeilen:</label>
-              <input type="text" name="station" id="strabaZeile" class="straba_input input_small">
-            </div>
-            <div class="custom_input w-50 fl">
-              <label for="strabaLines" class="straba_label">Linienfilter:</label>
-              <input type="text" name="station" id="strabaLines" class="straba_input input_small">
+              <div class="custom_input w-50 fl">
+                <label for="strabaZeile" class="straba_label">Zeilen:</label>
+                <input type="text" name="station" id="strabaZeile" class="straba_input input_small">
+              </div>
+              <div class="custom_input w-50 fl">
+                <label for="strabaLines" class="straba_label">Linienfilter:</label>
+                <input type="text" name="station" id="strabaLines" class="straba_input input_small">
+              </div>
             </div>
           </div>
           <button class="button_general mt-3" type="button" id="sendbtn" onclick="sendtoStraba()">
