@@ -19,7 +19,7 @@
             <span>Wähle nun deine Station, die dein Straba anzeigen soll!</span>
           </div>
           <span id="title_description">Pro Tipp: Du kannst mehr als nur eine Station angeben</span>
-          <div class="mt-5">
+          <div class="mt-4">
             <form action="https://straba.local/config" method="post">
 
             <div class="custom_input">
@@ -46,7 +46,7 @@
               <ul class="dropdown_items" id="stationlist">
             </div>
 
-            <button type="button" class="mt-4" id="submitbutton" onclick="addStation()">
+            <button class="button_general mt-4" type="button" id="submitbutton" onclick="addStation()">
               <span id="submitbutton_notice">Station hinzufügen</span>
             </button>
             <div class="custom_input mt-3 w-50 fl">
@@ -58,14 +58,14 @@
               <input type="text" name="station" id="strabaLines" class="straba_input input_small">
             </div>
           </div>
-          <button type="button" class="mt-4" id="sendbtn" onclick="sendtoStraba()">
+          <button class="button_general mt-3" type="button" id="sendbtn" onclick="sendtoStraba()">
             <span id="submitbutton_notice">Einstellungen abschließen</span>
           </button>
           <span id="stopNumber" class="mt-2"></span>
           </form>
         </div>
         <div></div>
-        <div id="addedStations" class="mt-5">
+        <div id="addedStations" class="mt-4">
           <h4>Stationen die hinzugefügt werden:</h4>
           <span id="stationAddedText"></span>
         </div>
