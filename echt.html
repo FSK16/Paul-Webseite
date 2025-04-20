@@ -20,42 +20,46 @@
             <span>Wähle nun deine Station, die dein Straba anzeigen soll!</span>
           </div>
           -->
-          <span id="title_description" style=""><b>Füge hier die Haltestelle hinzu, die auf deinem Straba erscheinen soll. </b><br></span>
-          <div class="station_form">
-            <form action="https://straba.local/config" method="post">
+          <div id="mobile_container">
+            <span id="title_description"><b>Füge hier die Haltestelle hinzu, die auf deinem Straba erscheinen soll. </b><br></span>
+            <div class="station_form">
+              <form action="https://straba.local/config" method="post">
 
-            <div class="custom_input">
-              <label for="lineInput" class="straba_label">Linie:</label>
-              <label for="lineInput" class="straba_input_pfeil"><img src="pics/pfeiloben.svg" alt="Pfeil nach oben"></label>
-              <input type="text" name="lineText" id="lineInput" class="straba_input" onkeyup="searchLine()" onfocus="searchLine()">
-              <input type="hidden" name="line" id="lineInputID" class="straba_input">
+              <div class="custom_input">
+                <label for="lineInput" class="straba_label">Linie:</label>
+                <label for="lineInput" class="straba_input_pfeil"><img src="pics/pfeiloben.svg" alt="Pfeil nach oben"></label>
+                <input type="text" name="lineText" id="lineInput" class="straba_input" onkeyup="searchLine()" onfocus="searchLine()">
+                <input type="hidden" name="line" id="lineInputID" class="straba_input">
 
-              <ul class="dropdown_items" id="list">
-               
-              </ul>
+                <ul class="dropdown_items" id="list">
+                
+                </ul>
+              </div>
+              <div class="custom_input">
+                <label for="lineInput" class="straba_label">Richtung:</label>
+                <input type="text" name="direction" id="directionInput" class="straba_input">
+                <input type="hidden" name="direction" id="directionInputID" class="straba_input">
+                <ul class="dropdown_items" id="directionlist">
+
+              </div>
+              <div class="custom_input">
+                <label for="lineInput" class="straba_label">Station:</label>
+                <input type="text" name="station" id="stationInput" class="straba_input">
+                <input type="hidden" name="stop-id" id="stationInputID" class="straba_input">
+                <ul class="dropdown_items" id="stationlist">
+              </div>
+
+              <button class="button_general mt-3" type="button" id="submitbutton" onclick="addStation()">
+                <span id="submitbutton_notice">Station hinzufügen</span>
+              </button>
+
+              <div id="addedStations" class="stations_container">
+                <span>Stationen, die hinzugefügt werden:<br></span>
+                <span id="stationAddedText"></span>
+              </div>
             </div>
-            <div class="custom_input">
-              <label for="lineInput" class="straba_label">Richtung:</label>
-              <input type="text" name="direction" id="directionInput" class="straba_input">
-              <input type="hidden" name="direction" id="directionInputID" class="straba_input">
-              <ul class="dropdown_items" id="directionlist">
+          </div>
 
-            </div>
-            <div class="custom_input">
-              <label for="lineInput" class="straba_label">Station:</label>
-              <input type="text" name="station" id="stationInput" class="straba_input">
-              <input type="hidden" name="stop-id" id="stationInputID" class="straba_input">
-              <ul class="dropdown_items" id="stationlist">
-            </div>
-
-            <button class="button_general mt-3" type="button" id="submitbutton" onclick="addStation()">
-              <span id="submitbutton_notice">Station hinzufügen</span>
-            </button>
-
-            <div id="addedStations" class="stations_container">
-              <span>Stationen, die hinzugefügt werden:<br></span>
-              <span id="stationAddedText"></span>
-            </div>
 
             <div class="container_dark">
               <h5>&#9881 Erweiterte Einstellungen</h5>
@@ -70,7 +74,8 @@
                 <input type="text" name="station" id="strabaLines" class="straba_input input_small">
               </div>
             </div>
-          </div>
+
+
           <button class="button_general mt-3" type="button" id="sendbtn" onclick="sendtoStraba()">
             <span id="submitbutton_notice">Einstellungen abschließen</span>
           </button>
