@@ -208,7 +208,6 @@ padding: 5px;
     }
     .input_small{
         width: 98%!important;
-
     }
     #title{
         font-size: 1.3rem;
@@ -218,8 +217,6 @@ padding: 5px;
         height: 90vh;
         overflow-y: auto;
     }
-    
-
 }
 @media screen and (max-width: 900px) {
     .no_mobile{
@@ -235,10 +232,10 @@ padding: 5px;
         height: 40px;
     }
     .custom_input{
-        height: 80px;
+        height: 70px;
     }
     .straba_input{
-        height: 40px;
+        height: 35px;
     }
     #title{
         font-size: 20px;
@@ -255,10 +252,12 @@ padding: 5px;
     #addedStations {
         width: 100%;
     }
+    .straba_input_pfeil{
+        top: 38px;
+    }
     
 }
 @media screen and (max-width: 600px){
-
     .form_container_content{
         padding: 15px;
     }
@@ -268,6 +267,36 @@ padding: 5px;
     .straba_label{
         font-size: 14px;
     }
-    
+
+    .custom_input{
+        margin-top: 5px;
+    }
+    .straba_input{
+        height: 30px;
+        border: 1px solid black;
+    }
+    .straba_input_pfeil{
+        top: 33px;
+        width: 30px;
+    }
+    .straba_input_pfeil img{
+        height: 15px;
+        width: 15px;
+    }
+    .dropdown_items{
+        top: 62px;
+    }
+    .custom_input{
+        height: 60px;
+    }   
+    .station_form{
+        margin-top: 10px;
+    } 
+    .button_general{
+        height: 35px;
+    }
+    #logo{
+        display: none;
+    }
 }
 
