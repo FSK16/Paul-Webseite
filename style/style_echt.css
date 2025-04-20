@@ -67,8 +67,8 @@ body {
     font-size: 1.5rem;
 }
 #title_description{
-    font-size: 1.3rem;
-    font-weight: 700;
+    font-size: 1.2rem;
+    max-width: 600px;
 }
 .custom_input{
     display: flex;
@@ -214,6 +214,10 @@ padding: 5px;
         font-size: 1.3rem;
         height: 47px;
     }
+    .form_contaainer{
+        height: 90vh;
+        overflow-y: auto;
+    }
     
 
 }
@@ -254,12 +258,15 @@ padding: 5px;
     
 }
 @media screen and (max-width: 600px){
-    .form_contaainer{
-        height: 90vh;
-        overflow-y: auto;
-    }
+
     .form_container_content{
         padding: 15px;
+    }
+    #title_description{
+        font-size: 14px;
+    }
+    .straba_label{
+        font-size: 14px;
     }
     
 }
