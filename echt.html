@@ -12,10 +12,11 @@
     <div class="website_content">
         <img src="/pics/background.jpg" alt="Hintergrund">
     </div>
-    <div class="form_contaainer">
-      <div class="form_container_content">
+    <div class="popup" id="menu">
+      <div class="form_container_content" id="formContent">
         <div class="content_center">
-<!--       <div class="text_highlighted" id="title">
+          <!--      
+          <div class="text_highlighted" id="title">
             <span>Wähle nun deine Station, die dein Straba anzeigen soll!</span>
           </div>
           -->
@@ -77,6 +78,11 @@
         <div id="logo" class="mb-3">
           <img src="pics/straba.png" alt="Starba Logo" class="straba_logo">
         </div>
+      </div>
+    </div>
+    <div class="popup" id="returntoMenu">
+      <div class="pfeil_image">
+        <img src="pics/pfeil-nach-links.svg" alt="Pfeil nach unten" >
       </div>
     </div>
   <script>
@@ -153,8 +159,8 @@
           document.getElementById('list').style.opacity = 1;
         }
       }); 
-      
     };
+
     function insertLine(line, lineID, firstStation, firstStationID, lastStation, lastStationID){
 
       document.getElementById('list').style.opacity = 0;
@@ -231,7 +237,6 @@
     }
 
     function sendtoStraba(){
-
       let stopID = document.getElementById('stationInputID').value
       let zeile = document.getElementById('strabaZeile').value;
       let lines = document.getElementById('strabaLines').value;
@@ -247,6 +252,9 @@
       document.getElementById('stationInputID').value = "";
       document.getElementById('stationAddedText').value = "";
 
+      document.getElementById('formContent').style.opacity = 0;
+      document.getElementById('returntoMenu').style.display = "block";
+      document.getElementById('returntoMenu').style.opacity = 1;
 
     }
 
@@ -267,7 +275,6 @@
 
 
     function setInputsNull(){
-
       document.getElementById('lineInput').value = "";
       document.getElementById('lineInputID').value = "";
 
@@ -275,8 +282,9 @@
       document.getElementById('directionInputID').value = "";
 
       document.getElementById('stationInput').value = "";
-
     }
+
+    
     
   </script>
 

@@ -24,23 +24,32 @@ body {
     
 }
 
-.form_contaainer{
+.popup{
     width: 100vw;
     max-width: 1500px;
     margin: auto;
-    background-color: rgba(255, 255, 255, 0.95);
     padding: 10px;
     border-radius: 5px;
     position: absolute;
-    z-index: 10;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50% );
 }
+#menu{
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 5;
+}
+#returntoMenu{
+    z-index: 10;
+    opacity: 0;
+    display: none;
+    transition: opacity 0.3s;
+}
+
 .form_container_content{
     padding: 50px;
-    opacity: 1!important;
-
+    opacity: 1;
+    transition: opacity 0.3s;
 }
 
 .content_center{
@@ -188,6 +197,18 @@ padding: 5px;
 #addedStations{
     max-width: 600px;
 }
+.pfeil_image{
+    height: 300px;
+    width: 320px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.pfeil_image img{
+    height: 300px;
+    margin: auto;
+}
 
 @media screen and (max-width: 1500px) {
     .form_contaainer{
@@ -309,6 +330,9 @@ padding: 5px;
     }
     #logo{
         display: none;
+    }
+    #addedStations{
+        font-size: 13px;
     }
 }
 
