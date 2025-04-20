@@ -45,6 +45,10 @@
               <input type="hidden" name="stop-id" id="stationInputID" class="straba_input">
               <ul class="dropdown_items" id="stationlist">
             </div>
+
+            <button type="button" class="mt-4" id="submitbutton" onclick="addStation()">
+              <span id="submitbutton_notice">Station hinzufügen</span>
+            </button>
             <div class="custom_input mt-3 w-50 fl">
               <label for="strabaZeile" class="straba_label">Zeilen:</label>
               <input type="text" name="station" id="strabaZeile" class="straba_input input_small">
@@ -54,13 +58,10 @@
               <input type="text" name="station" id="strabaLines" class="straba_input input_small">
             </div>
           </div>
-          <span id="stopNumber" class="mt-2"></span>
-
-          <button type="button" class="mt-4" id="submitbutton" onclick="sendtoStraba()">
-            <span id="submitbutton_notice">
-              Station hinzufügen
-            </span>
+          <button type="submit" class="mt-4" id="sendbtn" onclick="sendtoStraba()">
+            <span id="submitbutton_notice">An den Straba senden hinzufügen</span>
           </button>
+          <span id="stopNumber" class="mt-2"></span>
           </form>
         </div>
         <div></div>
@@ -218,22 +219,10 @@
       document.getElementById('stationlist').innerHTML = "";
       document.getElementById('stationInput').value = name;
 
-      if(document.getElementById('stationInputID').value.trim() !== ""){
-        document.getElementById('stationInputID').value += "," + stopID;
-      }
-      else{
-        document.getElementById('stationInputID').value = stopID;
-      }
-
+      document.getElementById('submitbutton').onclick = function(){
+          addStation(name, stopID);
+      } 
       //document.getElementById('stopNumber').innerHTML = "Gewählte StopID: " + stopID;
-
-      line = document.getElementById('lineInput').value;
-      lastStation = document.getElementById('directionInput').value;
-      document.getElementById('stationAddedText').innerHTML += " " + name + " (" + line + " in Richtung " + lastStation + ")";
-
-      setInputsNull();
-
-
     }
 
     function sendtoStraba(){
@@ -253,6 +242,22 @@
 
     }
 
+    function addStation(name, stopID){
+      if(document.getElementById('stationInputID').value.trim() !== ""){
+        document.getElementById('stationInputID').value += "," + stopID;
+      }
+      else{
+        document.getElementById('stationInputID').value = stopID;
+      }
+
+      line = document.getElementById('lineInput').value;
+      lastStation = document.getElementById('directionInput').value;
+      document.getElementById('stationAddedText').innerHTML += " " + name + " (" + line + " in Richtung " + lastStation + ")";
+
+      setInputsNull();
+    }
+
+
     function setInputsNull(){
 
       document.getElementById('lineInput').value = "";
@@ -263,10 +268,6 @@
 
       document.getElementById('stationInput').value = "";
       document.getElementById('stationInputID').value = "";
-
-
-
-
 
     }
     

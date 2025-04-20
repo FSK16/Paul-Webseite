@@ -107,7 +107,7 @@ body {
     max-height: 200px;
     overflow-y: auto;
     position: absolute;
-    bottom: 40px;
+    top: 87px;
     z-index: 2;
     transition: 0.2s;
     opacity: 0;
@@ -132,6 +132,27 @@ body {
     background-color: rgb(211, 22, 22)!important;
     border-radius: 5px;
     color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+}
+#sendbtn{
+    width: 100%;
+    max-width: 600px;
+    height: 55px;
+    border: none;
+    background-color: rgb(34, 167, 8)!important;
+    border-radius: 5px;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    justify-content: center;
 }
 #submitbutton_notice{
     font-size: x-large;
