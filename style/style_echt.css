@@ -144,10 +144,9 @@ body {
     max-width: 600px;
     height: 55px;
     border: none;
-    background-color: rgb(34, 167, 8)!important;
+    background-color: rgb(208 110 41)!important;
     border-radius: 5px;
     color: white;
-
     display: flex;
     flex-direction: column;
     align-items: center;

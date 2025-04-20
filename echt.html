@@ -59,14 +59,14 @@
             </div>
           </div>
           <button type="button" class="mt-4" id="sendbtn" onclick="sendtoStraba()">
-            <span id="submitbutton_notice">An den Straba senden hinzufügen</span>
+            <span id="submitbutton_notice">Einstellungen abschließen</span>
           </button>
           <span id="stopNumber" class="mt-2"></span>
           </form>
         </div>
         <div></div>
         <div id="addedStations" class="mt-5">
-          <h4>Bereits hinzugefügte Stationen:</h4>
+          <h4>Stationen die hinzugefügt werden:</h4>
           <span id="stationAddedText"></span>
         </div>
         <div id="logo" class="mt-5 pt-4 mb-3">
@@ -240,6 +240,8 @@
 
       setInputsNull();
       document.getElementById('stationInputID').value = "";
+      document.getElementById('stationAddedText').value = "";
+
 
     }
 
