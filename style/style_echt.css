@@ -75,6 +75,7 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative;
+    margin-top: 10px;
 }
 .straba_label{
     padding: 5px;
@@ -90,10 +91,6 @@ body {
 .straba_input:focus {
     border: 2px solid rgb(211, 22, 22)!important;
     transition: border 0.2s ease;
-}
-#addedStations{
-    float: left;
-    width: 50%;
 }
 #logo{
     float: right;
@@ -173,6 +170,18 @@ body {
     float: right; 
     margin-right: 15px;
 }
+.station_form{
+    margin-top: 35px;
+
+}
+.stations_container{
+min-height: 50px;
+background-color: rgb(255, 255, 255);
+padding: 5px;
+}
+#addedStations{
+    max-width: 600px;
+}
 
 @media screen and (max-width: 1500px) {
     .form_contaainer{
@@ -205,12 +214,10 @@ body {
         font-size: 1.3rem;
         height: 47px;
     }
+    
 
 }
 @media screen and (max-width: 900px) {
-    .form_contaainer{
-        zoom: 0.8;
-    }
     .no_mobile{
         display: none;
     }
@@ -234,6 +241,25 @@ body {
     }
     #title_description{
         font-size: 18px;
+    }
+    .station_form{
+        margin-top: 15px;
+    }
+    #addedStations h4{
+        font-size: 18px;
+    }
+    #addedStations {
+        width: 100%;
+    }
+    
+}
+@media screen and (max-width: 600px){
+    .form_contaainer{
+        height: 90vh;
+        overflow-y: auto;
+    }
+    .form_container_content{
+        padding: 15px;
     }
     
 }

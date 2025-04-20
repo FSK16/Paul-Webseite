@@ -15,11 +15,12 @@
     <div class="form_contaainer">
       <div class="form_container_content">
         <div class="content_center">
-          <div class="text_highlighted" id="title">
+<!--       <div class="text_highlighted" id="title">
             <span>Wähle nun deine Station, die dein Straba anzeigen soll!</span>
           </div>
+          -->
           <span id="title_description">Pro Tipp: Du kannst mehr als nur eine Station angeben</span>
-          <div class="mt-4">
+          <div class="station_form">
             <form action="https://straba.local/config" method="post">
 
             <div class="custom_input">
@@ -32,28 +33,35 @@
                
               </ul>
             </div>
-            <div class="custom_input mt-3">
+            <div class="custom_input">
               <label for="lineInput" class="straba_label">Richtung:</label>
               <input type="text" name="direction" id="directionInput" class="straba_input">
               <input type="hidden" name="direction" id="directionInputID" class="straba_input">
               <ul class="dropdown_items" id="directionlist">
 
             </div>
-            <div class="custom_input mt-3">
+            <div class="custom_input">
               <label for="lineInput" class="straba_label">Station:</label>
               <input type="text" name="station" id="stationInput" class="straba_input">
               <input type="hidden" name="stop-id" id="stationInputID" class="straba_input">
               <ul class="dropdown_items" id="stationlist">
             </div>
 
-            <button class="button_general mt-4" type="button" id="submitbutton" onclick="addStation()">
+            <button class="button_general mt-3" type="button" id="submitbutton" onclick="addStation()">
               <span id="submitbutton_notice">Station hinzufügen</span>
             </button>
-            <div class="custom_input mt-3 w-50 fl">
+
+
+            <div id="addedStations" class="station_form stations_container">
+              <span>Stationen, die hinzugefügt werden:<br></span>
+              <span id="stationAddedText"></span>
+            </div>
+
+            <div class="custom_input w-50 fl">
               <label for="strabaZeile" class="straba_label">Zeilen:</label>
               <input type="text" name="station" id="strabaZeile" class="straba_input input_small">
             </div>
-            <div class="custom_input mt-3 w-50 fl">
+            <div class="custom_input w-50 fl">
               <label for="strabaLines" class="straba_label">Linienfilter:</label>
               <input type="text" name="station" id="strabaLines" class="straba_input input_small">
             </div>
@@ -65,11 +73,8 @@
           </form>
         </div>
         <div></div>
-        <div id="addedStations" class="mt-4">
-          <h4>Stationen die hinzugefügt werden:</h4>
-          <span id="stationAddedText"></span>
-        </div>
-        <div id="logo" class="mt-5 pt-4 mb-3">
+
+        <div id="logo" class="station_form pt-4 mb-3">
           <img src="pics/straba.png" alt="Starba Logo" class="straba_logo">
         </div>
       </div>
