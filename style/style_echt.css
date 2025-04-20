@@ -111,6 +111,7 @@ body {
     z-index: 2;
     transition: 0.2s;
     opacity: 0;
+    padding-top: 10px;
 }
 .dropdown_items li{
     padding: 8px;
@@ -124,7 +125,8 @@ body {
     transition: 0.2s ease;
 }
 #submitbutton{
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     height: 55px;
     border: none;
     background-color: rgb(211, 22, 22)!important;
@@ -153,3 +155,34 @@ body {
 .fl{
     float: left;
 }
+
+@media screen and (max-width: 1500px) {
+    .form_contaainer{
+        width: 90vw;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .form_contaainer{
+        width: 90vw;
+    }
+    .form_container_content{
+        padding: 35px;
+    }
+    .custom_input{
+        width: 100%;
+    }
+    .straba_input{
+        width: 100%;
+    }
+    .dropdown_items{
+        width: 100%;
+    }
+    .input_small{
+        width: 98%!important;
+
+    }
+
+}
+
