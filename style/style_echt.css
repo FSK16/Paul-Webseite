@@ -183,6 +183,14 @@ body {
         width: 98%!important;
 
     }
-
+    #title{
+        font-size: 1.3rem;
+        height: 47px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .form_contaainer{
+        zoom: 0.8;
+    }
 }
 
