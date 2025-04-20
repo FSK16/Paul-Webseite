@@ -74,9 +74,7 @@
           <span id="stopNumber" class="mt-2"></span>
           </form>
         </div>
-        <div></div>
-
-        <div id="logo" class="station_form pt-4 mb-3">
+        <div id="logo" class="mb-3">
           <img src="pics/straba.png" alt="Starba Logo" class="straba_logo">
         </div>
       </div>
@@ -106,7 +104,7 @@
     function searchLine(){
       let lineSearch = document.getElementById('lineInput');
       document.getElementById('list').innerHTML = "";
-      document.getElementById('list').innerHTML += `<span> Bitte wähle eine Linie:</span>`;
+      document.getElementById('list').innerHTML += `<span>Bitte wähle eine Linie:</span>`;
 
       stationData.forEach(line => {
 
@@ -196,7 +194,7 @@
     }
 
     function getStation(lineID, patternID){
-      document.getElementById('stationlist').innerHTML += `<span> Bitte wähle eine Station:</span>`;
+      document.getElementById('stationlist').innerHTML += `<span>Bitte wähle eine Station:</span>`;
       let stationAnzahl = 0;
 
       stationData.forEach(line => {
@@ -262,7 +260,7 @@
 
       line = document.getElementById('lineInput').value;
       lastStation = document.getElementById('directionInput').value;
-      document.getElementById('stationAddedText').innerHTML += " " + name + " (" + line + " in Richtung " + lastStation + ")";
+      document.getElementById('stationAddedText').innerHTML += " " + name + " (" + line + " in Richtung " + lastStation + ") <br>";
 
       setInputsNull();
     }
