@@ -19,9 +19,7 @@
             <span>Wähle nun deine Station, die dein Straba anzeigen soll!</span>
           </div>
           -->
-          <span id="title_description"><b>Füge hier die Haltestellen hinzu, die auf deiner Straßenbahnanzeige erscheinen sollen. </b><br>
-            Außerdem kannst du weitere Einstellungen vornehmen.          
-            Für Hilfe wirf einen Blick auf das Einrichtungsblatt.</span>
+          <span id="title_description" style=""><b>Füge hier die Haltestellen hinzu, die auf deiner Straßenbahnanzeige erscheinen sollen. </b><br></span>
           <div class="station_form">
             <form action="https://straba.local/config" method="post">
 
@@ -53,11 +51,13 @@
               <span id="submitbutton_notice">Station hinzufügen</span>
             </button>
 
-
-            <div id="addedStations" class="station_form stations_container">
+            <div id="addedStations" class="stations_container">
               <span>Stationen, die hinzugefügt werden:<br></span>
               <span id="stationAddedText"></span>
             </div>
+
+            <span id="new_note">Außerdem kannst du weitere Einstellungen vornehmen.          
+              Für Hilfe wirf einen Blick auf das Einrichtungsblatt.</span>
 
             <div class="custom_input w-50 fl">
               <label for="strabaZeile" class="straba_label">Zeilen:</label>

@@ -67,8 +67,15 @@ body {
     font-size: 1.5rem;
 }
 #title_description{
+    font-size: 1.4rem;
+    max-width: 600px;
+    text-align: center;
+}
+#new_note{
     font-size: 1.2rem;
     max-width: 600px;
+    display: table;
+    margin-top: 10px;
 }
 .custom_input{
     display: flex;
@@ -169,10 +176,11 @@ body {
     margin-right: 15px;
 }
 .station_form{
-    margin-top: 35px;
+    margin-top: 20px;
 
 }
 .stations_container{
+    margin-top: 15px;
 min-height: 50px;
 background-color: rgb(255, 255, 255);
 padding: 5px;
@@ -241,6 +249,9 @@ padding: 5px;
     #title_description{
         font-size: 18px;
     }
+    #new_note{
+        font-size: 18px;
+    }
     .station_form{
         margin-top: 15px;
     }
@@ -260,6 +271,9 @@ padding: 5px;
         padding: 15px;
     }
     #title_description{
+        font-size: 14px;
+    }
+    #new_note{
         font-size: 14px;
     }
     .straba_label{
