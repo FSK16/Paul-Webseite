@@ -8,6 +8,7 @@ body {
     min-width: 100vw;
     min-height: 100vh;
     background-color:  rgb(241, 241, 241);
+    touch-action: manipulation;
 }
 
 .website_content{
