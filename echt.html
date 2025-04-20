@@ -129,7 +129,7 @@
               document.getElementById('list').innerHTML += `
               <li onclick='insertLine("${line.lineName}", "${line.lineID}", "${firstStation}", "${firstStationID}", "${lastStation}", "${lastStationID}")'>
                 <span><b>${line.lineName}</b></span>
-                <span style="float: right; margin-right: 15px;">${firstStation} <-> ${lastStation}</span>
+                <span class="selection_note_directions">${firstStation} <-> ${lastStation}</span>
               </li>`;
             
             } else {
