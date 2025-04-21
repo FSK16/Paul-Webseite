@@ -49,6 +49,7 @@ body {
     opacity: 0;
     display: none;
     transition: opacity 0.3s;
+    height: 325px;
 }
 
 .form_container_content{
