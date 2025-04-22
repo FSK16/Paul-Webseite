@@ -56,6 +56,9 @@ body {
     opacity: 1;
     transition: opacity 0.3s;
 }
+#strabaZeile{
+    padding: 0;
+}
 
 .content_center{
     display: flex;
