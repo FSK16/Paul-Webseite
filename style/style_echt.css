@@ -56,9 +56,7 @@ body {
     opacity: 1;
     transition: opacity 0.3s;
 }
-#strabaZeile{
-    padding: 0;
-}
+
 
 .content_center{
     display: flex;
@@ -375,6 +373,10 @@ body {
     }
     .container_dark h5 {
         font-size: large;
+    }
+
+    #strabaZeile{
+        padding: 0;
     }
 }
 
