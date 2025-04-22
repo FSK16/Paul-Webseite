@@ -381,7 +381,7 @@ body {
 }
 @media screen and (max-width: 350px) {
     .popup{
-        height: 85vh;
+        height: 90vh;
     }
     
 }
