@@ -379,4 +379,10 @@ body {
         padding: 0;
     }
 }
+@media screen and (max-width: 350px) {
+    .popup{
+        height: 85vh;
+    }
+    
+}
 
