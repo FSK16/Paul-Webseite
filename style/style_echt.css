@@ -381,6 +381,7 @@ body {
 
     .website_content{
         height: unset;
+        overflow-y: hidden;
     }
     
 }
