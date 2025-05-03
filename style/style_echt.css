@@ -315,6 +315,7 @@ body {
         background-color: unset;
         overflow: auto;
         clip-path: inset(0 0 30px 0);
+        overflow-y: scroll;
 
     }
     .form_container_content{
