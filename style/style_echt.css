@@ -385,6 +385,7 @@ body {
     }
     #menu{
         height: 85vh;
+        -webkit-overflow-scrolling: touch; 
     }
     
 }
