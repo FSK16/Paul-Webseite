@@ -378,8 +378,9 @@ body {
     }
 }
 @media screen and (max-width: 400px) {
-    .popup{
-        height: 90vh;
+
+    .website_content{
+        height: unset;
     }
     
 }
