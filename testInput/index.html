@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../style/style_echt.css">
+  <!--<link rel="icon" href="pics/straba.png" type="image/x-icon">-->
+
+  <title>Haltestellen wählen</title>
+</head>
+<body>
+    <div class="website_content">
+        <img src="/pics/background.jpg" alt="Hintergrund">
+    </div>
+    <div class="popup" id="menu">
+      <div class="form_container_content" id="formContent">
+        <div class="content_center">
+          <!--      
+          <div class="text_highlighted" id="title">
+            <span>Wähle nun deine Station, die dein Straba anzeigen soll!</span>
+          </div>
+          -->
+          <div id="mobile_container">
+            <span id="title_description"><b>Füge hier die Haltestelle hinzu, die auf deinem Straba erscheinen soll. <br><br>Nur für Testzwecke!</b></span>
+            <div class="station_form">
+                <span>Stop ID: 250,251,662,4205</span><br>
+                <span>Filter: 250:5,33;251;662:13A;4205</span><br>
+                <span>Anzeige: 3</span><br>
+              <form action="https://straba.local/config" method="post">
+            </div>
+          </div>
+
+          <button class="button_general mt-3" type="button" id="sendbtn" onclick="sendtoStraba()">
+            <span id="submitbutton_notice">Einstellungen abschließen</span>
+          </button>
+          </form>
+        </div>
+        <div id="logo" class="mb-3">
+          <img src="../pics/straba.png" alt="Starba Logo" class="straba_logo">
+        </div>
+      </div>
+    </div>
+    <div class="popup" id="returntoMenu">
+      <div class="pfeil_image">
+        <img src="../pics/pfeil-nach-links.svg" alt="Pfeil nach unten" >
+      </div>
+    </div>
+  <script>
+
+
+    function sendtoStraba(){
+      let stopID = "250,251,662,4205";
+      let zeile = 3;
+      let lines = "250:5,33;251;662:13A;4205";
+
+      let strabaData = { type: "setRBL", rbl: stopID, zeilen: zeile, filter: lines, static: 1}
+      console.log(strabaData);
+      window.parent.postMessage(strabaData, "*")
+
+      document.getElementById('formContent').style.opacity = 0;
+      document.getElementById('returntoMenu').style.display = "block";
+      document.getElementById('returntoMenu').style.opacity = 1;
+
+    }
+
+    
+    
+  </script>
+
+
+</body>
+</html>
+
+
+
+
+

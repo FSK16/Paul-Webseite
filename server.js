@@ -70,7 +70,8 @@ app.get("/search", async function (req, res) {
                     },
                     line: {  // Hier `line` explizit einbinden
                         select: {
-                            linetype: true
+                            linetype: true,
+                            lineID: true,
                         }
                     }
                 },
@@ -394,21 +395,22 @@ app.get('/config', (req, res) => {
 
 app.listen(port, "0.0.0.0", async function () {
 
-    //0.0.0.0 für docker Container!!!!
-
-    //generatePriorities();
     /*
+    generatePriorities();
+    
     await prisma.lineStation.deleteMany();
     await prisma.line.deleteMany();
     await prisma.station.deleteMany();
 
     // Warte auf das Einfügen von Daten und führe dann die Combo-Funktion aus
     await insertDataofCSVFiles();  // Warten, bis das Einfügen der Daten abgeschlossen ist
+    
+    await insertCombos();*/
 
-    // Jetzt rufst du insertCombos() auf, nachdem insertDataofCSVFiles() abgeschlossen ist*/
+    //etzt rufst du  auf, nachdem insertDataofCSVFiles() abgeschlossen ist
 
     console.log("Server is running on http://localhost:" + port);
-    //getLastStationofLines();
+    //await getLastStationofLines();
 });
 
 app.get("/test/", async function () {

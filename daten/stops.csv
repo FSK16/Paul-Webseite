@@ -71,6 +71,7 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 78;;Siebenhirten;;;;
 79;60201182;Schottenring U;Wien;49000001;48.2163827;16.3716793
 81;60201193;Schwarzenbergplatz;Wien;49000001;48.2010931;16.3747425
+83;;Edmund-Hawranek-Platz;;;;
 88;60200116;Beethovengang;Wien;49000001;48.2597722;16.362777
 89;60200457;Habsburgergasse;Wien;49000001;48.2075172;16.3680052
 90;60200116;Beethovengang;Wien;49000001;48.259521;16.3627051
@@ -149,8 +150,8 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 165;60200513;Hetzgasse;Wien;49000001;48.2085768;16.3927627
 166;60201071;Löwengasse;Wien;49000001;48.2058828;16.3945773
 167;60201497;Wittelsbachstraße;Wien;49000001;48.2061163;16.3994013
-168;60200486;Prater Hauptallee;Wien;49000001;48.2091695;16.4062554
-169;60200486;Prater Hauptallee;Wien;49000001;48.2088821;16.4052763
+168;60200486;Prater Hauptallee;Wien;49000001;48.2088821;16.4052763
+169;60200486;Prater Hauptallee;Wien;49000001;48.2091695;16.4062554
 170;60201497;Wittelsbachstraße;Wien;49000001;48.2061702;16.3993923
 171;60201071;Löwengasse;Wien;49000001;48.2057571;16.3954487
 172;60200513;Hetzgasse;Wien;49000001;48.2082236;16.393149
@@ -527,7 +528,7 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 595;60200547;Holubstraße;Wien;49000001;48.2316797;16.3946672
 596;60201440;Walcherstraße;Wien;49000001;48.2260965;16.4012428
 597;60201433;Vorgartenstraße U;Wien;49000001;48.224361;16.4013776
-598;60200523;;Wien;49000001;48.2208837;16.4080251
+598;60200523;Hillerstraße;Wien;49000001;48.2208837;16.4080251
 600;;Elderschplatz;;;;
 601;;Offenbachgasse;;;;
 602;;Stella-Klein-Löw-Weg;;;;
@@ -546,7 +547,7 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 615;60200733;Pensionistenwohnhaus Prater;Wien;49000001;48.2136472;16.4184815
 616;60200974;Sturgasse;Wien;49000001;48.2160834;16.4149691
 617;60200280;Engerthstraße, Traisengasse;Wien;49000001;48.2365923;16.3890257
-618;60200523;;Wien;49000001;48.2213625;16.407567
+618;60200523;Hillerstraße;Wien;49000001;48.2213625;16.407567
 619;60201440;Walcherstraße;Wien;49000001;48.2261324;16.4013237
 620;60200547;Holubstraße;Wien;49000001;48.231955;16.3944695
 621;60200279;Innstraße;Wien;49000001;48.2333432;16.3928975
@@ -852,19 +853,19 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 930;60200022;Algenweg;Wien;49000001;48.2489044;16.5314446
 931;60200555;Huflattichweg;Wien;49000001;48.2472653;16.5309955
 932;60200223;Daphneweg;Wien;49000001;48.2445494;16.5302409
-933;60200155;Maculangasse / Wagramer Straße;Wien;49000001;48.2623019;16.4539829
+933;60200155;Maculangasse / Wagramer Stra?e;Wien;49000001;48.2623019;16.4539829
 934;60201290;Spitzweg;Wien;49000001;48.2647418;16.4561658
 935;;Sommerweg;;;;
 936;60201254;Percostraße;Wien;49000001;48.2697349;16.4643046
 937;60200979;Wagramer Straße, Ostbahn;Wien;49000001;48.2752775;16.4767193
-938;60200105;Badeteich Süßenbrunn;Wien;49000001;48.2777407;16.4880021
+938;60200105;Badeteich Sußenbrunn;Wien;49000001;48.2777407;16.4880021
 939;;Bettelheimstraße;;;;
 940;60201359;Süßenbrunner Platz;Wien;49000001;48.2772923;16.4957366
 941;60200083;Breitenlee, Arnikaweg;Wien;49000001;48.2515124;16.4802497
 942;60201577;Hasenleiten, Industriegebiet;Wien;49000001;48.1562455;16.4214909
 943;60200133;Bettelheimstraße;Wien;49000001;48.2789663;16.4926374
 944;;Neuhaufenstraße;;;;
-945;60200105;Badeteich Süßenbrunn;Wien;49000001;48.2777407;16.4875889
+945;60200105;Badeteich Sußenbrunn;Wien;49000001;48.2777407;16.4875889
 946;60200979;Wagramer Straße, Ostbahn;Wien;49000001;48.2753492;16.4761713
 947;60201254;Percostraße;Wien;49000001;48.2698066;16.4642237
 948;;Sommerweg;;;;
@@ -1546,14 +1547,14 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 1654;60200774;Leopoldigasse;Wien;49000001;48.141939;16.2917382
 1655;60200247;Dr.-Neumann-Gasse;Wien;49000001;48.1381205;16.2880192
 1656;60200788;Liesing S;Wien;49000001;48.1350271;16.2836264
-1657;60200694;Knotzenbachgasse;Wien;49000001;48.1453317;16.2936426
+1657;;Knotzenbachgasse;;;;
 1658;60200247;Dr.-Neumann-Gasse;Wien;49000001;48.1383843;16.2883695
 1659;60201300;Scheugasse;Wien;49000001;48.1779883;16.3786322
 1660;60200788;Liesing S;Wien;49000001;48.1350391;16.2832671
 1661;60200247;Dr.-Neumann-Gasse;Wien;49000001;48.1380545;16.2881629
 1662;60200774;Leopoldigasse;Wien;49000001;48.1414535;16.2917382
 1663;60200174;Brunner Straße, Erlaaer Straße;Wien;49000001;48.146063;16.2959693
-1664;60200094;Bhf. Atzgersdorf S, Knotzenbachgasse;Wien;49000001;48.1471119;16.2883695
+1664;60200694;Bhf. Atzgersdorf S, Knotzenbachgasse;Wien;49000001;48.1453317;16.2936426
 1665;60200094;Bhf. Atzgersdorf S;Wien;49000001;48.1477472;16.2883515
 1666;60201128;Rudolf-Zeller-Gasse;Wien;49000001;48.1475015;16.2836893
 1667;60201361;Taglieberstraße;Wien;49000001;48.1500308;16.2841744
@@ -1621,7 +1622,7 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 1731;60201424;Versorgungsheimplatz;Wien;49000001;48.1727707;16.2761165
 1732;60201505;Wolkersbergenstraße;Wien;49000001;48.1756402;16.2740683
 1733;60200690;Klimtgasse;Wien;49000001;48.1727886;16.300892
-1734;60200094;Bhf. Atzgersdorf S, Knotzenbachgasse;Wien;49000001;48.1465665;16.2875161
+1734;60200694;Bhf. Atzgersdorf S, Knotzenbachgasse;Wien;49000001;48.1453317;16.2936426
 1735;60201505;Wolkersbergenstraße;Wien;49000001;48.1751609;16.27423
 1736;60201424;Versorgungsheimplatz;Wien;49000001;48.1730283;16.2757931
 1737;60200710;Klinik Hietzing;Wien;49000001;48.16923;16.2788204
@@ -2158,7 +2159,7 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 2338;60201053;Pumgasse;Wien;49000001;48.1359503;16.2719483
 2339;60200707;Korbgasse;Wien;49000001;48.1368196;16.275335
 2340;60201629;Steinergasse;Wien;49000001;48.1422627;16.2888905
-2341;60200667;Dreherstraße, Hoefftgasse;Wien;49000001;48.155017;16.4719941
+2341;60200667;Hoefftgasse;Wien;49000001;48.155017;16.4719941
 2342;60201629;Steinergasse;Wien;49000001;48.1422148;16.2888726
 2343;60200334;Floridsdorf S U;Wien;49000001;48.2572065;16.400596
 2344;60201127;Rudolf-Waisenhorn-Gasse;Wien;49000001;48.142976;16.2616087
@@ -2170,7 +2171,7 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 2350;60200658;Arsenalsteg;Wien;49000001;48.1806778;16.3885227
 2351;60200638;Kaiserebersdorfer Friedhof;Wien;49000001;48.1577497;16.4532104
 2352;60200991;Pantucekgasse;Wien;49000001;48.1602365;16.457136
-2353;60200466;Kaiserebersdorf, Dreherstraße;Wien;49000001;48.156695;16.4737189
+2353;60200466;Dreherstraße;Wien;49000001;48.156695;16.4737189
 2354;60200469;Halterlacken;Wien;49000001;48.1600747;16.4613761
 2355;60200902;Mühlsangergasse;Wien;49000001;48.1600328;16.4655173
 2356;60200639;Kaiserebersdorf, Zinnergasse;Wien;49000001;48.1600507;16.4696585
@@ -2274,7 +2275,7 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 2461;60201585;Lichtblaustraße;Wien;49000001;48.2678693;16.4654814
 2462;60200133;Bettelheimstraße;Wien;49000001;48.2796597;16.4918649
 2463;60201307;Stallarngasse;Wien;49000001;48.2827265;16.4878494
-2464;60201357;Bhf. Süßenbrunn S;Wien;49000001;48.2851535;16.4844089
+2464;60201357;Bhf. Sußenbrunn S;Wien;49000001;48.2851535;16.4844089
 2465;60201307;Stallarngasse;Wien;49000001;48.2826846;16.4877506
 2466;60200133;Bettelheimstraße;Wien;49000001;48.2793369;16.4921434
 2467;60201585;Lichtblaustraße;Wien;49000001;48.2684194;16.4654993
@@ -2616,7 +2617,18 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 2854;60201850;Umleitung N64 über Hohenbergstraße;Wien;49000001;48.1642931;16.3149686
 2855;;Dummy für U4;;;;
 2856;;;;;;
-2859;;;;;;
+2859;60201035;;Wien;49000001;48.1989735;16.3120222
+2860;;Aspern Nord U;;;;
+2861;;Aspern Nord U;;;;
+2862;;Schukowitzgasse;;;;
+2863;;Stemolakgasse;;;;
+2864;;Scheedgasse;;;;
+2865;;Berresgasse;;;;
+2866;;Berresgasse;;;;
+2867;;Scheedgasse;;;;
+2868;;Stemolakgasse;;;;
+2869;;Schukowitzgasse;;;;
+2870;;Aspern Nord U;;;;
 2875;60201522;Zentralfriedhof 3.Tor;Wien;49000001;48.152482;16.4488356
 2876;60202911;Wartegleis Bahnhof Simmering;Wien;49000001;48.1667017;16.4239612
 2877;60200012;Auf der Schmelz;Wien;49000001;48.2036497;16.3167203
@@ -3215,7 +3227,7 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 3733;60201550;Tiroler Gasse;Wien;49000001;48.1809354;16.2991673
 3734;60200888;Montecuccoliplatz;Wien;49000001;48.1755503;16.2976761
 3735;60200045;Am Platz;Wien;49000001;48.1858648;16.3012603
-3736;;Stranzenberggasse;;;;
+3736;60201332;Stranzenberggasse;Wien;49000001;48.172555;16.2979545
 3737;60201149;Sankt-Hemma-Kirche;Wien;49000001;48.1726628;16.2930138
 3738;60201283;Preyergasse;Wien;49000001;48.173873;16.2864202
 3739;60200539;Hofwiesengasse;Wien;49000001;48.1697992;16.2857824
@@ -3432,7 +3444,7 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 3989;60201522;Zentralfriedhof 3. Tor;Wien;49000001;48.1522423;16.4492937
 3990;60201522;Zentralfriedhof 3. Tor;Wien;49000001;48.1522363;16.4491949
 3991;60201522;Zentralfriedhof 3. Tor;Wien;49000001;48.1522303;16.4490063
-3992;60201522;Zentralfriedhof 3. Tor;Wien;49000001;48.1522363;16.4491051
+3992;;Zentralfriedhof 3. Tor;;;;
 4101;60201095;Reumannplatz;Wien;49000001;48.1748734;16.3779854
 4102;60200627;Kagran;Wien;49000001;48.2432692;16.4331959
 4103;60200666;Keplerplatz;Wien;49000001;48.1792942;16.3762697
@@ -3825,6 +3837,7 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 5243;;Ober St. Veit U;;;;
 5244;;Preindlgasse;;;;
 5245;;Floridsdorf U;;;;
+5246;;Alte Donau U;;;;
 5400;60201211;Schönbrunn;Wien;49000001;48.1854695;16.317457
 5401;;Weinhauser Gasse;;;;
 5402;60200820;Längenfeldgasse U;Wien;49000001;48.185727;16.3352346
@@ -3856,8 +3869,8 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 5428;;Dampfkraftwerk;;;;
 5429;;provisorische Haltestelle;;;;
 5430;60200056;Neubaugasse U;Wien;49000001;48.1982909;16.3502904
-5431;;Hintere Zollamsstraße;;;;
-5432;;Praterstern SU;;;;
+5431;60200527;Hintere Zollamsstraße;Wien;49000001;48.211151;16.3868608
+5432;60200527;Praterstern SU;Wien;49000001;48.2110432;16.3870584
 5433;;;;;;
 5434;;Grenzgasse;;;;
 5435;;Keplerplatz;;;;
@@ -4159,37 +4172,37 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 5903;60200585;Inzersdorf Personenbahnhof;Wien;49000001;48.149809;16.3341656
 5904;60200918;Neu Erlaa;Wien;49000001;48.1404284;16.3280032
 5905;60200759;Schönbrunner Allee;Wien;49000001;48.1357105;16.324913
-5906;;Vösendorf-Siebenhirten;;;;
-5907;;Vösendorf-SCS;;;;
-5908;;Maria Enzersdorf-Südstadt;;;;
-5909;;Wiener Neudorf;;;;
-5910;;Griesfeld;;;;
-5911;;Neu Guntramsdorf;;;;
-5912;;Guntramsdorf Lokalbahn;;;;
-5913;;Eigenheimsiedlung;;;;
-5914;;Möllersdorf;;;;
-5915;;Traiskirchen Lokalbahn;;;;
-5916;;Tribuswinkel - Josefsthal;;;;
-5917;;Pfaffstätten Rennplatz;;;;
-5918;;Melkergründe;;;;
-5919;;Leesdorf;;;;
-5920;;Baden Viadukt;;;;
-5921;;Baden Josefsplatz;;;;
-5922;;Baden Viadukt;;;;
-5923;;Leesdorf;;;;
-5924;;Melkergründe;;;;
-5925;;Pfaffstätten Rennplatz;;;;
-5926;;Tribuswinkel - Josefsthal;;;;
-5927;;Traiskirchen Lokalbahn;;;;
-5928;;Möllersdorf;;;;
-5929;;Eigenheimsiedlung;;;;
-5930;;Guntramsdorf Lokalbahn;;;;
-5931;;Neu Guntramsdorf;;;;
-5932;;Griesfeld;;;;
-5933;;Wiener Neudorf;;;;
-5934;;Maria Enzersdorf-Südstadt;;;;
-5935;;Vösendorf-SCS;;;;
-5936;;Vösendorf-Siebenhirten;;;;
+5906;60205133;Vösendorf-Siebenhirten;Vösendorf;43017023;48.1258597;16.3193165
+5907;60205132;Vösendorf-SCS;Vösendorf;43017023;48.1115867;16.3154897
+5908;60204164;Maria Enzersdorf-Südstadt;Maria Enzersdorf;43017016;48.0962658;16.3146812
+5909;60205201;Wiener Neudorf;Wiener Neudorf;43017025;48.0870975;16.3139445
+5910;60205200;Griesfeld;Wiener Neudorf;43017025;48.0774894;16.3123905
+5911;60204331;Neu Guntramsdorf;Neu-Guntramsdorf;43017010;48.0635631;16.3136481
+5912;60203615;Guntramsdorf Lokalbahn;Guntramsdorf;43017010;48.0483;16.3120761
+5913;60204302;Eigenheimsiedlung;Eigenheimsiedlung;43006039;48.039964;16.3042158
+5914;60204304;Möllersdorf;Möllersdorf;43006039;48.0279681;16.3001644
+5915;60205001;Traiskirchen Lokalbahn;Traiskirchen;43006039;48.0154106;16.2906602
+5916;60205022;Tribuswinkel - Josefsthal;Tribuswinkel;43006039;48.0078386;16.2701517
+5917;60204536;Pfaffstätten Rennplatz;Pfaffstätten;43006025;48.0083975;16.2613212
+5918;60205809;Melkergründe;Baden bei Wien;43006004;48.0036435;16.2583388
+5919;60203142;Leesdorf;Baden bei Wien;43006004;47.9995562;16.2516374
+5920;60203134;Baden Viadukt;Baden bei Wien;43006004;48.0038358;16.2409654
+5921;60203121;Baden Josefsplatz;Baden bei Wien;43006004;48.0059875;16.2337609
+5922;60203134;Baden Viadukt;Baden bei Wien;43006004;48.0037336;16.2409115
+5923;60203142;Leesdorf;Baden bei Wien;43006004;47.9996343;16.2513499
+5924;60205809;Melkergründe;Baden bei Wien;43006004;48.0036194;16.2584376
+5925;60204536;Pfaffstätten Rennplatz;Pfaffstätten;43006025;48.0083074;16.2614111
+5926;60205022;Tribuswinkel - Josefsthal;Tribuswinkel;43006039;48.0077304;16.2701247
+5927;60205001;Traiskirchen Lokalbahn;Traiskirchen;43006039;48.0153866;16.290759
+5928;60204304;Möllersdorf;Möllersdorf;43006039;48.0279561;16.3002363
+5929;60204302;Eigenheimsiedlung;Eigenheimsiedlung;43006039;48.0395075;16.3041619
+5930;60203615;Guntramsdorf Lokalbahn;Guntramsdorf;43017010;48.04827;16.3121928
+5931;60204331;Neu Guntramsdorf;Neu-Guntramsdorf;43017010;48.0635511;16.3138457
+5932;60205200;Griesfeld;Wiener Neudorf;43017025;48.0774654;16.3125791
+5933;60205201;Wiener Neudorf;Wiener Neudorf;43017025;48.0870975;16.3141152
+5934;60204164;Maria Enzersdorf-Südstadt;Maria Enzersdorf;43017016;48.0962598;16.314744
+5935;60205132;Vösendorf-SCS;Vösendorf;43017023;48.1115807;16.3155615
+5936;60205133;Vösendorf-Siebenhirten;Vösendorf;43017023;48.1258237;16.3194602
 5937;60200759;Schönbrunner Allee;Wien;49000001;48.1356746;16.3250387
 5938;60200918;Neu Erlaa;Wien;49000001;48.1414235;16.3280661
 5939;60200585;Inzersdorf Personenbahnhof;Wien;49000001;48.1497491;16.3342734
@@ -4199,8 +4212,8 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 5943;60200975;Karlsplatz;Wien;49000001;48.2020032;16.3706372
 5944;;Wolfganggasse;;;;
 5945;;Wolfganggasse;;;;
-5946;;Baden Landesklinikum;;;;
-5947;;Baden Landesklinikum;;;;
+5946;60206055;Baden Landesklinikum;Baden bei Wien;43006004;47.9995021;16.2558864
+5947;60206055;Baden Landesklinikum;Baden bei Wien;43006004;47.9995562;16.2558325
 5950;;Kagraner Platz;;;;
 5951;60201860;Rennbahnweg;Wien;49000001;48.2571228;16.4488805
 5952;60201858;Aderklaaer Straße;Wien;49000001;48.2630614;16.4513958
@@ -4266,7 +4279,7 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 6048;;HF Abstellplatz;;;;
 6049;;Abstellplatz der Linie 64;;;;
 6050;;Abstellplatz der Linie 6;;;;
-6051;;Abstellplatz der Linie 74A;;;;
+6051;60201425;Abstellplatz der Linie 74A;Wien;49000001;48.1886437;16.3999762
 6052;;Abstellplatz 39A;;;;
 6053;;Abstellplatz Bhf. Heiligenstadt S U;;;;
 6054;;Abstellplatz der Linie 67A;;;;
@@ -4391,9 +4404,9 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 7316;60200657;Karlsplatz;Wien;49000001;48.200632;16.367583
 7317;;;;;;
 7318;;;;;;
-7319;;;;;;
+7319;60201115;Rosensteingasse;Wien;49000001;48.2190103;16.3272306
 7320;60201352;;Wien;49000001;48.1615188;16.303578
-7321;60201115;Rosensteingasse;Wien;49000001;48.2190103;16.3272306
+7321;;Rosensteingasse;;;;
 7322;;Elterleinplatz;;;;
 7323;;Palffygasse;;;;
 7324;;Alser Straße;;;;
@@ -4410,7 +4423,7 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 7345;60201461;Weinhauser Gasse;Wien;49000001;48.2291246;16.3308329
 7346;;Aumannplatz;;;;
 7347;;Aspern Nord;;;;
-7348;60200334;Floridsdorf U;Wien;49000001;48.2572663;16.4015033
+7348;60200334;Floridsdorf S U;Wien;49000001;48.2572663;16.4015033
 7349;60200995;Patrizigasse;Wien;49000001;48.2572603;16.4040096
 7350;;Altmannsdorfer Straße;;;;
 7351;60201678;Rothenburgstraße;Wien;49000001;48.1627052;16.3202956
@@ -4445,8 +4458,8 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 7380;;Weinhauser Gasse;;;;
 7381;60201595;Süßenbrunner Straße, Oberfeldgasse;Wien;49000001;48.2430299;16.46885
 7382;;Süßenbrunner Straße, Oberfeldgasse;;;;
-7383;;Spargelfeldstraße;;;;
-7384;60200966;Spargelfeldstraße;Wien;49000001;48.241259;16.4735752
+7383;60200966;Spargelfeldstraße;Wien;49000001;48.241259;16.4735752
+7384;;Spargelfeldstraße;;;;
 7385;60200965;Ziegelhofstraße;Wien;49000001;48.2399308;16.4781296
 7386;60200090;Frederick-Loewe-Weg;Wien;49000001;48.2380462;16.4817229
 7387;60201048;Prinzgasse;Wien;49000001;48.239877;16.4818217
@@ -4458,18 +4471,18 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 7393;60201930;Ilse-Buck-Straße;Wien;49000001;48.2312848;16.512086
 7394;60200942;Seestadt U;Wien;49000001;48.2263897;16.5085646
 7395;60201930;Ilse-Buck-Straße;Wien;49000001;48.2312848;16.5119961
-7396;;Eichenstraße;;;;
-7397;;Mariahilfer Gürtel;;;;
-7398;;Mariahilfer Gürtel;;;;
+7396;60200267;Eichenstraße;Wien;49000001;48.1803784;16.3498592
+7397;60200833;Mariahilfer Gürtel;Wien;49000001;48.193237;16.3388189
+7398;60200833;Mariahilfer Gürtel;Wien;49000001;48.193237;16.3388189
 7399;60200570;Atzgersdorf. Ziedlergasse;Wien;49000001;48.1491797;16.295565
 7404;60201017;Piaristengasse;Wien;49000001;48.2063498;16.3514941
-7405;;Kleistgasse;;;;
+7405;60200688;Kleistgasse;Wien;49000001;48.1936442;16.3902115
 7407;;St. Marx;;;;
-7410;;Kleistgasse;;;;
+7410;60200688;Kleistgasse;Wien;49000001;48.1936442;16.3902115
 7412;60201145;Salztorbrücke;Wien;49000001;48.2140064;16.3740329
 7416;60200300;Fasangasse;Wien;49000001;48.1886437;16.3853157
 7417;60200400;Heinrich-Drimmel-Platz;Wien;49000001;48.1877394;16.3907056
-7418;60207418;Schweizer-Garten-Straße;Wien;49000001;48.1859546;16.3830519
+7418;60201957;Schweizer-Garten-Straße;Wien;49000001;48.1859546;16.3830519
 7419;60200907;Kaiserebersdorf, Münnichplatz;Wien;49000001;48.1586186;16.4737998
 7420;60201433;Vorgartenstraße U;Wien;49000001;48.224361;16.4013776
 7421;60201440;Walcherstraße;Wien;49000001;48.2260965;16.4012428
@@ -4478,12 +4491,14 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 7424;60200417;St. Marx S, Grasbergergasse;Wien;49000001;48.1862361;16.4003355
 7425;60201425;St. Marx S;Wien;49000001;48.1887695;16.400066
 7426;;St. Marx S;;;;
-7427;;Vorgartenstraße U;;;;
-7429;;Hütteldorfer Straße;;;;
-7430;;Leyserstraße;;;;
-7431;;Hütteldorfer Straße;;;;
-7432;;Hörlgasse;;;;
-7433;;Spitalgasse;;;;
+7427;60200752;Vorgartenstraße U;Wien;49000001;48.2232837;16.4027789
+7428;;Lassallestraße;;;;
+7429;60201035;Hütteldorfer Straße;Wien;49000001;48.1995483;16.312121
+7430;60200780;Leyserstraße;Wien;49000001;48.1980693;16.3020059
+7431;60201035;Hütteldorfer Straße U;Wien;49000001;48.2001231;16.3108004
+7432;60207432;Hörlgasse;Wien;49000001;48.2160056;16.3608905
+7433;60201288;Spitalgasse;Wien;49000001;48.2220269;16.353183
+7447;60200136;Laxenburger Straße, Gudrunstraße;Wien;49000001;48.1784975;16.3721464
 7500;;Behelf;;;;
 7503;;Behelf Eßling;;;;
 7504;;Behelf Siegesplatz;;;;
@@ -4640,7 +4655,7 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 8143;60200520;Hietzing U;Wien;49000001;48.187925;16.3033534
 8144;;Ennsgasse;;;;
 8145;60201417;Gebirgsgasse;Wien;49000001;48.1517688;16.2633065
-8162;;Steigenteschgasse;;;;
+8162;60201313;Steigenteschgasse;Wien;49000001;48.2454886;16.4397985
 8163;;Mariahilfer Straße, Geibelgasse;;;;
 8164;;Agavenweg;;;;
 8165;;Fuchsenzeile;;;;
@@ -4650,6 +4665,10 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 8169;;Aspern Nord S U,;;;;
 8170;;Lammaschgasse;;;;
 8171;;Lammaschgasse;;;;
+8172;;Donaupark Nord;;;;
+8173;;Donaupark Nord;;;;
+8174;;Alte Donau U;;;;
+8180;;Gemeindeberggasse;;;;
 8198;60201031;Polgarstraße;Wien;49000001;48.2315182;16.4489254
 8199;60201913;Rosenackerstraße;Wien;49000001;48.2241814;16.3058148
 8200;60200450;Dornbach;Wien;49000001;48.2256895;16.3090936
@@ -5006,11 +5025,11 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 8896;60200450;Dornbach, Güpferlingstraße;Wien;49000001;48.2262222;16.3079169
 8897;60200981;Ottakring SU;Wien;49000001;48.2129887;16.311052
 8898;60200981;Ottakring SU;Wien;49000001;48.2119412;16.3108903
-8899;60200372;Gallitzinstraße, Friedhof;Wien;49000001;48.214144;16.3018622
+8899;60200372;Ottakringer Friedhof;Wien;49000001;48.214144;16.3018622
 8900;60200370;Funkengerngasse;Wien;49000001;48.215437;16.2937414
 8901;60200065;Liebhartstal;Wien;49000001;48.2156345;16.291819
 8902;60200370;Funkengerngasse;Wien;49000001;48.2153232;16.2935258
-8903;60200372;Gallitzinstraße;Wien;49000001;48.2141321;16.3010088
+8903;60200372;Ottakringer Friedhof;Wien;49000001;48.2141321;16.3010088
 8904;60201759;Stillfriedplatz;Wien;49000001;48.2129468;16.3097135
 8905;60201318;Steinlegasse;Wien;49000001;48.2116957;16.2962477
 8906;60200983;Ottakringer Bad;Wien;49000001;48.2125098;16.2909117
@@ -5019,10 +5038,10 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 8909;60200509;Hertlgasse;Wien;49000001;48.2152694;16.2808147
 8910;60200311;Feuerwache Am Steinhof;Wien;49000001;48.2153771;16.2782904
 8911;60200311;Feuerwache Am Steinhof;Wien;49000001;48.2152634;16.2782455
-8912;60201758;Savoyenstraße, Koenig-Promenade;Wien;49000001;48.2180527;16.2788474
+8912;60201758;Savoyenstraße;Wien;49000001;48.2180527;16.2788474
 8913;60201177;Wilhelminenberg;Wien;49000001;48.2200817;16.2848212
 8914;60201043;Predigtstuhl;Wien;49000001;48.2224039;16.2895553
-8915;60200985;Otto-Hölzl-Weg;Wien;49000001;48.2220269;16.2911363
+8915;60200985;Otto-Hötzl-Weg;Wien;49000001;48.2220269;16.2911363
 8916;60200665;Kempfengerngasse;Wien;49000001;48.21998;16.2957806
 8917;60200997;Paulinensteig;Wien;49000001;48.2184477;16.2993649
 8918;60200698;Kollburggasse;Wien;49000001;48.21834;16.3012603
@@ -5031,7 +5050,7 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 8921;60200698;Kollburgggasse;Wien;49000001;48.2184118;16.3012154
 8922;60200997;Paulinensteig;Wien;49000001;48.2184956;16.2994368
 8923;60200665;Kempfengerngasse;Wien;49000001;48.2200697;16.2959513
-8924;60200985;Otto-Hölzl-Weg;Wien;49000001;48.2216498;16.2917831
+8924;60200985;Otto-Hötzl-Weg;Wien;49000001;48.2216498;16.2917831
 8925;60200973;Oberwiedenstraße;Wien;49000001;48.2229725;16.2904626
 8926;60201043;Predigtstuhl;Wien;49000001;48.2224578;16.2894834
 8927;60201177;Wilhelminenberg;Wien;49000001;48.2201535;16.2847763
@@ -5041,7 +5060,7 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 8931;60201055;Pönningerweg;Wien;49000001;48.2133479;16.2883875
 8932;60200983;Ottakringer Bad;Wien;49000001;48.212444;16.2907231
 8933;60201318;Steinlegasse;Wien;49000001;48.2116239;16.2962477
-8934;60200372;Gallitzinstraße;Wien;49000001;48.2137968;16.301458
+8934;60200372;Ottakringer Friedhof;Wien;49000001;48.2137968;16.301458
 8935;60200560;Bhf. Hütteldorf SU;Wien;49000001;48.1960095;16.2604768
 8936;60200036;Pfeiffenbergergasse;Wien;49000001;48.194746;16.2610068
 8937;60201227;Seuttergasse;Wien;49000001;48.1934406;16.2622016
@@ -5201,100 +5220,7 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 9403;;Hauptplatz;;;;
 9404;;Bahngasse/Leiner;;;;
 9405;;Bahngasse/Kasematten;;;;
-9415;;Ollersbach;;;;
-9416;;Kirchstetten;;;;
-9417;;Böheimkirchen;;;;
-9418;;Pottenbrunn;;;;
-9465;;Ollersbach;;;;
-9466;;Kirchstetten;;;;
-9467;;Böheimkirchen;;;;
-9468;;Pottenbrunn;;;;
-9499;;Wien Mitte-Landstraße [CAT];;;;
 9500;;Rochusgasse (DUMMY Marathon);;;;
-9501;;Westbahnhof;;;;
-9502;;Hütteldorf;;;;
-9503;;Penzing;;;;
-9504;;Breitensee;;;;
-9505;;Ottakring;;;;
-9506;;Hernals;;;;
-9507;;Gersthof;;;;
-9508;;Krottenbachstraße;;;;
-9509;;Oberdöbling;;;;
-9510;;Franz-Josefs-Bahnhof;;;;
-9511;;Spittelau;;;;
-9512;;Heiligenstadt;;;;
-9525;;Flughafen Wien;;;;
-9562;;Meidling;;;;
-9563;;Matzleinsdorfer Platz;;;;
-9564;;Hauptbahnhof [tief/Tunnel, Gleise 1+2];;;;
-9565;;Hauptbahnhof [hoch/Hauptebene, Gleise 3-12];;;;
-9566;;Quartier Belvedere;;;;
-9567;;Rennweg;;;;
-9568;;Wien Mitte-Landstraße [Gleise 1-4];;;;
-9569;;Praterstern;;;;
-9570;;Traisengasse;;;;
-9571;;Handelskai [hoch/Hauptebene, Gleise 1+2];;;;
-9572;;Handelskai [tief/S45, Gleise 11+12];;;;
-9573;;Floridsdorf;;;;
-9651;;St. Pölten Hauptbahnhof;;;;
-9672;;Wolf in der Au;;;;
-9673;;Hadersdorf;;;;
-9674;;Weidlingau;;;;
-9675;;Purkersdorf Sanatorium;;;;
-9676;;Unterpurkersdorf;;;;
-9677;;Purkersdorf Zentrum;;;;
-9678;;Untertullnerbach;;;;
-9679;;Tullnerbach-Pressbaum;;;;
-9680;;Pressbaum;;;;
-9681;;Dürrwien;;;;
-9682;;Rekawinkel;;;;
-9683;;Eichgraben-Altlengbach;;;;
-9684;;Unteroberndorf;;;;
-9685;;Maria Anzbach;;;;
-9686;;Hofstatt;;;;
-9687;;Neulengbach Stadt;;;;
-9688;;Neulengbach;;;;
-9702;;Hütteldorf;;;;
-9703;;Penzing;;;;
-9704;;Breitensee;;;;
-9705;;Ottakring;;;;
-9706;;Hernals;;;;
-9707;;Gersthof;;;;
-9708;;Krottenbachstraße;;;;
-9709;;Oberdöbling;;;;
-9710;;Franz-Josefs-Bahnhof;;;;
-9711;;Spittelau;;;;
-9712;;Heiligenstadt;;;;
-9762;;Meidling;;;;
-9763;;Matzleinsdorfer Platz;;;;
-9764;;Hauptbahnhof [tief/Tunnel, Gleise 1+2];;;;
-9765;;Hauptbahnhof [hoch/Hauptebene, Gleise 3-12];;;;
-9766;;Quartier Belvedere;;;;
-9767;;Rennweg;;;;
-9768;;Wien Mitte-Landstraße [Gleise 1-4];;;;
-9769;;Praterstern;;;;
-9770;;Traisengasse;;;;
-9771;;Handelskai [hoch/Hauptebene, Gleise 1+2];;;;
-9772;;Handelskai [tief/S45, Gleise 11+12];;;;
-9773;;Floridsdorf;;;;
-9851;;St. Pölten Hauptbahnhof;;;;
-9872;;Wolf in der Au;;;;
-9873;;Hadersdorf;;;;
-9874;;Weidlingau;;;;
-9875;;Purkersdorf Sanatorium;;;;
-9876;;Unterpurkersdorf;;;;
-9877;;Purkersdorf Zentrum;;;;
-9878;;Untertullnerbach;;;;
-9879;;Tullnerbach-Pressbaum;;;;
-9880;;Pressbaum;;;;
-9881;;Dürrwien;;;;
-9882;;Rekawinkel;;;;
-9883;;Eichgraben-Altlengbach;;;;
-9884;;Unteroberndorf;;;;
-9885;;Maria Anzbach;;;;
-9886;;Hofstatt;;;;
-9887;;Neulengbach Stadt;;;;
-9888;;Neulengbach;;;;
 9900;;Salmannsdorf Dummy;;;;
 9989;;Bhf. Hetzendorf, Altmann;;;;
 9999;;Test Bahnhof Simmering Schleife;;;;
