@@ -304,7 +304,6 @@ async function insertCombos(){
     let errors = 0;
     console.log("Funktion wird aufgerufen");
 
-
     fs.createReadStream(DataSheetCombinations)
     .pipe(
         parse({
@@ -334,48 +333,56 @@ async function insertCombos(){
               
         if (!Number.isNaN(stationID)) {
 
+
             let stationIdInDB = await prisma.station.findUnique({
                 where:{
                     stationID: stationID
                 }
             })
-            //console.log(stationIdInDB);
-
-            let lineIdinDB = await prisma.line.findUnique({
+            const newlineIdinDB = await prisma.line.findUnique({
                 where:{
                     lineID: lineId
-                }
+                },
+                select:{
+                    lineID: true
+                }                
             })
-
-
-            if(stationIdInDB !== null && lineIdinDB !== null){
-                combo = {
-                    lineID: lineId,
-                    patternID: patternID,
-                    stopSequenceNumber: stopSecCount,
-                    direction: direction,
-                    stationID: stationID,
+            if(newlineIdinDB){
+                let lineIdinDB = newlineIdinDB.lineID
+                if(lineIdinDB !== null && stationIdInDB !== null){
+                    combo = {
+                        lineID: lineId,
+                        patternID: patternID,
+                        stopSequenceNumber: stopSecCount,
+                        direction: direction,
+                        stationID: stationID,
+                    }
+                    combos.push(combo);
                 }
-                combos.push(combo);
-            }
-            else{
-                errors = errors + 1;
+                else{
+                    errors = errors + 1;
+                }
             }
 
-          
+            
         }
+
     })
     .on("end", async function () {
         try {
-            // Alle Stationsdaten in die Datenbank speichern
-            const newCombos = await prisma.lineStation.createMany({
-              data: combos,
-            });
-            console.log(`${newCombos.count} Combos have been added to the database.`);
+            //Warte bis wirklich alle Stationen ausgelesen wurden!!
+            setTimeout(async function(){
+                console.log(combos);
+                const newCombos = await prisma.lineStation.createMany({
+                data: combos,
+                });
+                console.log(`${newCombos.count} Combos have been added to the database.`);
+            }, 5000)
+
           } catch (error) {
             console.error("Error inserting data into the database:", error);
           }       
-          console.log(errors);
+          console.log("Errors beim Integrieren der Daten:" + errors);
 
     });
 
