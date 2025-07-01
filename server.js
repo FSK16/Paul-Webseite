@@ -108,18 +108,29 @@ async function generatePriorities() {
         }
     })
 
-    const BusPriority = await prisma.line.updateMany({
+    const BusAPriority = await prisma.line.updateMany({
         data:{
             priority: 3
         },
         where:{
-            linetype: "BusCity"
+            linetype: "BusCity",
+            lineName: { contains: 'A'}
         }
+    })
+
+    const BusBPriority = await prisma.line.updateMany({
+    data:{
+        priority: 4
+    },
+    where:{
+        linetype: "BusCity",
+        lineName: { contains: 'B'}
+    }
     })
 
     const BusNightPriority = await prisma.line.updateMany({
         data: {
-            priority: 4
+            priority: 5
         },
         where: {
             OR: [
@@ -131,7 +142,7 @@ async function generatePriorities() {
 
     const BusCallPriority = await prisma.line.updateMany({
         data:{
-            priority: 5
+            priority: 6
         },
         where:{
             linetype: "RufBus"
