@@ -22,19 +22,55 @@
             <span>Wähle nun deine Station, die dein Straba anzeigen soll!</span>
           </div>
           -->
-          <div id="mobile_container">
-            <span id="title_description"><b>Füge hier die Haltestelle hinzu, die auf deinem Straba erscheinen soll. <br><br>Nur für Testzwecke!</b></span>
-            <div class="station_form">
+          <form action="https://straba.local/config" method="post">
+            <div id="mobile_container">
+              <span id="title_description"><b>Füge hier die Haltestelle hinzu, die auf deinem Straba erscheinen soll. <br><br>Nur für Testzwecke!</b></span>
+              <div class="station_form">
+                  <span>Stop ID: 250,251,662,4205</span><br>
+                  <span>Filter: 250:5,33;251;662:13A;4205</span><br>
+                  <span>Anzeige: 3</span><br>
+                  <span>Static: 2</span><br>
+              </div>
+            </div>
+
+            <button class="button_general mt-3" type="button" id="sendbtn" onclick="sendtoStraba1()">
+              <span id="submitbutton_notice">Einstellungen abschließen</span>
+            </button>
+          </form>
+
+          <form action="https://straba.local/config" method="post">
+            <div id="mobile_container">
+              <div class="station_form">
+                <span>Stop ID: 250,251,662,4205</span><br>
+                <span>Filter: </span><br>
+                <span>Anzeige: 3</span><br>
+                <span>E2: 2</span><br>
+                <span>Climate: 2</span><br>
+                <span>Static: 2</span>  <br>
+
+              </div>
+            </div>
+
+            <button class="button_general mt-3" type="button" id="sendbtn" onclick="sendtoStraba2()">
+              <span id="submitbutton_notice">Einstellungen abschließen</span>
+            </button>
+          </form>
+
+          <form action="https://straba.local/config" method="post">
+            <div id="mobile_container">
+              <div class="station_form">
                 <span>Stop ID: 250,251,662,4205</span><br>
                 <span>Filter: 250:5,33;251;662:13A;4205</span><br>
                 <span>Anzeige: 3</span><br>
-              <form action="https://straba.local/config" method="post">
+                <span>E2: 2</span><br>
+                <span>Climate: 2</span><br>
+                <span>Static: 2</span>  <br>
+              </div>
             </div>
-          </div>
 
-          <button class="button_general mt-3" type="button" id="sendbtn" onclick="sendtoStraba()">
-            <span id="submitbutton_notice">Einstellungen abschließen</span>
-          </button>
+            <button class="button_general mt-3" type="button" id="sendbtn" onclick="sendtoStraba3()">
+              <span id="submitbutton_notice">Einstellungen abschließen</span>
+            </button>
           </form>
         </div>
         <div id="logo" class="mb-3">
@@ -50,12 +86,52 @@
   <script>
 
 
-    function sendtoStraba(){
+    function sendtoStraba1() {
+      // Default values for testing
       let stopID = "250,251,662,4205";
       let zeile = 3;
       let lines = "250:5,33;251;662:13A;4205";
+      let static = 2;
 
-      let strabaData = { type: "setRBL", rbl: stopID, zeilen: zeile, filter: lines, static: 1}
+      let strabaData = { type: "setRBL", rbl: stopID, zeilen: zeile, filter: lines, static: static}
+      console.log(strabaData);
+      window.parent.postMessage(strabaData, "*")
+
+      document.getElementById('formContent').style.opacity = 0;
+      document.getElementById('returntoMenu').style.display = "block";
+      document.getElementById('returntoMenu').style.opacity = 1;
+
+    }
+
+    function sendtoStraba2() {
+      // Default values for testing
+      let stopID = "250,251,662,4205";
+      let zeile = 3;
+      let lines;
+      let static = 2;
+      let e2 = 2;
+      let climate = 2;
+
+      let strabaData = { type: "setRBL", rbl: stopID, zeilen: zeile, filter: lines, static: static, e2: e2, climate: climate}
+      console.log(strabaData);
+      window.parent.postMessage(strabaData, "*")
+
+      document.getElementById('formContent').style.opacity = 0;
+      document.getElementById('returntoMenu').style.display = "block";
+      document.getElementById('returntoMenu').style.opacity = 1;
+
+    }
+
+    function sendtoStraba3() {
+      // Default values for testing
+      let stopID = "250,251,662,4205";
+      let zeile = 3;
+      let lines = "250:5,33;251;662:13A;4205";
+      let static = 2;
+      let e2 = 2;
+      let climate = 2;
+
+      let strabaData = { type: "setRBL", rbl: stopID, zeilen: zeile, filter: lines, static: static, e2: e2, climate: climate} 
       console.log(strabaData);
       window.parent.postMessage(strabaData, "*")
 
