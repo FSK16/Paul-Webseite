@@ -86,7 +86,7 @@ app.get("/search", async function (req, res) {
     });
 
     res.send(stations);
-    console.log(stations);
+    console.log("Stations fetched successfully");
 });
 
 app.get("/disruptions/disruptionCategories", async function (req, res) {

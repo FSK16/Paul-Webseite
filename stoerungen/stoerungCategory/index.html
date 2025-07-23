@@ -76,12 +76,9 @@
         </div>
     </div>
     </div>
-    <div class="popup" id="returntoMenu">
-        <div class="pfeil_image">
-            <img src="pics/pfeil-nach-links.svg" alt="Pfeil nach unten">
-        </div>
-    </div>
     <script>
+
+        let categories = new Set();
         window.onload = function () {
             fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/disruptionCategories`, {
                 method: "GET"
@@ -93,7 +90,8 @@
                     return response.json();
                 })
                 .then(data => {
-                    insertCategory(data);
+                    categories = new Set(data.map(item => item.category));
+                    insertCategory(categories);
                 })
                 .catch(error => {
                     console.error(error);
@@ -127,7 +125,7 @@
             let categoryText = document.getElementById('disruptionText').value;
 
             if (categoryName && categoryText) {
-                fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/addDisruptionCategory`, {
+                fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/disruptionCategories`, {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -139,7 +137,8 @@
                 })
                     .then(response => response.json())
                     .then(data => {
-                        insertCategory(data);
+                        categories.add(data);
+                        insertCategory(categories);
                         removePartial('addCategoryform');
                         addPartial('addCategorybefore');
                     })
