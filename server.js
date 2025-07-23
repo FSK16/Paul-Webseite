@@ -38,13 +38,13 @@ app.use(express.static(path.join(__dirname, "/")));
 app.get("/search/:name", async function (req, res) {
     let name = req.params["name"];
     const station = await prisma.station.findMany({
-        where:{
+        where: {
             stationName: name
         },
-        include:{
-            stationLine:{
-                include:{
-                    line:true
+        include: {
+            stationLine: {
+                include: {
+                    line: true
                 }
             }
         }
@@ -80,52 +80,81 @@ app.get("/search", async function (req, res) {
                 },
             }
         },
-        orderBy:{
+        orderBy: {
             priority: "asc"
         }
     });
-    
+
     res.send(stations);
     console.log(stations);
 });
 
+app.get("/disruptions/disruptionCategories", async function (req, res) {
+    try {
+        const categories = await prisma.disruptionCategory.findMany({
+            orderBy: {
+                categoryName: "asc"
+            }
+        });
+        res.send(categories);
+    } catch (error) {
+        console.error("Error fetching disruption categories:", error);
+        res.status(500).send("Internal Server Error");
+    }
+})
+app.post("/disruptions/disruptionCategories", async function (req, res) {
+    const { categoryName, categoryText } = req.body;
+    try {
+        const newCategory = await prisma.disruptionCategory.create({
+            data: {
+                category: categoryName,
+                description: categoryText
+            }
+        });
+        res.status(201).send(newCategory);
+    } catch (error) {
+        console.error("Error creating disruption category:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
 async function generatePriorities() {
     const MetroPriority = await prisma.line.updateMany({
-        data:{
+        data: {
             priority: 1
         },
-        where:{
+        where: {
             linetype: "Metro"
         }
     })
 
     const TramPriority = await prisma.line.updateMany({
-        data:{
+        data: {
             priority: 2
         },
-        where:{
+        where: {
             linetype: "Tram"
         }
     })
 
     const BusAPriority = await prisma.line.updateMany({
-        data:{
+        data: {
             priority: 3
         },
-        where:{
+        where: {
             linetype: "BusCity",
-            lineName: { contains: 'A'}
+            lineName: { contains: 'A' }
         }
     })
 
     const BusBPriority = await prisma.line.updateMany({
-    data:{
-        priority: 4
-    },
-    where:{
-        linetype: "BusCity",
-        lineName: { contains: 'B'}
-    }
+        data: {
+            priority: 4
+        },
+        where: {
+            linetype: "BusCity",
+            lineName: { contains: 'B' }
+        }
     })
 
     const BusNightPriority = await prisma.line.updateMany({
@@ -141,19 +170,19 @@ async function generatePriorities() {
     })
 
     const BusCallPriority = await prisma.line.updateMany({
-        data:{
+        data: {
             priority: 6
         },
-        where:{
+        where: {
             linetype: "RufBus"
         }
     })
-    
-    
+
+
 }
 
 
-async function insertDataofCSVFiles(){
+async function insertDataofCSVFiles() {
     try {
         var DataSheetStations = path.join(__dirname, "daten", "stops.csv");
         var DataSheetLines = path.join(__dirname, "daten", "line.csv");
@@ -163,10 +192,10 @@ async function insertDataofCSVFiles(){
             .pipe(
                 parse({
                     delimiter: ";",
-                    from_line: 2, 
+                    from_line: 2,
                     relax_column_count: true,
-                  })            
-                )
+                })
+            )
             .on("data", async function (row) {
                 let stationID = parseInt(row[0]);
                 let rblNr = parseInt(row[1]);
@@ -178,16 +207,16 @@ async function insertDataofCSVFiles(){
                 if (Number.isNaN(rblNr)) {
                     rblNr = 999999999;
                 }
-                
+
                 if (Number.isNaN(latitude)) {
                     latitude = 999999999;
                 }
-                
+
                 if (Number.isNaN(longitude)) {
                     longitude = 999999999;
                 }
 
-                let station = {                        
+                let station = {
                     stationID: stationID,
                     divaNr: rblNr,
                     city: city,
@@ -200,73 +229,73 @@ async function insertDataofCSVFiles(){
                 try {
                     // Alle Stationsdaten in die Datenbank speichern
                     const newstations = await prisma.station.createMany({
-                      data: stations,
+                        data: stations,
                     });
                     console.log(`${newstations.count} Stations have been added to the database.`);
-                  } catch (error) {
+                } catch (error) {
                     console.error("Error inserting data into the database:", error);
-                  }       
+                }
             });
 
         let lines = [];
 
         fs.createReadStream(DataSheetLines)
-        .pipe(
-            parse({
-                delimiter: ";",
-                from_line: 2, 
-                relax_column_count: true,
-              })            
+            .pipe(
+                parse({
+                    delimiter: ";",
+                    from_line: 2,
+                    relax_column_count: true,
+                })
             )
-        .on("data", async function (row) {
-            let lineId = parseInt(row[0]);
-            let lineName = row[1];
-            let sortingHelp = parseInt(row[2]);
-            let realtime = parseInt(row[3]);
-            let meansOfTransport = row[4];
+            .on("data", async function (row) {
+                let lineId = parseInt(row[0]);
+                let lineName = row[1];
+                let sortingHelp = parseInt(row[2]);
+                let realtime = parseInt(row[3]);
+                let meansOfTransport = row[4];
 
-            if (Number.isNaN(sortingHelp)) {
-                sortingHelp = 999999999;
-            }
+                if (Number.isNaN(sortingHelp)) {
+                    sortingHelp = 999999999;
+                }
 
-            if (Number.isNaN(realtime)) {
-                realtime = 999999999;
-            }
+                if (Number.isNaN(realtime)) {
+                    realtime = 999999999;
+                }
 
-            if(meansOfTransport === undefined){
-                meansOfTransport = "unbekannt";
-            }
-            
+                if (meansOfTransport === undefined) {
+                    meansOfTransport = "unbekannt";
+                }
 
-            let meansOfTransportFormatted = meansOfTransport.split("pt");
-            meansOfTransportFormatted = meansOfTransportFormatted[1];
-                             
-            let line = {
-                lineID: lineId,
-                lineName: lineName,
-                sortingHelp: sortingHelp,
-                realtime: realtime,
-                linetype: meansOfTransportFormatted
-                
-            }
 
-            lines.push(line);
-     
+                let meansOfTransportFormatted = meansOfTransport.split("pt");
+                meansOfTransportFormatted = meansOfTransportFormatted[1];
 
-    })
-    .on("end", async function () {
-        try {
-            // Alle Stationsdaten in die Datenbank speichern
-            const newLines = await prisma.line.createMany({
-              data: lines,
-            });
-            console.log(`${newLines.count} Lines have been added to the database.`);
-          } catch (error) {
-            console.error("Error inserting data into the database:", error);
-          }       
-    });;
+                let line = {
+                    lineID: lineId,
+                    lineName: lineName,
+                    sortingHelp: sortingHelp,
+                    realtime: realtime,
+                    linetype: meansOfTransportFormatted
 
-        
+                }
+
+                lines.push(line);
+
+
+            })
+            .on("end", async function () {
+                try {
+                    // Alle Stationsdaten in die Datenbank speichern
+                    const newLines = await prisma.line.createMany({
+                        data: lines,
+                    });
+                    console.log(`${newLines.count} Lines have been added to the database.`);
+                } catch (error) {
+                    console.error("Error inserting data into the database:", error);
+                }
+            });;
+
+
     } catch (error) {
         console.log(error);
     }
@@ -283,7 +312,7 @@ async function getLastStationofLines() {
             station: true
         }
     })
-    if(!Array.isArray(connectionsLastStop)){
+    if (!Array.isArray(connectionsLastStop)) {
         console.log("Kein Array!");
     }
 
@@ -304,10 +333,10 @@ async function getLastStationofLines() {
         });
         console.log(lastStationAdded);
     }
-    
+
 }
 
-async function insertCombos(){
+async function insertCombos() {
 
     var DataSheetCombinations = path.join(__dirname, "daten", "lineStation.csv");
     let inserts = 0;
@@ -316,86 +345,86 @@ async function insertCombos(){
     console.log("Funktion wird aufgerufen");
 
     fs.createReadStream(DataSheetCombinations)
-    .pipe(
-        parse({
-            delimiter: ";",
-            from_line: 2, 
-            relax_column_count: true,
-          })            
+        .pipe(
+            parse({
+                delimiter: ";",
+                from_line: 2,
+                relax_column_count: true,
+            })
         )
-    .on("data", async function (row) {
-        let lineId = parseInt(row[0]);
-        let patternID = parseInt(row[1]);
-        let stopSecCount = parseInt(row[2]);
-        let stationID = parseInt(row[3]);
-        let direction = parseInt(row[4]);
+        .on("data", async function (row) {
+            let lineId = parseInt(row[0]);
+            let patternID = parseInt(row[1]);
+            let stopSecCount = parseInt(row[2]);
+            let stationID = parseInt(row[3]);
+            let direction = parseInt(row[4]);
 
-        if (Number.isNaN(patternID)) {
-            patternID = 999999999;
-        }
-
-        if (Number.isNaN(stopSecCount)) {
-            stopSecCount = 999999999;
-        }            
-
-        if (Number.isNaN(direction)) {
-            direction = 999999999;
-        }
-              
-        if (!Number.isNaN(stationID)) {
-
-
-            let stationIdInDB = await prisma.station.findUnique({
-                where:{
-                    stationID: stationID
-                }
-            })
-            const newlineIdinDB = await prisma.line.findUnique({
-                where:{
-                    lineID: lineId
-                },
-                select:{
-                    lineID: true
-                }                
-            })
-            if(newlineIdinDB){
-                let lineIdinDB = newlineIdinDB.lineID
-                if(lineIdinDB !== null && stationIdInDB !== null){
-                    combo = {
-                        lineID: lineId,
-                        patternID: patternID,
-                        stopSequenceNumber: stopSecCount,
-                        direction: direction,
-                        stationID: stationID,
-                    }
-                    combos.push(combo);
-                }
-                else{
-                    errors = errors + 1;
-                }
+            if (Number.isNaN(patternID)) {
+                patternID = 999999999;
             }
 
-            
-        }
+            if (Number.isNaN(stopSecCount)) {
+                stopSecCount = 999999999;
+            }
 
-    })
-    .on("end", async function () {
-        try {
-            //Warte bis wirklich alle Stationen ausgelesen wurden!!
-            setTimeout(async function(){
-                console.log(combos);
-                const newCombos = await prisma.lineStation.createMany({
-                data: combos,
-                });
-                console.log(`${newCombos.count} Combos have been added to the database.`);
-            }, 5000)
+            if (Number.isNaN(direction)) {
+                direction = 999999999;
+            }
 
-          } catch (error) {
-            console.error("Error inserting data into the database:", error);
-          }       
-          console.log("Errors beim Integrieren der Daten:" + errors);
+            if (!Number.isNaN(stationID)) {
 
-    });
+
+                let stationIdInDB = await prisma.station.findUnique({
+                    where: {
+                        stationID: stationID
+                    }
+                })
+                const newlineIdinDB = await prisma.line.findUnique({
+                    where: {
+                        lineID: lineId
+                    },
+                    select: {
+                        lineID: true
+                    }
+                })
+                if (newlineIdinDB) {
+                    let lineIdinDB = newlineIdinDB.lineID
+                    if (lineIdinDB !== null && stationIdInDB !== null) {
+                        combo = {
+                            lineID: lineId,
+                            patternID: patternID,
+                            stopSequenceNumber: stopSecCount,
+                            direction: direction,
+                            stationID: stationID,
+                        }
+                        combos.push(combo);
+                    }
+                    else {
+                        errors = errors + 1;
+                    }
+                }
+
+
+            }
+
+        })
+        .on("end", async function () {
+            try {
+                //Warte bis wirklich alle Stationen ausgelesen wurden!!
+                setTimeout(async function () {
+                    console.log(combos);
+                    const newCombos = await prisma.lineStation.createMany({
+                        data: combos,
+                    });
+                    console.log(`${newCombos.count} Combos have been added to the database.`);
+                }, 5000)
+
+            } catch (error) {
+                console.error("Error inserting data into the database:", error);
+            }
+            console.log("Errors beim Integrieren der Daten:" + errors);
+
+        });
 
 }
 
@@ -404,7 +433,7 @@ app.get('/', (req, res) => {
     res.redirect("echt.html");
 });
 
-app.get('/newpriority', (req,res) => {
+app.get('/newpriority', (req, res) => {
     generatePriorities();
 })
 app.get('/config', (req, res) => {
@@ -439,5 +468,4 @@ app.get("/test/", async function () {
 
 function Sleep(milliseconds) {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
-    }
-    
+}

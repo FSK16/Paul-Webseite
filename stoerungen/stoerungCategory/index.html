@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../style/style_echt.css">
+    <script src="../../script.js"></script>
+    <!--<link rel="icon" href="pics/straba.png" type="image/x-icon">-->
+
+    <title>Straba: Störungskategorien</title>
+</head>
+
+<body>
+    <div class="popup" id="menu">
+        <div class="form_container_content" id="formContent">
+            <div class="content_center">
+                <!--      
+          <div class="text_highlighted" id="title">
+            <span>Wähle nun deine Station, die dein Straba anzeigen soll!</span>
+          </div>
+          -->
+                <div id="mobile_container">
+                    <span id="title_description"><b>Störungskategorien</b></span>
+
+                    <div id="disruptionCategories">
+                        <div class="container_100 grey mt10">
+                            <div class="disruptioncategoryTitle">
+                                <h5 style="float: left;">Titel</h5>
+                                <span style="float: right;">xxx Störungen</span>
+                            </div>
+                            <span id="categoryDescription">Beschreibung der Störungskategorie <br></span>
+                            <div class="mt10">
+                                <button class="btn btn-danger me-2">Löschen</button><button
+                                    class="btn btn-warning">Bearbeiten</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="disruptionAddCategory" class="mt10">
+                        <button class="btn btn-success" id="addCategorybefore" onclick="openCategoryInput()">Kategorie hinzufügen</button>
+
+                        <div id="addCategoryform" class="fade">
+                            <div class="align-items-baseline custom_input ">
+                                <label for="disruptionCategoryName" class="straba_label">Titel der Störung:</label>
+                                <input type="text" name="disruptionCategoryName" id="disruptionInput"
+                                    class="straba_input">
+                            </div>
+
+                            <div class="align-items-baseline custom_input ">
+                                <label for="disruptionText" class="straba_label">Störungstext:</label>
+                                <textarea id="disruptionText" class="straba_input"></textarea>
+                            </div>
+
+                            <div class="mt10">
+                                <button class="btn btn-success" onclick="addCategory()">Kategorie hinzufügen</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+        <div id="logo" class="mb-3">
+            <img src="../../pics/straba.png" alt="Starba Logo" class="straba_logo">
+        </div>
+    </div>
+    </div>
+    <div class="popup" id="returntoMenu">
+        <div class="pfeil_image">
+            <img src="pics/pfeil-nach-links.svg" alt="Pfeil nach unten">
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+            fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/disruptionCategories`, {
+                method: "GET"
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    insertCategory(data);
+                })
+                .catch(error => {
+                    console.error(error);
+                })
+        }
+
+        function insertCategory(data) {
+            let categoryContainer = document.getElementById('disruptionCategories');
+            categoryContainer.innerHTML = ''; // Clear existing content
+
+            data.forEach(category => {
+                let categoryDiv = document.createElement('div');
+                categoryDiv.className = 'container_100 grey mt10';
+                categoryDiv.innerHTML = `
+                    <div class="disruptioncategoryTitle">
+                        <h5 style="float: left;">${category.category}</h5>
+                        <span style="float: right;"> Störungen</span>
+                    </div>
+                    <span id="categoryDescription">${category.description} <br></span>
+                    <div class="mt10">
+                        <button class="btn btn-danger me-2">Löschen</button><button
+                            class="btn btn-warning">Bearbeiten</button>
+                    </div>
+                `;
+                categoryContainer.appendChild(categoryDiv);
+            });
+        }
+
+        function addCategory() {
+            let categoryName = document.getElementById('disruptionInput').value;
+            let categoryText = document.getElementById('disruptionText').value;
+
+            if (categoryName && categoryText) {
+                fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/addDisruptionCategory`, {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        category: categoryName,
+                        description: categoryText
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        insertCategory(data);
+                        removePartial('addCategoryform');
+                        addPartial('addCategorybefore');
+                    })
+                    .catch(error => console.error(error));
+            } else {
+                alert("Bitte fülle alle Felder aus.");
+            }
+        }
+
+        function openCategoryInput() {
+            removePartial('addCategorybefore');
+            addPartial('addCategoryform');
+        }
+
+    </script>
+
+
+</body>
+
+</html>

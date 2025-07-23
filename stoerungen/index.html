@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style/style_echt.css">
+    <!--<link rel="icon" href="pics/straba.png" type="image/x-icon">-->
+
+    <title>Straba: Ströung hinzufügen</title>
+</head>
+
+<body>
+    <div class="website_content">
+        <img src="/pics/background.jpg" alt="Hintergrund">
+    </div>
+    <div class="popup" id="menu">
+        <div class="form_container_content" id="formContent">
+            <div class="content_center">
+                <!--      
+          <div class="text_highlighted" id="title">
+            <span>Wähle nun deine Station, die dein Straba anzeigen soll!</span>
+          </div>
+          -->
+                <div id="mobile_container">
+                    <span id="title_description"><b>Störungsanzeige</b><br>Aktuell <span
+                            id="anzahlStoerungenText"></span> Störungen</span>
+
+                    <p class="mt10 textNormal">Eine neue Störung hinzufügen:</p>
+                    <form action="neueStoerung" method="post">
+
+                        <div class="align-items-baseline custom_input ">
+                            <label for="disruptionInput" class="straba_label">Störungen:</label>
+                            <label for="disruptionInput" class="straba_input_pfeil"><img src="../pics/pfeiloben.svg"
+                                    alt="Pfeil nach oben"></label>
+                            <input type="text" name="disruptionText" id="disruptionInput" class="straba_input"
+                                onkeyup="searchDisruptionCategory()" onfocus="searchDisruptionCategory()">
+                            <input type="hidden" name="disruption" id="disruptionInputID" class="straba_input">
+
+                            <ul class="dropdown_items" id="disruption">
+
+                            </ul>
+                        </div>
+
+                        <a href="stoerungCategory"><span>Störungskategorien bearbeiten</span></a>
+
+
+                        <div class="input_group">
+
+                            <div class="align-items-baseline custom_input me-5">
+                                <label for="dateInput" class="straba_label">Störungsende (wenn vorhersehbar):</label>
+                                <input type="date" name="disruptionText" id="dateInput" class="straba_input"
+                                    onkeyup="searchDisruptionCategory()" onfocus="searchDisruptionCategory()">
+                                <input type="hidden" name="disruption" id="disruptionInputID" class="straba_input">
+
+                                <ul class="dropdown_items" id="disruption">
+
+                                </ul>
+                            </div>
+                            <div class="custom_input me-2">
+                                <label for="hourInput" class="straba_label">Stunde</label>
+
+                                <input type="text" name="disruptionText" id="hourInput" class="straba_input ml-20"
+                                    onkeyup="searchDisruptionCategory()" onfocus="searchDisruptionCategory()">
+                                <input type="hidden" name="disruption" id="disruptionInputID" class="straba_input">
+
+                                <ul class="dropdown_items" id="disruption">
+
+                                </ul>
+                            </div>
+                            <div class="custom_input">
+                                <label for="minInput" class="straba_label">Minute</label>
+
+                                <input type="text" name="disruptionText" id="minInput" class="straba_input"
+                                    onkeyup="searchDisruptionCategory()" onfocus="searchDisruptionCategory()">
+                                <input type="hidden" name="disruption" id="disruptionInputID" class="straba_input">
+
+                                <ul class="dropdown_items" id="disruption">
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="container_100 red mt10">
+
+                            <h5><b>Störungsvorschau:</b></h5>
+                            <span id="previewdisruptionText"></span>
+
+                        </div>
+
+                        <button class="button_general mt-3" type="button" id="submitbutton" onclick="addStation()">
+                            <span id="submitbutton_notice">Neue Störung hinzufügen </span>
+                        </button>
+
+                        <button class="button_general mt-3" type="button" id="sendbtn" onclick="sendtoStraba()">
+                            <span id="submitbutton_notice">Einstellungen abschließen</span>
+                        </button>
+                    </form>
+                </div>
+
+
+
+            </div>
+            <div id="logo" class="mb-3">
+                <img src="../pics/straba.png" alt="Starba Logo" class="straba_logo">
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="returntoMenu">
+        <div class="pfeil_image">
+            <img src="pics/pfeil-nach-links.svg" alt="Pfeil nach unten">
+        </div>
+    </div>
+    <script>
+        let stationData = [];
+        let station = document.getElementById('stationInput');
+
+        window.onload = function () {
+            fetch(`https://straba-983965425140.europe-west3.run.app/search/`, {
+                method: "GET"
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    stationData = data;
+                })
+                .catch(error => {
+                    console.error(error);
+                })
+        }
+    </script>
+
+
+</body>
+
+</html>

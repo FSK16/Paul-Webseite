@@ -216,6 +216,15 @@ body {
     background-color: rgb(255, 255, 255);
     padding: 5px;
 }
+.container_100{
+    padding: 5px;
+    width: 100%;
+    border-radius: 5px;
+}
+.red{
+    background-color: rgb(211, 22, 22);
+    color: white;
+}
 #addedStations{
     max-width: 600px;
 }
@@ -232,6 +241,52 @@ body {
     height: 300px;
     margin: auto;
 }
+.mt10{
+    margin-top: 10px;
+}
+.mt20{
+    margin-top: 20px;
+}
+p{
+    font-size: 1.2rem;
+}
+.button_general:hover{
+    cursor: pointer;
+    filter: brightness(90%);
+    transition: 0.2s ease;
+}
+.input_group{
+    display: flex;
+    flex-direction: row;
+}
+#dateInput{
+    width: 200px;
+}
+#hourInput{
+    width: 70px;
+}
+#minInput{
+    width: 70px;
+}
+.disruptioncategoryTitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.grey{
+    background-color: rgb(241, 241, 241);
+    color: black;
+}
+.fade {
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  display: none;
+}
+.fade.show {
+  display: block;
+  opacity: 1;
+}
+
 
 @media screen and (max-width: 1500px) {
     .form_contaainer{

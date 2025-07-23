@@ -48,3 +48,19 @@ model Line {
 
   lineStation LineStation[]
 }
+
+model Disruption {
+  id                Int                @id @default(autoincrement())
+  disruptionText    String             @default("Keine Daten")
+  disruptionCategory DisruptionCategory? @relation(fields: [disruptionCategoryId], references: [id])
+  disruptionCategoryId Int?
+}
+
+model DisruptionCategory {
+  id          Int    @id @default(autoincrement())
+  category    String @default("Keine Daten")
+  description String @default("Keine Daten")
+  priority    Int    @default(10)
+
+  disruptions Disruption[]
+}
