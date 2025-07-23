@@ -93,7 +93,7 @@ app.get("/disruptions/disruptionCategories", async function (req, res) {
     try {
         const categories = await prisma.disruptionCategory.findMany({
             orderBy: {
-                categoryName: "asc"
+                category: "asc"
             }
         });
         res.send(categories);
