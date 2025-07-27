@@ -88,7 +88,7 @@ app.get("/search", async function (req, res) {
     res.send(stations);
     console.log("Stations fetched successfully");
 });
-
+// Stöunrungskategorien
 app.get("/disruptions/disruptionCategories", async function (req, res) {
     try {
         const categories = await prisma.disruptionCategory.findMany({
@@ -103,17 +103,50 @@ app.get("/disruptions/disruptionCategories", async function (req, res) {
     }
 })
 app.post("/disruptions/disruptionCategories", async function (req, res) {
-    const { categoryName, categoryText } = req.body;
+    const { category, description } = req.body;
     try {
         const newCategory = await prisma.disruptionCategory.create({
             data: {
-                category: categoryName,
-                description: categoryText
+                category: category,
+                description: description
             }
         });
         res.status(201).send(newCategory);
     } catch (error) {
         console.error("Error creating disruption category:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+app.delete("/disruptions/disruptionCategories", async function (req, res) {
+    const { id } = req.body;
+    try {
+        await prisma.disruptionCategory.delete({
+            where: {
+                id: id
+            }
+        });
+        res.status(204).send();
+    } catch (error) {
+        console.error("Error deleting disruption category:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+app.patch("/disruptions/disruptionCategories", async function (req, res) {
+    const { id, category, description } = req.body;
+
+    try {
+        const updatedCategory = await prisma.disruptionCategory.update({
+            where: {
+                id: id
+            },
+            data: {
+                category: category,
+                description: description
+            }
+        });
+        res.send(updatedCategory);
+    } catch (error) {
+        console.error("Error updating disruption category:", error);
         res.status(500).send("Internal Server Error");
     }
 });

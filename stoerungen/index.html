@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="../script.js"></script>
     <link rel="stylesheet" href="../style/style_echt.css">
     <!--<link rel="icon" href="pics/straba.png" type="image/x-icon">-->
 
@@ -42,7 +43,8 @@
                                 onkeyup="searchDisruptionCategory()" onfocus="searchDisruptionCategory()">
                             <input type="hidden" name="disruption" id="disruptionInputID" class="straba_input">
 
-                            <ul class="dropdown_items" id="disruption">
+                            <ul class="dropdown_items" id="categoryList">
+                                <!-- Dynamisch generierte Kategorien werden hier eingefügt -->
 
                             </ul>
                         </div>
@@ -54,35 +56,19 @@
 
                             <div class="align-items-baseline custom_input me-5">
                                 <label for="dateInput" class="straba_label">Störungsende (wenn vorhersehbar):</label>
-                                <input type="date" name="disruptionText" id="dateInput" class="straba_input"
-                                    onkeyup="searchDisruptionCategory()" onfocus="searchDisruptionCategory()">
+                                <input type="date" name="disruptionText" id="dateInput" class="straba_input">
                                 <input type="hidden" name="disruption" id="disruptionInputID" class="straba_input">
-
-                                <ul class="dropdown_items" id="disruption">
-
-                                </ul>
                             </div>
                             <div class="custom_input me-2">
                                 <label for="hourInput" class="straba_label">Stunde</label>
 
-                                <input type="text" name="disruptionText" id="hourInput" class="straba_input ml-20"
-                                    onkeyup="searchDisruptionCategory()" onfocus="searchDisruptionCategory()">
-                                <input type="hidden" name="disruption" id="disruptionInputID" class="straba_input">
+                                <input type="text" name="disruptionText" id="hourInput" class="straba_input ml-20">
 
-                                <ul class="dropdown_items" id="disruption">
-
-                                </ul>
                             </div>
                             <div class="custom_input">
                                 <label for="minInput" class="straba_label">Minute</label>
 
-                                <input type="text" name="disruptionText" id="minInput" class="straba_input"
-                                    onkeyup="searchDisruptionCategory()" onfocus="searchDisruptionCategory()">
-                                <input type="hidden" name="disruption" id="disruptionInputID" class="straba_input">
-
-                                <ul class="dropdown_items" id="disruption">
-
-                                </ul>
+                                <input type="text" name="disruptionText" id="minInput" class="straba_input">
                             </div>
                         </div>
 
@@ -90,6 +76,7 @@
 
                             <h5><b>Störungsvorschau:</b></h5>
                             <span id="previewdisruptionText"></span>
+                            <span id="stoerungsende"></span>
 
                         </div>
 
@@ -136,6 +123,77 @@
                 .catch(error => {
                     console.error(error);
                 })
+        }
+
+        let categories = [];
+        window.onload = function () {
+            fetch(`http://localhost:8080/disruptions/disruptionCategories`, {
+                method: "GET"
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    categories = data;
+                    insertCategory(categories);
+                })
+                .catch(error => {
+                    console.error(error);
+                })
+        }
+
+        function insertCategory(data) {
+
+            console.log(data);
+            data.forEach(category => {
+                            document.getElementById('categoryList').innerHTML += `
+                    <li onclick='insertCategoryInput("${category.id}", "${category.category}", "${category.description}")'>
+                        <span><b>${category.category}</b></span>
+                    </li>`;
+
+            });
+
+        }
+
+        function insertCategoryInput(id, name, description) {
+            document.getElementById('disruptionInput').value = name;
+            document.getElementById('disruptionInputID').value = id;
+            document.getElementById('previewdisruptionText').innerText = description;
+            document.getElementById('categoryList').style.display = 'none'; // Hide the dropdown
+        }
+
+        function searchDisruptionCategory() {
+            document.getElementById('categoryList').style.opacity = 1;
+        }
+
+        document.addEventListener('click', function (event) {
+            const dropdown = document.querySelector('.dropdown_items');
+            const inputs = document.querySelector('.straba_input');
+
+            // Prüfen, ob der Klick außerhalb des Dropdowns war
+            if (!dropdown.contains(event.target) && !inputs.contains(event.target)) {
+                dropdown.style.opacity = 0; // oder 'opacity: 0', je nach Umsetzung
+            }
+
+            checkEndDate();
+        });
+
+        function checkEndDate() {
+            const dateInput = document.getElementById('dateInput');
+            const hourInput = document.getElementById('hourInput');
+            const minInput = document.getElementById('minInput');
+
+            if (dateInput.value && (hourInput.value || minInput.value)) {
+                let datum = calculateDuration(dateInput.value, hourInput.value, minInput.value);
+                document.getElementById('stoerungsende').innerText = `Das Störungsende ist in: ${datum}`;
+            } else {
+                dateInput.classList.remove('straba_input_valid');
+                document.getElementById('stoerungsende').innerText = `Das Störungsende ist nicht absehbar.`;
+
+            }
         }
     </script>
 

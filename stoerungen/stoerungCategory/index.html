@@ -78,9 +78,9 @@
     </div>
     <script>
 
-        let categories = new Set();
+        let categories = [];
         window.onload = function () {
-            fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/disruptionCategories`, {
+            fetch(`http://localhost:8080/disruptions/disruptionCategories`, {
                 method: "GET"
             })
                 .then(response => {
@@ -90,7 +90,7 @@
                     return response.json();
                 })
                 .then(data => {
-                    categories = new Set(data.map(item => item.category));
+                    categories = data;
                     insertCategory(categories);
                 })
                 .catch(error => {
@@ -112,8 +112,8 @@
                     </div>
                     <span id="categoryDescription">${category.description} <br></span>
                     <div class="mt10">
-                        <button class="btn btn-danger me-2">Löschen</button><button
-                            class="btn btn-warning">Bearbeiten</button>
+                        <button class="btn btn-danger me-2" onclick="deleteCategory(${category.id})">Löschen</button><button
+                            class="btn btn-warning" onclick="editCategory(${category.id})">Bearbeiten</button>
                     </div>
                 `;
                 categoryContainer.appendChild(categoryDiv);
@@ -125,7 +125,7 @@
             let categoryText = document.getElementById('disruptionText').value;
 
             if (categoryName && categoryText) {
-                fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/disruptionCategories`, {
+                fetch(`http://localhost:8080/disruptions/disruptionCategories`, {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -146,6 +146,25 @@
             } else {
                 alert("Bitte fülle alle Felder aus.");
             }
+        }
+
+        function deleteCategory(id) {
+            fetch(`http://localhost:8080/disruptions/disruptionCategories`, {
+                method: "DELETE",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: id })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        categories = categories.filter(category => category.id !== id);
+                        insertCategory(categories);
+                    } else {
+                        throw new Error("Failed to delete category");
+                    }
+                })
+                .catch(error => console.error(error));
         }
 
         function openCategoryInput() {
