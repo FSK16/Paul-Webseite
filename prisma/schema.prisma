@@ -23,6 +23,7 @@ model Station {
   latitude    Decimal?
 
   stationLine LineStation[]
+  irregular   IrregularStation[]
 }
 
 model LineStation {
@@ -38,6 +39,19 @@ model LineStation {
   station Station @relation(fields: [stationID], references: [stationID], onDelete: Cascade)
 }
 
+model IrregularStation {
+  stationID   Int      @id @default(autoincrement())
+  stationName String   @unique @default("Keine Daten")
+  stopID      Int?
+  lineID      Int?
+  line        Line?    @relation(fields: [lineID], references: [lineID], onDelete: Cascade)
+  station     Station? @relation(fields: [stopID], references: [stationID], onDelete: Cascade)
+  seqNumber   Int?
+  direction   Int?
+
+  added Boolean?
+}
+
 model Line {
   lineID      Int    @id @default(autoincrement())
   lineName    String @default("Keine Daten")
@@ -46,13 +60,14 @@ model Line {
   linetype    String @default("Keine Daten")
   priority    Int    @default(10)
 
-  lineStation LineStation[]
+  lineStation      LineStation[]
+  IrregularStation IrregularStation[]
 }
 
 model Disruption {
-  id                Int                @id @default(autoincrement())
-  disruptionText    String             @default("Keine Daten")
-  disruptionCategory DisruptionCategory? @relation(fields: [disruptionCategoryId], references: [id])
+  id                   Int                 @id @default(autoincrement())
+  disruptionText       String              @default("Keine Daten")
+  disruptionCategory   DisruptionCategory? @relation(fields: [disruptionCategoryId], references: [id])
   disruptionCategoryId Int?
 }
 

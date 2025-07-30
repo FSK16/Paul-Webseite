@@ -461,6 +461,48 @@ async function insertCombos() {
 
 }
 
+async function addIreggularStationCombos(){
+    const irregStations = await prisma.irregularStation.findMany({
+        where:{
+            added: false
+        }
+    });
+    console.log(irregStations);
+    irregStations.forEach(async (station) => {
+        let newCombos = await prisma.lineStation.create({
+            data: {
+                lineID: station.lineID,
+                patternID: station.direction, // Beispielwert, anpassen je nach Bedarf
+                stopSequenceNumber: station.seqNumber, // Beispielwert, anpassen je nach Bedarf
+                direction: station.direction, // Beispielwert, anpassen je nach Bedarf
+                stationID: station.stopID,
+            }
+        });
+        newCombos = await prisma.irregularStation.update({
+            data: {
+                added: true
+            },
+            where: {
+                stationID: station.stationID
+            },
+        });
+        console.log(newCombos);
+        console.log(`Added irregular station combo for ${station.stationName}`);
+    });
+
+}
+
+async function insertIrregularStations() {
+    const irregularStations = await prisma.irregularStation.createMany({
+        data: [
+            /*{ stationName: "Spengergasse" },
+            { stationName: "Siebenbrunnengasse" },
+            { stationName: "Bacherplatz" },*/
+        ]
+    })
+    console.log(`${irregularStations.count} Irregular Stations have been added to the database.`);
+}
+
 
 app.get('/', (req, res) => {
     res.redirect("echt.html");
@@ -475,6 +517,8 @@ app.get('/config', (req, res) => {
 
 app.listen(port, "0.0.0.0", async function () {
 
+    //addIreggularStationCombos();
+    //insertIrregularStations();
     /*
     generatePriorities();
     
