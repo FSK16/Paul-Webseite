@@ -35,7 +35,7 @@
                     <p class="mt10 textNormal">Eine neue Störung hinzufügen:</p>
                     <form action="neueStoerung" method="post">
 
-                        <div class="align-items-baseline custom_input ">
+                        <div class="align-items-baseline custom_input " id="disruptionCategoryInput">
                             <label for="disruptionInput" class="straba_label">Störungen:</label>
                             <label for="disruptionInput" class="straba_input_pfeil"><img src="../pics/pfeiloben.svg"
                                     alt="Pfeil nach oben"></label>
@@ -49,8 +49,14 @@
                             </ul>
                         </div>
 
-                        <a href="stoerungCategory"><span>Störungskategorien bearbeiten</span></a>
+                        <div class="align-items-baseline custom_input " id="disruptionTextInput">
+                            <label for="disruptionInput" class="straba_label">Text:</label>
+                            <textarea name="disruptionText" class="straba_input" id="customDisruption" onkeyup="updatePreviewwithText()"></textarea>
+                        </div>
 
+                        <a href="stoerungCategory"><span>Störungskategorien bearbeiten</span></a>
+                        <span style="float: right;" class="clickable" onClick="toggleCategory()"
+                            id="toggleCategoryText">Eigenen Text schreiben</span>
 
                         <div class="input_group">
 
@@ -80,13 +86,10 @@
 
                         </div>
 
-                        <button class="button_general mt-3" type="button" id="submitbutton" onclick="addStation()">
+                        <button class="button_general mt-3" type="button" id="submitbutton" onclick="addDisruption()">
                             <span id="submitbutton_notice">Neue Störung hinzufügen </span>
                         </button>
 
-                        <button class="button_general mt-3" type="button" id="sendbtn" onclick="sendtoStraba()">
-                            <span id="submitbutton_notice">Einstellungen abschließen</span>
-                        </button>
                     </form>
                 </div>
 
@@ -149,7 +152,7 @@
 
             console.log(data);
             data.forEach(category => {
-                            document.getElementById('categoryList').innerHTML += `
+                document.getElementById('categoryList').innerHTML += `
                     <li onclick='insertCategoryInput("${category.id}", "${category.category}", "${category.description}")'>
                         <span><b>${category.category}</b></span>
                     </li>`;
@@ -166,7 +169,7 @@
         }
 
         function searchDisruptionCategory() {
-            document.getElementById('categoryList').style.opacity = 1;
+            addPartial('categoryList');
         }
 
         document.addEventListener('click', function (event) {
@@ -175,11 +178,44 @@
 
             // Prüfen, ob der Klick außerhalb des Dropdowns war
             if (!dropdown.contains(event.target) && !inputs.contains(event.target)) {
-                dropdown.style.opacity = 0; // oder 'opacity: 0', je nach Umsetzung
+                removePartial('categoryList');
             }
 
             checkEndDate();
         });
+
+        function addDisruption() {
+
+            const disruptionTextCustom = document.getElementById('customDisruption').value;
+            const disruptionID = Number(document.getElementById('disruptionInputID').value);
+            const endDate = document.getElementById('dateInput').value;
+            const hour = document.getElementById('hourInput').value;
+            const minute = document.getElementById('minInput').value;
+
+            const dateTimeString = `${endDate}T${hour.padStart(2, '0')}:${minute.padStart(2, '0')}`;
+
+            // Erstelle ein Date-Objekt
+            const dateTime = new Date(dateTimeString);
+
+            if (!disruptionTextCustom && !disruptionID) {
+                alert("Bitte gib eine Störung ein.");
+                return;
+            }
+
+            let data = {
+                disruptionText: disruptionTextCustom,
+                disruptionID: disruptionID,
+                endDate: dateTime,
+            };
+
+            fetch(`http://localhost:8080/disruptions/`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+        }
 
         function checkEndDate() {
             const dateInput = document.getElementById('dateInput');
@@ -194,6 +230,35 @@
                 document.getElementById('stoerungsende').innerText = `Das Störungsende ist nicht absehbar.`;
 
             }
+        }
+
+        function updatePreviewwithText() {
+            document.getElementById('previewdisruptionText').innerText = document.getElementById('customDisruption').value;
+        }
+
+
+        let toggle = false;
+        function toggleCategory() {
+            document.getElementById('previewdisruptionText').innerText = "";
+            let buttonText = document.getElementById('toggleCategoryText');
+            if (toggle) {
+                removePartial('disruptionTextInput');
+                addPartial('disruptionCategoryInput');
+                buttonText.innerText = "Eigenen Text schreiben";
+            } else {
+                buttonText.innerText = "Störngskategorie auswählen";
+                removePartial('disruptionCategoryInput');
+                addPartial('disruptionTextInput');
+            }
+            clearValues();
+            toggle = !toggle;
+        }
+
+        function clearValues(){
+            document.getElementById('disruptionInput').value = '';
+            document.getElementById('disruptionInputID').value = '';
+            document.getElementById('previewdisruptionText').innerText = '';
+            document.getElementById('customDisruption').value = '';
         }
     </script>
 

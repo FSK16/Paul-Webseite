@@ -151,6 +151,24 @@ app.patch("/disruptions/disruptionCategories", async function (req, res) {
     }
 });
 
+app.post("/disruptions", async function (req, res) {
+    const { disruptionText, disruptionID, endDate} = req.body;
+
+    try {
+        const newDisruption = await prisma.disruption.create({
+            data: {
+                disruptionText: disruptionText,
+                disruptionCategoryId: disruptionID,
+                endDate: endDate,
+            }
+        });
+        res.status(201).send(newDisruption);
+    } catch (error) {
+        console.error("Error creating disruption:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
 async function generatePriorities() {
     const MetroPriority = await prisma.line.updateMany({
         data: {

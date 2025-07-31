@@ -287,6 +287,18 @@ p{
   opacity: 1;
 }
 
+.clickable:hover{
+    cursor: pointer;
+    filter: brightness(90%);
+    transition: 0.2s ease;
+}
+#disruptionTextInput{
+    display: none;
+}
+#categoryList{
+    display: none;
+}
+
 
 @media screen and (max-width: 1500px) {
     .form_contaainer{

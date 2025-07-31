@@ -66,7 +66,8 @@ model Line {
 
 model Disruption {
   id                   Int                 @id @default(autoincrement())
-  disruptionText       String              @default("Keine Daten")
+  disruptionText       String?              @default("Keine Daten")
+  endDate              DateTime?           @default(now())
   disruptionCategory   DisruptionCategory? @relation(fields: [disruptionCategoryId], references: [id])
   disruptionCategoryId Int?
 }
