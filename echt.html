@@ -275,6 +275,10 @@
     }
 
     function addStation(name, stopID){
+      if(!name || !stopID){
+        alert("Bitte wähle eine Station aus.");
+        return;
+      }
       if(document.getElementById('stationInputID').value.trim() !== ""){
         document.getElementById('stationInputID').value += "," + stopID;
       }
