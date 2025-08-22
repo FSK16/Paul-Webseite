@@ -129,10 +129,6 @@
 
         if (line.lineName.toLowerCase().includes(lineSearch.value.toLowerCase())) {
           if (Array.isArray(line.lineStation)) {
-            console.log({
-              linie: line,
-              stationen: line.lineStation.length
-            });
             if (line.lineStation.length !== 0) {
               let lastItem = line.lineStation.length - 1;
               let firstStation = line.lineStation[0].station.stationName;
@@ -225,7 +221,6 @@
           line.lineStation.forEach(station => {
 
             if(station.patternID == Number(patternID)){
-              //console.log(station.station);
               document.getElementById('stationlist').innerHTML += `
               <li onclick='insertStation("${station.station.stationName}", "${station.station.stationID}")'>
                 <span><b>${station.station.stationName}</b></span>
@@ -258,8 +253,12 @@
       let zeile = document.getElementById('strabaZeile').value;
       let lines = document.getElementById('strabaLines').value;
 
+      if(stopID.trim() === ""){
+        alert("Bitte füge mindestens eine Station hinzu.");
+        return;
+      }
+
       let strabaData = { type: "setRBL", rbl: stopID, zeilen: zeile, filter: lines}
-      console.log(strabaData);
       window.parent.postMessage(strabaData, "*")
 
       document.getElementById('stationInputID').value = "";
