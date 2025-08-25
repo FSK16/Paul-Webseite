@@ -7,7 +7,6 @@ const path = require("path");
 const fs = require("fs");
 const { parse } = require('csv-parse'); // Für Version 4.x von csv-parse
 
-
 // npx prisma init --datasource-provider sqlite
 const { PrismaClient } = require("@prisma/client");
 const { promiseHooks } = require("v8");
@@ -289,7 +288,6 @@ async function insertDataofCSVFiles() {
             });
 
         let lines = [];
-
         fs.createReadStream(DataSheetLines)
             .pipe(
                 parse({
@@ -330,13 +328,15 @@ async function insertDataofCSVFiles() {
 
                 }
 
+                if (!lines.some(l => l.lineID === lineId)) {
                 lines.push(line);
+                }                
 
 
             })
             .on("end", async function () {
                 try {
-                    // Alle Stationsdaten in die Datenbank speichern
+                    console.log(lines);
                     const newLines = await prisma.line.createMany({
                         data: lines,
                     });
@@ -368,7 +368,6 @@ async function getLastStationofLines() {
     }
 
     for (const entry of connectionsLastStop) {
-        console.log(entry);
         let lastStationName = entry.station.stationName;
         let lineID = entry.lineID;
         let patternID = entry.patternID;
@@ -382,7 +381,6 @@ async function getLastStationofLines() {
                 patternID: patternID
             }
         });
-        console.log(lastStationAdded);
     }
 
 }
@@ -463,7 +461,6 @@ async function insertCombos() {
             try {
                 //Warte bis wirklich alle Stationen ausgelesen wurden!!
                 setTimeout(async function () {
-                    console.log(combos);
                     const newCombos = await prisma.lineStation.createMany({
                         data: combos,
                     });
@@ -485,7 +482,6 @@ async function addIreggularStationCombos(){
             added: false
         }
     });
-    console.log(irregStations);
     irregStations.forEach(async (station) => {
         let newCombos = await prisma.lineStation.create({
             data: {
@@ -504,21 +500,20 @@ async function addIreggularStationCombos(){
                 stationID: station.stationID
             },
         });
-        console.log(newCombos);
         console.log(`Added irregular station combo for ${station.stationName}`);
     });
 
 }
 
-async function insertIrregularStations() {
+async function insertIrregularStations(data) {
     const irregularStations = await prisma.irregularStation.createMany({
-        data: [
-            /*{ stationName: "Spengergasse" },
-            { stationName: "Siebenbrunnengasse" },
-            { stationName: "Bacherplatz" },*/
-        ]
+        data: data
     })
     console.log(`${irregularStations.count} Irregular Stations have been added to the database.`);
+}
+
+async function getIrregularStations() {
+   return await prisma.irregularStation.findMany()
 }
 
 
@@ -534,11 +529,13 @@ app.get('/config', (req, res) => {
 });
 
 app.listen(port, "0.0.0.0", async function () {
+    /*
+    Schitt 1:
+    let irregularStationsInDB = await getIrregularStations();
 
     //addIreggularStationCombos();
     //insertIrregularStations();
-    /*
-    generatePriorities();
+    
     
     await prisma.lineStation.deleteMany();
     await prisma.line.deleteMany();
@@ -547,9 +544,23 @@ app.listen(port, "0.0.0.0", async function () {
     // Warte auf das Einfügen von Daten und führe dann die Combo-Funktion aus
     await insertDataofCSVFiles();  // Warten, bis das Einfügen der Daten abgeschlossen ist
     
-    await insertCombos();*/
+    await insertCombos();
 
+    await generatePriorities();
     //etzt rufst du  auf, nachdem insertDataofCSVFiles() abgeschlossen ist
+
+    if(irregularStationsInDB.length !== 0){
+        await insertIrregularStations(irregularStationsInDB);
+    }
+        
+    Schritt 2:
+        await generatePriorities();
+
+    Schritt 3:
+        await prisma.lineStation.deleteMany();
+        await insertCombos();
+        await getLastStationofLines();
+    */
 
     console.log("Server is running on http://localhost:" + port);
     //await getLastStationofLines();
