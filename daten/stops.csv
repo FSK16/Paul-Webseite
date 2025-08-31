@@ -2610,6 +2610,17 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 2854;60201850;Umleitung N64 über Hohenbergstraße;Wien;49000001;16.3150944;48.1644548
 2855;;Dummy für U4;;;;
 2856;;;;;;
+2860;0;Nelson Mandela Platz;Wien;49000001;0;0
+2861;;Aspern Nord;Wien;49000001;0;0
+2862;;Schukowitzgasse;Wien;49000001;0;0
+2863;;Stemolakgasse;Wien;49000001;0;0
+2864;;Scheedgasse;Wien;49000001;0;0
+2865;;Beeresgasse;Wien;49000001;0;0
+2866;;Beeresgasse;Wien;49000001;0;0
+2867;;Scheedgasse;Wien;49000001;0;0
+2868;;Stemolakgasse;Wien;49000001;0;0
+2869;;Schukowitzgasse;Wien;49000001;0;0
+2870;;Aspern Nord;Wien;49000001;0;0
 2875;;Zentralfriedhof 3.Tor;;;;
 2876;60200314;Wartegleis Bahnhof Simmering;Wien;49000001;16.4238355;48.1670312
 2877;60200012;Auf der Schmelz;Wien;49000001;16.3167203;48.2036497
@@ -3165,6 +3176,15 @@ StopID;DIVA;StopText;Municipality;MunicipalityID;Longitude;Latitude
 3564;60200671;Lemböckgasse;Wien;49000001;16.3069736;48.1277305
 3565;60201235;Siebenhirten U;Wien;49000001;16.3097315;48.1292774
 3566;60200947;Nowakgasse;Wien;49000001;16.3138457;48.1266692
+3569;0;Haussteinstraße;Wien;49000001;0;0
+3570;0;Vorgartenstraße;Wien;49000001;0;0
+3571;0;Jungstraße;Wien;49000001;0;0
+3572;0;Hillerstraße;Wien;49000001;0;0
+3573;0;Jungstraße;Wien;49000001;0;0
+3574;0;Vorgartenstraße;Wien;49000001;0;0
+3575;0;Haussteinstraße;Wien;49000001;0;0
+3576;0;Bruno-Marek-Alle;Wien;49000001;0;0
+3577;0;Rebhanngasse;Wien;49000001;0;0
 3621;60200180;Großfeldsiedlung-Bubergasse;Wien;49000001;16.4514587;48.2707215
 3622;60200947;Nowakgasse;Wien;49000001;16.3144386;48.1265972
 3623;;Siebenhirten U;;;;

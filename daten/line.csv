@@ -11,10 +11,12 @@ LineID;LineText;SortingHelp;Realtime;MeansOfTransport
 109;9;109;1;ptTram
 110;10;110;1;ptTram
 111;11;111;1;ptTram
+112;12;112;1;ptTram
 115;E4;115;1;ptTram
 118;18;118;1;ptTram
 125;25;125;1;ptTram
 126;26;126;1;ptTram
+127;27;127;1;ptTram
 130;30;130;1;ptTram
 131;31;131;1;ptTram
 133;33;133;1;ptTram
