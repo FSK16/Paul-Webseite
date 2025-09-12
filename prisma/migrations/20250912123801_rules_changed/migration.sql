@@ -1,0 +1,30 @@
+-- RedefineTables
+PRAGMA defer_foreign_keys=ON;
+PRAGMA foreign_keys=OFF;
+CREATE TABLE "new_Disruption" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "disruptionText" TEXT DEFAULT 'Keine Daten',
+    "endDate" DATETIME DEFAULT CURRENT_TIMESTAMP,
+    "disruptionCategoryId" INTEGER,
+    CONSTRAINT "Disruption_disruptionCategoryId_fkey" FOREIGN KEY ("disruptionCategoryId") REFERENCES "DisruptionCategory" ("id") ON DELETE NO ACTION ON UPDATE CASCADE
+);
+INSERT INTO "new_Disruption" ("disruptionCategoryId", "disruptionText", "endDate", "id") SELECT "disruptionCategoryId", "disruptionText", "endDate", "id" FROM "Disruption";
+DROP TABLE "Disruption";
+ALTER TABLE "new_Disruption" RENAME TO "Disruption";
+CREATE TABLE "new_IrregularStation" (
+    "stationID" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "stationName" TEXT NOT NULL DEFAULT 'Keine Daten',
+    "stopID" INTEGER,
+    "lineID" INTEGER,
+    "seqNumber" INTEGER,
+    "direction" INTEGER,
+    "added" BOOLEAN,
+    CONSTRAINT "IrregularStation_lineID_fkey" FOREIGN KEY ("lineID") REFERENCES "Line" ("lineID") ON DELETE NO ACTION ON UPDATE CASCADE,
+    CONSTRAINT "IrregularStation_stopID_fkey" FOREIGN KEY ("stopID") REFERENCES "Station" ("stationID") ON DELETE NO ACTION ON UPDATE CASCADE
+);
+INSERT INTO "new_IrregularStation" ("added", "direction", "lineID", "seqNumber", "stationID", "stationName", "stopID") SELECT "added", "direction", "lineID", "seqNumber", "stationID", "stationName", "stopID" FROM "IrregularStation";
+DROP TABLE "IrregularStation";
+ALTER TABLE "new_IrregularStation" RENAME TO "IrregularStation";
+CREATE UNIQUE INDEX "IrregularStation_stationName_key" ON "IrregularStation"("stationName");
+PRAGMA foreign_keys=ON;
+PRAGMA defer_foreign_keys=OFF;

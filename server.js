@@ -475,7 +475,23 @@ async function insertCombos() {
         });
 
 }
-
+async function setFalseIrregularStationCombos() {
+     const irregStations = await prisma.irregularStation.findMany({
+        where:{
+            added: true
+        }
+    });
+    irregStations.forEach(async (station) => {
+        newCombos = await prisma.irregularStation.update({
+            data: {
+                added: false
+            },
+            where: {
+                stationID: station.stationID
+            },
+        });
+    });
+}
 async function addIreggularStationCombos(){
     const irregStations = await prisma.irregularStation.findMany({
         where:{
@@ -530,15 +546,15 @@ app.get('/config', (req, res) => {
 
 app.listen(port, "0.0.0.0", async function () {
     /*
-    Schitt 1:
-    let irregularStationsInDB = await getIrregularStations();
-
+    Schritt 1:
+*/
     //addIreggularStationCombos();
     //insertIrregularStations();
     
-    
-    await prisma.lineStation.deleteMany();
+    /*
     await prisma.line.deleteMany();
+    await prisma.lineStation.deleteMany();
+
     await prisma.station.deleteMany();
 
     // Warte auf das Einfügen von Daten und führe dann die Combo-Funktion aus
@@ -547,20 +563,24 @@ app.listen(port, "0.0.0.0", async function () {
     await insertCombos();
 
     await generatePriorities();
-    //etzt rufst du  auf, nachdem insertDataofCSVFiles() abgeschlossen ist
+    //Jetzt rufst du  auf, nachdem insertDataofCSVFiles() abgeschlossen ist
 
-    if(irregularStationsInDB.length !== 0){
-        await insertIrregularStations(irregularStationsInDB);
-    }
-        
-    Schritt 2:
-        await generatePriorities();
+      /*  
+    Schritt 2:*/
+        //await generatePriorities();
+/*
+    Schritt 3:*/
+       /* await prisma.lineStation.deleteMany();
 
-    Schritt 3:
-        await prisma.lineStation.deleteMany();
         await insertCombos();
         await getLastStationofLines();
-    */
+
+    /*
+    Schritt 4: */
+        /*await setFalseIrregularStationCombos();
+    /*
+    Schritt 5: *//*
+    await addIreggularStationCombos();/**/
 
     console.log("Server is running on http://localhost:" + port);
     //await getLastStationofLines();
