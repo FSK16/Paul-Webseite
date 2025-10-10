@@ -81,16 +81,17 @@
               </div>
             </div>
 
-
           <button class="button_general mt-3" type="button" id="sendbtn" onclick="sendtoStraba()">
             <span id="submitbutton_notice">Einstellungen abschließen</span>
           </button>
           <span id="stopNumber" class="mt-2"></span>
           </form>
         </div>
+
         <div id="logo" class="mb-3">
           <img src="pics/straba.png" alt="Starba Logo" class="straba_logo">
         </div>
+
       </div>
     </div>
     <div class="popup" id="returntoMenu">
@@ -257,6 +258,10 @@
         alert("Bitte füge mindestens eine Station hinzu.");
         return;
       }
+      if(stopID.includes("293")){
+        stopID = stopID + ",2016";
+      }
+      console.log(stopID);
 
       let strabaData = { type: "setRBL", rbl: stopID, zeilen: zeile, filter: lines}
       window.parent.postMessage(strabaData, "*")
