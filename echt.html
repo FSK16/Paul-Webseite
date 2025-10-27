@@ -258,9 +258,7 @@
         alert("Bitte füge mindestens eine Station hinzu.");
         return;
       }
-      if(stopID.includes("293")){
-        stopID = stopID + ",2016";
-      }
+      
       console.log(stopID);
 
       let strabaData = { type: "setRBL", rbl: stopID, zeilen: zeile, filter: lines}
