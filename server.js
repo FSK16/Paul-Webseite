@@ -151,19 +151,82 @@ app.patch("/disruptions/disruptionCategories", async function (req, res) {
 });
 
 app.post("/disruptions", async function (req, res) {
-    const { disruptionText, disruptionID, endDate} = req.body;
+    const { disruptionText, disruptionCategoryId , endDate} = req.body;
+
+    if(disruptionCategoryId === 0){
+        disruptionCategoryId = null;
+    }
+
+    console.log("Received disruption data:", req.body);
 
     try {
         const newDisruption = await prisma.disruption.create({
             data: {
                 disruptionText: disruptionText,
-                disruptionCategoryId: disruptionID,
+                disruptionCategoryId: disruptionCategoryId,
                 endDate: endDate,
             }
         });
         res.status(201).send(newDisruption);
     } catch (error) {
         console.error("Error creating disruption:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+app.get("/disruptions", async function (req, res) {
+    try {
+        const disruptions = await prisma.disruption.findMany({
+            where: {
+                OR: [
+                    { endDate: null },
+                    { endDate: { gt: new Date() } }
+                ]
+            }
+        });
+        res.send(disruptions);
+    } catch (error) {
+        console.error("Error fetching disruptions:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+app.patch("/disruptions", async function (req, res) {
+    const { id, disruptionText, disruptionCategoryId , endDate} = req.body;
+
+    if(disruptionCategoryId === 0){
+        disruptionCategoryId = null;
+    }
+
+    try {
+        const updatedDisruption = await prisma.disruption.update({
+            where: {
+                id: id
+            },
+            data: {
+                disruptionText: disruptionText,
+                disruptionCategoryId: disruptionCategoryId,
+                endDate: endDate
+            }
+        });
+        res.send(updatedDisruption);
+    } catch (error) {
+        console.error("Error updating disruption:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+app.delete("/disruptions", async function (req, res) {
+    const { id } = req.body;
+    try {
+        await prisma.disruption.delete({
+            where: {
+                id: id
+            }
+        });
+        res.status(204).send();
+    } catch (error) {
+        console.error("Error deleting disruption:", error);
         res.status(500).send("Internal Server Error");
     }
 });

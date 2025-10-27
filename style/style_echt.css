@@ -268,6 +268,15 @@ p{
 #minInput{
     width: 70px;
 }
+#dateEditInput{
+    width: 200px;
+}
+#hourEditInput{
+    width: 70px;
+}
+#minEditInput{
+    width: 70px;
+}
 .disruptioncategoryTitle{
     display: flex;
     justify-content: space-between;
@@ -297,6 +306,49 @@ p{
 }
 #categoryList{
     display: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    transition: opacity 500ms;
+    opacity: 0;
+    z-index: 12;
+    visibility: hidden;
+}
+
+.overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup_general {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000000;
+    margin: auto;
+    background-color: #ffffff;
+    border-radius: 15px;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    max-height: 95vh;
+    max-width: 95vw;
+}
+.popup_general:target {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#editDisruption{
+    max-width: 640px;
 }
 
 

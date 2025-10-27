@@ -17,6 +17,13 @@ function removePartial(divID) {
     }, 500);
 }
 
+function splitDateTime(dateTimeString) {
+    const date = new Date(dateTimeString);
+    const day = date.toISOString().split('T')[0];
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    return { day, hours, minutes };
+}
 
 function calculateDuration(day, hours, minutes) {
     const now = new Date();
@@ -32,7 +39,7 @@ function calculateDuration(day, hours, minutes) {
     const h = Math.floor((duration % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const m = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
 
-     const pluralize = (value, singular, plural) =>
+    const pluralize = (value, singular, plural) =>
         value === 1 ? `1 ${singular}` : `${value} ${plural}`;
 
     if (d > 0) {
@@ -43,3 +50,40 @@ function calculateDuration(day, hours, minutes) {
         return pluralize(m, "Minute", "Minuten");
     }
 }
+
+function openPopupgeneral(div_id) {
+    var overlay = document.getElementById("overlay");
+    var popup = document.getElementById(div_id);
+    overlay.style.display = 'block';
+    overlay.style.opacity = '1';
+    overlay.style.visibility = 'visible';
+
+    popup.style.transition = 'opacity 0.5s ease';
+    setTimeout(function () {
+        popup.style.opacity = '1';
+    }, 10);
+    setTimeout(function () {
+        popup.classList.add('show');
+        popup.style.display = 'block';
+    }, 0);
+}
+
+function closePopupgeneral(div_id) {
+    var overlay = document.getElementById("overlay");
+    var popup = document.getElementById(div_id);
+    popup.style.transition = 'opacity 0.5s ease';
+    setTimeout(function () {
+        popup.style.opacity = '0';
+        overlay.style.opacity = '0';
+    }, 10);
+    setTimeout(function () {
+        popup.classList.remove('show');
+        popup.style.display = "none";
+        overlay.style.display = 'none';
+        overlay.style.visibility = 'hidden';
+
+
+    }, 500);
+
+}
+
