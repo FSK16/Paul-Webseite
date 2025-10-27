@@ -169,7 +169,7 @@
                 disruptions = data;
                 showDisruptions();
             });
-            fetch(`http://localhost:8080/disruptions/disruptionCategories`, {
+            fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/disruptionCategories`, {
                 method: "GET"
             })
                 .then(response => {
@@ -251,7 +251,7 @@
                 endDate: dateTime,
             };
 
-            fetch(`http://localhost:8080/disruptions/`, {
+            fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -371,7 +371,7 @@
                 endDate: dateTime,
             };
 
-            fetch(`http://localhost:8080/disruptions/`, {
+            fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"
@@ -383,7 +383,7 @@
         }
 
         function deleteDisruption(id) {
-            fetch(`http://localhost:8080/disruptions/`, {
+            fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json"
@@ -407,7 +407,7 @@
         }
 
         function finishDisruption(id, text) {
-            fetch(`http://localhost:8080/disruptions/`, {
+            fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"

@@ -80,7 +80,7 @@
 
         let categories = [];
         window.onload = function () {
-            fetch(`http://localhost:8080/disruptions/disruptionCategories`, {
+            fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/disruptionCategories`, {
                 method: "GET"
             })
                 .then(response => {
@@ -125,7 +125,7 @@
             let categoryText = document.getElementById('disruptionText').value;
 
             if (categoryName && categoryText) {
-                fetch(`http://localhost:8080/disruptions/disruptionCategories`, {
+                fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/disruptionCategories`, {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -149,7 +149,7 @@
         }
 
         function deleteCategory(id) {
-            fetch(`http://localhost:8080/disruptions/disruptionCategories`, {
+            fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/disruptionCategories`, {
                 method: "DELETE",
                 headers: {
                     'Content-Type': 'application/json'
