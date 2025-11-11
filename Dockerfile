@@ -24,4 +24,5 @@ RUN npx prisma db push
 EXPOSE 3000
 
 # Startbefehl für den Server
-CMD ["node", "server.js"]
+RUN node trias.js
+CMD ["node", "trias.js"]
