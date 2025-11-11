@@ -1,3 +1,5 @@
 node_modules
+trias.js
 # Keep environment variables out of version control
 
+.env

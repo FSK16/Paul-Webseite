@@ -1,7 +1,7 @@
-import https from 'https';
-import http from 'http';
-import { URL } from 'url';
-import convert from 'xml-js';
+const https = require('https'); 
+const http = require('http'); 
+const { URL } = require('url'); 
+const convert = require('xml-js');
 
 
 function xmlRequest(targetUrl, xml) {
@@ -69,4 +69,5 @@ function stripNamespaces(obj) {
   }
   return obj;
 }
-export default xmlRequest;
+
+module.exports = xmlRequest;
