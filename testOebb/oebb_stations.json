@@ -1,0 +1,7420 @@
+[
+    {
+      "id": "8100499",
+      "Name": "Nickelsdorf",
+      "ShortName": "Nif",
+      "lat": 47.942606461,
+      "lon": 17.086704023
+    },
+    {
+      "id": "8101430",
+      "Name": "Regelsbrunn",
+      "ShortName": "Reg",
+      "lat": 48.107000109,
+      "lon": 16.780206009
+    },
+    {
+      "id": "8100516",
+      "Name": "Wiener Neustadt Hbf",
+      "ShortName": "Nb",
+      "lat": 47.811618297,
+      "lon": 16.233835431
+    },
+    {
+      "id": "8100388",
+      "Name": "Neudorf",
+      "ShortName": "Par H1",
+      "lat": 48.008696132,
+      "lon": 16.937667254
+    },
+    {
+      "id": "8100068",
+      "Name": "Nenzing",
+      "ShortName": "Lt  K1",
+      "lat": 47.191108673,
+      "lon": 9.709550882
+    },
+    {
+      "id": "8100473",
+      "Name": "Riedenburg",
+      "ShortName": "Lat H1",
+      "lat": 47.493467275,
+      "lon": 9.721235897
+    },
+    {
+      "id": "8101118",
+      "Name": "Lahrndorf",
+      "ShortName": "Lf",
+      "lat": 47.994891995,
+      "lon": 14.374526127
+    },
+    {
+      "id": "8101386",
+      "Name": "Pruggern",
+      "ShortName": "Grb H1",
+      "lat": 47.42299673,
+      "lon": 13.873958372
+    },
+    {
+      "id": "8100369",
+      "Name": "Gramatneusiedl",
+      "ShortName": "Gn",
+      "lat": 48.035824749,
+      "lon": 16.489503417
+    },
+    {
+      "id": "8100026",
+      "Name": "Gloggnitz",
+      "ShortName": "Glo",
+      "lat": 47.67768324,
+      "lon": 15.947181978
+    },
+    {
+      "id": "8101120",
+      "Name": "Lauffen",
+      "ShortName": "Gj  H1",
+      "lat": 47.674271405,
+      "lon": 13.616345508
+    },
+    {
+      "id": "8100478",
+      "Name": "Mining",
+      "ShortName": "Mig",
+      "lat": 48.271190627,
+      "lon": 13.173645512
+    },
+    {
+      "id": "8100200",
+      "Name": "Göpfritz",
+      "ShortName": "Gf",
+      "lat": 48.72978609,
+      "lon": 15.394352802
+    },
+    {
+      "id": "8100727",
+      "Name": "Dornach",
+      "ShortName": "Gbk H1",
+      "lat": 48.191796847,
+      "lon": 14.820228426
+    },
+    {
+      "id": "8100353",
+      "Name": "Flughafen Wien",
+      "ShortName": "Fws",
+      "lat": 48.121070249,
+      "lon": 16.562379592
+    },
+    {
+      "id": "8101317",
+      "Name": "Obersdorf Haltestelle",
+      "ShortName": "Gef H3",
+      "lat": 48.362534363,
+      "lon": 16.516710136
+    },
+    {
+      "id": "8100053",
+      "Name": "Fieberbrunn",
+      "ShortName": "Hch H2",
+      "lat": 47.491163364,
+      "lon": 12.528899876
+    },
+    {
+      "id": "8100086",
+      "Name": "Paternion-Feistritz Haltestelle",
+      "ShortName": "Pf  H1",
+      "lat": 46.7069445,
+      "lon": 13.674455521
+    },
+    {
+      "id": "8100236",
+      "Name": "Wien Floridsdorf",
+      "ShortName": "F",
+      "lat": 48.256873165,
+      "lon": 16.400414643
+    },
+    {
+      "id": "8101623",
+      "Name": "St.Veit a.d.Triesting",
+      "ShortName": "Ez  H2",
+      "lat": 47.933461028,
+      "lon": 16.149835172
+    },
+    {
+      "id": "8100775",
+      "Name": "Enzersdorf bei Staatz",
+      "ShortName": "Enz",
+      "lat": 48.673046862,
+      "lon": 16.510775593
+    },
+    {
+      "id": "8100201",
+      "Name": "Eggenburg",
+      "ShortName": "Egg",
+      "lat": 48.637780904,
+      "lon": 15.81487248
+    },
+    {
+      "id": "8100746",
+      "Name": "Etsdorf-Straß",
+      "ShortName": "Edo",
+      "lat": 48.453092206,
+      "lon": 15.730213874
+    },
+    {
+      "id": "8101327",
+      "Name": "Ottnang-Wolfsegg",
+      "ShortName": "Otg",
+      "lat": 48.092124744,
+      "lon": 13.664920734
+    },
+    {
+      "id": "8100047",
+      "Name": "Bruck-Fusch",
+      "ShortName": "Brf",
+      "lat": 47.284612005,
+      "lon": 12.828392919
+    },
+    {
+      "id": "8101141",
+      "Name": "Lenzing",
+      "ShortName": "Lng",
+      "lat": 47.983045983,
+      "lon": 13.613663547
+    },
+    {
+      "id": "8100695",
+      "Name": "Breitenschützing",
+      "ShortName": "Bre",
+      "lat": 48.078688034,
+      "lon": 13.800841076
+    },
+    {
+      "id": "8100065",
+      "Name": "Langen am Arlberg",
+      "ShortName": "Lan",
+      "lat": 47.131648294,
+      "lon": 10.120992617
+    },
+    {
+      "id": "8100293",
+      "Name": "Korneuburg",
+      "ShortName": "Ko",
+      "lat": 48.342944397,
+      "lon": 16.328902038
+    },
+    {
+      "id": "8100536",
+      "Name": "Kefermarkt",
+      "ShortName": "Kf",
+      "lat": 48.436936578,
+      "lon": 14.538051439
+    },
+    {
+      "id": "8100072",
+      "Name": "Knittelfeld",
+      "ShortName": "Kd",
+      "lat": 47.21525967,
+      "lon": 14.837614252
+    },
+    {
+      "id": "8101019",
+      "Name": "Kalsdorf",
+      "ShortName": "Kal",
+      "lat": 46.96441342,
+      "lon": 15.47000227
+    },
+    {
+      "id": "8101579",
+      "Name": "St.Pantaleon",
+      "ShortName": "Mh  H1",
+      "lat": 48.227829455,
+      "lon": 14.528695868
+    },
+    {
+      "id": "8100062",
+      "Name": "Imst-Pitztal",
+      "ShortName": "Im",
+      "lat": 47.219014656,
+      "lon": 10.7620805
+    },
+    {
+      "id": "8100276",
+      "Name": "Holzleithen",
+      "ShortName": "Otg H2",
+      "lat": 48.113557331,
+      "lon": 13.606660371
+    },
+    {
+      "id": "8101421",
+      "Name": "Rainfeld-Klein Zell",
+      "ShortName": "Ror H1",
+      "lat": 48.050610456,
+      "lon": 15.707243682
+    },
+    {
+      "id": "8100959",
+      "Name": "Hainburg a.d.Donau Ungartor",
+      "ShortName": "Hai H2",
+      "lat": 48.14843787,
+      "lon": 16.947993141
+    },
+    {
+      "id": "8101367",
+      "Name": "Platt",
+      "ShortName": "Gud H1",
+      "lat": 48.674553337,
+      "lon": 15.966484573
+    },
+    {
+      "id": "8101837",
+      "Name": "Grünbach Schule",
+      "ShortName": "Gru H1",
+      "lat": 47.801374,
+      "lon": 15.981448631
+    },
+    {
+      "id": "8101918",
+      "Name": "Kaindorf a.d.Sulm",
+      "ShortName": "Wi  H2",
+      "lat": 46.801892985,
+      "lon": 15.542506518
+    },
+    {
+      "id": "8100921",
+      "Name": "Hatlerdorf",
+      "ShortName": "Hos H1",
+      "lat": 47.397212601,
+      "lon": 9.724823726
+    },
+    {
+      "id": "8101829",
+      "Name": "Zurndorf",
+      "ShortName": "Zu",
+      "lat": 47.968126569,
+      "lon": 17.023824715
+    },
+    {
+      "id": "8101793",
+      "Name": "Wolkersdorf",
+      "ShortName": "Wol",
+      "lat": 48.378991817,
+      "lon": 16.512386196
+    },
+    {
+      "id": "8101375",
+      "Name": "Pöckau",
+      "ShortName": "Vw  H1",
+      "lat": 46.552016594,
+      "lon": 13.745023684
+    },
+    {
+      "id": "8101728",
+      "Name": "Völs",
+      "ShortName": "Vl",
+      "lat": 47.255671372,
+      "lon": 11.32168726
+    },
+    {
+      "id": "8100953",
+      "Name": "Hirschbach",
+      "ShortName": "Vit H1",
+      "lat": 48.749552749,
+      "lon": 15.126298769
+    },
+    {
+      "id": "8100123",
+      "Name": "Lustenau",
+      "ShortName": "Us",
+      "lat": 47.450142922,
+      "lon": 9.667136125
+    },
+    {
+      "id": "8101402",
+      "Name": "Puchenau",
+      "ShortName": "Uf  H1",
+      "lat": 48.311608963,
+      "lon": 14.238020027
+    },
+    {
+      "id": "8101077",
+      "Name": "Kreisbach",
+      "ShortName": "Trn H3",
+      "lat": 48.100467199,
+      "lon": 15.607884862
+    },
+    {
+      "id": "8100864",
+      "Name": "Gopperding",
+      "ShortName": "Ant H3",
+      "lat": 48.440842284,
+      "lon": 13.458267094
+    },
+    {
+      "id": "8100128",
+      "Name": "Trieben",
+      "ShortName": "Tb",
+      "lat": 47.489511684,
+      "lon": 14.488516619
+    },
+    {
+      "id": "8100103",
+      "Name": "Schwaz",
+      "ShortName": "Sw",
+      "lat": 47.34977797,
+      "lon": 11.701547642
+    },
+    {
+      "id": "8100549",
+      "Name": "Gießenbach",
+      "ShortName": "Set K1",
+      "lat": 47.375210059,
+      "lon": 11.237089693
+    },
+    {
+      "id": "8100113",
+      "Name": "Seefeld in Tirol",
+      "ShortName": "Set",
+      "lat": 47.328778404,
+      "lon": 11.189435105
+    },
+    {
+      "id": "8100002",
+      "Name": "Salzburg Hbf",
+      "ShortName": "Sb",
+      "lat": 47.81393894,
+      "lon": 13.046285487
+    },
+    {
+      "id": "8100481",
+      "Name": "Bad Sauerbrunn",
+      "ShortName": "Sau",
+      "lat": 47.77403642,
+      "lon": 16.324767472
+    },
+    {
+      "id": "8100422",
+      "Name": "Schützen am Gebirge",
+      "ShortName": "Sag",
+      "lat": 47.848260711,
+      "lon": 16.619604623
+    },
+    {
+      "id": "8100878",
+      "Name": "Gerling OÖ",
+      "ShortName": "Rog H2",
+      "lat": 48.397291866,
+      "lon": 14.077078361
+    },
+    {
+      "id": "8101391",
+      "Name": "Purgstall",
+      "ShortName": "Pus",
+      "lat": 48.059421219,
+      "lon": 15.131211811
+    },
+    {
+      "id": "8100219",
+      "Name": "Donnerskirchen",
+      "ShortName": "Sag H2",
+      "lat": 47.888444735,
+      "lon": 16.660421033
+    },
+    {
+      "id": "8100601",
+      "Name": "Flughafen Graz Feldkirchen",
+      "ShortName": "Pu  H1",
+      "lat": 46.998266662,
+      "lon": 15.449273089
+    },
+    {
+      "id": "8101381",
+      "Name": "Pressbaum",
+      "ShortName": "Pm  H1",
+      "lat": 48.181306407,
+      "lon": 16.077705589
+    },
+    {
+      "id": "8101329",
+      "Name": "Oberweiden",
+      "ShortName": "On",
+      "lat": 48.306267378,
+      "lon": 16.833675525
+    },
+    {
+      "id": "8101228",
+      "Name": "Mauer-Öhling",
+      "ShortName": "Ams H1",
+      "lat": 48.095230938,
+      "lon": 14.801619881
+    },
+    {
+      "id": "8100016",
+      "Name": "Schwanenstadt",
+      "ShortName": "Sas",
+      "lat": 48.054265253,
+      "lon": 13.768361726
+    },
+    {
+      "id": "8100489",
+      "Name": "Munderfing",
+      "ShortName": "Mun",
+      "lat": 48.073923013,
+      "lon": 13.179435716
+    },
+    {
+      "id": "8100376",
+      "Name": "Moosbierbaum-Heiligeneich",
+      "ShortName": "Mos",
+      "lat": 48.305882077,
+      "lon": 15.901127034
+    },
+    {
+      "id": "8101769",
+      "Name": "Willendorf",
+      "ShortName": "Wil",
+      "lat": 47.789214976,
+      "lon": 16.0603901
+    },
+    {
+      "id": "8100914",
+      "Name": "Hagenau im Innkreis",
+      "ShortName": "Mig H1",
+      "lat": 48.265104647,
+      "lon": 13.114098085
+    },
+    {
+      "id": "8100637",
+      "Name": "Atzenbrugg",
+      "ShortName": "Tfd H2",
+      "lat": 48.297480483,
+      "lon": 15.917481042
+    },
+    {
+      "id": "8101202",
+      "Name": "Mandling",
+      "ShortName": "Mdg",
+      "lat": 47.404144871,
+      "lon": 13.568251458
+    },
+    {
+      "id": "8100430",
+      "Name": "Neufelden",
+      "ShortName": "Nef",
+      "lat": 48.483661015,
+      "lon": 14.005093765
+    },
+    {
+      "id": "8101005",
+      "Name": "Irschen",
+      "ShortName": "Od  H1",
+      "lat": 46.740392095,
+      "lon": 13.014086711
+    },
+    {
+      "id": "8100160",
+      "Name": "Bad Goisern",
+      "ShortName": "Stg H1",
+      "lat": 47.63970229,
+      "lon": 13.613066946
+    },
+    {
+      "id": "8100410",
+      "Name": "Mauerkirchen",
+      "ShortName": "Mau",
+      "lat": 48.192220628,
+      "lon": 13.128846188
+    },
+    {
+      "id": "8100733",
+      "Name": "Dürnbach",
+      "ShortName": "Lf  H1",
+      "lat": 47.978390546,
+      "lon": 14.35381629
+    },
+    {
+      "id": "8100257",
+      "Name": "Greifenstein-Altenberg",
+      "ShortName": "Kz  H2",
+      "lat": 48.344814889,
+      "lon": 16.239731967
+    },
+    {
+      "id": "8101457",
+      "Name": "Rietz",
+      "ShortName": "Ts  H1",
+      "lat": 47.292091229,
+      "lon": 11.024912002
+    },
+    {
+      "id": "8100166",
+      "Name": "Tauplitz",
+      "ShortName": "Ku",
+      "lat": 47.551613247,
+      "lon": 14.010384322
+    },
+    {
+      "id": "8100085",
+      "Name": "Klagenfurt Hbf",
+      "ShortName": "Kt",
+      "lat": 46.615768883,
+      "lon": 14.3137581
+    },
+    {
+      "id": "8101319",
+      "Name": "Ober Radlberg",
+      "ShortName": "Ho  H1",
+      "lat": 48.24062806,
+      "lon": 15.670533235
+    },
+    {
+      "id": "8101347",
+      "Name": "Petersbaumgarten",
+      "ShortName": "Sgk H1",
+      "lat": 47.633521028,
+      "lon": 16.132429503
+    },
+    {
+      "id": "8101048",
+      "Name": "Kirchstetten",
+      "ShortName": "Krt",
+      "lat": 48.190291769,
+      "lon": 15.821020111
+    },
+    {
+      "id": "8100030",
+      "Name": "Kindberg",
+      "ShortName": "Ki",
+      "lat": 47.501158025,
+      "lon": 15.448358262
+    },
+    {
+      "id": "8100374",
+      "Name": "Kaiserebersdorf",
+      "ShortName": "Kls",
+      "lat": 48.145315399,
+      "lon": 16.464360828
+    },
+    {
+      "id": "8100922",
+      "Name": "Wien Hadersdorf",
+      "ShortName": "Hf  H2",
+      "lat": 48.210434169,
+      "lon": 16.221808389
+    },
+    {
+      "id": "8100254",
+      "Name": "Götzendorf",
+      "ShortName": "Goe",
+      "lat": 48.025725953,
+      "lon": 16.585871358
+    },
+    {
+      "id": "8101014",
+      "Name": "Johnsbach im Nationalpark",
+      "ShortName": "Gb  H1",
+      "lat": 47.582405307,
+      "lon": 14.59585907
+    },
+    {
+      "id": "8100907",
+      "Name": "Grieswirt",
+      "ShortName": "Hch H3",
+      "lat": 47.509072075,
+      "lon": 12.46865766
+    },
+    {
+      "id": "8100076",
+      "Name": "Friesach",
+      "ShortName": "Fi",
+      "lat": 46.953329239,
+      "lon": 14.410844594
+    },
+    {
+      "id": "8100178",
+      "Name": "Bierbaum",
+      "ShortName": "Bib",
+      "lat": 47.097956648,
+      "lon": 16.074295449
+    },
+    {
+      "id": "8101414",
+      "Name": "Petzenkirchen",
+      "ShortName": "Erf H1",
+      "lat": 48.143583561,
+      "lon": 15.157130375
+    },
+    {
+      "id": "8100950",
+      "Name": "Himberg",
+      "ShortName": "Him",
+      "lat": 48.082551097,
+      "lon": 16.44480803
+    },
+    {
+      "id": "8100143",
+      "Name": "Dölsach",
+      "ShortName": "Doe",
+      "lat": 46.814739311,
+      "lon": 12.833564555
+    },
+    {
+      "id": "8101033",
+      "Name": "Kottingbrunn",
+      "ShortName": "Bvs H1",
+      "lat": 47.950591701,
+      "lon": 16.226906117
+    },
+    {
+      "id": "8100698",
+      "Name": "Brunn-Maria Enzersdorf",
+      "ShortName": "Bu",
+      "lat": 48.105248925,
+      "lon": 16.288091177
+    },
+    {
+      "id": "8101352",
+      "Name": "Pfaffstätten",
+      "ShortName": "Bf",
+      "lat": 48.017630403,
+      "lon": 16.258284993
+    },
+    {
+      "id": "8101416",
+      "Name": "Rabensburg",
+      "ShortName": "Nh  H1",
+      "lat": 48.652057209,
+      "lon": 16.894615545
+    },
+    {
+      "id": "8100021",
+      "Name": "Bad Schallerbach-Wallern",
+      "ShortName": "Wa",
+      "lat": 48.228707753,
+      "lon": 13.922228958
+    },
+    {
+      "id": "8100079",
+      "Name": "Krumpendorf",
+      "ShortName": "Krd",
+      "lat": 46.626450738,
+      "lon": 14.221874718
+    },
+    {
+      "id": "8105982",
+      "Name": "Heinfels",
+      "ShortName": "Sil H1H",
+      "lat": 46.745896624,
+      "lon": 12.444437466
+    },
+    {
+      "id": "8100411",
+      "Name": "Rosenburg",
+      "ShortName": "Rb",
+      "lat": 48.628482025,
+      "lon": 15.643733246
+    },
+    {
+      "id": "8100179",
+      "Name": "Sebersdorf",
+      "ShortName": "Seb",
+      "lat": 47.1889353,
+      "lon": 15.999006884
+    },
+    {
+      "id": "8100363",
+      "Name": "Zellerndorf",
+      "ShortName": "Zd",
+      "lat": 48.695458582,
+      "lon": 15.968065834
+    },
+    {
+      "id": "8102063",
+      "Name": "Salzburg Liefering",
+      "ShortName": "Lfg",
+      "lat": 47.824174462,
+      "lon": 13.000736107
+    },
+    {
+      "id": "8100740",
+      "Name": "Eberschwang",
+      "ShortName": "Otg H4",
+      "lat": 48.151816734,
+      "lon": 13.536875745
+    },
+    {
+      "id": "8102054",
+      "Name": "Puch Urstein",
+      "ShortName": "Aj  H3A",
+      "lat": 47.724440265,
+      "lon": 13.08810192
+    },
+    {
+      "id": "8100602",
+      "Name": "Achenlohe",
+      "ShortName": "Nst H4H",
+      "lat": 48.045920064,
+      "lon": 13.197771027
+    },
+    {
+      "id": "8100515",
+      "Name": "Parndorf Ort",
+      "ShortName": "Apo H1",
+      "lat": 47.991900997,
+      "lon": 16.85232326
+    },
+    {
+      "id": "8100795",
+      "Name": "Flaurling",
+      "ShortName": "Zl  K1",
+      "lat": 47.28886514,
+      "lon": 11.14343162
+    },
+    {
+      "id": "8100003",
+      "Name": "Wien Westbahnhof",
+      "ShortName": "Ws",
+      "lat": 48.196825014,
+      "lon": 16.336864432
+    },
+    {
+      "id": "8100360",
+      "Name": "Wolfsthal",
+      "ShortName": "Wof",
+      "lat": 48.135559751,
+      "lon": 17.00602345
+    },
+    {
+      "id": "8101745",
+      "Name": "Waldegg",
+      "ShortName": "Wag",
+      "lat": 47.868887541,
+      "lon": 16.058505143
+    },
+    {
+      "id": "8101404",
+      "Name": "Purkersdorf Zentrum",
+      "ShortName": "Upz",
+      "lat": 48.206137643,
+      "lon": 16.175794639
+    },
+    {
+      "id": "8100061",
+      "Name": "Ötztal",
+      "ShortName": "Oz",
+      "lat": 47.238591403,
+      "lon": 10.859241708
+    },
+    {
+      "id": "8101695",
+      "Name": "Ulmerfeld-Hausmening",
+      "ShortName": "Ul",
+      "lat": 48.07491194,
+      "lon": 14.815690556
+    },
+    {
+      "id": "8101390",
+      "Name": "Pottschach",
+      "ShortName": "Tn  H1",
+      "lat": 47.696835448,
+      "lon": 16.005599596
+    },
+    {
+      "id": "8100046",
+      "Name": "Taxenbach-Rauris",
+      "ShortName": "Ta",
+      "lat": 47.29284789,
+      "lon": 12.947897773
+    },
+    {
+      "id": "8100850",
+      "Name": "Glanegg",
+      "ShortName": "Gla",
+      "lat": 46.717334432,
+      "lon": 14.211142942
+    },
+    {
+      "id": "8100857",
+      "Name": "Gniebing",
+      "ShortName": "Stu H2",
+      "lat": 46.961817454,
+      "lon": 15.853180317
+    },
+    {
+      "id": "8100196",
+      "Name": "Studenzen-Fladnitz",
+      "ShortName": "Stu",
+      "lat": 46.998766923,
+      "lon": 15.774933369
+    },
+    {
+      "id": "8100092",
+      "Name": "Spittal-Millstättersee",
+      "ShortName": "Stt",
+      "lat": 46.795694336,
+      "lon": 13.487571487
+    },
+    {
+      "id": "8101126",
+      "Name": "Lendorf",
+      "ShortName": "Ssn H1",
+      "lat": 46.827647613,
+      "lon": 13.417765737
+    },
+    {
+      "id": "8101778",
+      "Name": "Wiesmühle",
+      "ShortName": "Gdf H1",
+      "lat": 48.021735817,
+      "lon": 14.043674643
+    },
+    {
+      "id": "8101148",
+      "Name": "Lichendorf",
+      "ShortName": "Sd  H2",
+      "lat": 46.713913404,
+      "lon": 15.698243016
+    },
+    {
+      "id": "8101428",
+      "Name": "Redl-Zipf",
+      "ShortName": "Rz",
+      "lat": 48.026248667,
+      "lon": 13.515051314
+    },
+    {
+      "id": "8101448",
+      "Name": "Roppen",
+      "ShortName": "Rop",
+      "lat": 47.21579251,
+      "lon": 10.817391471
+    },
+    {
+      "id": "8101110",
+      "Name": "Lacken",
+      "ShortName": "Rog H1",
+      "lat": 48.385917981,
+      "lon": 14.0913979
+    },
+    {
+      "id": "8100781",
+      "Name": "Ferndorf",
+      "ShortName": "Ro  H1",
+      "lat": 46.732667837,
+      "lon": 13.628920094
+    },
+    {
+      "id": "8101684",
+      "Name": "Traxenbichl",
+      "ShortName": "Tx",
+      "lat": 47.877199801,
+      "lon": 13.938384839
+    },
+    {
+      "id": "8101419",
+      "Name": "Ramingdorf-Haidershofen",
+      "ShortName": "Rh",
+      "lat": 48.067840857,
+      "lon": 14.459581086
+    },
+    {
+      "id": "8100539",
+      "Name": "Werfen",
+      "ShortName": "Rf",
+      "lat": 47.472803757,
+      "lon": 13.195229125
+    },
+    {
+      "id": "8100405",
+      "Name": "Ried im Innkreis",
+      "ShortName": "Rd",
+      "lat": 48.200534489,
+      "lon": 13.487716418
+    },
+    {
+      "id": "8100677",
+      "Name": "Bad Radkersburg",
+      "ShortName": "Ra",
+      "lat": 46.699591937,
+      "lon": 15.993337888
+    },
+    {
+      "id": "8100450",
+      "Name": "Wien Penzing",
+      "ShortName": "Pz",
+      "lat": 48.192642759,
+      "lon": 16.304434409
+    },
+    {
+      "id": "8101809",
+      "Name": "Wettmannstätten",
+      "ShortName": "Wtt",
+      "lat": 46.837691351,
+      "lon": 15.382137593
+    },
+    {
+      "id": "8101617",
+      "Name": "Schützen Haltestelle",
+      "ShortName": "Sag H1",
+      "lat": 47.851364844,
+      "lon": 16.630238892
+    },
+    {
+      "id": "8101374",
+      "Name": "St.Pölten-Kaiserwald",
+      "ShortName": "Pl",
+      "lat": 48.199221864,
+      "lon": 15.613786354
+    },
+    {
+      "id": "8100034",
+      "Name": "Peggau-Deutschfeistritz",
+      "ShortName": "Pg",
+      "lat": 47.207054833,
+      "lon": 15.343323772
+    },
+    {
+      "id": "8100890",
+      "Name": "Groß Sierning",
+      "ShortName": "Sie",
+      "lat": 48.187975594,
+      "lon": 15.457147049
+    },
+    {
+      "id": "8100075",
+      "Name": "Neumarkt in Steiermark",
+      "ShortName": "Nes",
+      "lat": 47.073480828,
+      "lon": 14.414958036
+    },
+    {
+      "id": "8100007",
+      "Name": "Ybbs a.d.Donau",
+      "ShortName": "Y",
+      "lat": 48.15917898,
+      "lon": 15.099955067
+    },
+    {
+      "id": "8101261",
+      "Name": "Neubau-Kreuzstetten",
+      "ShortName": "N",
+      "lat": 48.497348978,
+      "lon": 16.500744387
+    },
+    {
+      "id": "8100029",
+      "Name": "Mürzzuschlag",
+      "ShortName": "Mz",
+      "lat": 47.607903098,
+      "lon": 15.676991762
+    },
+    {
+      "id": "8100591",
+      "Name": "Silberwald",
+      "ShortName": "Str H1",
+      "lat": 48.328339576,
+      "lon": 16.678509944
+    },
+    {
+      "id": "8100311",
+      "Name": "Statzendorf",
+      "ShortName": "Stf",
+      "lat": 48.309113753,
+      "lon": 15.632632212
+    },
+    {
+      "id": "8101597",
+      "Name": "St.Peter-Seitenstetten",
+      "ShortName": "Sp",
+      "lat": 48.054713104,
+      "lon": 14.64620946
+    },
+    {
+      "id": "8100682",
+      "Name": "Breiteneich bei Horn",
+      "ShortName": "Sh  H1H",
+      "lat": 48.672206205,
+      "lon": 15.688271282
+    },
+    {
+      "id": "8100693",
+      "Name": "Breitensee NÖ",
+      "ShortName": "Sfl H1",
+      "lat": 48.254853789,
+      "lon": 16.878991633
+    },
+    {
+      "id": "8100028",
+      "Name": "Semmering",
+      "ShortName": "Sem",
+      "lat": 47.639630621,
+      "lon": 15.83090154
+    },
+    {
+      "id": "8100455",
+      "Name": "Bad Waltersdorf",
+      "ShortName": "Seb H1",
+      "lat": 47.170189319,
+      "lon": 16.013754768
+    },
+    {
+      "id": "8101612",
+      "Name": "Steinbachbrücke",
+      "ShortName": "Sbb",
+      "lat": 47.932347058,
+      "lon": 13.993076252
+    },
+    {
+      "id": "8101819",
+      "Name": "Zell a.d.Pram",
+      "ShortName": "Ri  H1",
+      "lat": 48.31745858,
+      "lon": 13.623850632
+    },
+    {
+      "id": "8101403",
+      "Name": "Puchberg am Schneeberg",
+      "ShortName": "Pub",
+      "lat": 47.790542342,
+      "lon": 15.910823041
+    },
+    {
+      "id": "8101097",
+      "Name": "Küb",
+      "ShortName": "Pr  H1",
+      "lat": 47.681876591,
+      "lon": 15.876564046
+    },
+    {
+      "id": "8100731",
+      "Name": "Dreistetten",
+      "ShortName": "Pie H1",
+      "lat": 47.872422941,
+      "lon": 16.110520275
+    },
+    {
+      "id": "8100008",
+      "Name": "St.Pölten Hbf",
+      "ShortName": "Pb",
+      "lat": 48.20827649,
+      "lon": 15.624679454
+    },
+    {
+      "id": "8101797",
+      "Name": "Wopfing",
+      "ShortName": "Op  H1",
+      "lat": 47.873641784,
+      "lon": 16.076717651
+    },
+    {
+      "id": "8101494",
+      "Name": "Stein a.d.Enns",
+      "ShortName": "Oeb H1",
+      "lat": 47.437482419,
+      "lon": 13.941978309
+    },
+    {
+      "id": "8101290",
+      "Name": "Wien Nußdorf",
+      "ShortName": "Nf",
+      "lat": 48.260003786,
+      "lon": 16.367810439
+    },
+    {
+      "id": "8101045",
+      "Name": "Kimpling",
+      "ShortName": "Neu H1",
+      "lat": 48.266559183,
+      "lon": 13.669317201
+    },
+    {
+      "id": "8100045",
+      "Name": "Lend",
+      "ShortName": "Ld",
+      "lat": 47.29742512,
+      "lon": 13.055685994
+    },
+    {
+      "id": "8100077",
+      "Name": "Launsdorf-Hochosterwitz",
+      "ShortName": "Lad",
+      "lat": 46.768861563,
+      "lon": 14.45548346
+    },
+    {
+      "id": "8100057",
+      "Name": "Kirchberg in Tirol",
+      "ShortName": "Kit",
+      "lat": 47.44892389,
+      "lon": 12.309170941
+    },
+    {
+      "id": "8101036",
+      "Name": "Kematen-Piberbach",
+      "ShortName": "Kek",
+      "lat": 48.113063709,
+      "lon": 14.203261191
+    },
+    {
+      "id": "8100288",
+      "Name": "Kirchberg am Wagram",
+      "ShortName": "Kch",
+      "lat": 48.427537913,
+      "lon": 15.894145089
+    },
+    {
+      "id": "8100483",
+      "Name": "Schaftenau",
+      "ShortName": "K   H1",
+      "lat": 47.55883976,
+      "lon": 12.125395922
+    },
+    {
+      "id": "8100114",
+      "Name": "Bichlbach-Berwang",
+      "ShortName": "Bch",
+      "lat": 47.421389309,
+      "lon": 10.793283614
+    },
+    {
+      "id": "8101792",
+      "Name": "Oberndorf in Tirol",
+      "ShortName": "Jti H1",
+      "lat": 47.496904814,
+      "lon": 12.390490983
+    },
+    {
+      "id": "8101558",
+      "Name": "Salzburg Kasern",
+      "ShortName": "Hw  H1",
+      "lat": 47.83927541,
+      "lon": 13.065186265
+    },
+    {
+      "id": "8100131",
+      "Name": "Liezen",
+      "ShortName": "Ln",
+      "lat": 47.562529306,
+      "lon": 14.241929409
+    },
+    {
+      "id": "8101439",
+      "Name": "Rohrbach a.d.Gölsen",
+      "ShortName": "Ror",
+      "lat": 48.047584801,
+      "lon": 15.743190459
+    },
+    {
+      "id": "8100949",
+      "Name": "Hilm-Kematen",
+      "ShortName": "Hk",
+      "lat": 48.022538412,
+      "lon": 14.761757086
+    },
+    {
+      "id": "8100916",
+      "Name": "Halbenrain",
+      "ShortName": "Hal",
+      "lat": 46.723819283,
+      "lon": 15.948887829
+    },
+    {
+      "id": "8101947",
+      "Name": "Handelskai",
+      "ShortName": "Hak",
+      "lat": 48.242152924,
+      "lon": 16.385971298
+    },
+    {
+      "id": "8101361",
+      "Name": "Pinsdorf",
+      "ShortName": "Gz  H1",
+      "lat": 47.933238176,
+      "lon": 13.766094298
+    },
+    {
+      "id": "8100370",
+      "Name": "Gratwein-Gratkorn",
+      "ShortName": "Gw",
+      "lat": 47.129392031,
+      "lon": 15.322749093
+    },
+    {
+      "id": "8100273",
+      "Name": "Hötzelsdorf-Geras",
+      "ShortName": "Hgr",
+      "lat": 48.742223708,
+      "lon": 15.670405629
+    },
+    {
+      "id": "8101349",
+      "Name": "Pfennigbach",
+      "ShortName": "Gru H3",
+      "lat": 47.795728198,
+      "lon": 15.923946671
+    },
+    {
+      "id": "8100882",
+      "Name": "Grünbach am Schneeberg",
+      "ShortName": "Gru",
+      "lat": 47.797546138,
+      "lon": 15.997853952
+    },
+    {
+      "id": "8101685",
+      "Name": "Tisis",
+      "ShortName": "To  H1",
+      "lat": 47.22744081,
+      "lon": 9.575619289
+    },
+    {
+      "id": "8100176",
+      "Name": "Fehring",
+      "ShortName": "Feg",
+      "lat": 46.949453724,
+      "lon": 16.013207964
+    },
+    {
+      "id": "8100757",
+      "Name": "Enzesfeld-Lindabrunn",
+      "ShortName": "Ez",
+      "lat": 47.921360384,
+      "lon": 16.187306765
+    },
+    {
+      "id": "8101789",
+      "Name": "Wiener Neustadt Civitas Nova",
+      "ShortName": "Ed  H1",
+      "lat": 47.833316645,
+      "lon": 16.254373245
+    },
+    {
+      "id": "8100716",
+      "Name": "Dorf a.d.Enns",
+      "ShortName": "Ern H1",
+      "lat": 48.091349912,
+      "lon": 14.473091637
+    },
+    {
+      "id": "8101012",
+      "Name": "Jedenspeigen",
+      "ShortName": "Due H1",
+      "lat": 48.495799691,
+      "lon": 16.878847422
+    },
+    {
+      "id": "8100724",
+      "Name": "Dürnkrut",
+      "ShortName": "Due",
+      "lat": 48.471088119,
+      "lon": 16.861058229
+    },
+    {
+      "id": "8100145",
+      "Name": "Dellach im Drautal",
+      "ShortName": "De",
+      "lat": 46.735722783,
+      "lon": 13.075539521
+    },
+    {
+      "id": "8101871",
+      "Name": "Mannswörth",
+      "ShortName": "Msw",
+      "lat": 48.136333039,
+      "lon": 16.508254537
+    },
+    {
+      "id": "8101311",
+      "Name": "Obertraun-Koppenbrüllerhöhle",
+      "ShortName": "Au  H1",
+      "lat": 47.56451711,
+      "lon": 13.720440231
+    },
+    {
+      "id": "8100418",
+      "Name": "Mittlern",
+      "ShortName": "Ble H2",
+      "lat": 46.598801064,
+      "lon": 14.714940136
+    },
+    {
+      "id": "8101289",
+      "Name": "Nüziders",
+      "ShortName": "B   H1",
+      "lat": 47.17147316,
+      "lon": 9.792704139
+    },
+    {
+      "id": "8100119",
+      "Name": "Rankweil",
+      "ShortName": "Rk",
+      "lat": 47.271933108,
+      "lon": 9.637605668
+    },
+    {
+      "id": "8101825",
+      "Name": "Zeiselmauer-Königstetten",
+      "ShortName": "Aw  H1",
+      "lat": 48.326617596,
+      "lon": 16.175073977
+    },
+    {
+      "id": "8100042",
+      "Name": "Bischofshofen",
+      "ShortName": "Bo",
+      "lat": 47.419817147,
+      "lon": 13.219830154
+    },
+    {
+      "id": "8100012",
+      "Name": "Amstetten",
+      "ShortName": "Ams",
+      "lat": 48.121285881,
+      "lon": 14.878882099
+    },
+    {
+      "id": "8100639",
+      "Name": "Aurachkirchen",
+      "ShortName": "Ak",
+      "lat": 47.968159068,
+      "lon": 13.745367143
+    },
+    {
+      "id": "8102149",
+      "Name": "Ledenitzen",
+      "ShortName": "Fas H1",
+      "lat": 46.56285724,
+      "lon": 13.965996931
+    },
+    {
+      "id": "8101747",
+      "Name": "Walding",
+      "ShortName": "Ott H1",
+      "lat": 48.3483556,
+      "lon": 14.153748884
+    },
+    {
+      "id": "8101313",
+      "Name": "Oberland Haltestelle",
+      "ShortName": "Ob  H1H",
+      "lat": 47.901988079,
+      "lon": 14.744099727
+    },
+    {
+      "id": "8198449",
+      "Name": "Wien Mitte - CAT",
+      "ShortName": "Cat",
+      "lat": 48.207205822,
+      "lon": 16.385536092
+    },
+    {
+      "id": "8101163",
+      "Name": "Leobersdorf",
+      "ShortName": "Lb",
+      "lat": 47.939659743,
+      "lon": 16.230621899
+    },
+    {
+      "id": "8102059",
+      "Name": "Tullnerfeld",
+      "ShortName": "Tfd",
+      "lat": 48.295142049,
+      "lon": 15.996536931
+    },
+    {
+      "id": "8100568",
+      "Name": "Fels",
+      "ShortName": "Fs",
+      "lat": 48.429008297,
+      "lon": 15.822856005
+    },
+    {
+      "id": "8102055",
+      "Name": "Salzburg Sam",
+      "ShortName": "Sbm H1",
+      "lat": 47.819495257,
+      "lon": 13.063169159
+    },
+    {
+      "id": "8100322",
+      "Name": "Ternberg",
+      "ShortName": "Te",
+      "lat": 47.948891188,
+      "lon": 14.354885034
+    },
+    {
+      "id": "8102058",
+      "Name": "Wöllersdorf Marchgraben",
+      "ShortName": "Woe H1A",
+      "lat": 47.86527498,
+      "lon": 16.164262641
+    },
+    {
+      "id": "8100600",
+      "Name": "Aschbach Haltestelle",
+      "ShortName": "Ams H2",
+      "lat": 48.06957962,
+      "lon": 14.756172447
+    },
+    {
+      "id": "8101818",
+      "Name": "Vienna Biocenter-St.Marx",
+      "ShortName": "Nw  H1H",
+      "lat": 48.188456464,
+      "lon": 16.398640447
+    },
+    {
+      "id": "8100520",
+      "Name": "Petronell-Carnuntum",
+      "ShortName": "Pet",
+      "lat": 48.105819673,
+      "lon": 16.867672197
+    },
+    {
+      "id": "8101007",
+      "Name": "Inzing",
+      "ShortName": "Zl  H1",
+      "lat": 47.277790209,
+      "lon": 11.199065485
+    },
+    {
+      "id": "8100146",
+      "Name": "Greifenburg-Weißensee",
+      "ShortName": "Gre",
+      "lat": 46.741132948,
+      "lon": 13.191007378
+    },
+    {
+      "id": "8101383",
+      "Name": "Wolfsberg Reding",
+      "ShortName": "Wog H1",
+      "lat": 46.825614002,
+      "lon": 14.845764962
+    },
+    {
+      "id": "8100389",
+      "Name": "Wolfurt",
+      "ShortName": "Wo",
+      "lat": 47.456960622,
+      "lon": 9.741361402
+    },
+    {
+      "id": "8100517",
+      "Name": "Windischgarsten",
+      "ShortName": "Win",
+      "lat": 47.715356763,
+      "lon": 14.326890419
+    },
+    {
+      "id": "8101292",
+      "Name": "Nußbach",
+      "ShortName": "Wak H1",
+      "lat": 47.97164438,
+      "lon": 14.123394864
+    },
+    {
+      "id": "8100099",
+      "Name": "Wörgl Hbf",
+      "ShortName": "W",
+      "lat": 47.491476915,
+      "lon": 12.060548724
+    },
+    {
+      "id": "8102049",
+      "Name": "Hallein Burgfried",
+      "ShortName": "Hl  H1A",
+      "lat": 47.675728524,
+      "lon": 13.114641865
+    },
+    {
+      "id": "8101716",
+      "Name": "Viechtwang",
+      "ShortName": "Viw",
+      "lat": 47.915521418,
+      "lon": 13.971309124
+    },
+    {
+      "id": "8101768",
+      "Name": "Wilhelmsburg a.d.Traisen",
+      "ShortName": "Wm",
+      "lat": 48.111372876,
+      "lon": 15.608423255
+    },
+    {
+      "id": "8100148",
+      "Name": "Villach Westbf",
+      "ShortName": "Vf",
+      "lat": 46.60920317,
+      "lon": 13.840596253
+    },
+    {
+      "id": "8100107",
+      "Name": "Steinach in Tirol",
+      "ShortName": "Sti",
+      "lat": 47.089274977,
+      "lon": 11.469820756
+    },
+    {
+      "id": "8101081",
+      "Name": "Kröllendorf",
+      "ShortName": "Ul  H1",
+      "lat": 48.043072657,
+      "lon": 14.788910874
+    },
+    {
+      "id": "8100830",
+      "Name": "Geinberg",
+      "ShortName": "Gur H1",
+      "lat": 48.266328584,
+      "lon": 13.291436903
+    },
+    {
+      "id": "8100192",
+      "Name": "Bad Erlach",
+      "ShortName": "Ela",
+      "lat": 47.73143048,
+      "lon": 16.211346315
+    },
+    {
+      "id": "8101682",
+      "Name": "Trumau",
+      "ShortName": "Ti  K1",
+      "lat": 47.992513199,
+      "lon": 16.332156361
+    },
+    {
+      "id": "8101794",
+      "Name": "Wolfshütte",
+      "ShortName": "At  H2",
+      "lat": 48.053045445,
+      "lon": 13.681402021
+    },
+    {
+      "id": "8100892",
+      "Name": "Gries im Pinzgau",
+      "ShortName": "Ta  H1",
+      "lat": 47.288029078,
+      "lon": 12.890592612
+    },
+    {
+      "id": "8100009",
+      "Name": "St.Valentin",
+      "ShortName": "Sv",
+      "lat": 48.179045586,
+      "lon": 14.520935244
+    },
+    {
+      "id": "8101223",
+      "Name": "Lambach Markt",
+      "ShortName": "La  H1",
+      "lat": 48.094382193,
+      "lon": 13.869963053
+    },
+    {
+      "id": "8100398",
+      "Name": "Loipersbach-Schattendorf",
+      "ShortName": "Ls",
+      "lat": 47.700754506,
+      "lon": 16.491816507
+    },
+    {
+      "id": "8101337",
+      "Name": "Patsch",
+      "ShortName": "I   H2",
+      "lat": 47.192576565,
+      "lon": 11.417684461
+    },
+    {
+      "id": "8100059",
+      "Name": "Hopfgarten",
+      "ShortName": "Hp",
+      "lat": 47.455581923,
+      "lon": 12.148907919
+    },
+    {
+      "id": "8100248",
+      "Name": "Garsten",
+      "ShortName": "Gst",
+      "lat": 48.023742246,
+      "lon": 14.408469286
+    },
+    {
+      "id": "8100259",
+      "Name": "Schwechat",
+      "ShortName": "Gs",
+      "lat": 48.143478824,
+      "lon": 16.481632624
+    },
+    {
+      "id": "8100876",
+      "Name": "Großraming",
+      "ShortName": "Rei H2",
+      "lat": 47.88210256,
+      "lon": 14.551561749
+    },
+    {
+      "id": "8101467",
+      "Name": "Sarasdorf",
+      "ShortName": "Goe H1",
+      "lat": 48.023208017,
+      "lon": 16.677358399
+    },
+    {
+      "id": "8101308",
+      "Name": "Oftering",
+      "ShortName": "Hoe H1",
+      "lat": 48.227615463,
+      "lon": 14.151153501
+    },
+    {
+      "id": "8100337",
+      "Name": "Volders-Baumkirchen",
+      "ShortName": "Fw  H1",
+      "lat": 47.296145871,
+      "lon": 11.564122819
+    },
+    {
+      "id": "8101586",
+      "Name": "Schrambach",
+      "ShortName": "Shr",
+      "lat": 48.00203535,
+      "lon": 15.575357549
+    },
+    {
+      "id": "8100244",
+      "Name": "Furth-Göttweig",
+      "ShortName": "Fh  H1",
+      "lat": 48.373192703,
+      "lon": 15.615767097
+    },
+    {
+      "id": "8100175",
+      "Name": "Feldbach",
+      "ShortName": "Fb",
+      "lat": 46.958550716,
+      "lon": 15.888554121
+    },
+    {
+      "id": "8100747",
+      "Name": "Ernsthofen",
+      "ShortName": "Ern",
+      "lat": 48.126592251,
+      "lon": 14.479982531
+    },
+    {
+      "id": "8100226",
+      "Name": "Ebreichsdorf",
+      "ShortName": "Ebr",
+      "lat": 47.964160708,
+      "lon": 16.419330818
+    },
+    {
+      "id": "8100661",
+      "Name": "Böheimkirchen",
+      "ShortName": "Bh",
+      "lat": 48.199999059,
+      "lon": 15.753890048
+    },
+    {
+      "id": "8100025",
+      "Name": "Baden",
+      "ShortName": "Bf  H1",
+      "lat": 48.004312431,
+      "lon": 16.243092023
+    },
+    {
+      "id": "8100165",
+      "Name": "Bad Mitterndorf",
+      "ShortName": "Bam",
+      "lat": 47.550499811,
+      "lon": 13.943815318
+    },
+    {
+      "id": "8101406",
+      "Name": "Puch bei Hallein",
+      "ShortName": "Aj  H4",
+      "lat": 47.71282829,
+      "lon": 13.090729429
+    },
+    {
+      "id": "8100161",
+      "Name": "Admont",
+      "ShortName": "Ad",
+      "lat": 47.57335391,
+      "lon": 14.468401649
+    },
+    {
+      "id": "8103840",
+      "Name": "Köttmannsdorf Lambichl",
+      "ShortName": "Kt  H1A",
+      "lat": 46.579567506,
+      "lon": 14.2829036
+    },
+    {
+      "id": "8102068",
+      "Name": "Schalchen-Mattighofen",
+      "ShortName": "Mun H1",
+      "lat": 48.095237197,
+      "lon": 13.16363779
+    },
+    {
+      "id": "8102051",
+      "Name": "Hengsberg",
+      "ShortName": "Hen",
+      "lat": 46.864198559,
+      "lon": 15.458730341
+    },
+    {
+      "id": "8105987",
+      "Name": "Innsbruck Messe",
+      "ShortName": "H   H3",
+      "lat": 47.273250879,
+      "lon": 11.407682623
+    },
+    {
+      "id": "8101555",
+      "Name": "Geiselbergstraße",
+      "ShortName": "Sah H1",
+      "lat": 48.175708162,
+      "lon": 16.407191054
+    },
+    {
+      "id": "8101173",
+      "Name": "Lanzendorf-Rannersdorf",
+      "ShortName": "Zs",
+      "lat": 48.113199843,
+      "lon": 16.447393974
+    },
+    {
+      "id": "8101293",
+      "Name": "Neumarkt a.d.Y-Karlsbach",
+      "ShortName": "Kar H1",
+      "lat": 48.141973309,
+      "lon": 15.04975154
+    },
+    {
+      "id": "8101711",
+      "Name": "Urschendorf",
+      "ShortName": "Wz  H1",
+      "lat": 47.797496601,
+      "lon": 16.090268955
+    },
+    {
+      "id": "8100525",
+      "Name": "Pottendorf-Landegg",
+      "ShortName": "Wp  H1",
+      "lat": 47.905260078,
+      "lon": 16.396022699
+    },
+    {
+      "id": "8100342",
+      "Name": "Wampersdorf",
+      "ShortName": "Wp",
+      "lat": 47.931064245,
+      "lon": 16.417080688
+    },
+    {
+      "id": "8100058",
+      "Name": "Westendorf",
+      "ShortName": "Kit K1",
+      "lat": 47.441183395,
+      "lon": 12.223195934
+    },
+    {
+      "id": "8100014",
+      "Name": "Wels Hbf",
+      "ShortName": "We",
+      "lat": 48.166137629,
+      "lon": 14.027590047
+    },
+    {
+      "id": "8101833",
+      "Name": "Diensthubersiedlung",
+      "ShortName": "Voi H3",
+      "lat": 47.96804635,
+      "lon": 14.022014882
+    },
+    {
+      "id": "8100507",
+      "Name": "Vöcklabruck",
+      "ShortName": "Vk",
+      "lat": 48.010063333,
+      "lon": 13.663841837
+    },
+    {
+      "id": "8101804",
+      "Name": "Wiesenfeld-Schwarzenbach",
+      "ShortName": "Ror H3",
+      "lat": 48.051216916,
+      "lon": 15.64869884
+    },
+    {
+      "id": "8100267",
+      "Name": "Hard-Fussach",
+      "ShortName": "Hfu",
+      "lat": 47.479887247,
+      "lon": 9.689829685
+    },
+    {
+      "id": "8101661",
+      "Name": "Ternitz",
+      "ShortName": "Tn",
+      "lat": 47.712990449,
+      "lon": 16.032234087
+    },
+    {
+      "id": "8101670",
+      "Name": "Timelkam",
+      "ShortName": "Tm",
+      "lat": 48.007984424,
+      "lon": 13.595835476
+    },
+    {
+      "id": "8101237",
+      "Name": "Mötz",
+      "ShortName": "Sts H1",
+      "lat": 47.275850306,
+      "lon": 10.961152834
+    },
+    {
+      "id": "8101500",
+      "Name": "Stiefern",
+      "ShortName": "Stn",
+      "lat": 48.534882664,
+      "lon": 15.691414362
+    },
+    {
+      "id": "8101521",
+      "Name": "Steinhaus bei Wels",
+      "ShortName": "Sth",
+      "lat": 48.11933798,
+      "lon": 14.017944174
+    },
+    {
+      "id": "8100918",
+      "Name": "Wien Hirschstetten",
+      "ShortName": "Stc",
+      "lat": 48.232783912,
+      "lon": 16.469517827
+    },
+    {
+      "id": "8100306",
+      "Name": "Spital am Pyhrn",
+      "ShortName": "Spi",
+      "lat": 47.673118581,
+      "lon": 14.347602007
+    },
+    {
+      "id": "8101530",
+      "Name": "St.Johann-Weistrach",
+      "ShortName": "Spw H1",
+      "lat": 48.075466589,
+      "lon": 14.612746073
+    },
+    {
+      "id": "8100142",
+      "Name": "Sillian",
+      "ShortName": "Sil",
+      "lat": 46.745554307,
+      "lon": 12.425094177
+    },
+    {
+      "id": "8100493",
+      "Name": "Sigmundsherberg",
+      "ShortName": "Sh",
+      "lat": 48.685527487,
+      "lon": 15.745498783
+    },
+    {
+      "id": "8101538",
+      "Name": "Scheifling",
+      "ShortName": "Sf",
+      "lat": 47.147841325,
+      "lon": 14.419224172
+    },
+    {
+      "id": "8101520",
+      "Name": "Steinhaus",
+      "ShortName": "Sem H1",
+      "lat": 47.620925526,
+      "lon": 15.784217343
+    },
+    {
+      "id": "8100487",
+      "Name": "Schönberg am Kamp",
+      "ShortName": "Sbk",
+      "lat": 48.515662277,
+      "lon": 15.696630243
+    },
+    {
+      "id": "8100213",
+      "Name": "Annenheim",
+      "ShortName": "Saf H1",
+      "lat": 46.658770512,
+      "lon": 13.898723284
+    },
+    {
+      "id": "8101146",
+      "Name": "Leogang-Steinberge",
+      "ShortName": "Saa H1",
+      "lat": 47.445006165,
+      "lon": 12.768486185
+    },
+    {
+      "id": "8100763",
+      "Name": "Ehrenhausen",
+      "ShortName": "Rzn H1",
+      "lat": 46.727683989,
+      "lon": 15.585472854
+    },
+    {
+      "id": "8100556",
+      "Name": "Pflach",
+      "ShortName": "Rt  H1",
+      "lat": 47.514068078,
+      "lon": 10.718039551
+    },
+    {
+      "id": "8101573",
+      "Name": "Sonntagberg",
+      "ShortName": "Hk  H2",
+      "lat": 47.991974561,
+      "lon": 14.738287441
+    },
+    {
+      "id": "8100678",
+      "Name": "Bad Ried",
+      "ShortName": "Rd  H1M",
+      "lat": 48.212107499,
+      "lon": 13.477553529
+    },
+    {
+      "id": "8100144",
+      "Name": "Oberdrauburg",
+      "ShortName": "Od",
+      "lat": 46.746281099,
+      "lon": 12.974050207
+    },
+    {
+      "id": "8100349",
+      "Name": "Wien Praterstern",
+      "ShortName": "Nw",
+      "lat": 48.220993266,
+      "lon": 16.391816501
+    },
+    {
+      "id": "8101312",
+      "Name": "Ollersbach",
+      "ShortName": "Nl  H1",
+      "lat": 48.191459417,
+      "lon": 15.847414239
+    },
+    {
+      "id": "8100023",
+      "Name": "Neumarkt-Kallham",
+      "ShortName": "Neu",
+      "lat": 48.271428246,
+      "lon": 13.72454089
+    },
+    {
+      "id": "8100437",
+      "Name": "St.Martin im Innkreis",
+      "ShortName": "Mn",
+      "lat": 48.288906354,
+      "lon": 13.433576311
+    },
+    {
+      "id": "8100814",
+      "Name": "Furth",
+      "ShortName": "Mho H1",
+      "lat": 48.131947211,
+      "lon": 13.139840379
+    },
+    {
+      "id": "8100867",
+      "Name": "Gumpoldskirchen",
+      "ShortName": "Md  H2",
+      "lat": 48.041257692,
+      "lon": 16.285268553
+    },
+    {
+      "id": "8100333",
+      "Name": "Uttendorf-Helpfau",
+      "ShortName": "Mho H2",
+      "lat": 48.160791778,
+      "lon": 13.133486155
+    },
+    {
+      "id": "8101243",
+      "Name": "St.Marein-St.Lorenzen",
+      "ShortName": "Mas",
+      "lat": 47.473256058,
+      "lon": 15.373253421
+    },
+    {
+      "id": "8101224",
+      "Name": "Maria Lanzendorf",
+      "ShortName": "Mar",
+      "lat": 48.102487104,
+      "lon": 16.419584794
+    },
+    {
+      "id": "8100851",
+      "Name": "Gleißenfeld",
+      "ShortName": "Ses H1",
+      "lat": 47.677607941,
+      "lon": 16.129124476
+    },
+    {
+      "id": "8100093",
+      "Name": "Mallnitz-Obervellach",
+      "ShortName": "Ma",
+      "lat": 46.981681096,
+      "lon": 13.176190514
+    },
+    {
+      "id": "8101185",
+      "Name": "Lungitz",
+      "ShortName": "Lu",
+      "lat": 48.288587058,
+      "lon": 14.478402426
+    },
+    {
+      "id": "8101478",
+      "Name": "Siebenmühlen-Rosenau",
+      "ShortName": "Lng H2",
+      "lat": 47.959738215,
+      "lon": 13.605846274
+    },
+    {
+      "id": "8100886",
+      "Name": "Gosdorf",
+      "ShortName": "Gof",
+      "lat": 46.724522,
+      "lon": 15.79768894
+    },
+    {
+      "id": "8100587",
+      "Name": "Schlöglmühl",
+      "ShortName": "Glo H1",
+      "lat": 47.682475299,
+      "lon": 15.914633528
+    },
+    {
+      "id": "8101658",
+      "Name": "Teichstätt",
+      "ShortName": "Nst H3H",
+      "lat": 48.019848082,
+      "lon": 13.212966755
+    },
+    {
+      "id": "8100105",
+      "Name": "Hall in Tirol",
+      "ShortName": "H",
+      "lat": 47.277019916,
+      "lon": 11.501823068
+    },
+    {
+      "id": "8100808",
+      "Name": "Frättingsdorf",
+      "ShortName": "Ft",
+      "lat": 48.64232326,
+      "lon": 16.513867732
+    },
+    {
+      "id": "8100926",
+      "Name": "Hallstatt",
+      "ShortName": "Oa  H1",
+      "lat": 47.568104386,
+      "lon": 13.662105052
+    },
+    {
+      "id": "8101567",
+      "Name": "Sollenau",
+      "ShortName": "Lb  H1",
+      "lat": 47.89850252,
+      "lon": 16.24538929
+    },
+    {
+      "id": "8100280",
+      "Name": "Jois",
+      "ShortName": "Pur H3H",
+      "lat": 47.956671682,
+      "lon": 16.791175087
+    },
+    {
+      "id": "8100494",
+      "Name": "Neudörfl",
+      "ShortName": "Nel",
+      "lat": 47.793809063,
+      "lon": 16.300255601
+    },
+    {
+      "id": "8101498",
+      "Name": "Seyring",
+      "ShortName": "Gef H2",
+      "lat": 48.330579375,
+      "lon": 16.50175696
+    },
+    {
+      "id": "8100999",
+      "Name": "Iglmühle",
+      "ShortName": "Nef H2",
+      "lat": 48.520663127,
+      "lon": 14.036532918
+    },
+    {
+      "id": "8101193",
+      "Name": "Linz Oed",
+      "ShortName": "Lz  H1W",
+      "lat": 48.264751575,
+      "lon": 14.276541495
+    },
+    {
+      "id": "8100133",
+      "Name": "Öblarn",
+      "ShortName": "Oeb",
+      "lat": 47.460719233,
+      "lon": 13.987606656
+    },
+    {
+      "id": "8100981",
+      "Name": "Haselstauden",
+      "ShortName": "Do  H1",
+      "lat": 47.432552777,
+      "lon": 9.749115469
+    },
+    {
+      "id": "8101629",
+      "Name": "Schönwies",
+      "ShortName": "Ss",
+      "lat": 47.197254046,
+      "lon": 10.660804906
+    },
+    {
+      "id": "8100906",
+      "Name": "Groß Weikersdorf",
+      "ShortName": "Wk",
+      "lat": 48.468927686,
+      "lon": 15.976192094
+    },
+    {
+      "id": "8100548",
+      "Name": "Allerheiligenhöfe",
+      "ShortName": "Ih  H1",
+      "lat": 47.269119529,
+      "lon": 11.353434813
+    },
+    {
+      "id": "8101781",
+      "Name": "Winzendorf",
+      "ShortName": "Wz",
+      "lat": 47.81111915,
+      "lon": 16.111612773
+    },
+    {
+      "id": "8101480",
+      "Name": "Schauboden",
+      "ShortName": "Wie H3",
+      "lat": 48.078853131,
+      "lon": 15.136950518
+    },
+    {
+      "id": "8100993",
+      "Name": "Hüttau Terminal",
+      "ShortName": "Hue",
+      "lat": 47.415561008,
+      "lon": 13.320456793
+    },
+    {
+      "id": "8101470",
+      "Name": "Salzburg Aigen",
+      "ShortName": "Aj",
+      "lat": 47.788564222,
+      "lon": 13.078764526
+    },
+    {
+      "id": "8101664",
+      "Name": "Theresienfeld",
+      "ShortName": "Fld H1",
+      "lat": 47.860742654,
+      "lon": 16.244061458
+    },
+    {
+      "id": "8100736",
+      "Name": "Eichberg",
+      "ShortName": "Eib",
+      "lat": 47.67219722,
+      "lon": 15.91104682
+    },
+    {
+      "id": "8100783",
+      "Name": "Fentsch-St. Lorenzen",
+      "ShortName": "Fes",
+      "lat": 47.251769773,
+      "lon": 14.89309865
+    },
+    {
+      "id": "8100235",
+      "Name": "Fischamend",
+      "ShortName": "Fam",
+      "lat": 48.11653186,
+      "lon": 16.615130829
+    },
+    {
+      "id": "8100983",
+      "Name": "Hirtenberg",
+      "ShortName": "Ez  H1",
+      "lat": 47.928965117,
+      "lon": 16.176513651
+    },
+    {
+      "id": "8101065",
+      "Name": "Kottingneusiedl",
+      "ShortName": "Enz H1",
+      "lat": 48.703365669,
+      "lon": 16.465161292
+    },
+    {
+      "id": "8100089",
+      "Name": "Ehrwald-Zugspitzbahn",
+      "ShortName": "Eh",
+      "lat": 47.410120599,
+      "lon": 10.913671984
+    },
+    {
+      "id": "8100470",
+      "Name": "Maria Rain",
+      "ShortName": "Mrn",
+      "lat": 46.563068839,
+      "lon": 14.284077891
+    },
+    {
+      "id": "8100936",
+      "Name": "Hetzmannsdorf-Wullersdorf",
+      "ShortName": "Hm",
+      "lat": 48.616637892,
+      "lon": 16.091731199
+    },
+    {
+      "id": "8101534",
+      "Name": "Steinkogl",
+      "ShortName": "Law H2",
+      "lat": 47.787005262,
+      "lon": 13.740864963
+    },
+    {
+      "id": "8101231",
+      "Name": "Mogersdorf",
+      "ShortName": "Mog",
+      "lat": 46.945546359,
+      "lon": 16.229292312
+    },
+    {
+      "id": "8100412",
+      "Name": "Micheldorf",
+      "ShortName": "Mid",
+      "lat": 47.883143199,
+      "lon": 14.126380948
+    },
+    {
+      "id": "8102015",
+      "Name": "Mattersburg Nord",
+      "ShortName": "Sau H2",
+      "lat": 47.741213094,
+      "lon": 16.402893705
+    },
+    {
+      "id": "8100005",
+      "Name": "Melk",
+      "ShortName": "Los H1",
+      "lat": 48.224561433,
+      "lon": 15.331629612
+    },
+    {
+      "id": "8101645",
+      "Name": "Traisen Markt",
+      "ShortName": "Lil H2",
+      "lat": 48.039671865,
+      "lon": 15.611504084
+    },
+    {
+      "id": "8100157",
+      "Name": "Bad Ischl",
+      "ShortName": "Il",
+      "lat": 47.712246972,
+      "lon": 13.627443986
+    },
+    {
+      "id": "8100318",
+      "Name": "Takern-St.Margarethen",
+      "ShortName": "Tak",
+      "lat": 47.045890121,
+      "lon": 15.757718668
+    },
+    {
+      "id": "8100115",
+      "Name": "Reutte in Tirol",
+      "ShortName": "Rt",
+      "lat": 47.492946991,
+      "lon": 10.721708964
+    },
+    {
+      "id": "8101010",
+      "Name": "Jennersdorf",
+      "ShortName": "Jd",
+      "lat": 46.935011684,
+      "lon": 16.139700151
+    },
+    {
+      "id": "8101003",
+      "Name": "Wien Blumental",
+      "ShortName": "Id",
+      "lat": 48.139513851,
+      "lon": 16.369514715
+    },
+    {
+      "id": "8100090",
+      "Name": "Bregenz",
+      "ShortName": "Bg",
+      "lat": 47.502954634,
+      "lon": 9.739562881
+    },
+    {
+      "id": "8101647",
+      "Name": "Tattendorf",
+      "ShortName": "Tat",
+      "lat": 47.955637574,
+      "lon": 16.306062595
+    },
+    {
+      "id": "8101248",
+      "Name": "Mühlheim",
+      "ShortName": "Ath H1",
+      "lat": 48.269710602,
+      "lon": 13.221047767
+    },
+    {
+      "id": "8100420",
+      "Name": "Scharnstein-Mühldorf",
+      "ShortName": "Ssm",
+      "lat": 47.900399234,
+      "lon": 13.958563865
+    },
+    {
+      "id": "8100140",
+      "Name": "Eben im Pongau",
+      "ShortName": "Ebn",
+      "lat": 47.406494576,
+      "lon": 13.396695591
+    },
+    {
+      "id": "8101369",
+      "Name": "Pernitz-Muggendorf",
+      "ShortName": "Pem",
+      "lat": 47.895896283,
+      "lon": 15.958189096
+    },
+    {
+      "id": "8101795",
+      "Name": "Wolfsbergkogel",
+      "ShortName": "Bt  H1",
+      "lat": 47.649629547,
+      "lon": 15.827090733
+    },
+    {
+      "id": "8100044",
+      "Name": "Schwarzach-St.Veit",
+      "ShortName": "Swa",
+      "lat": 47.31856781,
+      "lon": 13.154358596
+    },
+    {
+      "id": "8101501",
+      "Name": "St.Georgen a.d.Gusen",
+      "ShortName": "Sge",
+      "lat": 48.265175837,
+      "lon": 14.440642339
+    },
+    {
+      "id": "8100488",
+      "Name": "Münster-Wiesing",
+      "ShortName": "Bri H1",
+      "lat": 47.403357385,
+      "lon": 11.819731085
+    },
+    {
+      "id": "8100669",
+      "Name": "Blindenmarkt",
+      "ShortName": "Kar H2",
+      "lat": 48.125098737,
+      "lon": 14.981262174
+    },
+    {
+      "id": "8100672",
+      "Name": "Bad Mitterndorf-Heilbrunn",
+      "ShortName": "Bam H1",
+      "lat": 47.551132834,
+      "lon": 13.925317857
+    },
+    {
+      "id": "8100466",
+      "Name": "Marchegg",
+      "ShortName": "Mac",
+      "lat": 48.249223395,
+      "lon": 16.918732883
+    },
+    {
+      "id": "8100013",
+      "Name": "Linz Hbf",
+      "ShortName": "Lz",
+      "lat": 48.289810969,
+      "lon": 14.291518891
+    },
+    {
+      "id": "8100302",
+      "Name": "Lauterach",
+      "ShortName": "Lat",
+      "lat": 47.477301293,
+      "lon": 9.724399475
+    },
+    {
+      "id": "8100859",
+      "Name": "Gobelsburg",
+      "ShortName": "Lis H1",
+      "lat": 48.462342335,
+      "lon": 15.701704389
+    },
+    {
+      "id": "8100299",
+      "Name": "Langenlois",
+      "ShortName": "Lis",
+      "lat": 48.477012053,
+      "lon": 15.686312264
+    },
+    {
+      "id": "8100734",
+      "Name": "Dürnberg",
+      "ShortName": "Puw H1",
+      "lat": 48.33158525,
+      "lon": 14.192051041
+    },
+    {
+      "id": "8100263",
+      "Name": "Gurten",
+      "ShortName": "Gur",
+      "lat": 48.243070429,
+      "lon": 13.335229175
+    },
+    {
+      "id": "8100582",
+      "Name": "Pürgg",
+      "ShortName": "Rg  H1K",
+      "lat": 47.528634433,
+      "lon": 14.064598963
+    },
+    {
+      "id": "8100249",
+      "Name": "Gersthof",
+      "ShortName": "Ht  H3",
+      "lat": 48.230724521,
+      "lon": 16.329103061
+    },
+    {
+      "id": "8101336",
+      "Name": "Paasdorf",
+      "ShortName": "Ldf H1",
+      "lat": 48.546819365,
+      "lon": 16.535231604
+    },
+    {
+      "id": "8101342",
+      "Name": "Purkersdorf Sanatorium",
+      "ShortName": "Hf  H4",
+      "lat": 48.206297051,
+      "lon": 16.200538924
+    },
+    {
+      "id": "8101190",
+      "Name": "Langenwang",
+      "ShortName": "Mz  H2",
+      "lat": 47.568011972,
+      "lon": 15.61362891
+    },
+    {
+      "id": "8100102",
+      "Name": "Jenbach",
+      "ShortName": "Jb",
+      "lat": 47.3884679,
+      "lon": 11.778395633
+    },
+    {
+      "id": "8102042",
+      "Name": "Lienz-Peggetz",
+      "ShortName": "Lie H1",
+      "lat": 46.827294318,
+      "lon": 12.792300878
+    },
+    {
+      "id": "8100974",
+      "Name": "Hörsching",
+      "ShortName": "Hoe",
+      "lat": 48.245759631,
+      "lon": 14.186402846
+    },
+    {
+      "id": "8100017",
+      "Name": "Attnang-Puchheim",
+      "ShortName": "At",
+      "lat": 48.01268423,
+      "lon": 13.720812809
+    },
+    {
+      "id": "8101127",
+      "Name": "Linz Ebelsberg",
+      "ShortName": "Ast H2",
+      "lat": 48.25198716,
+      "lon": 14.346880836
+    },
+    {
+      "id": "8100842",
+      "Name": "Gisingen",
+      "ShortName": "Fk  H2N",
+      "lat": 47.255552863,
+      "lon": 9.597988066
+    },
+    {
+      "id": "8100732",
+      "Name": "Dietrichshofen",
+      "ShortName": "Ant H1",
+      "lat": 48.369428565,
+      "lon": 13.421707715
+    },
+    {
+      "id": "8100191",
+      "Name": "Pitten",
+      "ShortName": "Ptt",
+      "lat": 47.717153433,
+      "lon": 16.179517683
+    },
+    {
+      "id": "8101161",
+      "Name": "Laßnitzthal",
+      "ShortName": "Laz",
+      "lat": 47.088332056,
+      "lon": 15.657152734
+    },
+    {
+      "id": "8101180",
+      "Name": "Laa a.d.Thaya",
+      "ShortName": "Laa",
+      "lat": 48.7241458,
+      "lon": 16.402541551
+    },
+    {
+      "id": "8101748",
+      "Name": "Weikendorf-Dörfles",
+      "ShortName": "Gae H1",
+      "lat": 48.349265217,
+      "lon": 16.758446773
+    },
+    {
+      "id": "8101771",
+      "Name": "Wilfleinsdorf",
+      "ShortName": "Goe H2",
+      "lat": 48.02203442,
+      "lon": 16.718498757
+    },
+    {
+      "id": "8100203",
+      "Name": "Tulln an der Donau",
+      "ShortName": "Tu",
+      "lat": 48.327611698,
+      "lon": 16.064328798
+    },
+    {
+      "id": "8101723",
+      "Name": "Voitsdorf",
+      "ShortName": "Voi",
+      "lat": 48.012267877,
+      "lon": 14.046976609
+    },
+    {
+      "id": "8100863",
+      "Name": "Goisern Jodschwefelbad",
+      "ShortName": "Gj",
+      "lat": 47.658571016,
+      "lon": 13.608708195
+    },
+    {
+      "id": "8101415",
+      "Name": "Raasdorf",
+      "ShortName": "Raf",
+      "lat": 48.239050171,
+      "lon": 16.581725246
+    },
+    {
+      "id": "8104229",
+      "Name": "Wien Stadlau",
+      "ShortName": "El  H3",
+      "lat": 48.218026545,
+      "lon": 16.447442798
+    },
+    {
+      "id": "8100813",
+      "Name": "Furth-Palt",
+      "ShortName": "Fh",
+      "lat": 48.384501809,
+      "lon": 15.60613263
+    },
+    {
+      "id": "8106003",
+      "Name": "St.Pölten Bildungscampus",
+      "ShortName": "Spr H3",
+      "lat": 48.190288992,
+      "lon": 15.614993409
+    },
+    {
+      "id": "8101093",
+      "Name": "Klagenfurt Lend",
+      "ShortName": "Kt  H1",
+      "lat": 46.621632891,
+      "lon": 14.283536254
+    },
+    {
+      "id": "8101241",
+      "Name": "Markt Sachsenburg",
+      "ShortName": "Kel H1",
+      "lat": 46.8256038,
+      "lon": 13.348318821
+    },
+    {
+      "id": "8101713",
+      "Name": "Unter Tullnerbach",
+      "ShortName": "Up  H2",
+      "lat": 48.19164051,
+      "lon": 16.128036815
+    },
+    {
+      "id": "8101477",
+      "Name": "Siebenbrunn-Leopoldsdorf",
+      "ShortName": "Sbl",
+      "lat": 48.245670923,
+      "lon": 16.70481638
+    },
+    {
+      "id": "8101055",
+      "Name": "Kleblach-Lind",
+      "ShortName": "Kel",
+      "lat": 46.770536184,
+      "lon": 13.341295155
+    },
+    {
+      "id": "8101217",
+      "Name": "Michelhausen",
+      "ShortName": "Tfd H1",
+      "lat": 48.296523241,
+      "lon": 15.934379319
+    },
+    {
+      "id": "8100355",
+      "Name": "Wieselburg a.d.Erlauf",
+      "ShortName": "Wie",
+      "lat": 48.132192879,
+      "lon": 15.142546319
+    },
+    {
+      "id": "8101106",
+      "Name": "Kleinzell",
+      "ShortName": "Nen H1",
+      "lat": 48.458413773,
+      "lon": 14.032083118
+    },
+    {
+      "id": "8101937",
+      "Name": "Wien Spittelau",
+      "ShortName": "Wf  H1",
+      "lat": 48.235922596,
+      "lon": 16.3581441
+    },
+    {
+      "id": "8101137",
+      "Name": "Lebring",
+      "ShortName": "Wi  H1",
+      "lat": 46.855595409,
+      "lon": 15.532145399
+    },
+    {
+      "id": "8102050",
+      "Name": "Hart bei Graz",
+      "ShortName": "Mes H2",
+      "lat": 47.042134747,
+      "lon": 15.507676195
+    },
+    {
+      "id": "8100642",
+      "Name": "Ausschlag-Zöbern",
+      "ShortName": "Auz",
+      "lat": 47.533081415,
+      "lon": 16.083270292
+    },
+    {
+      "id": "8100445",
+      "Name": "Waidhofen a.d.Ybbs",
+      "ShortName": "Wh",
+      "lat": 47.968616813,
+      "lon": 14.764355244
+    },
+    {
+      "id": "8100331",
+      "Name": "Untereggendorf",
+      "ShortName": "Ef  H1",
+      "lat": 47.861233341,
+      "lon": 16.321096732
+    },
+    {
+      "id": "8100277",
+      "Name": "Horn",
+      "ShortName": "Hna",
+      "lat": 48.665792922,
+      "lon": 15.674115319
+    },
+    {
+      "id": "8100074",
+      "Name": "Unzmarkt",
+      "ShortName": "Um",
+      "lat": 47.201019765,
+      "lon": 14.442283994
+    },
+    {
+      "id": "8100958",
+      "Name": "Hainburg a.d.Donau Kulturfabrik",
+      "ShortName": "Hai",
+      "lat": 48.145124306,
+      "lon": 16.93251359
+    },
+    {
+      "id": "8101614",
+      "Name": "Steyregg",
+      "ShortName": "Sy",
+      "lat": 48.284453329,
+      "lon": 14.362191334
+    },
+    {
+      "id": "8100976",
+      "Name": "Haslach",
+      "ShortName": "Hah",
+      "lat": 48.55334545,
+      "lon": 14.031627403
+    },
+    {
+      "id": "8101011",
+      "Name": "Judendorf-Straßengel",
+      "ShortName": "Gw  H1",
+      "lat": 47.118410593,
+      "lon": 15.3440502
+    },
+    {
+      "id": "8100474",
+      "Name": "Rohrbach-Berg",
+      "ShortName": "Rob",
+      "lat": 48.581884638,
+      "lon": 13.987194183
+    },
+    {
+      "id": "8100465",
+      "Name": "Rattenberg-Kramsach",
+      "ShortName": "Rdf H1",
+      "lat": 47.43924597,
+      "lon": 11.89605065
+    },
+    {
+      "id": "8100373",
+      "Name": "Kittsee",
+      "ShortName": "Ktt",
+      "lat": 48.081727651,
+      "lon": 17.071702382
+    },
+    {
+      "id": "8102062",
+      "Name": "Straßwalchen West",
+      "ShortName": "Nsw",
+      "lat": 47.976879208,
+      "lon": 13.24546557
+    },
+    {
+      "id": "8100834",
+      "Name": "Getzersdorf",
+      "ShortName": "Tra H1",
+      "lat": 48.324259739,
+      "lon": 15.715393848
+    },
+    {
+      "id": "8101697",
+      "Name": "Ulrichskirchen",
+      "ShortName": "Wol H1",
+      "lat": 48.402497194,
+      "lon": 16.488182884
+    },
+    {
+      "id": "8101044",
+      "Name": "Kitzbühel Hahnenkamm",
+      "ShortName": "Kzb H1",
+      "lat": 47.443474087,
+      "lon": 12.389655383
+    },
+    {
+      "id": "8101225",
+      "Name": "Mühling",
+      "ShortName": "Wie H1",
+      "lat": 48.11094124,
+      "lon": 15.135501315
+    },
+    {
+      "id": "8100689",
+      "Name": "Bisamberg",
+      "ShortName": "F   H3S",
+      "lat": 48.316402463,
+      "lon": 16.347244632
+    },
+    {
+      "id": "8101079",
+      "Name": "Kastenreith",
+      "ShortName": "Wey H1",
+      "lat": 47.850847226,
+      "lon": 14.637980939
+    },
+    {
+      "id": "8100382",
+      "Name": "Villach Warmbad",
+      "ShortName": "Vf  H1",
+      "lat": 46.588523115,
+      "lon": 13.828618594
+    },
+    {
+      "id": "8100996",
+      "Name": "Herzogenburg Stadt",
+      "ShortName": "Tra H2",
+      "lat": 48.284518296,
+      "lon": 15.700590454
+    },
+    {
+      "id": "8100066",
+      "Name": "Ludesch",
+      "ShortName": "Lt",
+      "lat": 47.180297144,
+      "lon": 9.771223589
+    },
+    {
+      "id": "8101650",
+      "Name": "Tullnerbach-Preßbaum",
+      "ShortName": "Pm",
+      "lat": 48.186099996,
+      "lon": 16.093333723
+    },
+    {
+      "id": "8100529",
+      "Name": "Pressegger See",
+      "ShortName": "Ssv H2",
+      "lat": 46.631651755,
+      "lon": 13.436827058
+    },
+    {
+      "id": "8100300",
+      "Name": "Langkampfen",
+      "ShortName": "K   H2",
+      "lat": 47.546048921,
+      "lon": 12.109625903
+    },
+    {
+      "id": "8100432",
+      "Name": "St.Andrä-Wördern",
+      "ShortName": "Aw",
+      "lat": 48.333863117,
+      "lon": 16.20898108
+    },
+    {
+      "id": "8100710",
+      "Name": "Breitenwaida",
+      "ShortName": "Gr  H1",
+      "lat": 48.514945177,
+      "lon": 16.07487732
+    },
+    {
+      "id": "8101653",
+      "Name": "Trautmannsdorf a.d.L.",
+      "ShortName": "Goe H1A",
+      "lat": 48.02418655,
+      "lon": 16.643412063
+    },
+    {
+      "id": "8101720",
+      "Name": "Vellach-Khünburg",
+      "ShortName": "Ssv H3",
+      "lat": 46.631281149,
+      "lon": 13.408589747
+    },
+    {
+      "id": "8100247",
+      "Name": "Gars-Thunau",
+      "ShortName": "Gas",
+      "lat": 48.59767103,
+      "lon": 15.655145093
+    },
+    {
+      "id": "8100980",
+      "Name": "Hausruck",
+      "ShortName": "Otg H3",
+      "lat": 48.129620955,
+      "lon": 13.571613072
+    },
+    {
+      "id": "8102009",
+      "Name": "Lengau",
+      "ShortName": "Nst H2H",
+      "lat": 48.008113267,
+      "lon": 13.220188426
+    },
+    {
+      "id": "8101244",
+      "Name": "Mariahof-St.Lambrecht",
+      "ShortName": "Mah",
+      "lat": 47.106290412,
+      "lon": 14.372793459
+    },
+    {
+      "id": "8101405",
+      "Name": "Pulgarn",
+      "ShortName": "Sy  H1",
+      "lat": 48.278293406,
+      "lon": 14.393773814
+    },
+    {
+      "id": "8100995",
+      "Name": "Herzograd",
+      "ShortName": "Sv  H1E",
+      "lat": 48.161394838,
+      "lon": 14.50356955
+    },
+    {
+      "id": "8100518",
+      "Name": "Zeltweg",
+      "ShortName": "Zg",
+      "lat": 47.189674862,
+      "lon": 14.74793793
+    },
+    {
+      "id": "8100457",
+      "Name": "Bernhardsthal",
+      "ShortName": "Beh",
+      "lat": 48.688391252,
+      "lon": 16.878877842
+    },
+    {
+      "id": "8101351",
+      "Name": "Pfaffenschwendt",
+      "ShortName": "Hch H1",
+      "lat": 47.468509053,
+      "lon": 12.580133338
+    },
+    {
+      "id": "8101560",
+      "Name": "St. Martin bei Traun",
+      "ShortName": "Wd  H1",
+      "lat": 48.236403132,
+      "lon": 14.264581911
+    },
+    {
+      "id": "8100920",
+      "Name": "Wien Haidestraße",
+      "ShortName": "Wbf H2",
+      "lat": 48.178789778,
+      "lon": 16.426216937
+    },
+    {
+      "id": "8100849",
+      "Name": "Glandorf",
+      "ShortName": "Vps H1",
+      "lat": 46.749864465,
+      "lon": 14.381133392
+    },
+    {
+      "id": "8101700",
+      "Name": "Unterhart",
+      "ShortName": "Uh",
+      "lat": 48.089127615,
+      "lon": 14.042596014
+    },
+    {
+      "id": "8101788",
+      "Name": "Wittmannsdorf",
+      "ShortName": "Wit",
+      "lat": 47.920251171,
+      "lon": 16.219823436
+    },
+    {
+      "id": "8100846",
+      "Name": "Guntramsdorf-Thallern",
+      "ShortName": "Md  H1",
+      "lat": 48.052179422,
+      "lon": 16.297758617
+    },
+    {
+      "id": "8100663",
+      "Name": "Bad Blumau",
+      "ShortName": "Seb H3",
+      "lat": 47.123414369,
+      "lon": 16.056568814
+    },
+    {
+      "id": "8100826",
+      "Name": "Grein-Bad Kreuzen",
+      "ShortName": "Gbk",
+      "lat": 48.220792099,
+      "lon": 14.851174497
+    },
+    {
+      "id": "8100368",
+      "Name": "Fürnitz",
+      "ShortName": "Fn",
+      "lat": 46.5632171,
+      "lon": 13.81343351
+    },
+    {
+      "id": "8100706",
+      "Name": "Brunn an der Schneebergbahn",
+      "ShortName": "Fib H1",
+      "lat": 47.825620884,
+      "lon": 16.157369675
+    },
+    {
+      "id": "8100097",
+      "Name": "Bad Hofgastein",
+      "ShortName": "Hg",
+      "lat": 47.195368227,
+      "lon": 13.100496809
+    },
+    {
+      "id": "8100653",
+      "Name": "Bad Fischau-Brunn",
+      "ShortName": "Fib",
+      "lat": 47.826734893,
+      "lon": 16.173086318
+    },
+    {
+      "id": "8100935",
+      "Name": "Wien Hetzendorf",
+      "ShortName": "Het",
+      "lat": 48.166945662,
+      "lon": 16.315737348
+    },
+    {
+      "id": "8101600",
+      "Name": "Staatz",
+      "ShortName": "Enz K1",
+      "lat": 48.699720924,
+      "lon": 16.492947227
+    },
+    {
+      "id": "8100155",
+      "Name": "Ebensee",
+      "ShortName": "En",
+      "lat": 47.804411572,
+      "lon": 13.771602628
+    },
+    {
+      "id": "8101401",
+      "Name": "Pottenstein a.d.Triesting",
+      "ShortName": "Pt",
+      "lat": 47.961278077,
+      "lon": 16.089568757
+    },
+    {
+      "id": "8100305",
+      "Name": "Liebenfels Haltestelle",
+      "ShortName": "Vs  H2",
+      "lat": 46.736100387,
+      "lon": 14.292667989
+    },
+    {
+      "id": "8100308",
+      "Name": "Stadl-Paura",
+      "ShortName": "Stp",
+      "lat": 48.084409074,
+      "lon": 13.883351602
+    },
+    {
+      "id": "8101596",
+      "Name": "Spital am Semmering",
+      "ShortName": "Sps",
+      "lat": 47.61689168,
+      "lon": 15.749145031
+    },
+    {
+      "id": "8100150",
+      "Name": "Selzthal",
+      "ShortName": "Sl",
+      "lat": 47.550862786,
+      "lon": 14.313779754
+    },
+    {
+      "id": "8100956",
+      "Name": "Haiming",
+      "ShortName": "Siz H1",
+      "lat": 47.252672766,
+      "lon": 10.889397197
+    },
+    {
+      "id": "8101643",
+      "Name": "Traisen",
+      "ShortName": "Trn",
+      "lat": 48.056901766,
+      "lon": 15.612385543
+    },
+    {
+      "id": "8100320",
+      "Name": "Taufkirchen a.d.Pram",
+      "ShortName": "Tp",
+      "lat": 48.406844076,
+      "lon": 13.522593948
+    },
+    {
+      "id": "8101678",
+      "Name": "Thalheim-Pöls",
+      "ShortName": "Tel",
+      "lat": 47.196224652,
+      "lon": 14.589621739
+    },
+    {
+      "id": "8100019",
+      "Name": "Straßwalchen",
+      "ShortName": "Stw",
+      "lat": 47.972378501,
+      "lon": 13.263789506
+    },
+    {
+      "id": "8101454",
+      "Name": "Rohr",
+      "ShortName": "Stu H1",
+      "lat": 46.976204726,
+      "lon": 15.812629213
+    },
+    {
+      "id": "8100948",
+      "Name": "Hart im Innkreis",
+      "ShortName": "Mn  H1",
+      "lat": 48.316004057,
+      "lon": 13.41524484
+    },
+    {
+      "id": "8100265",
+      "Name": "Haiding",
+      "ShortName": "Had",
+      "lat": 48.209241929,
+      "lon": 13.975274769
+    },
+    {
+      "id": "8101164",
+      "Name": "Lödersdorf",
+      "ShortName": "Fb  H1",
+      "lat": 46.954627675,
+      "lon": 15.946284718
+    },
+    {
+      "id": "8100447",
+      "Name": "Wien Hütteldorf",
+      "ShortName": "Hf",
+      "lat": 48.197477102,
+      "lon": 16.261131147
+    },
+    {
+      "id": "8101135",
+      "Name": "Lenzing Ort",
+      "ShortName": "Lng H1",
+      "lat": 47.971685659,
+      "lon": 13.606663232
+    },
+    {
+      "id": "8103487",
+      "Name": "Graz Liebenau-Murpark",
+      "ShortName": "Gob H1",
+      "lat": 47.039815045,
+      "lon": 15.463244787
+    },
+    {
+      "id": "8100211",
+      "Name": "Andorf",
+      "ShortName": "Af",
+      "lat": 48.36940195,
+      "lon": 13.565718703
+    },
+    {
+      "id": "8100439",
+      "Name": "Obereggendorf",
+      "ShortName": "Ed",
+      "lat": 47.850226769,
+      "lon": 16.29795524
+    },
+    {
+      "id": "8100231",
+      "Name": "Eisenstadt",
+      "ShortName": "E",
+      "lat": 47.8396385,
+      "lon": 16.52995236
+    },
+    {
+      "id": "8101524",
+      "Name": "Sierndorf a.d.March",
+      "ShortName": "Due H2",
+      "lat": 48.511568004,
+      "lon": 16.891271765
+    },
+    {
+      "id": "8100180",
+      "Name": "Hartberg",
+      "ShortName": "Har",
+      "lat": 47.281334919,
+      "lon": 15.985104947
+    },
+    {
+      "id": "8100586",
+      "Name": "Silz",
+      "ShortName": "Siz",
+      "lat": 47.270124233,
+      "lon": 10.936624524
+    },
+    {
+      "id": "8100033",
+      "Name": "Frohnleiten",
+      "ShortName": "Fro",
+      "lat": 47.266332552,
+      "lon": 15.327136072
+    },
+    {
+      "id": "8101826",
+      "Name": "Zöbing",
+      "ShortName": "Sbk H1",
+      "lat": 48.490657403,
+      "lon": 15.693868941
+    },
+    {
+      "id": "8101020",
+      "Name": "Kapellerfeld",
+      "ShortName": "Gef H1",
+      "lat": 48.31701007,
+      "lon": 16.495167617
+    },
+    {
+      "id": "8101598",
+      "Name": "St.Stefan-Vorderberg",
+      "ShortName": "Ssv",
+      "lat": 46.600393828,
+      "lon": 13.533023979
+    },
+    {
+      "id": "8100135",
+      "Name": "Gröbming",
+      "ShortName": "Grb",
+      "lat": 47.426874312,
+      "lon": 13.900705442
+    },
+    {
+      "id": "8101522",
+      "Name": "Sierndorf",
+      "ShortName": "Si",
+      "lat": 48.428873468,
+      "lon": 16.175068377
+    },
+    {
+      "id": "8101546",
+      "Name": "Scheiblingkirchen-Warth",
+      "ShortName": "Sgk",
+      "lat": 47.662193584,
+      "lon": 16.130969541
+    },
+    {
+      "id": "8101529",
+      "Name": "St.Jodok",
+      "ShortName": "Sti H1",
+      "lat": 47.063292096,
+      "lon": 11.499358155
+    },
+    {
+      "id": "8101852",
+      "Name": "Schauersberg",
+      "ShortName": "Scb",
+      "lat": 48.135935891,
+      "lon": 14.008673219
+    },
+    {
+      "id": "8100544",
+      "Name": "Wernstein",
+      "ShortName": "Sch H1",
+      "lat": 48.506481986,
+      "lon": 13.457616007
+    },
+    {
+      "id": "8101463",
+      "Name": "Saffen",
+      "ShortName": "Pus H2",
+      "lat": 48.021809913,
+      "lon": 15.152298227
+    },
+    {
+      "id": "8101601",
+      "Name": "Schwertberg",
+      "ShortName": "Swb",
+      "lat": 48.268688268,
+      "lon": 14.57959723
+    },
+    {
+      "id": "8101974",
+      "Name": "Piesting Harzwerk",
+      "ShortName": "Woe H2",
+      "lat": 47.876499682,
+      "lon": 16.136419972
+    },
+    {
+      "id": "8100928",
+      "Name": "Helmahof",
+      "ShortName": "Wg  H1",
+      "lat": 48.310410761,
+      "lon": 16.597474752
+    },
+    {
+      "id": "8100109",
+      "Name": "Innsbruck Westbf",
+      "ShortName": "Wt",
+      "lat": 47.255539261,
+      "lon": 11.391831194
+    },
+    {
+      "id": "8100397",
+      "Name": "Breitenbrunn",
+      "ShortName": "Pur H1H",
+      "lat": 47.941109791,
+      "lon": 16.746288641
+    },
+    {
+      "id": "8100597",
+      "Name": "Aich-Assach",
+      "ShortName": "Grb H2",
+      "lat": 47.420242631,
+      "lon": 13.821478631
+    },
+    {
+      "id": "8101471",
+      "Name": "St.Michael ob Bleiburg",
+      "ShortName": "Ble H1",
+      "lat": 46.582383351,
+      "lon": 14.750737726
+    },
+    {
+      "id": "8100126",
+      "Name": "Kalwang",
+      "ShortName": "Kag",
+      "lat": 47.423434097,
+      "lon": 14.744336408
+    },
+    {
+      "id": "8101024",
+      "Name": "Kamegg",
+      "ShortName": "Rb  H2",
+      "lat": 48.610250837,
+      "lon": 15.657430273
+    },
+    {
+      "id": "8101870",
+      "Name": "Stallegg",
+      "ShortName": "Rb  H1",
+      "lat": 48.615962228,
+      "lon": 15.643662929
+    },
+    {
+      "id": "8100138",
+      "Name": "Radstadt",
+      "ShortName": "Rad",
+      "lat": 47.384305678,
+      "lon": 13.468099142
+    },
+    {
+      "id": "8101398",
+      "Name": "Graz Puntigam",
+      "ShortName": "Pu",
+      "lat": 47.031145269,
+      "lon": 15.429147021
+    },
+    {
+      "id": "8100309",
+      "Name": "Stadt Rottenmann",
+      "ShortName": "Rm  H1",
+      "lat": 47.527861124,
+      "lon": 14.363736053
+    },
+    {
+      "id": "8100528",
+      "Name": "Pregarten",
+      "ShortName": "Pre",
+      "lat": 48.355971943,
+      "lon": 14.522638335
+    },
+    {
+      "id": "8101592",
+      "Name": "Villach St.Ruprecht",
+      "ShortName": "Ru",
+      "lat": 46.641037966,
+      "lon": 13.876339929
+    },
+    {
+      "id": "8100559",
+      "Name": "Salzburg Gnigl",
+      "ShortName": "Sr  H1",
+      "lat": 47.812010541,
+      "lon": 13.066285244
+    },
+    {
+      "id": "8100469",
+      "Name": "Retz",
+      "ShortName": "R",
+      "lat": 48.75363989,
+      "lon": 15.957207636
+    },
+    {
+      "id": "8101431",
+      "Name": "Reichraming",
+      "ShortName": "Rei",
+      "lat": 47.891415251,
+      "lon": 14.47276729
+    },
+    {
+      "id": "8101783",
+      "Name": "Weissenstein-Kellerberg",
+      "ShortName": "Pf  H2",
+      "lat": 46.679549914,
+      "lon": 13.719742446
+    },
+    {
+      "id": "8101622",
+      "Name": "St.Veit a.d.Gölsen",
+      "ShortName": "Ror H2",
+      "lat": 48.045127634,
+      "lon": 15.671808496
+    },
+    {
+      "id": "8101159",
+      "Name": "Langenlebarn",
+      "ShortName": "Aw  H3",
+      "lat": 48.327528376,
+      "lon": 16.121825643
+    },
+    {
+      "id": "8100041",
+      "Name": "Golling-Abtenau",
+      "ShortName": "Gg",
+      "lat": 47.600774391,
+      "lon": 13.16407232
+    },
+    {
+      "id": "8101510",
+      "Name": "St.Georgen am Steinfelde",
+      "ShortName": "Wm  H1",
+      "lat": 48.138388403,
+      "lon": 15.614590422
+    },
+    {
+      "id": "8101774",
+      "Name": "Wildon",
+      "ShortName": "Wi",
+      "lat": 46.884160473,
+      "lon": 15.521190797
+    },
+    {
+      "id": "8100315",
+      "Name": "Suben",
+      "ShortName": "Ant H2",
+      "lat": 48.40261,
+      "lon": 13.433108147
+    },
+    {
+      "id": "8100022",
+      "Name": "Grieskirchen-Gallspach",
+      "ShortName": "Gk",
+      "lat": 48.231063477,
+      "lon": 13.839007397
+    },
+    {
+      "id": "8101287",
+      "Name": "Niedernfritz-St.Martin",
+      "ShortName": "Ebn H1",
+      "lat": 47.421297663,
+      "lon": 13.344900337
+    },
+    {
+      "id": "8100502",
+      "Name": "St.Martin-Sittich",
+      "ShortName": "Sms",
+      "lat": 46.732206733,
+      "lon": 14.152643633
+    },
+    {
+      "id": "8101316",
+      "Name": "Ober Piesting",
+      "ShortName": "Op",
+      "lat": 47.874483151,
+      "lon": 16.097094839
+    },
+    {
+      "id": "8100182",
+      "Name": "Grafendorf",
+      "ShortName": "Gd",
+      "lat": 47.346712971,
+      "lon": 16.003547756
+    },
+    {
+      "id": "8101450",
+      "Name": "Roßleithen",
+      "ShortName": "Piv H1",
+      "lat": 47.724310602,
+      "lon": 14.309059503
+    },
+    {
+      "id": "8101394",
+      "Name": "Piesting",
+      "ShortName": "Pie",
+      "lat": 47.874742865,
+      "lon": 16.124488286
+    },
+    {
+      "id": "8101320",
+      "Name": "Ortmann",
+      "ShortName": "Ort",
+      "lat": 47.89355108,
+      "lon": 15.978927592
+    },
+    {
+      "id": "8101934",
+      "Name": "Wien Handelskai",
+      "ShortName": "Nw  H2",
+      "lat": 48.242133244,
+      "lon": 16.385625343
+    },
+    {
+      "id": "8101641",
+      "Name": "Wien Traisengasse",
+      "ShortName": "Nw  H1",
+      "lat": 48.234796451,
+      "lon": 16.383360578
+    },
+    {
+      "id": "8101803",
+      "Name": "Wallersee",
+      "ShortName": "Nst H2",
+      "lat": 47.919403105,
+      "lon": 13.159344253
+    },
+    {
+      "id": "8100434",
+      "Name": "Neusiedl am See",
+      "ShortName": "Ns",
+      "lat": 47.955728308,
+      "lon": 16.823542868
+    },
+    {
+      "id": "8100503",
+      "Name": "St.Nikola-Struden",
+      "ShortName": "Nk",
+      "lat": 48.233515242,
+      "lon": 14.909217737
+    },
+    {
+      "id": "8100668",
+      "Name": "Bleiburg Stadt",
+      "ShortName": "Spa K1",
+      "lat": 46.590156024,
+      "lon": 14.794147004
+    },
+    {
+      "id": "8100423",
+      "Name": "Münchendorf",
+      "ShortName": "Mue",
+      "lat": 48.032377248,
+      "lon": 16.38620555
+    },
+    {
+      "id": "8103000",
+      "Name": "Wien Hauptbahnhof",
+      "ShortName": "Wbf",
+      "lat": 48.184687769,
+      "lon": 16.379192892
+    },
+    {
+      "id": "8100335",
+      "Name": "Vitis",
+      "ShortName": "Vit",
+      "lat": 48.752847618,
+      "lon": 15.172346961
+    },
+    {
+      "id": "8101822",
+      "Name": "Ziersdorf",
+      "ShortName": "Zf",
+      "lat": 48.528316026,
+      "lon": 15.921298846
+    },
+    {
+      "id": "8101373",
+      "Name": "Pusarnitz",
+      "ShortName": "Uz",
+      "lat": 46.835055459,
+      "lon": 13.404750122
+    },
+    {
+      "id": "8101709",
+      "Name": "Unter Purkersdorf",
+      "ShortName": "Up",
+      "lat": 48.207723975,
+      "lon": 16.190631295
+    },
+    {
+      "id": "8100396",
+      "Name": "Linz Urfahr",
+      "ShortName": "Uf",
+      "lat": 48.311980065,
+      "lon": 14.279605534
+    },
+    {
+      "id": "8100650",
+      "Name": "Berndorf Fabrik",
+      "ShortName": "Tf",
+      "lat": 47.940183089,
+      "lon": 16.133864749
+    },
+    {
+      "id": "8101489",
+      "Name": "St.Egyden",
+      "ShortName": "Nb  H1S",
+      "lat": 47.761177342,
+      "lon": 16.147069083
+    },
+    {
+      "id": "8101203",
+      "Name": "Markersdorf a.d.Pielach",
+      "ShortName": "Pd  H1",
+      "lat": 48.196184968,
+      "lon": 15.496001716
+    },
+    {
+      "id": "8100037",
+      "Name": "Ossiach-Bodensdorf",
+      "ShortName": "Oi",
+      "lat": 46.682425377,
+      "lon": 13.974033917
+    },
+    {
+      "id": "8101644",
+      "Name": "Tallesbrunn",
+      "ShortName": "Gae H2",
+      "lat": 48.364083396,
+      "lon": 16.787077207
+    },
+    {
+      "id": "8101306",
+      "Name": "Oepping",
+      "ShortName": "Oep",
+      "lat": 48.5999622,
+      "lon": 13.960349067
+    },
+    {
+      "id": "8100579",
+      "Name": "Oed",
+      "ShortName": "Oed",
+      "lat": 47.878665637,
+      "lon": 16.026243605
+    },
+    {
+      "id": "8101676",
+      "Name": "Töschling",
+      "ShortName": "Pow H1",
+      "lat": 46.633164424,
+      "lon": 14.110778871
+    },
+    {
+      "id": "8100472",
+      "Name": "Marz-Rohrbach",
+      "ShortName": "Mr  H1",
+      "lat": 47.717654582,
+      "lon": 16.42873263
+    },
+    {
+      "id": "8100593",
+      "Name": "Werndorf",
+      "ShortName": "Wr",
+      "lat": 46.916977388,
+      "lon": 15.476901267
+    },
+    {
+      "id": "8101124",
+      "Name": "Leobendorf-Burg Kreuzenstein",
+      "ShortName": "Ko  H1",
+      "lat": 48.364662357,
+      "lon": 16.301813353
+    },
+    {
+      "id": "8100111",
+      "Name": "Hochzirl",
+      "ShortName": "Hol",
+      "lat": 47.281021211,
+      "lon": 11.249312498
+    },
+    {
+      "id": "8101239",
+      "Name": "Maria Saal",
+      "ShortName": "Mal",
+      "lat": 46.682666054,
+      "lon": 14.339169814
+    },
+    {
+      "id": "8101273",
+      "Name": "Niederöblarn",
+      "ShortName": "Mag H1",
+      "lat": 47.481599191,
+      "lon": 14.014211791
+    },
+    {
+      "id": "8100096",
+      "Name": "Treibach-Althofen",
+      "ShortName": "Tr",
+      "lat": 46.868581102,
+      "lon": 14.465529583
+    },
+    {
+      "id": "8101358",
+      "Name": "Linz-Pichling",
+      "ShortName": "Ast H1",
+      "lat": 48.242873251,
+      "lon": 14.379211023
+    },
+    {
+      "id": "8100186",
+      "Name": "Pinggau Markt",
+      "ShortName": "Tau H1",
+      "lat": 47.440573104,
+      "lon": 16.061104463
+    },
+    {
+      "id": "8100258",
+      "Name": "Gries",
+      "ShortName": "Sti K1",
+      "lat": 47.041999854,
+      "lon": 11.485617443
+    },
+    {
+      "id": "8100531",
+      "Name": "Pürbach-Schrems",
+      "ShortName": "Pue",
+      "lat": 48.763615647,
+      "lon": 15.084783419
+    },
+    {
+      "id": "8100756",
+      "Name": "Wien Erzherzog Karl-Straße",
+      "ShortName": "Stk",
+      "lat": 48.230432447,
+      "lon": 16.453315266
+    },
+    {
+      "id": "8100419",
+      "Name": "Möllbrücke-Sachsenburg",
+      "ShortName": "Ssn",
+      "lat": 46.830724801,
+      "lon": 13.368149855
+    },
+    {
+      "id": "8100630",
+      "Name": "Altach",
+      "ShortName": "Got H1",
+      "lat": 47.351889155,
+      "lon": 9.660898572
+    },
+    {
+      "id": "8101656",
+      "Name": "Teesdorf",
+      "ShortName": "Tat H1",
+      "lat": 47.942412476,
+      "lon": 16.289549127
+    },
+    {
+      "id": "8102017",
+      "Name": "Wiener Neustadt Anemonensee",
+      "ShortName": "Nb  H1A",
+      "lat": 47.811887229,
+      "lon": 16.209927268
+    },
+    {
+      "id": "8101071",
+      "Name": "Kothmühle",
+      "ShortName": "Ssm H1",
+      "lat": 47.886543523,
+      "lon": 13.940504742
+    },
+    {
+      "id": "8100106",
+      "Name": "Matrei",
+      "ShortName": "Mei",
+      "lat": 47.127170922,
+      "lon": 11.452845187
+    },
+    {
+      "id": "8101178",
+      "Name": "Lasberg-St.Oswald",
+      "ShortName": "Kf  H1",
+      "lat": 48.460849742,
+      "lon": 14.521690445
+    },
+    {
+      "id": "8101624",
+      "Name": "St.Veit a.d.Glan-West",
+      "ShortName": "Vs",
+      "lat": 46.76265719,
+      "lon": 14.36239108
+    },
+    {
+      "id": "8100170",
+      "Name": "Kirchdorf a.d.Krems",
+      "ShortName": "Kik",
+      "lat": 47.90656801,
+      "lon": 14.116097373
+    },
+    {
+      "id": "8102052",
+      "Name": "Salzburg Mülln-Altstadt",
+      "ShortName": "Sbj",
+      "lat": 47.808418281,
+      "lon": 13.033671437
+    },
+    {
+      "id": "8100020",
+      "Name": "Steindorf bei Straßwalchen",
+      "ShortName": "Nst",
+      "lat": 47.966732082,
+      "lon": 13.239144954
+    },
+    {
+      "id": "8100130",
+      "Name": "Hohenau",
+      "ShortName": "Nh",
+      "lat": 48.598256736,
+      "lon": 16.900854112
+    },
+    {
+      "id": "8101025",
+      "Name": "Kainisch",
+      "ShortName": "Kai",
+      "lat": 47.569903398,
+      "lon": 13.84262678
+    },
+    {
+      "id": "8100512",
+      "Name": "Wien Ottakring",
+      "ShortName": "Ok",
+      "lat": 48.211660397,
+      "lon": 16.311137425
+    },
+    {
+      "id": "8101453",
+      "Name": "Rohrendorf",
+      "ShortName": "Hfa H1",
+      "lat": 48.423280803,
+      "lon": 15.657250772
+    },
+    {
+      "id": "8100127",
+      "Name": "Wald am Schoberpaß",
+      "ShortName": "Was",
+      "lat": 47.450794698,
+      "lon": 14.6703109
+    },
+    {
+      "id": "8101150",
+      "Name": "Wien Liesing",
+      "ShortName": "Lg",
+      "lat": 48.135125432,
+      "lon": 16.284285524
+    },
+    {
+      "id": "8100426",
+      "Name": "Seekirchen am Wallersee",
+      "ShortName": "See",
+      "lat": 47.899416262,
+      "lon": 13.130075273
+    },
+    {
+      "id": "8101013",
+      "Name": "Wien Jedlersdorf",
+      "ShortName": "J",
+      "lat": 48.274399903,
+      "lon": 16.395469689
+    },
+    {
+      "id": "8100038",
+      "Name": "Steindorf am Ossiachersee",
+      "ShortName": "Sos",
+      "lat": 46.698224414,
+      "lon": 14.014180163
+    },
+    {
+      "id": "8101548",
+      "Name": "Schönborn-Mallebarn",
+      "ShortName": "Si  H2",
+      "lat": 48.468602051,
+      "lon": 16.159071238
+    },
+    {
+      "id": "8100239",
+      "Name": "Freistadt",
+      "ShortName": "Fr",
+      "lat": 48.495248389,
+      "lon": 14.481324143
+    },
+    {
+      "id": "8101675",
+      "Name": "Thörl-Maglern",
+      "ShortName": "Th",
+      "lat": 46.540251907,
+      "lon": 13.648239105
+    },
+    {
+      "id": "8101502",
+      "Name": "St.Georgen a.d.Gusen Ort",
+      "ShortName": "Sge H1",
+      "lat": 48.270464373,
+      "lon": 14.450673071
+    },
+    {
+      "id": "8100190",
+      "Name": "Seebenstein",
+      "ShortName": "Ses",
+      "lat": 47.703396967,
+      "lon": 16.142847238
+    },
+    {
+      "id": "8100356",
+      "Name": "Wiesen-Sigleß",
+      "ShortName": "Sau H1",
+      "lat": 47.75326686,
+      "lon": 16.369968518
+    },
+    {
+      "id": "8100069",
+      "Name": "Frastanz",
+      "ShortName": "Fa",
+      "lat": 47.219979793,
+      "lon": 9.639389985
+    },
+    {
+      "id": "8101111",
+      "Name": "Ladendorf",
+      "ShortName": "Ldf",
+      "lat": 48.535607974,
+      "lon": 16.509276553
+    },
+    {
+      "id": "8100193",
+      "Name": "Raaba",
+      "ShortName": "Mes H1",
+      "lat": 47.030132406,
+      "lon": 15.495776774
+    },
+    {
+      "id": "8100245",
+      "Name": "Gänserndorf",
+      "ShortName": "Gae",
+      "lat": 48.340225267,
+      "lon": 16.732413689
+    },
+    {
+      "id": "8101686",
+      "Name": "Trattenbach",
+      "ShortName": "Te  H1",
+      "lat": 47.930250187,
+      "lon": 14.354749182
+    },
+    {
+      "id": "8100521",
+      "Name": "Pettenbach",
+      "ShortName": "Peb",
+      "lat": 47.962125829,
+      "lon": 14.011334063
+    },
+    {
+      "id": "8100032",
+      "Name": "Bruck a.d.Mur",
+      "ShortName": "Bm",
+      "lat": 47.413741182,
+      "lon": 15.27957571
+    },
+    {
+      "id": "8101328",
+      "Name": "Ober Waltersdorf",
+      "ShortName": "Ti  H1",
+      "lat": 47.974747151,
+      "lon": 16.328091392
+    },
+    {
+      "id": "8101543",
+      "Name": "Schlins-Beschling",
+      "ShortName": "Lt  H2",
+      "lat": 47.194985582,
+      "lon": 9.690039959
+    },
+    {
+      "id": "8100283",
+      "Name": "Kammer-Schörfling",
+      "ShortName": "Kms",
+      "lat": 47.948550066,
+      "lon": 13.596197766
+    },
+    {
+      "id": "8101083",
+      "Name": "Krummnußbaum",
+      "ShortName": "Poe H1",
+      "lat": 48.207987131,
+      "lon": 15.1587576
+    },
+    {
+      "id": "8100156",
+      "Name": "Kleinreifling",
+      "ShortName": "Kg",
+      "lat": 47.824086287,
+      "lon": 14.641997181
+    },
+    {
+      "id": "8101283",
+      "Name": "Nöstlbach-St.Marien",
+      "ShortName": "Net H1",
+      "lat": 48.164105736,
+      "lon": 14.246651368
+    },
+    {
+      "id": "8100043",
+      "Name": "St.Johann im Pongau",
+      "ShortName": "Jp",
+      "lat": 47.348377246,
+      "lon": 13.194882247
+    },
+    {
+      "id": "8101000",
+      "Name": "Imsterberg",
+      "ShortName": "Im  H1",
+      "lat": 47.211270714,
+      "lon": 10.706293057
+    },
+    {
+      "id": "8100110",
+      "Name": "Innsbruck Hötting",
+      "ShortName": "Ih",
+      "lat": 47.261498381,
+      "lon": 11.373673427
+    },
+    {
+      "id": "8100491",
+      "Name": "Mureck",
+      "ShortName": "Mug",
+      "lat": 46.711347752,
+      "lon": 15.771026443
+    },
+    {
+      "id": "8101712",
+      "Name": "Unterberg-Stefansbrücke",
+      "ShortName": "I   H1",
+      "lat": 47.214033177,
+      "lon": 11.391984592
+    },
+    {
+      "id": "8101945",
+      "Name": "Schiflugschanze Kulm",
+      "ShortName": "Ku  H1",
+      "lat": 47.552060111,
+      "lon": 13.995383941
+    },
+    {
+      "id": "8100108",
+      "Name": "Innsbruck Hbf",
+      "ShortName": "I",
+      "lat": 47.263418153,
+      "lon": 11.401053163
+    },
+    {
+      "id": "8101100",
+      "Name": "Klaus in Vorarlberg",
+      "ShortName": "Rk  H2",
+      "lat": 47.308778225,
+      "lon": 9.624328237
+    },
+    {
+      "id": "8101353",
+      "Name": "Pfarrwerfen",
+      "ShortName": "Rf  H1",
+      "lat": 47.461492654,
+      "lon": 13.199678791
+    },
+    {
+      "id": "8100526",
+      "Name": "Pram-Haag",
+      "ShortName": "Pra",
+      "lat": 48.231778869,
+      "lon": 13.617211595
+    },
+    {
+      "id": "8101272",
+      "Name": "Niederkreuzstetten",
+      "ShortName": "Snb H2",
+      "lat": 48.477794634,
+      "lon": 16.479729901
+    },
+    {
+      "id": "8101332",
+      "Name": "Oberhofen-Zell am Moos",
+      "ShortName": "Edb H1",
+      "lat": 47.958969519,
+      "lon": 13.301712829
+    },
+    {
+      "id": "8100006",
+      "Name": "Pöchlarn",
+      "ShortName": "Poe",
+      "lat": 48.20816485,
+      "lon": 15.216352591
+    },
+    {
+      "id": "8101221",
+      "Name": "Mitterdorf-Veitsch",
+      "ShortName": "Mv",
+      "lat": 47.536741779,
+      "lon": 15.513321042
+    },
+    {
+      "id": "8101447",
+      "Name": "Rothenthurn",
+      "ShortName": "Ro",
+      "lat": 46.759482024,
+      "lon": 13.582346502
+    },
+    {
+      "id": "8101595",
+      "Name": "Strasshof Haltestelle",
+      "ShortName": "Wg  H2",
+      "lat": 48.318461701,
+      "lon": 16.633842115
+    },
+    {
+      "id": "8101154",
+      "Name": "Limberg-Maissau",
+      "ShortName": "Lim",
+      "lat": 48.592418185,
+      "lon": 15.861429612
+    },
+    {
+      "id": "8100576",
+      "Name": "Marktl",
+      "ShortName": "Lil H1",
+      "lat": 48.02152806,
+      "lon": 15.600068514
+    },
+    {
+      "id": "8101736",
+      "Name": "Wankham",
+      "ShortName": "Ak  H1",
+      "lat": 47.998022778,
+      "lon": 13.730214673
+    },
+    {
+      "id": "8101153",
+      "Name": "Lilienfeld",
+      "ShortName": "Lil",
+      "lat": 48.013727658,
+      "lon": 15.59307455
+    },
+    {
+      "id": "8100929",
+      "Name": "Hallwang-Elixhausen",
+      "ShortName": "Hw",
+      "lat": 47.857970642,
+      "lon": 13.091814642
+    },
+    {
+      "id": "8100271",
+      "Name": "Wien Hernals",
+      "ShortName": "Hns",
+      "lat": 48.223074783,
+      "lon": 16.314458377
+    },
+    {
+      "id": "8101279",
+      "Name": "Neulengbach",
+      "ShortName": "Nl",
+      "lat": 48.199759325,
+      "lon": 15.891883827
+    },
+    {
+      "id": "8100555",
+      "Name": "Musau",
+      "ShortName": "Rt  H2",
+      "lat": 47.531642196,
+      "lon": 10.672638594
+    },
+    {
+      "id": "8100477",
+      "Name": "Rum",
+      "ShortName": "H   H2",
+      "lat": 47.278027298,
+      "lon": 11.455502353
+    },
+    {
+      "id": "8100261",
+      "Name": "Grünau im Almtal",
+      "ShortName": "Gue",
+      "lat": 47.853671537,
+      "lon": 13.951605794
+    },
+    {
+      "id": "8100169",
+      "Name": "Kremsmünster",
+      "ShortName": "Kre",
+      "lat": 48.053004859,
+      "lon": 14.140195737
+    },
+    {
+      "id": "8100847",
+      "Name": "Grünbach Kohlenwerk",
+      "ShortName": "Gru H2",
+      "lat": 47.798511141,
+      "lon": 15.972508866
+    },
+    {
+      "id": "8101863",
+      "Name": "Altenhof",
+      "ShortName": "Plk H1",
+      "lat": 48.544183296,
+      "lon": 15.685887008
+    },
+    {
+      "id": "8100590",
+      "Name": "Stübing",
+      "ShortName": "Pg  H1",
+      "lat": 47.177451317,
+      "lon": 15.322237859
+    },
+    {
+      "id": "8100524",
+      "Name": "Pill-Vomperbach",
+      "ShortName": "Sw  H1H",
+      "lat": 47.324503154,
+      "lon": 11.67776523
+    },
+    {
+      "id": "8101090",
+      "Name": "Klagenfurt Annabichl",
+      "ShortName": "Mal H1",
+      "lat": 46.649876003,
+      "lon": 14.315199325
+    },
+    {
+      "id": "8100961",
+      "Name": "Höflein a.d.Donau",
+      "ShortName": "Kz  H1",
+      "lat": 48.350061632,
+      "lon": 16.272219128
+    },
+    {
+      "id": "8100772",
+      "Name": "Elsbethen",
+      "ShortName": "Aj  H2",
+      "lat": 47.760922539,
+      "lon": 13.080354825
+    },
+    {
+      "id": "8101975",
+      "Name": "Pernitz Raimundviertel",
+      "ShortName": "Pem H1",
+      "lat": 47.891758876,
+      "lon": 15.945693518
+    },
+    {
+      "id": "8101094",
+      "Name": "Klagenfurt Ostbf",
+      "ShortName": "Kto",
+      "lat": 46.621679698,
+      "lon": 14.321975357
+    },
+    {
+      "id": "8100100",
+      "Name": "Wörgl Kundl",
+      "ShortName": "Kn",
+      "lat": 47.475981129,
+      "lon": 11.982030909
+    },
+    {
+      "id": "8100347",
+      "Name": "Weizelsdorf",
+      "ShortName": "Wef",
+      "lat": 46.539478876,
+      "lon": 14.243428578
+    },
+    {
+      "id": "8100060",
+      "Name": "Telfs-Pfaffenhofen",
+      "ShortName": "Ts",
+      "lat": 47.300666531,
+      "lon": 11.078679779
+    },
+    {
+      "id": "8100366",
+      "Name": "Brixen im Thale",
+      "ShortName": "Kit H1",
+      "lat": 47.449217836,
+      "lon": 12.2605879
+    },
+    {
+      "id": "8100290",
+      "Name": "Kirchbichl",
+      "ShortName": "Kir",
+      "lat": 47.51857057,
+      "lon": 12.092778219
+    },
+    {
+      "id": "8100681",
+      "Name": "Bergern",
+      "ShortName": "Otg H1",
+      "lat": 48.100793247,
+      "lon": 13.63152529
+    },
+    {
+      "id": "8101702",
+      "Name": "Unterkritzendorf",
+      "ShortName": "Ken H2",
+      "lat": 48.324037263,
+      "lon": 16.309331805
+    },
+    {
+      "id": "8101101",
+      "Name": "Klosterneuburg-Weidling",
+      "ShortName": "Ken",
+      "lat": 48.297644673,
+      "lon": 16.334545298
+    },
+    {
+      "id": "8100139",
+      "Name": "Altenmarkt im Pongau",
+      "ShortName": "Rad K1",
+      "lat": 47.382182306,
+      "lon": 13.429275858
+    },
+    {
+      "id": "8101717",
+      "Name": "Viehofen",
+      "ShortName": "Vn",
+      "lat": 48.230994116,
+      "lon": 15.653259073
+    },
+    {
+      "id": "8100181",
+      "Name": "St.Johann i.d.Haide",
+      "ShortName": "Gd  H1",
+      "lat": 47.280564567,
+      "lon": 16.035334782
+    },
+    {
+      "id": "8101609",
+      "Name": "Steyr Münichholz",
+      "ShortName": "Sbw H1",
+      "lat": 48.048064738,
+      "lon": 14.44951059
+    },
+    {
+      "id": "8101634",
+      "Name": "Schwarzach in Vorarlberg",
+      "ShortName": "Do  H2",
+      "lat": 47.446212414,
+      "lon": 9.754373932
+    },
+    {
+      "id": "8100080",
+      "Name": "Pörtschach am Wörthersee",
+      "ShortName": "Pow",
+      "lat": 46.636199642,
+      "lon": 14.146308148
+    },
+    {
+      "id": "8101973",
+      "Name": "Rothengrub",
+      "ShortName": "Wil H1A",
+      "lat": 47.789212459,
+      "lon": 16.051044472
+    },
+    {
+      "id": "8101396",
+      "Name": "Pottenbrunn",
+      "ShortName": "Wgm",
+      "lat": 48.223646781,
+      "lon": 15.701782719
+    },
+    {
+      "id": "8100506",
+      "Name": "St.Urban am Ossiachersee",
+      "ShortName": "Oi  H1",
+      "lat": 46.674931139,
+      "lon": 13.960191433
+    },
+    {
+      "id": "8100749",
+      "Name": "Eichgraben-Altlengbach",
+      "ShortName": "Rw  H1",
+      "lat": 48.173525368,
+      "lon": 15.981618872
+    },
+    {
+      "id": "8100163",
+      "Name": "Obertraun-Dachsteinhöhlen",
+      "ShortName": "Oa",
+      "lat": 47.557551516,
+      "lon": 13.683686653
+    },
+    {
+      "id": "8100692",
+      "Name": "Breitenstein",
+      "ShortName": "Bt",
+      "lat": 47.65991099,
+      "lon": 15.82029165
+    },
+    {
+      "id": "8100594",
+      "Name": "Köstendorf Weng",
+      "ShortName": "Nst H1",
+      "lat": 47.936192501,
+      "lon": 13.174893911
+    },
+    {
+      "id": "8100316",
+      "Name": "Summerau",
+      "ShortName": "Smr",
+      "lat": 48.557297628,
+      "lon": 14.44883138
+    },
+    {
+      "id": "8101651",
+      "Name": "Trasdorf",
+      "ShortName": "Mos H1",
+      "lat": 48.315226589,
+      "lon": 15.879853532
+    },
+    {
+      "id": "8101776",
+      "Name": "Windau",
+      "ShortName": "Kit H2",
+      "lat": 47.43894464,
+      "lon": 12.184489292
+    },
+    {
+      "id": "8100101",
+      "Name": "Brixlegg",
+      "ShortName": "Bri",
+      "lat": 47.434768366,
+      "lon": 11.879965332
+    },
+    {
+      "id": "8101280",
+      "Name": "Neulengbach Stadt",
+      "ShortName": "Hu  H4",
+      "lat": 48.19630831,
+      "lon": 15.906337682
+    },
+    {
+      "id": "8100700",
+      "Name": "Buchberg",
+      "ShortName": "Gas H1",
+      "lat": 48.576049196,
+      "lon": 15.658830574
+    },
+    {
+      "id": "8100796",
+      "Name": "Wien Siemensstraße",
+      "ShortName": "F   H1",
+      "lat": 48.270927269,
+      "lon": 16.420741653
+    },
+    {
+      "id": "8100039",
+      "Name": "Feldkirchen in Kärnten",
+      "ShortName": "Fel",
+      "lat": 46.721398561,
+      "lon": 14.098800915
+    },
+    {
+      "id": "8100177",
+      "Name": "Fürstenfeld",
+      "ShortName": "Fue",
+      "lat": 47.042219675,
+      "lon": 16.08384279
+    },
+    {
+      "id": "8101473",
+      "Name": "Wien Quartier Belvedere",
+      "ShortName": "Wwb",
+      "lat": 48.18803659,
+      "lon": 16.381948583
+    },
+    {
+      "id": "8100064",
+      "Name": "St.Anton am Arlberg",
+      "ShortName": "Ao",
+      "lat": 47.127384424,
+      "lon": 10.267321198
+    },
+    {
+      "id": "8101325",
+      "Name": "Obertrattnach-M Hofk",
+      "ShortName": "Gk  H1",
+      "lat": 48.245977881,
+      "lon": 13.766854696
+    },
+    {
+      "id": "8100532",
+      "Name": "Purbach am Neusiedlersee",
+      "ShortName": "Pur",
+      "lat": 47.906430239,
+      "lon": 16.698840737
+    },
+    {
+      "id": "8100553",
+      "Name": "Lähn",
+      "ShortName": "Ler H1",
+      "lat": 47.419696991,
+      "lon": 10.833319271
+    },
+    {
+      "id": "8100925",
+      "Name": "Hennersdorf",
+      "ShortName": "Hnd",
+      "lat": 48.112484325,
+      "lon": 16.358264549
+    },
+    {
+      "id": "8101063",
+      "Name": "Kumpfmühl",
+      "ShortName": "Neu H2",
+      "lat": 48.269174384,
+      "lon": 13.620424692
+    },
+    {
+      "id": "8100122",
+      "Name": "Dornbirn",
+      "ShortName": "Do",
+      "lat": 47.417662571,
+      "lon": 9.738876434
+    },
+    {
+      "id": "8101399",
+      "Name": "Peterskirchen",
+      "ShortName": "Pra H2",
+      "lat": 48.233836431,
+      "lon": 13.548962494
+    },
+    {
+      "id": "8101950",
+      "Name": "Bregenz Hafen",
+      "ShortName": "Bg  H1",
+      "lat": 47.506460584,
+      "lon": 9.74877776
+    },
+    {
+      "id": "8100780",
+      "Name": "Felixdorf",
+      "ShortName": "Fld",
+      "lat": 47.886964982,
+      "lon": 16.248124587
+    },
+    {
+      "id": "8100197",
+      "Name": "Feldkirch",
+      "ShortName": "Fk",
+      "lat": 47.241360336,
+      "lon": 9.604749574
+    },
+    {
+      "id": "8101191",
+      "Name": "Langenzersdorf",
+      "ShortName": "F   H2S",
+      "lat": 48.306929727,
+      "lon": 16.355406221
+    },
+    {
+      "id": "8101669",
+      "Name": "Tiffen",
+      "ShortName": "Fel H1",
+      "lat": 46.701308833,
+      "lon": 14.059938384
+    },
+    {
+      "id": "8101295",
+      "Name": "Oberbrunn",
+      "ShortName": "Otg H5",
+      "lat": 48.170988202,
+      "lon": 13.513269516
+    },
+    {
+      "id": "8100011",
+      "Name": "Enns",
+      "ShortName": "Ens",
+      "lat": 48.221199229,
+      "lon": 14.466800764
+    },
+    {
+      "id": "8101674",
+      "Name": "Traunkirchen Ort",
+      "ShortName": "En  H2",
+      "lat": 47.842693636,
+      "lon": 13.787145607
+    },
+    {
+      "id": "8101274",
+      "Name": "Nikolsdorf",
+      "ShortName": "Doe H1",
+      "lat": 46.779144554,
+      "lon": 12.895137336
+    },
+    {
+      "id": "8100371",
+      "Name": "Graz Ostbf-Messe",
+      "ShortName": "Gob",
+      "lat": 47.053217519,
+      "lon": 15.448478589
+    },
+    {
+      "id": "8100187",
+      "Name": "Tauchen-Schaueregg",
+      "ShortName": "Tau",
+      "lat": 47.482769183,
+      "lon": 16.054879449
+    },
+    {
+      "id": "8100986",
+      "Name": "Hatting",
+      "ShortName": "Zl  H2",
+      "lat": 47.281309004,
+      "lon": 11.170257757
+    },
+    {
+      "id": "8100125",
+      "Name": "Mautern",
+      "ShortName": "Mu",
+      "lat": 47.396789219,
+      "lon": 14.835887292
+    },
+    {
+      "id": "8100691",
+      "Name": "Wien Brünner Straße",
+      "ShortName": "Bse",
+      "lat": 48.267634305,
+      "lon": 16.403744415
+    },
+    {
+      "id": "8101556",
+      "Name": "Wien Grillgasse",
+      "ShortName": "Sg",
+      "lat": 48.167198481,
+      "lon": 16.406969068
+    },
+    {
+      "id": "8101585",
+      "Name": "Sulz-Röthis",
+      "ShortName": "Rk  H1",
+      "lat": 47.294297048,
+      "lon": 9.634577393
+    },
+    {
+      "id": "8101578",
+      "Name": "Spillern",
+      "ShortName": "Ko  H2",
+      "lat": 48.375848022,
+      "lon": 16.256519738
+    },
+    {
+      "id": "8100708",
+      "Name": "Bad Vöslau",
+      "ShortName": "Bvs",
+      "lat": 47.96931099,
+      "lon": 16.223974735
+    },
+    {
+      "id": "8100272",
+      "Name": "Herzogenburg",
+      "ShortName": "Ho",
+      "lat": 48.276608897,
+      "lon": 15.696527077
+    },
+    {
+      "id": "8100705",
+      "Name": "Brunn a.d.Pitten",
+      "ShortName": "Ela H1",
+      "lat": 47.722560119,
+      "lon": 16.188485769
+    },
+    {
+      "id": "8101539",
+      "Name": "Wien Praterkai",
+      "ShortName": "El  H1",
+      "lat": 48.199681698,
+      "lon": 16.441299563
+    },
+    {
+      "id": "8100141",
+      "Name": "Lienz",
+      "ShortName": "Lie",
+      "lat": 46.828482654,
+      "lon": 12.771511453
+    },
+    {
+      "id": "8101640",
+      "Name": "Traiskirchen Aspangbahn",
+      "ShortName": "Ti",
+      "lat": 48.017976195,
+      "lon": 16.303437488
+    },
+    {
+      "id": "8100056",
+      "Name": "Arnoldstein",
+      "ShortName": "Dr",
+      "lat": 46.551517985,
+      "lon": 13.707967232
+    },
+    {
+      "id": "8101408",
+      "Name": "Purkla",
+      "ShortName": "Gof H3",
+      "lat": 46.731559698,
+      "lon": 15.903451507
+    },
+    {
+      "id": "8100071",
+      "Name": "St.Michael",
+      "ShortName": "M",
+      "lat": 47.346620626,
+      "lon": 15.009185478
+    },
+    {
+      "id": "8100657",
+      "Name": "Berg im Drautal",
+      "ShortName": "De  H1",
+      "lat": 46.742355627,
+      "lon": 13.127802286
+    },
+    {
+      "id": "8100446",
+      "Name": "Wien Franz-Josefs-Bf",
+      "ShortName": "Wf",
+      "lat": 48.226544262,
+      "lon": 16.361173034
+    },
+    {
+      "id": "8101877",
+      "Name": "Puch",
+      "ShortName": "Pf  H3",
+      "lat": 46.663027617,
+      "lon": 13.759747539
+    },
+    {
+      "id": "8100158",
+      "Name": "Hieflau",
+      "ShortName": "Hi",
+      "lat": 47.607740499,
+      "lon": 14.736416683
+    },
+    {
+      "id": "8100094",
+      "Name": "Böckstein",
+      "ShortName": "Bs",
+      "lat": 47.080481764,
+      "lon": 13.130576019
+    },
+    {
+      "id": "8100558",
+      "Name": "Ulrichsbrücke-Füssen",
+      "ShortName": "Rt  H3",
+      "lat": 47.543117681,
+      "lon": 10.66437287
+    },
+    {
+      "id": "8100550",
+      "Name": "Heiterwang-Plansee",
+      "ShortName": "Bch H2H",
+      "lat": 47.442278873,
+      "lon": 10.748489038
+    },
+    {
+      "id": "8100970",
+      "Name": "Hörersdorf",
+      "ShortName": "Mb  H3",
+      "lat": 48.61992213,
+      "lon": 16.516901461
+    },
+    {
+      "id": "8101346",
+      "Name": "Perchtoldsdorf ",
+      "ShortName": "Lg  H1",
+      "lat": 48.122725998,
+      "lon": 16.285553129
+    },
+    {
+      "id": "8100441",
+      "Name": "Wien Oberdöbling",
+      "ShortName": "Ht  H1",
+      "lat": 48.244164493,
+      "lon": 16.344084133
+    },
+    {
+      "id": "8100324",
+      "Name": "Thal",
+      "ShortName": "Tl",
+      "lat": 46.784105142,
+      "lon": 12.670820767
+    },
+    {
+      "id": "8101754",
+      "Name": "Wels Lokalbahn",
+      "ShortName": "Wl",
+      "lat": 48.156521852,
+      "lon": 14.017380991
+    },
+    {
+      "id": "8101277",
+      "Name": "Neunkirchen N.Ö.",
+      "ShortName": "Nek",
+      "lat": 47.731558112,
+      "lon": 16.084947637
+    },
+    {
+      "id": "8101516",
+      "Name": "Schlägl",
+      "ShortName": "Oep H1",
+      "lat": 48.636604773,
+      "lon": 13.97540115
+    },
+    {
+      "id": "8100393",
+      "Name": "Bleiburg",
+      "ShortName": "Ble",
+      "lat": 46.574121903,
+      "lon": 14.78653139
+    },
+    {
+      "id": "8101122",
+      "Name": "Laxenburg-Biedermannsdorf",
+      "ShortName": "Lx",
+      "lat": 48.077476547,
+      "lon": 16.356629363
+    },
+    {
+      "id": "8101099",
+      "Name": "Küpfern Haltestelle",
+      "ShortName": "Rei H3",
+      "lat": 47.858535674,
+      "lon": 14.610560634
+    },
+    {
+      "id": "8100413",
+      "Name": "Mauthausen",
+      "ShortName": "Mh",
+      "lat": 48.242771146,
+      "lon": 14.532747539
+    },
+    {
+      "id": "8100221",
+      "Name": "Drösing",
+      "ShortName": "Drg",
+      "lat": 48.540809313,
+      "lon": 16.895839327
+    },
+    {
+      "id": "8100154",
+      "Name": "Gaflenz",
+      "ShortName": "Ob  H2",
+      "lat": 47.893775317,
+      "lon": 14.723646584
+    },
+    {
+      "id": "8100035",
+      "Name": "Leibnitz",
+      "ShortName": "Lei",
+      "lat": 46.780783185,
+      "lon": 15.547072466
+    },
+    {
+      "id": "8101912",
+      "Name": "Reutte in Tirol Schulzentrum",
+      "ShortName": "Bch H4",
+      "lat": 47.489753711,
+      "lon": 10.72492479
+    },
+    {
+      "id": "8100067",
+      "Name": "Bludenz",
+      "ShortName": "B",
+      "lat": 47.154999677,
+      "lon": 9.814499858
+    },
+    {
+      "id": "8101267",
+      "Name": "Neuhaus a.d.Gail",
+      "ShortName": "Fn  H1",
+      "lat": 46.55495606,
+      "lon": 13.778417638
+    },
+    {
+      "id": "8101652",
+      "Name": "Tauchendorf-Haidensee",
+      "ShortName": "Lif H1",
+      "lat": 46.728302457,
+      "lon": 14.236685288
+    },
+    {
+      "id": "8100719",
+      "Name": "Deutschkreutz",
+      "ShortName": "Dk",
+      "lat": 47.603894679,
+      "lon": 16.620160561
+    },
+    {
+      "id": "8100027",
+      "Name": "Payerbach-Reichenau",
+      "ShortName": "Pr",
+      "lat": 47.696042294,
+      "lon": 15.86334879
+    },
+    {
+      "id": "8100845",
+      "Name": "Gunskirchen",
+      "ShortName": "Gun",
+      "lat": 48.132666168,
+      "lon": 13.946178706
+    },
+    {
+      "id": "8101806",
+      "Name": "Weißenbach-St.Gallen",
+      "ShortName": "Weg",
+      "lat": 47.714472993,
+      "lon": 14.635468993
+    },
+    {
+      "id": "8101755",
+      "Name": "Weissenbach-Neuhaus",
+      "ShortName": "Web",
+      "lat": 47.98431364,
+      "lon": 16.045895325
+    },
+    {
+      "id": "8101660",
+      "Name": "Tenneck",
+      "ShortName": "Gg  K2",
+      "lat": 47.494621501,
+      "lon": 13.178908974
+    },
+    {
+      "id": "8101338",
+      "Name": "Paudorf",
+      "ShortName": "Pau",
+      "lat": 48.352024654,
+      "lon": 15.615550047
+    },
+    {
+      "id": "8100372",
+      "Name": "Guntramsdorf-Kaiserau Haltestelle",
+      "ShortName": "Guk H1",
+      "lat": 48.0438637,
+      "lon": 16.32474502
+    },
+    {
+      "id": "8101195",
+      "Name": "Linz Wegscheid",
+      "ShortName": "Wd",
+      "lat": 48.249670282,
+      "lon": 14.275552205
+    },
+    {
+      "id": "8101245",
+      "Name": "Mistelbach",
+      "ShortName": "Mb",
+      "lat": 48.565624776,
+      "lon": 16.563606264
+    },
+    {
+      "id": "8101278",
+      "Name": "Neukirchen bei Lambach",
+      "ShortName": "La  H2",
+      "lat": 48.095089006,
+      "lon": 13.832224076
+    },
+    {
+      "id": "8101784",
+      "Name": "Weitlanbrunn",
+      "ShortName": "Sc  H3",
+      "lat": 46.742506149,
+      "lon": 12.395566405
+    },
+    {
+      "id": "8101227",
+      "Name": "Wien Matzleinsdorfer Platz",
+      "ShortName": "Wbf H1S",
+      "lat": 48.17996956,
+      "lon": 16.357107186
+    },
+    {
+      "id": "8103174",
+      "Name": "Feldkirchen-Seiersberg",
+      "ShortName": "Pu  H1A",
+      "lat": 47.012504763,
+      "lon": 15.440541206
+    },
+    {
+      "id": "8100554",
+      "Name": "Leithen",
+      "ShortName": "Hol H1",
+      "lat": 47.290847127,
+      "lon": 11.221782382
+    },
+    {
+      "id": "8101785",
+      "Name": "Wendling",
+      "ShortName": "Neu H1P",
+      "lat": 48.246106765,
+      "lon": 13.650016646
+    },
+    {
+      "id": "8100204",
+      "Name": "Abfaltersbach",
+      "ShortName": "Abf H1",
+      "lat": 46.758130664,
+      "lon": 12.52954499
+    },
+    {
+      "id": "8101029",
+      "Name": "Katsdorf",
+      "ShortName": "Lu  H1",
+      "lat": 48.312341414,
+      "lon": 14.491216822
+    },
+    {
+      "id": "8100269",
+      "Name": "Wien Heiligenstadt",
+      "ShortName": "Ht",
+      "lat": 48.24908727,
+      "lon": 16.365467899
+    },
+    {
+      "id": "8100153",
+      "Name": "Traunkirchen",
+      "ShortName": "Tk",
+      "lat": 47.855267883,
+      "lon": 13.777104419
+    },
+    {
+      "id": "8102888",
+      "Name": "Wien Aspern Nord",
+      "ShortName": "Sty",
+      "lat": 48.234773321,
+      "lon": 16.503905938
+    },
+    {
+      "id": "8100164",
+      "Name": "Bad Aussee",
+      "ShortName": "Au",
+      "lat": 47.599060669,
+      "lon": 13.776524427
+    },
+    {
+      "id": "8100149",
+      "Name": "Steinfeld im Drautal",
+      "ShortName": "Std",
+      "lat": 46.752628071,
+      "lon": 13.259746614
+    },
+    {
+      "id": "8100246",
+      "Name": "Gaisbach-Wartberg",
+      "ShortName": "Ga",
+      "lat": 48.330224231,
+      "lon": 14.505917419
+    },
+    {
+      "id": "8101917",
+      "Name": "Salzburg Süd",
+      "ShortName": "Aj  H1",
+      "lat": 47.770112269,
+      "lon": 13.078497956
+    },
+    {
+      "id": "8100202",
+      "Name": "Absdorf-Hippersdorf",
+      "ShortName": "Ah",
+      "lat": 48.401992641,
+      "lon": 15.985760744
+    },
+    {
+      "id": "8100417",
+      "Name": "Mittewald a.d.Drau",
+      "ShortName": "Abf K1",
+      "lat": 46.769622579,
+      "lon": 12.595168437
+    },
+    {
+      "id": "8100274",
+      "Name": "Hollabrunn",
+      "ShortName": "Oh",
+      "lat": 48.562933927,
+      "lon": 16.07222651
+    },
+    {
+      "id": "8100721",
+      "Name": "Deutsch Wagram",
+      "ShortName": "Wg",
+      "lat": 48.303145491,
+      "lon": 16.564567433
+    },
+    {
+      "id": "8101255",
+      "Name": "Neuhofen a.d.Krems",
+      "ShortName": "Nkr",
+      "lat": 48.135906447,
+      "lon": 14.238547096
+    },
+    {
+      "id": "8100713",
+      "Name": "Böhlerwerk a.d.Ybbs",
+      "ShortName": "Hk  H3",
+      "lat": 47.983060616,
+      "lon": 14.754060709
+    },
+    {
+      "id": "8100078",
+      "Name": "St.Veit a.d.Glan",
+      "ShortName": "Vps",
+      "lat": 46.770508782,
+      "lon": 14.367176561
+    },
+    {
+      "id": "8101376",
+      "Name": "Pöham",
+      "ShortName": "Ph",
+      "lat": 47.430771568,
+      "lon": 13.253673707
+    },
+    {
+      "id": "8101587",
+      "Name": "Sitzenberg-Reidling",
+      "ShortName": "Mos H2H",
+      "lat": 48.33222753,
+      "lon": 15.818637247
+    },
+    {
+      "id": "8101032",
+      "Name": "Kapfenberg Fachhochschule",
+      "ShortName": "Mas H1H",
+      "lat": 47.454757562,
+      "lon": 15.329322357
+    },
+    {
+      "id": "8101540",
+      "Name": "Schlierbach",
+      "ShortName": "Srb",
+      "lat": 47.93777514,
+      "lon": 14.111652129
+    },
+    {
+      "id": "8101588",
+      "Name": "Wien Strebersdorf",
+      "ShortName": "Sdf",
+      "lat": 48.285552551,
+      "lon": 16.38169194
+    },
+    {
+      "id": "8100728",
+      "Name": "Dornbirn-Schoren",
+      "ShortName": "Hos H2",
+      "lat": 47.41293495,
+      "lon": 9.726251079
+    },
+    {
+      "id": "8102053",
+      "Name": "Oberhofen im Inntal",
+      "ShortName": "Zl  H3",
+      "lat": 47.302020216,
+      "lon": 11.095049637
+    },
+    {
+      "id": "8101692",
+      "Name": "Tulln Stadt",
+      "ShortName": "Tus",
+      "lat": 48.328355929,
+      "lon": 16.053785103
+    },
+    {
+      "id": "8101204",
+      "Name": "Marchtrenk",
+      "ShortName": "Mak",
+      "lat": 48.20105738,
+      "lon": 14.099570063
+    },
+    {
+      "id": "8100081",
+      "Name": "Velden am Wörthersee",
+      "ShortName": "Vel",
+      "lat": 46.620113333,
+      "lon": 14.044935163
+    },
+    {
+      "id": "8100869",
+      "Name": "Gerasdorf",
+      "ShortName": "Gef",
+      "lat": 48.294248051,
+      "lon": 16.48418803
+    },
+    {
+      "id": "8101324",
+      "Name": "Oberthalheim-Timelkam",
+      "ShortName": "Vk  H1",
+      "lat": 48.001905637,
+      "lon": 13.623877524
+    },
+    {
+      "id": "8100861",
+      "Name": "Gödersdorf",
+      "ShortName": "Vu  H1",
+      "lat": 46.568462711,
+      "lon": 13.846896811
+    },
+    {
+      "id": "8100188",
+      "Name": "Aspang",
+      "ShortName": "Ap",
+      "lat": 47.562446081,
+      "lon": 16.099655408
+    },
+    {
+      "id": "8101764",
+      "Name": "Wagram-Grafenegg",
+      "ShortName": "Fs  H1",
+      "lat": 48.434066522,
+      "lon": 15.776977798
+    },
+    {
+      "id": "8100134",
+      "Name": "Neumarkt am Wallersee",
+      "ShortName": "Nsk",
+      "lat": 47.955812453,
+      "lon": 13.225934453
+    },
+    {
+      "id": "8101315",
+      "Name": "Ober Olberndorf",
+      "ShortName": "Su  H1",
+      "lat": 48.413681336,
+      "lon": 16.17412977
+    },
+    {
+      "id": "8101796",
+      "Name": "Wöllersdorf",
+      "ShortName": "Woe",
+      "lat": 47.861476562,
+      "lon": 16.178028786
+    },
+    {
+      "id": "8100010",
+      "Name": "Steyr",
+      "ShortName": "Stb",
+      "lat": 48.038195582,
+      "lon": 14.423094736
+    },
+    {
+      "id": "8100797",
+      "Name": "Föderlach",
+      "ShortName": "Foe",
+      "lat": 46.602085671,
+      "lon": 13.959184715
+    },
+    {
+      "id": "8101076",
+      "Name": "Kraubath",
+      "ShortName": "Kra",
+      "lat": 47.306169653,
+      "lon": 14.945536607
+    },
+    {
+      "id": "8100183",
+      "Name": "Rohrbach-Vorau",
+      "ShortName": "Rv  H1",
+      "lat": 47.388858322,
+      "lon": 15.985826221
+    },
+    {
+      "id": "8101210",
+      "Name": "Mixnitz-Bärenschützklamm",
+      "ShortName": "Mx",
+      "lat": 47.331174269,
+      "lon": 15.36072161
+    },
+    {
+      "id": "8100788",
+      "Name": "Finkenstein",
+      "ShortName": "Vu  H2",
+      "lat": 46.568825801,
+      "lon": 13.867721989
+    },
+    {
+      "id": "8100508",
+      "Name": "Vöcklamarkt",
+      "ShortName": "Vm",
+      "lat": 47.997989216,
+      "lon": 13.489421035
+    },
+    {
+      "id": "8100836",
+      "Name": "Greinsfurth",
+      "ShortName": "Ams H1U",
+      "lat": 48.107909615,
+      "lon": 14.838520701
+    },
+    {
+      "id": "8100268",
+      "Name": "Hatzendorf",
+      "ShortName": "Sou H2",
+      "lat": 46.979272342,
+      "lon": 16.003448048
+    },
+    {
+      "id": "8102057",
+      "Name": "Wien Wolf in der Au",
+      "ShortName": "Hf  H1",
+      "lat": 48.204625466,
+      "lon": 16.236527148
+    },
+    {
+      "id": "8100537",
+      "Name": "Maria Ellend",
+      "ShortName": "Mae",
+      "lat": 48.109949218,
+      "lon": 16.688874207
+    },
+    {
+      "id": "8101701",
+      "Name": "Untersiebenbrunn",
+      "ShortName": "Sbl H1",
+      "lat": 48.248017294,
+      "lon": 16.749019673
+    },
+    {
+      "id": "8100862",
+      "Name": "Görtschach-Förolach",
+      "ShortName": "Ssv H1",
+      "lat": 46.622573438,
+      "lon": 13.471228895
+    },
+    {
+      "id": "8102056",
+      "Name": "Unterretzbach",
+      "ShortName": "R   H1H",
+      "lat": 48.765036367,
+      "lon": 16.008008323
+    },
+    {
+      "id": "8100095",
+      "Name": "Bad Gastein",
+      "ShortName": "Bag",
+      "lat": 47.111807792,
+      "lon": 13.131985612
+    },
+    {
+      "id": "8100858",
+      "Name": "Grein Stadt",
+      "ShortName": "Ges",
+      "lat": 48.229984085,
+      "lon": 14.855700797
+    },
+    {
+      "id": "8101275",
+      "Name": "Niklasdorf",
+      "ShortName": "Ni",
+      "lat": 47.394106791,
+      "lon": 15.156234721
+    },
+    {
+      "id": "8100173",
+      "Name": "Graz Hbf",
+      "ShortName": "G",
+      "lat": 47.072767377,
+      "lon": 15.416285846
+    },
+    {
+      "id": "8101433",
+      "Name": "Wien Rennweg",
+      "ShortName": "Ren",
+      "lat": 48.195738955,
+      "lon": 16.385963324
+    },
+    {
+      "id": "8101535",
+      "Name": "Schleinbach",
+      "ShortName": "Snb",
+      "lat": 48.422013589,
+      "lon": 16.489965269
+    },
+    {
+      "id": "8101988",
+      "Name": "Waldegg-Dürnbach",
+      "ShortName": "Wag H1",
+      "lat": 47.86758147,
+      "lon": 16.051746019
+    },
+    {
+      "id": "8100879",
+      "Name": "Gerling im Pinzgau",
+      "ShortName": "Z   H1",
+      "lat": 47.390285408,
+      "lon": 12.827417165
+    },
+    {
+      "id": "8100496",
+      "Name": "St.Andrä im Lavanttal",
+      "ShortName": "An",
+      "lat": 46.762823621,
+      "lon": 14.841770453
+    },
+    {
+      "id": "8101299",
+      "Name": "Oberhart",
+      "ShortName": "Sth H1",
+      "lat": 48.10400055,
+      "lon": 14.039181635
+    },
+    {
+      "id": "8101238",
+      "Name": "Markt Paternion",
+      "ShortName": "Ro  H2",
+      "lat": 46.725302465,
+      "lon": 13.642426718
+    },
+    {
+      "id": "8100208",
+      "Name": "Aigen-Schlägl",
+      "ShortName": "Ai",
+      "lat": 48.642361495,
+      "lon": 13.975272268
+    },
+    {
+      "id": "8101858",
+      "Name": "Pernitz Wipfelhofstraße",
+      "ShortName": "Ort H1",
+      "lat": 47.895725633,
+      "lon": 15.968353036
+    },
+    {
+      "id": "8100408",
+      "Name": "Mattersburg",
+      "ShortName": "Mr",
+      "lat": 47.73575348,
+      "lon": 16.409026296
+    },
+    {
+      "id": "8100048",
+      "Name": "Zell am See",
+      "ShortName": "Z",
+      "lat": 47.320665293,
+      "lon": 12.79688426
+    },
+    {
+      "id": "8100159",
+      "Name": "Gstatterboden im Nationalpark",
+      "ShortName": "Gb",
+      "lat": 47.591328911,
+      "lon": 14.633669078
+    },
+    {
+      "id": "8100185",
+      "Name": "Friedberg",
+      "ShortName": "Fd",
+      "lat": 47.434803201,
+      "lon": 16.054043246
+    },
+    {
+      "id": "8100325",
+      "Name": "Traismauer",
+      "ShortName": "Tra",
+      "lat": 48.347840503,
+      "lon": 15.74632098
+    },
+    {
+      "id": "8101075",
+      "Name": "Kappel am Krappfeld",
+      "ShortName": "Tr  H1",
+      "lat": 46.837826242,
+      "lon": 14.475455385
+    },
+    {
+      "id": "8100205",
+      "Name": "Achau",
+      "ShortName": "Ach",
+      "lat": 48.082804239,
+      "lon": 16.376185953
+    },
+    {
+      "id": "8100638",
+      "Name": "Aurolzmünster",
+      "ShortName": "Rd  H2M",
+      "lat": 48.248781359,
+      "lon": 13.458058359
+    },
+    {
+      "id": "8100425",
+      "Name": "Wörschach Schwefelbad",
+      "ShortName": "Ln  H1",
+      "lat": 47.545536125,
+      "lon": 14.139801596
+    },
+    {
+      "id": "8100463",
+      "Name": "Losenstein",
+      "ShortName": "Lon",
+      "lat": 47.923985874,
+      "lon": 14.431081059
+    },
+    {
+      "id": "8100501",
+      "Name": "St. Paul im Lavanttal",
+      "ShortName": "Lav",
+      "lat": 46.722016339,
+      "lon": 14.856136858
+    },
+    {
+      "id": "8100990",
+      "Name": "Hausleiten",
+      "ShortName": "Hui",
+      "lat": 48.391295836,
+      "lon": 16.106752432
+    },
+    {
+      "id": "8101389",
+      "Name": "Pasching",
+      "ShortName": "Lz  H2",
+      "lat": 48.257457176,
+      "lon": 14.209323782
+    },
+    {
+      "id": "8100147",
+      "Name": "Villach Hbf",
+      "ShortName": "Vb",
+      "lat": 46.618616886,
+      "lon": 13.848443269
+    },
+    {
+      "id": "8100031",
+      "Name": "Kapfenberg",
+      "ShortName": "Ka",
+      "lat": 47.445121961,
+      "lon": 15.292038278
+    },
+    {
+      "id": "8105979",
+      "Name": "Villach Landskron",
+      "ShortName": "Ru  H1",
+      "lat": 46.629856924,
+      "lon": 13.875689697
+    },
+    {
+      "id": "8100332",
+      "Name": "Gattendorf",
+      "ShortName": "Gtt",
+      "lat": 48.010546044,
+      "lon": 16.980619896
+    },
+    {
+      "id": "8101857",
+      "Name": "Wilfling",
+      "ShortName": "Voi H2",
+      "lat": 47.980607465,
+      "lon": 14.029081048
+    },
+    {
+      "id": "8101694",
+      "Name": "Übersbach",
+      "ShortName": "Fue H1",
+      "lat": 47.026869482,
+      "lon": 16.053712221
+    },
+    {
+      "id": "8100655",
+      "Name": "Bad Fischau",
+      "ShortName": "Fwa H1",
+      "lat": 47.83146982,
+      "lon": 16.171665367
+    },
+    {
+      "id": "8101635",
+      "Name": "Stadt Waidhofen a.d.Ybbs",
+      "ShortName": "Wh  H1",
+      "lat": 47.958360797,
+      "lon": 14.767738942
+    },
+    {
+      "id": "8102105",
+      "Name": "Hall-Thaur",
+      "ShortName": "H   H1",
+      "lat": 47.277102063,
+      "lon": 11.474141368
+    },
+    {
+      "id": "8100538",
+      "Name": "Bad Deutsch Altenburg",
+      "ShortName": "Bde",
+      "lat": 48.133160744,
+      "lon": 16.910832315
+    },
+    {
+      "id": "8100429",
+      "Name": "Söchau",
+      "ShortName": "Sou",
+      "lat": 47.028922228,
+      "lon": 16.013079543
+    },
+    {
+      "id": "8106002",
+      "Name": "Leoben Lerchenfeld",
+      "ShortName": "Ni  H1",
+      "lat": 47.385451286,
+      "lon": 15.115313331
+    },
+    {
+      "id": "8100652",
+      "Name": "Berndorf Stadt",
+      "ShortName": "Tf  H1",
+      "lat": 47.944627004,
+      "lon": 16.108794614
+    },
+    {
+      "id": "8100383",
+      "Name": "Wartberg im Mürztal",
+      "ShortName": "War",
+      "lat": 47.527351455,
+      "lon": 15.484173646
+    },
+    {
+      "id": "8101504",
+      "Name": "St.Georgen ob Judenburg",
+      "ShortName": "Tel H1",
+      "lat": 47.212148076,
+      "lon": 14.499207393
+    },
+    {
+      "id": "8101506",
+      "Name": "St.Georgen a.d.Mattig",
+      "ShortName": "Mau H1",
+      "lat": 48.216415213,
+      "lon": 13.098743384
+    },
+    {
+      "id": "8101496",
+      "Name": "Villach Seebach",
+      "ShortName": "Foe H1",
+      "lat": 46.621080859,
+      "lon": 13.873307893
+    },
+    {
+      "id": "8100552",
+      "Name": "Lermoos",
+      "ShortName": "Ler",
+      "lat": 47.405410543,
+      "lon": 10.878820435
+    },
+    {
+      "id": "8100395",
+      "Name": "Wien Breitensee",
+      "ShortName": "Ok  H1",
+      "lat": 48.197373222,
+      "lon": 16.30690385
+    },
+    {
+      "id": "8100416",
+      "Name": "Sattledt",
+      "ShortName": "Sad",
+      "lat": 48.074185834,
+      "lon": 14.057946264
+    },
+    {
+      "id": "8100124",
+      "Name": "Lochau-Hörbranz",
+      "ShortName": "Lc",
+      "lat": 47.529175582,
+      "lon": 9.742780597
+    },
+    {
+      "id": "8101536",
+      "Name": "Stillfried",
+      "ShortName": "Ag  H1",
+      "lat": 48.411477462,
+      "lon": 16.846517058
+    },
+    {
+      "id": "8100534",
+      "Name": "Stockerau",
+      "ShortName": "Su",
+      "lat": 48.382391406,
+      "lon": 16.213081589
+    },
+    {
+      "id": "8101260",
+      "Name": "Neukirchen-Gampern",
+      "ShortName": "Tm  H1",
+      "lat": 48.020312079,
+      "lon": 13.549216954
+    },
+    {
+      "id": "8100264",
+      "Name": "Hadersdorf am Kamp",
+      "ShortName": "Hfa",
+      "lat": 48.44658608,
+      "lon": 15.714688125
+    },
+    {
+      "id": "8100939",
+      "Name": "Hopfgarten Berglift",
+      "ShortName": "Kit H3",
+      "lat": 47.446781924,
+      "lon": 12.15881294
+    },
+    {
+      "id": "8100052",
+      "Name": "Hochfilzen",
+      "ShortName": "Hch",
+      "lat": 47.467484806,
+      "lon": 12.626547704
+    },
+    {
+      "id": "8100091",
+      "Name": "Kolbnitz",
+      "ShortName": "Kl",
+      "lat": 46.87812624,
+      "lon": 13.322181992
+    },
+    {
+      "id": "8100055",
+      "Name": "Kitzbühel",
+      "ShortName": "Kzb",
+      "lat": 47.454255615,
+      "lon": 12.391008862
+    },
+    {
+      "id": "8102046",
+      "Name": "Asten-Fisching",
+      "ShortName": "Ens H1",
+      "lat": 48.227231145,
+      "lon": 14.427732039
+    },
+    {
+      "id": "8100132",
+      "Name": "Stainach-Irdning",
+      "ShortName": "Rg",
+      "lat": 47.529226159,
+      "lon": 14.107291964
+    },
+    {
+      "id": "8101752",
+      "Name": "Weitersfeld a.d.Mur",
+      "ShortName": "Wem",
+      "lat": 46.714665069,
+      "lon": 15.721435509
+    },
+    {
+      "id": "8100766",
+      "Name": "Ebensee Landungsplatz",
+      "ShortName": "En  H1",
+      "lat": 47.812430789,
+      "lon": 13.774878008
+    },
+    {
+      "id": "8100256",
+      "Name": "Grafenstein",
+      "ShortName": "Gra",
+      "lat": 46.619031393,
+      "lon": 14.459415724
+    },
+    {
+      "id": "8100018",
+      "Name": "Frankenmarkt",
+      "ShortName": "Fm",
+      "lat": 47.983121667,
+      "lon": 13.432650342
+    },
+    {
+      "id": "8100241",
+      "Name": "Friedburg ",
+      "ShortName": "Nsf",
+      "lat": 47.997066217,
+      "lon": 13.234189803
+    },
+    {
+      "id": "8100323",
+      "Name": "Terfens-Weer",
+      "ShortName": "Sw  H2",
+      "lat": 47.315897447,
+      "lon": 11.634299795
+    },
+    {
+      "id": "8100485",
+      "Name": "Scheibbs",
+      "ShortName": "Sbs",
+      "lat": 48.005531616,
+      "lon": 15.164186368
+    },
+    {
+      "id": "8101377",
+      "Name": "Pöndorf",
+      "ShortName": "Fm  H1",
+      "lat": 47.986551231,
+      "lon": 13.356017296
+    },
+    {
+      "id": "8100129",
+      "Name": "Gmünd N.Ö.",
+      "ShortName": "Gm",
+      "lat": 48.764214478,
+      "lon": 14.983812905
+    },
+    {
+      "id": "8100984",
+      "Name": "Hautzendorf",
+      "ShortName": "Snb H1",
+      "lat": 48.450786604,
+      "lon": 16.492813477
+    },
+    {
+      "id": "8100162",
+      "Name": "Steeg-Gosau",
+      "ShortName": "Stg",
+      "lat": 47.616370001,
+      "lon": 13.631854526
+    },
+    {
+      "id": "8100015",
+      "Name": "Lambach",
+      "ShortName": "La",
+      "lat": 48.093962184,
+      "lon": 13.888287984
+    },
+    {
+      "id": "8101104",
+      "Name": "Lanzenkirchen",
+      "ShortName": "Kw",
+      "lat": 47.750558117,
+      "lon": 16.242177073
+    },
+    {
+      "id": "8100073",
+      "Name": "Judenburg",
+      "ShortName": "Jg",
+      "lat": 47.174983819,
+      "lon": 14.662639368
+    },
+    {
+      "id": "8101553",
+      "Name": "Wien Simmering",
+      "ShortName": "Wbf H1",
+      "lat": 48.169593915,
+      "lon": 16.418805072
+    },
+    {
+      "id": "8100573",
+      "Name": "Micheldorf-Hirt",
+      "ShortName": "Fi  H1",
+      "lat": 46.914866568,
+      "lon": 14.431380567
+    },
+    {
+      "id": "8100852",
+      "Name": "Glinzendorf",
+      "ShortName": "Raf H1",
+      "lat": 48.242202363,
+      "lon": 16.641149565
+    },
+    {
+      "id": "8101084",
+      "Name": "Kritzendorf",
+      "ShortName": "Kz",
+      "lat": 48.335934112,
+      "lon": 16.299083701
+    },
+    {
+      "id": "8100215",
+      "Name": "Antiesenhofen",
+      "ShortName": "Ant",
+      "lat": 48.347348879,
+      "lon": 13.402091462
+    },
+    {
+      "id": "8100589",
+      "Name": "Stams",
+      "ShortName": "Sts",
+      "lat": 47.281959218,
+      "lon": 10.97992412
+    },
+    {
+      "id": "8101218",
+      "Name": "Miesenbach-Waidmannsfeld",
+      "ShortName": "Oed H1",
+      "lat": 47.877546598,
+      "lon": 16.005536536
+    },
+    {
+      "id": "8100997",
+      "Name": "Herzogenburg-Wielandsthal",
+      "ShortName": "Stf H1",
+      "lat": 48.28528314,
+      "lon": 15.690336895
+    },
+    {
+      "id": "8101481",
+      "Name": "Salzburg Parsch",
+      "ShortName": "Sr  H2",
+      "lat": 47.79906943,
+      "lon": 13.073118632
+    },
+    {
+      "id": "8100442",
+      "Name": "Obernberg-Altheim",
+      "ShortName": "Ath",
+      "lat": 48.270219728,
+      "lon": 13.259254351
+    },
+    {
+      "id": "8101845",
+      "Name": "St.Pölten-Porschestraße",
+      "ShortName": "Spr H2",
+      "lat": 48.182652168,
+      "lon": 15.616979463
+    },
+    {
+      "id": "8100774",
+      "Name": "Eugendorf",
+      "ShortName": "See H1",
+      "lat": 47.873005071,
+      "lon": 13.116338226
+    },
+    {
+      "id": "8101468",
+      "Name": "Säusenstein",
+      "ShortName": "Poe H2",
+      "lat": 48.193842543,
+      "lon": 15.113543793
+    },
+    {
+      "id": "8100295",
+      "Name": "Krems a.d.Donau",
+      "ShortName": "Kr",
+      "lat": 48.40889231,
+      "lon": 15.605132068
+    },
+    {
+      "id": "8100622",
+      "Name": "Arbing",
+      "ShortName": "Arb",
+      "lat": 48.227020023,
+      "lon": 14.701009765
+    },
+    {
+      "id": "8100945",
+      "Name": "Hohenbrugg a.d.Raab",
+      "ShortName": "Feg H1",
+      "lat": 46.944303831,
+      "lon": 16.059993562
+    },
+    {
+      "id": "8101638",
+      "Name": "Steyrling",
+      "ShortName": "Sng",
+      "lat": 47.801775583,
+      "lon": 14.163716849
+    },
+    {
+      "id": "8101322",
+      "Name": "Obersee",
+      "ShortName": "Oa  H2",
+      "lat": 47.591540319,
+      "lon": 13.665824972
+    },
+    {
+      "id": "8101690",
+      "Name": "Traun",
+      "ShortName": "T",
+      "lat": 48.225452211,
+      "lon": 14.25371561
+    },
+    {
+      "id": "8101085",
+      "Name": "Krenstetten-Biberbach",
+      "ShortName": "Ams H3",
+      "lat": 48.055142139,
+      "lon": 14.699914856
+    },
+    {
+      "id": "8100613",
+      "Name": "Allerheiligen-Mürzhofen",
+      "ShortName": "Ki  H1",
+      "lat": 47.48198397,
+      "lon": 15.402895973
+    },
+    {
+      "id": "8101061",
+      "Name": "Kammern",
+      "ShortName": "Sei H1",
+      "lat": 47.389834594,
+      "lon": 14.903320051
+    },
+    {
+      "id": "8102016",
+      "Name": "Perg Schulzentrum",
+      "ShortName": "Arb H1",
+      "lat": 48.242470827,
+      "lon": 14.640663309
+    },
+    {
+      "id": "8100195",
+      "Name": "Gleisdorf",
+      "ShortName": "Gld",
+      "lat": 47.099627453,
+      "lon": 15.708341629
+    },
+    {
+      "id": "8102048",
+      "Name": "Salzburg Aiglhof",
+      "ShortName": "Sba",
+      "lat": 47.807917756,
+      "lon": 13.026933485
+    },
+    {
+      "id": "8101393",
+      "Name": "Passering",
+      "ShortName": "Tr  H2",
+      "lat": 46.806833203,
+      "lon": 14.46965082
+    },
+    {
+      "id": "8100098",
+      "Name": "Dorfgastein",
+      "ShortName": "Dg",
+      "lat": 47.238696155,
+      "lon": 13.102993338
+    },
+    {
+      "id": "8101853",
+      "Name": "Wien Speising",
+      "ShortName": "Hf  H1A",
+      "lat": 48.173603228,
+      "lon": 16.283619987
+    },
+    {
+      "id": "8103644",
+      "Name": "Klagenfurt West",
+      "ShortName": "Kt  H2",
+      "lat": 46.622952249,
+      "lon": 14.26670498
+    },
+    {
+      "id": "8100088",
+      "Name": "Scharnitz",
+      "ShortName": "Snz",
+      "lat": 47.391873422,
+      "lon": 11.266863824
+    },
+    {
+      "id": "8103842",
+      "Name": "Klagenfurt Süd",
+      "ShortName": "Kts",
+      "lat": 46.611119199,
+      "lon": 14.302177425
+    },
+    {
+      "id": "8101370",
+      "Name": "Pernegg",
+      "ShortName": "Pn",
+      "lat": 47.359344577,
+      "lon": 15.343082571
+    },
+    {
+      "id": "8100807",
+      "Name": "Linz Franckstraße",
+      "ShortName": "Lfs",
+      "lat": 48.286229093,
+      "lon": 14.322167527
+    },
+    {
+      "id": "8101636",
+      "Name": "Schwarza",
+      "ShortName": "Sd  H1",
+      "lat": 46.718017756,
+      "lon": 15.669375077
+    },
+    {
+      "id": "8100962",
+      "Name": "Höbersdorf",
+      "ShortName": "Si  H1",
+      "lat": 48.448586172,
+      "lon": 16.173144528
+    },
+    {
+      "id": "8100580",
+      "Name": "Perg",
+      "ShortName": "P",
+      "lat": 48.247716153,
+      "lon": 14.627058662
+    },
+    {
+      "id": "8100626",
+      "Name": "Ansfelden",
+      "ShortName": "T   H1",
+      "lat": 48.208585234,
+      "lon": 14.261099387
+    },
+    {
+      "id": "8100049",
+      "Name": "Saalfelden",
+      "ShortName": "Saa",
+      "lat": 47.426747176,
+      "lon": 12.829797404
+    },
+    {
+      "id": "8100054",
+      "Name": "St.Johann in Tirol",
+      "ShortName": "Jti",
+      "lat": 47.51959953,
+      "lon": 12.430791649
+    },
+    {
+      "id": "8100773",
+      "Name": "Eisenstadt Schule",
+      "ShortName": "Esu",
+      "lat": 47.843868266,
+      "lon": 16.536674385
+    },
+    {
+      "id": "8100189",
+      "Name": "Edlitz-Grimmenstein",
+      "ShortName": "Edl",
+      "lat": 47.616969231,
+      "lon": 16.127939659
+    },
+    {
+      "id": "8101155",
+      "Name": "Spielberg (Bedarfshalt)",
+      "ShortName": "Kd  H1",
+      "lat": 47.199581874,
+      "lon": 14.795370646
+    },
+    {
+      "id": "8100819",
+      "Name": "Gaishorn",
+      "ShortName": "Gai",
+      "lat": 47.489065429,
+      "lon": 14.546530374
+    },
+    {
+      "id": "8100063",
+      "Name": "Landeck-Zams",
+      "ShortName": "Le",
+      "lat": 47.148108878,
+      "lon": 10.578222456
+    },
+    {
+      "id": "8103490",
+      "Name": "Graz Don Bosco",
+      "ShortName": "Gdb",
+      "lat": 47.057595622,
+      "lon": 15.419155247
+    },
+    {
+      "id": "8100585",
+      "Name": "Schloß Haus",
+      "ShortName": "Ga  H1",
+      "lat": 48.34152439,
+      "lon": 14.505500507
+    },
+    {
+      "id": "8100476",
+      "Name": "Rottenegg",
+      "ShortName": "Rog",
+      "lat": 48.360129626,
+      "lon": 14.13758183
+    },
+    {
+      "id": "8101646",
+      "Name": "Tassenbach",
+      "ShortName": "Sil H2",
+      "lat": 46.746851961,
+      "lon": 12.466042767
+    },
+    {
+      "id": "8101545",
+      "Name": "Schönfeld-Lassee",
+      "ShortName": "Sfl",
+      "lat": 48.25111204,
+      "lon": 16.8072946
+    },
+    {
+      "id": "8101841",
+      "Name": "Mühling-Plaika",
+      "ShortName": "Wie H2",
+      "lat": 48.103173181,
+      "lon": 15.132647345
+    },
+    {
+      "id": "8100036",
+      "Name": "Sattendorf",
+      "ShortName": "Saf",
+      "lat": 46.662892717,
+      "lon": 13.916224091
+    },
+    {
+      "id": "8100407",
+      "Name": "Riedau",
+      "ShortName": "Ri",
+      "lat": 48.304050241,
+      "lon": 13.626643544
+    },
+    {
+      "id": "8100051",
+      "Name": "Leogang",
+      "ShortName": "Saa H2",
+      "lat": 47.443428062,
+      "lon": 12.740429524
+    },
+    {
+      "id": "8100570",
+      "Name": "Großendorf",
+      "ShortName": "Gdf",
+      "lat": 48.038669583,
+      "lon": 14.055644976
+    },
+    {
+      "id": "8101432",
+      "Name": "Rekawinkel",
+      "ShortName": "Rw",
+      "lat": 48.179799418,
+      "lon": 16.03173006
+    },
+    {
+      "id": "8101449",
+      "Name": "Rosenau",
+      "ShortName": "Hk  H1",
+      "lat": 48.010225913,
+      "lon": 14.741007915
+    },
+    {
+      "id": "8100167",
+      "Name": "Rohr-Bad Hall",
+      "ShortName": "Rr",
+      "lat": 48.070348557,
+      "lon": 14.192801205
+    },
+    {
+      "id": "8101051",
+      "Name": "Kledering",
+      "ShortName": "Za",
+      "lat": 48.133619828,
+      "lon": 16.438878262
+    },
+    {
+      "id": "8100297",
+      "Name": "Wien Krottenbachstraße",
+      "ShortName": "Ht  H2",
+      "lat": 48.240054052,
+      "lon": 16.340814086
+    },
+    {
+      "id": "8101810",
+      "Name": "Wulkaprodersdorf Haltestelle",
+      "ShortName": "Wul H1H",
+      "lat": 47.799216948,
+      "lon": 16.496664812
+    },
+    {
+      "id": "8100551",
+      "Name": "Kranebitten",
+      "ShortName": "Ih  H2",
+      "lat": 47.269612944,
+      "lon": 11.328740876
+    },
+    {
+      "id": "8100310",
+      "Name": "Stans",
+      "ShortName": "Sns H1",
+      "lat": 47.365385043,
+      "lon": 11.726200574
+    },
+    {
+      "id": "8100270",
+      "Name": "Hermagor",
+      "ShortName": "Her",
+      "lat": 46.626549482,
+      "lon": 13.375847021
+    },
+    {
+      "id": "8101718",
+      "Name": "Bad Vigaun",
+      "ShortName": "Hl  H2A",
+      "lat": 47.663943238,
+      "lon": 13.124038309
+    },
+    {
+      "id": "8100357",
+      "Name": "Winden",
+      "ShortName": "Pur H2H",
+      "lat": 47.94708918,
+      "lon": 16.759321065
+    },
+    {
+      "id": "8100152",
+      "Name": "Altmünster am Traunsee",
+      "ShortName": "Er",
+      "lat": 47.891303758,
+      "lon": 13.758220911
+    },
+    {
+      "id": "8101050",
+      "Name": "Klamm-Schottwien",
+      "ShortName": "Eib H1",
+      "lat": 47.665245008,
+      "lon": 15.874260394
+    },
+    {
+      "id": "8100359",
+      "Name": "Wolfsberg",
+      "ShortName": "Wog",
+      "lat": 46.842117643,
+      "lon": 14.838498016
+    },
+    {
+      "id": "8101169",
+      "Name": "Loosdorf",
+      "ShortName": "Los",
+      "lat": 48.194948707,
+      "lon": 15.404580286
+    },
+    {
+      "id": "8101170",
+      "Name": "Wien Leopoldau",
+      "ShortName": "Lp",
+      "lat": 48.277551355,
+      "lon": 16.449384726
+    },
+    {
+      "id": "8100210",
+      "Name": "Allentsteig",
+      "ShortName": "All",
+      "lat": 48.715982309,
+      "lon": 15.32975959
+    },
+    {
+      "id": "8101230",
+      "Name": "Mödling",
+      "ShortName": "Md",
+      "lat": 48.08574129,
+      "lon": 16.295793833
+    },
+    {
+      "id": "8100225",
+      "Name": "Ebenfurth",
+      "ShortName": "Ef",
+      "lat": 47.87768285,
+      "lon": 16.362003718
+    },
+    {
+      "id": "8100112",
+      "Name": "Reith",
+      "ShortName": "Re",
+      "lat": 47.300819192,
+      "lon": 11.200717729
+    },
+    {
+      "id": "8101851",
+      "Name": "Sölling",
+      "ShortName": "Pus H1",
+      "lat": 48.03917874,
+      "lon": 15.140127626
+    },
+    {
+      "id": "8101288",
+      "Name": "Neuratting",
+      "ShortName": "Rd  H3",
+      "lat": 48.227233982,
+      "lon": 13.373633371
+    },
+    {
+      "id": "8100087",
+      "Name": "Mühldorf-Möllbrücke",
+      "ShortName": "Kl  H1",
+      "lat": 46.8514675,
+      "lon": 13.366944214
+    },
+    {
+      "id": "8100121",
+      "Name": "Hohenems",
+      "ShortName": "Hos",
+      "lat": 47.364794902,
+      "lon": 9.681150807
+    },
+    {
+      "id": "8101593",
+      "Name": "Schwarzsee",
+      "ShortName": "Kzb H2",
+      "lat": 47.453523828,
+      "lon": 12.370320026
+    },
+    {
+      "id": "8101955",
+      "Name": "Achleitnersiedlung",
+      "ShortName": "Puw H1A",
+      "lat": 48.321593325,
+      "lon": 14.205550183
+    },
+    {
+      "id": "8100084",
+      "Name": "Faak am See",
+      "ShortName": "Fas",
+      "lat": 46.564370208,
+      "lon": 13.912993561
+    },
+    {
+      "id": "8100001",
+      "Name": "Kufstein",
+      "ShortName": "K",
+      "lat": 47.583377037,
+      "lon": 12.165597327
+    },
+    {
+      "id": "8101505",
+      "Name": "St.Georgen am Längsee",
+      "ShortName": "Lad H1",
+      "lat": 46.761824926,
+      "lon": 14.422925987
+    },
+    {
+      "id": "8101760",
+      "Name": "Wien Weidlingau",
+      "ShortName": "Hf  H3",
+      "lat": 48.210497438,
+      "lon": 16.212396385
+    },
+    {
+      "id": "8100136",
+      "Name": "Haus",
+      "ShortName": "Hau",
+      "lat": 47.417012491,
+      "lon": 13.800222851
+    },
+    {
+      "id": "8100745",
+      "Name": "Emmersdorf",
+      "ShortName": "Noe H1",
+      "lat": 46.595321276,
+      "lon": 13.572450381
+    },
+    {
+      "id": "8100982",
+      "Name": "Haslau an der Donau",
+      "ShortName": "Hlu",
+      "lat": 48.109691449,
+      "lon": 16.710071294
+    },
+    {
+      "id": "8101820",
+      "Name": "Wien Zentralfriedhof",
+      "ShortName": "Cf",
+      "lat": 48.154300686,
+      "lon": 16.425983084
+    },
+    {
+      "id": "8100584",
+      "Name": "Schlüßlberg",
+      "ShortName": "Wa  H1",
+      "lat": 48.223882728,
+      "lon": 13.868289398
+    },
+    {
+      "id": "8101219",
+      "Name": "Mitterberghütten",
+      "ShortName": "Bo  H1",
+      "lat": 47.395344145,
+      "lon": 13.222396064
+    },
+    {
+      "id": "8101523",
+      "Name": "Siebenhirten",
+      "ShortName": "Mb  H2H",
+      "lat": 48.611444622,
+      "lon": 16.531089879
+    },
+    {
+      "id": "8100199",
+      "Name": "Schwarzenau",
+      "ShortName": "Swu",
+      "lat": 48.746131335,
+      "lon": 15.267090305
+    },
+    {
+      "id": "8101972",
+      "Name": "Bichlbach-Almkopfbahn",
+      "ShortName": "Bch H1H",
+      "lat": 47.427660905,
+      "lon": 10.776337355
+    },
+    {
+      "id": "8101247",
+      "Name": "Muckendorf-Wipfing",
+      "ShortName": "Aw  H2",
+      "lat": 48.328350569,
+      "lon": 16.14910459
+    },
+    {
+      "id": "8102260",
+      "Name": "Vils Stadt",
+      "ShortName": "Vi  H1A",
+      "lat": 47.549639175,
+      "lon": 10.632075155
+    },
+    {
+      "id": "8100511",
+      "Name": "Weyer",
+      "ShortName": "Wey",
+      "lat": 47.861608545,
+      "lon": 14.666940174
+    },
+    {
+      "id": "8100543",
+      "Name": "Pama",
+      "ShortName": "Gtt H1",
+      "lat": 48.041821546,
+      "lon": 17.04116775
+    },
+    {
+      "id": "8100040",
+      "Name": "Hallein",
+      "ShortName": "Hl",
+      "lat": 47.685122352,
+      "lon": 13.099575292
+    },
+    {
+      "id": "8100024",
+      "Name": "Schärding",
+      "ShortName": "Sch",
+      "lat": 48.463764577,
+      "lon": 13.442474948
+    },
+    {
+      "id": "8101387",
+      "Name": "Prinzersdorf",
+      "ShortName": "Pd",
+      "lat": 48.202965309,
+      "lon": 15.525604717
+    },
+    {
+      "id": "8101605",
+      "Name": "Lilienfeld Krankenhaus",
+      "ShortName": "Shr H1",
+      "lat": 48.009005281,
+      "lon": 15.578515539
+    },
+    {
+      "id": "8101038",
+      "Name": "Kematen in Tirol",
+      "ShortName": "Vl  H1",
+      "lat": 47.261033436,
+      "lon": 11.277272392
+    },
+    {
+      "id": "8100070",
+      "Name": "Leoben Hbf",
+      "ShortName": "Leb",
+      "lat": 47.386614654,
+      "lon": 15.089688553
+    },
+    {
+      "id": "8100894",
+      "Name": "Guntersdorf",
+      "ShortName": "Gud",
+      "lat": 48.642204697,
+      "lon": 16.054092668
+    },
+    {
+      "id": "8100449",
+      "Name": "Wien Mitte",
+      "ShortName": "Hz",
+      "lat": 48.20557582,
+      "lon": 16.384350331
+    },
+    {
+      "id": "8100451",
+      "Name": "Zirl",
+      "ShortName": "Zl",
+      "lat": 47.266058757,
+      "lon": 11.229419539
+    },
+    {
+      "id": "8101395",
+      "Name": "Pritschitz",
+      "ShortName": "Krd H1",
+      "lat": 46.628177247,
+      "lon": 14.170089925
+    },
+    {
+      "id": "8101229",
+      "Name": "Möllersdorf Aspangbahn",
+      "ShortName": "Guk H2",
+      "lat": 48.029473957,
+      "lon": 16.312897973
+    },
+    {
+      "id": "8100770",
+      "Name": "Eschenau",
+      "ShortName": "Ld  H1",
+      "lat": 47.306584802,
+      "lon": 13.007958743
+    },
+    {
+      "id": "8101205",
+      "Name": "Mautbrücken",
+      "ShortName": "Gla H1",
+      "lat": 46.721218158,
+      "lon": 14.189234355
+    },
+    {
+      "id": "8101157",
+      "Name": "Lind-Rosegg",
+      "ShortName": "Vel H1",
+      "lat": 46.605987449,
+      "lon": 14.00034772
+    },
+    {
+      "id": "8100656",
+      "Name": "Baumgartenberg",
+      "ShortName": "Bb",
+      "lat": 48.208768116,
+      "lon": 14.747274087
+    },
+    {
+      "id": "8100284",
+      "Name": "Katzelsdorf",
+      "ShortName": "Nb  H1",
+      "lat": 47.79281475,
+      "lon": 16.267218639
+    },
+    {
+      "id": "8101990",
+      "Name": "St.Pölten Traisenpark",
+      "ShortName": "Vn  H1",
+      "lat": 48.220481554,
+      "lon": 15.641237362
+    },
+    {
+      "id": "8101946",
+      "Name": "Wels Messe",
+      "ShortName": "Wl  H1",
+      "lat": 48.152520229,
+      "lon": 14.019554102
+    },
+    {
+      "id": "8101119",
+      "Name": "Lehen-Altensam",
+      "ShortName": "At  H1",
+      "lat": 48.035563068,
+      "lon": 13.700835348
+    },
+    {
+      "id": "8101363",
+      "Name": "Plank am Kamp",
+      "ShortName": "Plk",
+      "lat": 48.557888971,
+      "lon": 15.673237476
+    },
+    {
+      "id": "8101335",
+      "Name": "Parndorf",
+      "ShortName": "Par",
+      "lat": 47.986892088,
+      "lon": 16.871973563
+    },
+    {
+      "id": "8101514",
+      "Name": "Stadt Haag",
+      "ShortName": "Spw H2",
+      "lat": 48.115672691,
+      "lon": 14.565934396
+    },
+    {
+      "id": "8100609",
+      "Name": "Aisthofen",
+      "ShortName": "P   H1",
+      "lat": 48.257443205,
+      "lon": 14.590188886
+    },
+    {
+      "id": "8100513",
+      "Name": "Ottensheim",
+      "ShortName": "Ott",
+      "lat": 48.337792683,
+      "lon": 14.176936354
+    },
+    {
+      "id": "8101590",
+      "Name": "Wien Hauptbahnhof (Bstg. 1-2)",
+      "ShortName": "Wsp",
+      "lat": 48.186177314,
+      "lon": 16.375599438
+    },
+    {
+      "id": "8101787",
+      "Name": "Wildungsmauer",
+      "ShortName": "Reg H1",
+      "lat": 48.108000682,
+      "lon": 16.802066897
+    },
+    {
+      "id": "8100266",
+      "Name": "Hainburg a.d.Donau Personenbf",
+      "ShortName": "Hai H1",
+      "lat": 48.148914663,
+      "lon": 16.939721355
+    },
+    {
+      "id": "8100460",
+      "Name": "Klosterneuburg-Kierling",
+      "ShortName": "Ken H1",
+      "lat": 48.309851362,
+      "lon": 16.326252747
+    },
+    {
+      "id": "8100514",
+      "Name": "Wien Meidling",
+      "ShortName": "Mi",
+      "lat": 48.17489897,
+      "lon": 16.33618942
+    },
+    {
+      "id": "8100050",
+      "Name": "Maishofen-Saalbach",
+      "ShortName": "Z   K1",
+      "lat": 47.358634485,
+      "lon": 12.810224912
+    },
+    {
+      "id": "8101696",
+      "Name": "Unter Höflein",
+      "ShortName": "Wil H1",
+      "lat": 47.790607456,
+      "lon": 16.033294551
+    },
+    {
+      "id": "8100571",
+      "Name": "Gutenstein",
+      "ShortName": "Gt",
+      "lat": 47.876854186,
+      "lon": 15.910831146
+    },
+    {
+      "id": "8101571",
+      "Name": "Wörgl Süd-Bruckhäusl",
+      "ShortName": "Hp  H1",
+      "lat": 47.487283869,
+      "lon": 12.107912532
+    },
+    {
+      "id": "8100198",
+      "Name": "Bruck a.d.Leitha",
+      "ShortName": "Bl",
+      "lat": 48.019013082,
+      "lon": 16.780930708
+    },
+    {
+      "id": "8100828",
+      "Name": "Gedersdorf",
+      "ShortName": "Hfa H1H",
+      "lat": 48.432651859,
+      "lon": 15.69180367
+    },
+    {
+      "id": "8100365",
+      "Name": "Braunau am Inn",
+      "ShortName": "Bru",
+      "lat": 48.259066077,
+      "lon": 13.048639194
+    },
+    {
+      "id": "8100083",
+      "Name": "Rosenbach",
+      "ShortName": "Rn",
+      "lat": 46.531303386,
+      "lon": 14.035471213
+    },
+    {
+      "id": "8100735",
+      "Name": "Dürrwien",
+      "ShortName": "Pm  H2",
+      "lat": 48.178515404,
+      "lon": 16.062011396
+    },
+    {
+      "id": "8100635",
+      "Name": "Altenstadt",
+      "ShortName": "Fk  H1N",
+      "lat": 47.25633311,
+      "lon": 9.61533367
+    },
+    {
+      "id": "8100784",
+      "Name": "Feuerwerksanstalt",
+      "ShortName": "Fwa",
+      "lat": 47.848928236,
+      "lon": 16.189286423
+    },
+    {
+      "id": "8101619",
+      "Name": "Wien Süßenbrunn",
+      "ShortName": "Sue",
+      "lat": 48.285491892,
+      "lon": 16.485175238
+    },
+    {
+      "id": "8101469",
+      "Name": "Saxen",
+      "ShortName": "Ax",
+      "lat": 48.205250234,
+      "lon": 14.790751246
+    },
+    {
+      "id": "8100399",
+      "Name": "Irnfritz",
+      "ShortName": "Irn",
+      "lat": 48.748499098,
+      "lon": 15.53961954
+    },
+    {
+      "id": "8100764",
+      "Name": "Erlauf",
+      "ShortName": "Erf",
+      "lat": 48.183977341,
+      "lon": 15.182053045
+    },
+    {
+      "id": "8100194",
+      "Name": "Laßnitzhöhe",
+      "ShortName": "Lah",
+      "lat": 47.078957971,
+      "lon": 15.588417132
+    },
+    {
+      "id": "8101791",
+      "Name": "Wiener Neustadt Nord",
+      "ShortName": "Fld H2",
+      "lat": 47.834632822,
+      "lon": 16.238732132
+    },
+    {
+      "id": "8100151",
+      "Name": "Gmunden",
+      "ShortName": "Gz",
+      "lat": 47.925383067,
+      "lon": 13.782994634
+    },
+    {
+      "id": "8101165",
+      "Name": "Leonding",
+      "ShortName": "Lz  H1",
+      "lat": 48.274034004,
+      "lon": 14.253869242
+    },
+    {
+      "id": "8101282",
+      "Name": "Neuhaus-Niederwaldkirchen",
+      "ShortName": "Nen",
+      "lat": 48.441920457,
+      "lon": 14.05155619
+    },
+    {
+      "id": "8100440",
+      "Name": "St.Stefan im Lavanttal",
+      "ShortName": "Ssl",
+      "lat": 46.807061291,
+      "lon": 14.84616981
+    },
+    {
+      "id": "8101265",
+      "Name": "Nettingsdorf",
+      "ShortName": "Net",
+      "lat": 48.189646501,
+      "lon": 14.25848957
+    },
+    {
+      "id": "8101197",
+      "Name": "Maria Anzbach",
+      "ShortName": "Hu  H2",
+      "lat": 48.18797629,
+      "lon": 15.934660031
+    },
+    {
+      "id": "8100823",
+      "Name": "Gaisruck",
+      "ShortName": "Hui H1",
+      "lat": 48.39402405,
+      "lon": 16.065455087
+    },
+    {
+      "id": "8101080",
+      "Name": "Krieglach",
+      "ShortName": "Ke",
+      "lat": 47.547310659,
+      "lon": 15.560284985
+    },
+    {
+      "id": "8102047",
+      "Name": "Kuchl Garnei",
+      "ShortName": "Hl  H3",
+      "lat": 47.651746165,
+      "lon": 13.12824467
+    },
+    {
+      "id": "8101742",
+      "Name": "Wartberg a.d.Krems",
+      "ShortName": "Wak",
+      "lat": 47.987371301,
+      "lon": 14.121781379
+    },
+    {
+      "id": "8102006",
+      "Name": "Oberalm",
+      "ShortName": "Aj  H5",
+      "lat": 47.700736306,
+      "lon": 13.093096909
+    },
+    {
+      "id": "8100623",
+      "Name": "Ardning",
+      "ShortName": "Ar",
+      "lat": 47.590619065,
+      "lon": 14.358919032
+    },
+    {
+      "id": "8100137",
+      "Name": "Schladming",
+      "ShortName": "Sdg",
+      "lat": 47.393718069,
+      "lon": 13.67792641
+    },
+    {
+      "id": "8100722",
+      "Name": "Dechantskirchen",
+      "ShortName": "Fd  H1H",
+      "lat": 47.418710333,
+      "lon": 16.022155699
+    },
+    {
+      "id": "8100831",
+      "Name": "Gemeinlebarn",
+      "ShortName": "Mos H3",
+      "lat": 48.3362035,
+      "lon": 15.804182451
+    },
+    {
+      "id": "8100827",
+      "Name": "Göllersdorf",
+      "ShortName": "Gr",
+      "lat": 48.492587745,
+      "lon": 16.126482657
+    },
+    {
+      "id": "8100082",
+      "Name": "Spielfeld-Straß",
+      "ShortName": "Sd",
+      "lat": 46.709544282,
+      "lon": 15.629013953
+    },
+    {
+      "id": "8100409",
+      "Name": "Mattighofen",
+      "ShortName": "Mho",
+      "lat": 48.108200505,
+      "lon": 13.152582494
+    },
+    {
+      "id": "8100759",
+      "Name": "Ennsdorf",
+      "ShortName": "Sv  H1",
+      "lat": 48.216047016,
+      "lon": 14.496999014
+    },
+    {
+      "id": "8100120",
+      "Name": "Götzis",
+      "ShortName": "Got",
+      "lat": 47.336607367,
+      "lon": 9.636647559
+    },
+    {
+      "id": "8100172",
+      "Name": "Hinterstoder",
+      "ShortName": "Hst",
+      "lat": 47.774600068,
+      "lon": 14.179073064
+    },
+    {
+      "id": "8101409",
+      "Name": "Puchenau West",
+      "ShortName": "Puw",
+      "lat": 48.31253541,
+      "lon": 14.221840514
+    },
+    {
+      "id": "8102045",
+      "Name": "Salzburg Taxham Europark",
+      "ShortName": "Sbe",
+      "lat": 47.81614211,
+      "lon": 13.010693455
+    },
+    {
+      "id": "8101091",
+      "Name": "Klagenfurt Ebenthal",
+      "ShortName": "Gra H1",
+      "lat": 46.616629495,
+      "lon": 14.33387739
+    },
+    {
+      "id": "8101706",
+      "Name": "Unter Radlberg",
+      "ShortName": "Hor",
+      "lat": 48.255378042,
+      "lon": 15.686992946
+    },
+    {
+      "id": "8101611",
+      "Name": "Sautern-Schiltern",
+      "ShortName": "Ptt H1",
+      "lat": 47.707263562,
+      "lon": 16.155579381
+    },
+    {
+      "id": "8100104",
+      "Name": "Fritzens-Wattens",
+      "ShortName": "Fw",
+      "lat": 47.302150387,
+      "lon": 11.588867051
+    },
+    {
+      "id": "8102007",
+      "Name": "Mistelbach Stadt",
+      "ShortName": "Mb  H1H",
+      "lat": 48.570201165,
+      "lon": 16.568813195
+    },
+    {
+      "id": "8100619",
+      "Name": "Angern",
+      "ShortName": "Ag",
+      "lat": 48.384337556,
+      "lon": 16.82586169
+    },
+    {
+      "id": "8101356",
+      "Name": "Pichl",
+      "ShortName": "Pic",
+      "lat": 47.38873581,
+      "lon": 13.617112952
+    },
+    {
+      "id": "8100791",
+      "Name": "Feldkirch-Amberg",
+      "ShortName": "Fk  H1",
+      "lat": 47.255695201,
+      "lon": 9.621677385
+    },
+    {
+      "id": "8100634",
+      "Name": "Wien Atzgersdorf",
+      "ShortName": "Lga",
+      "lat": 48.147095259,
+      "lon": 16.288601945
+    },
+    {
+      "id": "8100957",
+      "Name": "Hainfeld",
+      "ShortName": "Hn",
+      "lat": 48.03975745,
+      "lon": 15.767883379
+    },
+    {
+      "id": "8100171",
+      "Name": "Klaus",
+      "ShortName": "Kus",
+      "lat": 47.833006407,
+      "lon": 14.155108899
+    },
+    {
+      "id": "8101284",
+      "Name": "Nötsch",
+      "ShortName": "Noe",
+      "lat": 46.588662321,
+      "lon": 13.625748467
+    },
+    {
+      "id": "8100546",
+      "Name": "Kuchl",
+      "ShortName": "Hl  H5",
+      "lat": 47.624933503,
+      "lon": 13.142107081
+    },
+    {
+      "id": "8100611",
+      "Name": "Wiederndorf-Aich",
+      "ShortName": "Wia",
+      "lat": 46.62305133,
+      "lon": 14.796487495
+    },
+    {
+      "id": "8100336",
+      "Name": "Kühnsdorf Klopeiner See",
+      "ShortName": "Khd",
+      "lat": 46.624846929,
+      "lon": 14.620844242
+    },
+    {
+      "id": "8105481",
+      "Name": "Lauterach Unterfeld",
+      "ShortName": "Lwa",
+      "lat": 47.480769459,
+      "lon": 9.714733666
+    },
+    {
+      "id": "8101360",
+      "Name": "Bad Pirawarth",
+      "ShortName": "Py",
+      "lat": 48.448520858,
+      "lon": 16.605745322
+    },
+    {
+      "id": "8101304",
+      "Name": "Obersdorf",
+      "ShortName": "Odf",
+      "lat": 48.362426352,
+      "lon": 16.518129653
+    },
+    {
+      "id": "8100884",
+      "Name": "Groß Schweinbarth",
+      "ShortName": "Grs",
+      "lat": 48.418071324,
+      "lon": 16.640375585
+    },
+  {
+    "id": "8100361",
+    "Name": "Wulkaprodersdorf",
+    "ShortName": "Wul",
+    "lat": 48.47789703,
+    "lon": 16.16490630
+  },
+  {
+    "id": "5501494",
+    "Name": "Sopron",
+    "ShortName": "Sop",
+    "lat": 47.677905,
+    "lon": 16.586734
+  },
+  {
+    "id": "5400060",
+    "Name": "Horni Dvoriste",
+    "ShortName": "Hdv",
+    "lat": 48.601816,
+    "lon": 14.421979
+  },
+  {
+    "id": "5400018",
+    "Name": "Ceské Velenice",
+    "ShortName": "CV",
+    "lat": 48.76933,
+    "lon": 14.957628
+  },
+  {
+    "id": "5400228",
+    "Name": "Satov",
+    "ShortName": "S",
+    "lat": 48.780539,
+    "lon": 16.025987
+  },
+  {
+    "id": "5400202",
+    "Name": "Breclav",
+    "ShortName": "Ba",
+    "lat": 48.753904,
+    "lon": 16.893239
+  },
+  {
+    "id": "8303915",
+    "Name": "Tarvisio Boscoverde",
+    "ShortName": "Tbv",
+    "lat": 46.506358,
+    "lon": 13.607214
+  },
+  {
+    "id": "8300114",
+    "Name": "San Candido/Innichen",
+    "ShortName": "Sc",
+    "lat": 46.732734,
+    "lon": 12.272038
+  },
+  {
+    "id": "8381914",
+    "Name": "Brennero/Brenner",
+    "ShortName": "Be",
+    "lat": 47.002869,
+    "lon": 11.504934
+  },
+  {
+    "id": "5600193",
+    "Name": "Devínska Nová Ves",
+    "ShortName": "Dnv",
+    "lat": 48.218965,
+    "lon": 16.975805
+  },
+  {
+    "id": "5600582",
+    "Name": "Bratislava-Petrzalka",
+    "ShortName": "Pta",
+    "lat": 48.121495,
+    "lon": 17.09911
+  },
+  {
+    "id": "8509404",
+    "Name": "Buchs SG",
+    "ShortName": "Bc",
+    "lat": 47.168414,
+    "lon": 9.47864
+  },
+  {
+    "id": "8506314",
+    "Name": "St. Margrethen SG",
+    "ShortName": "Mt",
+    "lat": 47.453219,
+    "lon": 9.638261
+  },
+  {
+    "id": "5500017",
+    "Name": "Hegyeshalom",
+    "ShortName": "He",
+    "lat": 47.913943,
+    "lon": 17.14571
+  },
+  {
+    "id": "5500029",
+    "Name": "Szentgotthárd",
+    "ShortName": "Gh",
+    "lat": 46.95741,
+    "lon": 16.26341
+  },
+  {
+    "id": "8000230",
+    "Name": "Lindau (Bodensee) Insel",
+    "ShortName": "L",
+    "lat": 47.544343,
+    "lon": 9.680465
+  },
+  {
+    "id": "8003693",
+    "Name": "Lindau (Bodensee) Reutin",
+    "ShortName": "LIR",
+    "lat": 47.552451,
+    "lon": 9.703118
+  },
+  {
+    "id": "8004807",
+    "Name": "Pfronten-Steinach",
+    "ShortName": "PFS",
+    "lat": 47.566115,
+    "lon": 10.574569
+  },
+  {
+    "id": "8017041",
+    "Name": "Griesen in Oberbayern",
+    "ShortName": "GRO",
+    "lat": 47.478218,
+    "lon": 10.94612
+  },
+  {
+    "id": "8004043",
+    "Name": "Mittenwald",
+    "ShortName": "Mw",
+    "lat": 47.440032,
+    "lon": 11.265704
+  },
+  {
+    "id": "8003249",
+    "Name": "Kiefersfelden",
+    "ShortName": "MKI",
+    "lat": 47.609838,
+    "lon": 12.190532
+  },
+  {
+    "id": "8000108",
+    "Name": "Freilassing",
+    "ShortName": "Mfl",
+    "lat": 47.836915,
+    "lon": 12.977196
+  },
+  {
+    "id": "8000072",
+    "Name": "Simbach/Inn",
+    "ShortName": "Sm",
+    "lat": 48.262626,
+    "lon": 13.022718
+  },
+  {
+    "id": "8000298",
+    "Name": "Passau Hbf",
+    "ShortName": "Pa",
+    "lat": 48.573635,
+    "lon": 13.450775
+  },
+  {
+    "id": "7900064",
+    "Name": "Sentilj",
+    "ShortName": "SEJ",
+    "lat": 46.675104,
+    "lon": 15.656971
+  },
+  {
+    "id": "7900023",
+    "Name": "Prevalje",
+    "ShortName": "PRV",
+    "lat": 46.54992,
+    "lon": 14.921725
+  },
+  {
+    "id": "7900001",
+    "Name": "Jesenice(SL)",
+    "ShortName": "Js",
+    "lat": 46.436323,
+    "lon": 14.054913
+  },
+  { "id": "8100216", "Name": "Baumgarten im Bgld-Schattendorf", "ShortName": "Bgt", "lat": 47.727849, "lon": 16.517715 },
+  { "id": "8100424", "Name": "Müllendorf", "ShortName": "Mld", "lat": 47.83473, "lon": 16.459168 },
+  { "id": "8100495", "Name": "Neufeld/Leitha", "ShortName": "Nfl", "lat": 47.868197, "lon": 16.381456 },
+  { "id": "8100220", "Name": "Draßburg", "ShortName": "Wul H1", "lat": 47.747886, "lon": 16.494945 },
+  { "id": "8100448", "Name": "Pamhagen", "ShortName": "Pam", "lat": 47.704306, "lon": 16.903667 },
+  { "id": "8100453", "Name": "Neusiedl am See Bad", "ShortName": "Bns", "lat": 47.942853, "lon": 16.844338 },
+  { "id": "8100255", "Name": "Gols", "ShortName": "Bns H2", "lat": 47.891596, "lon": 16.905393 },
+  { "id": "8100484", "Name": "Mönchhof-Halbturn", "ShortName": "Mhf", "lat": 47.874678, "lon": 16.946887 },
+  { "id": "8100238", "Name": "Frauenkirchen", "ShortName": "Frk", "lat": 47.839953, "lon": 16.915928 },
+  { "id": "8100431", "Name": "St. Andrä/Zicksee", "ShortName": "Saz", "lat": 47.782638, "lon": 16.928 },
+  { "id": "8100341", "Name": "Wallern im Burgenland", "ShortName": "Wal", "lat": 47.734006, "lon": 16.930499 },
+  { "id": "8100343", "Name": "Weiden am See", "ShortName": "Bns H1", "lat": 47.925746, "lon": 16.863817 }
+  ]

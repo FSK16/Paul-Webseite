@@ -20,6 +20,59 @@
     <div class="website_content">
         <img src="/pics/background.jpg" alt="Hintergrund">
     </div>
+    <div class="overlay" id="overlay"></div>
+    <div class="popup_general" id="editDisruption">
+        <h5 style="margin: 15px;">Störung bearbeiten</h5>
+        <div class="form_container_content" style="padding: 15px!important;" id="formContentEdit">
+            <div class="content_center">
+                <div id="mobile_container_edit">
+                    <div class="align-items-baseline custom_input " id="disruptionTextInputEdit">
+                        <label for="disruptionInputEdit" class="straba_label">Text:</label>
+                        <textarea name="disruptionTextEdit" class="straba_input" id="customDisruptionEdit"
+                            onkeyup="updatePreviewwithTextEdit()"></textarea>
+                    </div>
+
+                    <div class="input_group">
+                        <div class="align-items-baseline custom_input me-5">
+                            <label for="dateEditInput" class="straba_label">Störungsende (wenn
+                                vorhersehbar):</label>
+                            <input type="date" name="disruptionText" id="dateEditInput" class="straba_input" onchange="updatePreviewwithTextEdit()" onkeyup="updatePreviewwithTextEdit()">
+                        </div>
+                        <div class="custom_input me-2">
+                            <label for="hourEditInput" class="straba_label">Stunde</label>
+
+                            <input type="text" name="disruptionText" id="hourEditInput" class="straba_input ml-20" onkeyup="updatePreviewwithTextEdit()">
+
+                        </div>
+                        <div class="custom_input">
+                            <label for="minEditInput" class="straba_label">Minute</label>
+
+                            <input type="text" name="disruptionText" id="minEditInput" class="straba_input" onkeyup="updatePreviewwithTextEdit()">
+                        </div>
+                    </div>
+
+                    <div class="container_100 red mt10">
+                        <h5><b>Störungsvorschau:</b></h5>
+                        <span id="previewdisruptionTextEdit"></span>
+                        <span id="stoerungsendeEdit"></span>
+                    </div>
+                    <div>
+                        <button class="button_general mt-3" type="button" id="submitbuttonEdit"
+                            style="background-color: orange;" onclick="submitEditDisruption()">
+                            <span id="submitbutton_notice">Störung bearbeiten </span>
+                        </button>
+                        <button class="button_general mt-3" type="button" id="cancelbuttonEdit"
+                            style="background-color: grey;" onclick="closePopupgeneral('editDisruption')">
+                            <span id="cancelbutton_notice">Abbrechen</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
     <div class="popup" id="menu">
         <div class="form_container_content" id="formContent">
             <div class="content_center">
@@ -31,6 +84,8 @@
                 <div id="mobile_container">
                     <span id="title_description"><b>Störungsanzeige</b><br>Aktuell <span
                             id="anzahlStoerungenText"></span> Störungen</span>
+                    <div id="disruptionsShow"></div>
+
 
                     <p class="mt10 textNormal">Eine neue Störung hinzufügen:</p>
                     <form action="neueStoerung" method="post">
@@ -51,7 +106,8 @@
 
                         <div class="align-items-baseline custom_input " id="disruptionTextInput">
                             <label for="disruptionInput" class="straba_label">Text:</label>
-                            <textarea name="disruptionText" class="straba_input" id="customDisruption" onkeyup="updatePreviewwithText()"></textarea>
+                            <textarea name="disruptionText" class="straba_input" id="customDisruption"
+                                onkeyup="updatePreviewwithText()"></textarea>
                         </div>
 
                         <a href="stoerungCategory"><span>Störungskategorien bearbeiten</span></a>
@@ -61,7 +117,8 @@
                         <div class="input_group">
 
                             <div class="align-items-baseline custom_input me-5">
-                                <label for="dateInput" class="straba_label">Störungsende (wenn vorhersehbar):</label>
+                                <label for="dateInput" class="straba_label">Störungsende (wenn
+                                    vorhersehbar):</label>
                                 <input type="date" name="disruptionText" id="dateInput" class="straba_input">
                                 <input type="hidden" name="disruption" id="disruptionInputID" class="straba_input">
                             </div>
@@ -79,11 +136,9 @@
                         </div>
 
                         <div class="container_100 red mt10">
-
                             <h5><b>Störungsvorschau:</b></h5>
                             <span id="previewdisruptionText"></span>
                             <span id="stoerungsende"></span>
-
                         </div>
 
                         <button class="button_general mt-3" type="button" id="submitbutton" onclick="addDisruption()">
@@ -107,30 +162,14 @@
         </div>
     </div>
     <script>
-        let stationData = [];
-        let station = document.getElementById('stationInput');
-
-        window.onload = function () {
-            fetch(`https://straba-983965425140.europe-west3.run.app/search/`, {
-                method: "GET"
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Network response was not ok");
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    stationData = data;
-                })
-                .catch(error => {
-                    console.error(error);
-                })
-        }
-
         let categories = [];
+        let disruptions = [];
         window.onload = function () {
-            fetch(`http://localhost:8080/disruptions/disruptionCategories`, {
+            disruptions = getDisruptionData().then(data => {
+                disruptions = data;
+                showDisruptions();
+            });
+            fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/disruptionCategories`, {
                 method: "GET"
             })
                 .then(response => {
@@ -148,9 +187,12 @@
                 })
         }
 
-        function insertCategory(data) {
+        async function getDisruptionData() {
+            const response = await fetch('/disruptions');
+            return response.json();
+        }
 
-            console.log(data);
+        function insertCategory(data) {
             data.forEach(category => {
                 document.getElementById('categoryList').innerHTML += `
                     <li onclick='insertCategoryInput("${category.id}", "${category.category}", "${category.description}")'>
@@ -166,6 +208,7 @@
             document.getElementById('disruptionInputID').value = id;
             document.getElementById('previewdisruptionText').innerText = description;
             document.getElementById('categoryList').style.display = 'none'; // Hide the dropdown
+            document.getElementById('customDisruption').innerText = description;
         }
 
         function searchDisruptionCategory() {
@@ -208,13 +251,15 @@
                 endDate: dateTime,
             };
 
-            fetch(`http://localhost:8080/disruptions/`, {
+            fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(data)
             });
+            window.location.reload();
+
         }
 
         function checkEndDate() {
@@ -224,7 +269,7 @@
 
             if (dateInput.value && (hourInput.value || minInput.value)) {
                 let datum = calculateDuration(dateInput.value, hourInput.value, minInput.value);
-                document.getElementById('stoerungsende').innerText = `Das Störungsende ist in: ${datum}`;
+                document.getElementById('stoerungsende').innerText = `Das Störungsende ist in ${datum}`;
             } else {
                 dateInput.classList.remove('straba_input_valid');
                 document.getElementById('stoerungsende').innerText = `Das Störungsende ist nicht absehbar.`;
@@ -232,14 +277,32 @@
             }
         }
 
+        function checkEndDateEdit() {
+            const dateInput = document.getElementById('dateEditInput');
+            const hourInput = document.getElementById('hourEditInput');
+            const minInput = document.getElementById('minEditInput');
+
+            if (dateInput.value && (hourInput.value || minInput.value)) {
+                let datum = calculateDuration(dateInput.value, hourInput.value, minInput.value);
+                document.getElementById('stoerungsendeEdit').innerText = `Das Störungsende ist in ${datum}`;
+            } else {
+                dateInput.classList.remove('straba_input_valid');
+                document.getElementById('stoerungsendeEdit').innerText = `Das Störungsende ist nicht absehbar.`;
+
+            }
+        }
+
         function updatePreviewwithText() {
             document.getElementById('previewdisruptionText').innerText = document.getElementById('customDisruption').value;
+        }
+        function updatePreviewwithTextEdit() {
+            document.getElementById('previewdisruptionTextEdit').innerText = document.getElementById('customDisruptionEdit').value;
+            checkEndDateEdit();
         }
 
 
         let toggle = false;
         function toggleCategory() {
-            document.getElementById('previewdisruptionText').innerText = "";
             let buttonText = document.getElementById('toggleCategoryText');
             if (toggle) {
                 removePartial('disruptionTextInput');
@@ -254,12 +317,117 @@
             toggle = !toggle;
         }
 
-        function clearValues(){
+        function clearValues() {
             document.getElementById('disruptionInput').value = '';
             document.getElementById('disruptionInputID').value = '';
-            document.getElementById('previewdisruptionText').innerText = '';
-            document.getElementById('customDisruption').value = '';
+            //document.getElementById('previewdisruptionText').innerText = '';
+            //document.getElementById('customDisruption').value = '';
         }
+
+        function showDisruptions() {
+            disruptions.forEach(disruption => {
+                console.log(disruption);
+                const div = document.getElementById('disruptionsShow');
+                div.innerHTML += `<div class="container_100 red mt10">
+                    <b>Störung ID: ${disruption.id}</b><br>
+                    ${disruption.disruptionText}
+                    ${disruption.endDate ? "Die Störung endet in " + calculateDuration(splitDateTime(disruption.endDate).day, splitDateTime(disruption.endDate).hours, splitDateTime(disruption.endDate).minutes) : 'Das Störungsende ist nicht absehbar.'}
+                    <div style="margin-top: 5px;">
+                        <button class="btn btn-danger me-2" onclick="deleteDisruption(${disruption.id})">Löschen</button>
+                        <button class="btn btn-warning" onclick="editDisruption(${disruption.id})">Bearbeiten</button>
+                        <button class="btn btn-success" onclick="finishDisruption(${disruption.id}, '${disruption.disruptionText}')">Störung vorzeitig beenden</button>
+                    </div>
+                </div>`;
+            });
+        }
+
+        function editDisruption(id) {
+            const disruption = disruptions.find(d => d.id === id);
+            openPopupgeneral('editDisruption');
+            document.getElementById('customDisruptionEdit').value = disruption.disruptionText;
+            let enddate = splitDateTime(disruption.endDate);
+            document.getElementById('dateEditInput').value = enddate.day;
+            document.getElementById('hourEditInput').value = enddate.hours;
+            document.getElementById('minEditInput').value = enddate.minutes;
+            document.getElementById('submitbuttonEdit').setAttribute('onclick', `submitEditDisruption(${id})`);
+            updatePreviewwithTextEdit();
+
+        }
+
+        function submitEditDisruption(id) {
+            const disruptionTextCustom = document.getElementById('customDisruptionEdit').value;
+            const endDate = document.getElementById('dateEditInput').value;
+            const hour = document.getElementById('hourEditInput').value;
+            const minute = document.getElementById('minEditInput').value;
+
+            const dateTimeString = `${endDate}T${hour.padStart(2, '0')}:${minute.padStart(2, '0')}`;
+
+            // Erstelle ein Date-Objekt
+            const dateTime = new Date(dateTimeString);
+
+            let data = {
+                id: id,
+                disruptionText: disruptionTextCustom,
+                endDate: dateTime,
+            };
+
+            fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+            window.location.reload();
+
+        }
+
+        function deleteDisruption(id) {
+            fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ id: id })
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    disruptions = data;
+                    showDisruptions();
+                })
+                .catch(error => {
+                    console.error(error);
+                })
+            window.location.reload();
+        }
+
+        function finishDisruption(id, text) {
+            fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ id: id, disruptionText: text, endDate: new Date() })
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .catch(error => {
+                    console.error(error);
+                })
+            window.location.reload();
+
+        }
+
+
     </script>
 
 
