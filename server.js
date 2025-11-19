@@ -28,7 +28,7 @@ const cors = require("cors");
 // npm i -g nodemon
 // Zum Starten: nodemon server.js
 
-const port = 8080;
+const port = 8081;
 let app = express();
 
 app.use(express.json());
@@ -274,7 +274,7 @@ app.get('/stationinfo', async (req, res) => {
     }
 });
 
-app.get('/departures', async (req, res) => {
+app.post('/departures', async (req, res) => {
     const stationId = req.body.stationId ? req.body.stationId : 'at:46:4044,at:46:4045';
     //const url = req.url ? req.query.url : 'http://ogdtrias.verbundlinie.at:8183/stv/trias';
     const url = req.body.url ? req.body.url : 'http://ogdtrias.verbundlinie.at:8183/stv/trias';
@@ -337,16 +337,19 @@ app.get('/departures', async (req, res) => {
                     const estimatedMs = parseTimeToMs(estimatedDepartureTime);
                     const timeDifferenceMin = estimatedMs === null ? null : Math.round((estimatedMs - Date.now()) / 60000);
 
+                    //Kommentare aufgrund Kotlinserver
                     const departureEntry = {
-                        originStopID: service?.OriginStopPointRef?._text ?? null,
-                        originName: service?.OriginText?.Text?._text ?? null,
-                        lineName: lineName,
-                        destinationStopID: service?.DestinationStopPointRef?._text ?? null,
+                        tripId: departure.ResultId?._text ?? null,
+                        //originStopID: service?.OriginStopPointRef?._text ?? null,
+                        //originName: service?.OriginText?.Text?._text ?? null,
+                        line: lineName,
+                        //destinationStopID: service?.DestinationStopPointRef?._text ?? null,
                         destinationName: service?.DestinationText?.Text?._text ?? null,
                         scheduledDepartureTime: scheduledDepartureTime,
                         expectedDepartureTime: estimatedDepartureTime ?? null,
-                        timeDifferenceMin: timeDifferenceMin,
-                        ptMode: service?.ServiceSection?.Mode?.PtMode?._text ?? null
+                        countdown: Number(timeDifferenceMin),
+                        //ptMode: service?.ServiceSection?.Mode?.PtMode?._text ?? null,
+                        travelMode: service?.ServiceSection?.Mode?.PtMode?._text ?? null,
                     };
 
                     // Preserve original behaviour: include entries when timeDifferenceMin is null or non-negative
@@ -362,12 +365,52 @@ app.get('/departures', async (req, res) => {
                 const tb = b.expectedDepartureTime ? new Date(b.expectedDepartureTime).getTime() : Number.POSITIVE_INFINITY;
                 return ta - tb;
             });
-            res.status(200).send(departures);
+
+            departures = convertDepartures({departures: departures});
+
+
+
+
+
+            let responseObject = { data: departures,
+                status:{
+                    statusCode: 1,
+                    statusMessage: "Success",
+                }
+             };
+            
+            res.status(200).send(responseObject);
         }
     } catch (error) {
         res.status(500).send(`Error Code 004: ${error.message}`);
     }
 });
+
+function convertDepartures(oldData) {
+  const grouped = {};
+
+  oldData.departures.forEach(dep => {
+    if (!grouped[dep.line]) {
+      grouped[dep.line] = {
+        lineName: dep.line,
+        depatures: [],
+        infoText: null
+      };
+    }
+
+    grouped[dep.line].depatures.push({
+      line: dep.line,
+      destination: dep.destinationName,
+      countdown: dep.countdown,
+      infoText: null // kein equivalent im alten Format
+    });
+  });
+
+  return {
+      lines: Object.values(grouped)
+  };
+}
+
 
 async function generatePriorities() {
     const MetroPriority = await prisma.line.updateMany({
