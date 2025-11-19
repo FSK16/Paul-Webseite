@@ -28,7 +28,7 @@ const cors = require("cors");
 // npm i -g nodemon
 // Zum Starten: nodemon server.js
 
-const port = 8081;
+const port = 8080;
 let app = express();
 
 app.use(express.json());
@@ -743,7 +743,7 @@ async function addIreggularStationCombos(){
         }
     });
     irregStations.forEach(async (station) => {
-        let newCombos = await prisma.lineStation.create({
+        await prisma.lineStation.create({
             data: {
                 lineID: station.lineID,
                 patternID: station.direction, // Beispielwert, anpassen je nach Bedarf
@@ -820,8 +820,8 @@ app.listen(port, "0.0.0.0", async function () {
         await getLastStationofLines();
 
     /*
-    Schritt 4: */
-        /*await setFalseIrregularStationCombos();
+    Schritt 4: *//*
+        await setFalseIrregularStationCombos();
     /*
     Schritt 5: *//*
     await addIreggularStationCombos();/**/
