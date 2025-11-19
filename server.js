@@ -275,10 +275,27 @@ app.get('/stationinfo', async (req, res) => {
 });
 
 app.get('/departures', async (req, res) => {
-    const stationId = req.query.stationId ? req.query.stationId : 'at:46:4046';
-    const url = req.query.url ? req.query.url : 'http://ogdtrias.verbundlinie.at:8183/stv/trias';
+    const stationId = req.body.stationId ? req.body.stationId : 'at:46:4044,at:46:4045';
+    //const url = req.url ? req.query.url : 'http://ogdtrias.verbundlinie.at:8183/stv/trias';
+    const url = req.body.url ? req.body.url : 'http://ogdtrias.verbundlinie.at:8183/stv/trias';
     const currentTime = new Date().toISOString();
     let departures = [];
+    const stationIds = stationId.split(',').map(id => id.trim());
+    let stationRequest = '';
+
+    stationIds.forEach(id => {
+        stationRequest += `                
+        <StopEventRequest>
+            <Location>
+                <LocationRef>
+                    <StopPointRef>${id}</StopPointRef>
+                </LocationRef>
+            </Location>
+            <Params>
+                <IncludeRealtimeData>true</IncludeRealtimeData>
+            </Params>
+        </StopEventRequest>`;
+    });
     const xml =
         `<?xml version="1.0" encoding="UTF-8"?>
         <Trias xmlns="http://www.vdv.de/trias" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2">
@@ -286,56 +303,66 @@ app.get('/departures', async (req, res) => {
             <siri:RequestTimestamp>${currentTime}</siri:RequestTimestamp>
             <siri:RequestorRef></siri:RequestorRef>
             <RequestPayload>
-                <StopEventRequest>
-                    <Location>
-                        <LocationRef>
-                            <StopPointRef>${stationId}</StopPointRef>
-                        </LocationRef>
-                    </Location>
-                    <Params>
-                        <IncludeRealtimeData>true</IncludeRealtimeData>
-                    </Params>
-                </StopEventRequest>
+                ${stationRequest}
             </RequestPayload>
         </ServiceRequest>
     </Trias>`;
+
+    console.log("XML-Request URL: ", xml);  
 
     try {
         const departuresData = await xmlRequest(url, xml);
         if (departuresData.statusCode !== 200) {
             res.status(departuresData.statusCode).send(departuresData.parseError ? departuresData.parseError : `Unexpected status code ${departuresData.statusCode}`);
             console.error(`Error Code 001: Received status code ${departuresData.statusCode}`);
+
         } else {
             //res.send(departuresData);
-            departuresData.json.Trias.ServiceDelivery.DeliveryPayload.StopEventResponse.StopEventResult.forEach(departure => {
-                let service = departure.StopEvent.Service;
-                let times = departure.StopEvent.ThisCall.CallAtStop.ServiceDeparture;
+            const results = departuresData.json?.Trias?.ServiceDelivery?.DeliveryPayload?.StopEventResponse?.StopEventResult;
+            if (Array.isArray(results)) {
+                results.forEach(departure => {
+                    const service = departure?.StopEvent?.Service ?? {};
+                    const times = departure?.StopEvent?.ThisCall?.CallAtStop?.ServiceDeparture ?? {};
 
-                let scheduledDepartureTime = times.TimetabledTime._text;
-                let estimatedDepartureTime = times.EstimatedTime._text ? times.EstimatedTime._text : scheduledDepartureTime;
-                let lineName = service.ServiceSection.PublishedLineName.Text._text;
+                    const scheduledDepartureTime = times?.TimetabledTime?._text ?? null;
+                    const estimatedDepartureTime = times?.EstimatedTime?._text ?? scheduledDepartureTime;
+                    const lineName = service?.ServiceSection?.PublishedLineName?.Text?._text ?? null;
 
-                const departureEntry = {
-                    originStopID: service.OriginStopPointRef._text,
-                    originName: service.OriginText.Text._text,
-                    lineName: lineName,
-                    destinationStopID: service.DestinationStopPointRef._text,
-                    destinationName: service.DestinationText.Text._text,
-                    scheduledDepartureTime: scheduledDepartureTime,
-                    expectedDepartureTime: estimatedDepartureTime,
-                    timeDifferenceMin: (() => {
-                                       const ms = (() => {
-                            const d = new Date(estimatedDepartureTime);
-                            return isNaN(d.getTime()) ? null : d.getTime() - Date.now();
-                        })();
-                        return ms === null ? null : Math.round(ms / 60000);
-                    })(),
-                    ptMode: service.ServiceSection.Mode.PtMode._text
-                };
-                if(Number(departureEntry.timeDifferenceMin) >= 0)
-                    departures.push(departureEntry);
+                    const parseTimeToMs = (t) => {
+                        if (!t) return null;
+                        const d = new Date(t);
+                        return isNaN(d.getTime()) ? null : d.getTime();
+                    };
+
+                    const estimatedMs = parseTimeToMs(estimatedDepartureTime);
+                    const timeDifferenceMin = estimatedMs === null ? null : Math.round((estimatedMs - Date.now()) / 60000);
+
+                    const departureEntry = {
+                        originStopID: service?.OriginStopPointRef?._text ?? null,
+                        originName: service?.OriginText?.Text?._text ?? null,
+                        lineName: lineName,
+                        destinationStopID: service?.DestinationStopPointRef?._text ?? null,
+                        destinationName: service?.DestinationText?.Text?._text ?? null,
+                        scheduledDepartureTime: scheduledDepartureTime,
+                        expectedDepartureTime: estimatedDepartureTime ?? null,
+                        timeDifferenceMin: timeDifferenceMin,
+                        ptMode: service?.ServiceSection?.Mode?.PtMode?._text ?? null
+                    };
+
+                    // Preserve original behaviour: include entries when timeDifferenceMin is null or non-negative
+                    if (timeDifferenceMin === null || Number(timeDifferenceMin) >= 0) {
+                        departures.push(departureEntry);
+                    }
+                });
+            }
+
+            // Sort by expectedDepartureTime (parsed). Missing times go to the end.
+            departures.sort((a, b) => {
+                const ta = a.expectedDepartureTime ? new Date(a.expectedDepartureTime).getTime() : Number.POSITIVE_INFINITY;
+                const tb = b.expectedDepartureTime ? new Date(b.expectedDepartureTime).getTime() : Number.POSITIVE_INFINITY;
+                return ta - tb;
             });
-            res.status(200).send(departures.sort((a, b) => a.expectedDepartureTime - b.expectedDepartureTime));
+            res.status(200).send(departures);
         }
     } catch (error) {
         res.status(500).send(`Error Code 004: ${error.message}`);
