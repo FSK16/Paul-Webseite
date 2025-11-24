@@ -1,5 +1,5 @@
 function convertToCppJson(results, stationId) {
-    const linesMap = new Map(); 
+    const linesMap = new Map();
 
     results.forEach(departure => {
         const service = departure?.StopEvent?.Service ?? {};
@@ -25,29 +25,31 @@ function convertToCppJson(results, stationId) {
         // Skip if it's in the past
         if (countdown !== null && countdown < 0) return;
 
-        if (!linesMap.has(lineName)) {
-            linesMap.set(lineName, {
-                name: lineName,
-                towards: destination,
-                richtungsId: "1",
-                barrierFree: true,
-                departures: {
-                    departure: []
+        const num = parseInt(lineName, 10);
+
+        if (!isNaN(num) && num >= 1 && num <= 35) {
+            if (!linesMap.has(lineName)) {
+                linesMap.set(lineName, {
+                    name: lineName,
+                    towards: destination,
+                    richtungsId: "1",
+                    barrierFree: true,
+                    departures: {
+                        departure: []
+                    }
+                });
+            }
+            linesMap.get(lineName).departures.departure.push({
+                vehicle: {
+                    name: lineName,
+                    towards: destination,
+                    richtungsId: "1"
+                },
+                departureTime: {
+                    countdown: countdown
                 }
             });
         }
-
-        // push departure
-        linesMap.get(lineName).departures.departure.push({
-            vehicle: {
-                name: lineName,
-                towards: destination,
-                richtungsId: "1"
-            },
-            departureTime: {
-                countdown: countdown
-            }
-        });
     });
 
     // Build final structure
@@ -63,4 +65,4 @@ function convertToCppJson(results, stationId) {
     };
 }
 
-module.exports =  convertToCppJson;// dienstagpresentation.js
+module.exports = convertToCppJson;// dienstagpresentation.js
