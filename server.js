@@ -276,7 +276,8 @@ app.get('/stationinfo', async (req, res) => {
 });
 
 app.get('/departuresDienstag', async (req, res) => {
-    const stationId = req.query.stationId ? req.query.stationId : 'at:46:3047';
+    //const stationId = req.query.stationId ? req.query.stationId : 'at:46:3047';
+    const stationId = 'at:46:3047';
     //const url = req.url ? req.query.url : 'http://ogdtrias.verbundlinie.at:8183/stv/trias';
     const url = req.query.url ? req.query.url : 'http://ogdtrias.verbundlinie.at:8183/stv/trias';
     const currentTime = new Date().toISOString();
@@ -323,7 +324,7 @@ app.get('/departuresDienstag', async (req, res) => {
             let lineEntry = {};
 
             if (Array.isArray(results)) {
-                const cppJson = convertToCppJson(results);
+                const cppJson = convertToCppJson(results, stationId);
                 res.status(200).send(cppJson);
             }
 

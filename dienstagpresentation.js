@@ -1,4 +1,4 @@
-function convertToCppJson(results) {
+function convertToCppJson(results, stationId) {
     const linesMap = new Map(); 
 
     results.forEach(departure => {
@@ -55,6 +55,7 @@ function convertToCppJson(results) {
         data: {
             monitors: [
                 {
+                    stopid: stationId,
                     lines: Array.from(linesMap.values())
                 }
             ]
