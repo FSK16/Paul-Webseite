@@ -329,18 +329,13 @@ app.get('/departuresDienstag', async (req, res) => {
             }
 
             // Sort by expectedDepartureTime (parsed). Missing times go to the end.
-            departures.sort((a, b) => {
+            /*departures.sort((a, b) => {
                 const ta = a.expectedDepartureTime ? new Date(a.expectedDepartureTime).getTime() : Number.POSITIVE_INFINITY;
                 const tb = b.expectedDepartureTime ? new Date(b.expectedDepartureTime).getTime() : Number.POSITIVE_INFINITY;
                 return ta - tb;
             });
 
             departures = convertDepartures({ departures: departures });
-
-
-
-
-            
             
             monitorsEntry = [];
 
@@ -354,7 +349,7 @@ app.get('/departuresDienstag', async (req, res) => {
                 }
             };
 
-            res.status(200).send(responseObject);
+            res.status(200).send(responseObject);*/
         }
     } catch (error) {
         res.status(500).send(`Error Code 004: ${error.message}`);
