@@ -1,6 +1,7 @@
 
 // npm install prisma --save-dev
 const xmlRequest = require('./xml.js');
+const convertToCppJson = require('./dienstagpresentation.js');
 
 // Accessing the filesystem
 const express = require("express");
@@ -152,9 +153,9 @@ app.patch("/disruptions/disruptionCategories", async function (req, res) {
 });
 
 app.post("/disruptions", async function (req, res) {
-    const { disruptionText, disruptionCategoryId , endDate} = req.body;
+    const { disruptionText, disruptionCategoryId, endDate } = req.body;
 
-    if(disruptionCategoryId === 0){
+    if (disruptionCategoryId === 0) {
         disruptionCategoryId = null;
     }
 
@@ -193,9 +194,9 @@ app.get("/disruptions", async function (req, res) {
 });
 
 app.patch("/disruptions", async function (req, res) {
-    const { id, disruptionText, disruptionCategoryId , endDate} = req.body;
+    const { id, disruptionText, disruptionCategoryId, endDate } = req.body;
 
-    if(disruptionCategoryId === 0){
+    if (disruptionCategoryId === 0) {
         disruptionCategoryId = null;
     }
 
@@ -274,6 +275,91 @@ app.get('/stationinfo', async (req, res) => {
     }
 });
 
+app.get('/departuresDienstag', async (req, res) => {
+    const stationId = req.query.stationId ? req.query.stationId : 'at:46:4044';
+    //const url = req.url ? req.query.url : 'http://ogdtrias.verbundlinie.at:8183/stv/trias';
+    const url = req.query.url ? req.query.url : 'http://ogdtrias.verbundlinie.at:8183/stv/trias';
+    const currentTime = new Date().toISOString();
+    let departures = [];
+    const stationIds = stationId.split(',').map(id => id.trim());
+    let stationRequest = '';
+
+    stationIds.forEach(id => {
+        stationRequest += `                
+        <StopEventRequest>
+            <Location>
+                <LocationRef>
+                    <StopPointRef>${id}</StopPointRef>
+                </LocationRef>
+            </Location>
+            <Params>
+                <IncludeRealtimeData>true</IncludeRealtimeData>
+            </Params>
+        </StopEventRequest>`;
+    });
+    const xml =
+        `<?xml version="1.0" encoding="UTF-8"?>
+        <Trias xmlns="http://www.vdv.de/trias" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2">
+        <ServiceRequest>
+            <siri:RequestTimestamp>${currentTime}</siri:RequestTimestamp>
+            <siri:RequestorRef></siri:RequestorRef>
+            <RequestPayload>
+                ${stationRequest}
+            </RequestPayload>
+        </ServiceRequest>
+    </Trias>`;
+
+    console.log("XML-Request URL: ", xml);
+
+    try {
+        const departuresData = await xmlRequest(url, xml);
+        if (departuresData.statusCode !== 200) {
+            res.status(departuresData.statusCode).send(departuresData.parseError ? departuresData.parseError : `Unexpected status code ${departuresData.statusCode}`);
+            console.error(`Error Code 001: Received status code ${departuresData.statusCode}`);
+
+        } else {
+            //res.send(departuresData);
+            const results = departuresData.json?.Trias?.ServiceDelivery?.DeliveryPayload?.StopEventResponse?.StopEventResult;
+            let lineEntry = {};
+
+            if (Array.isArray(results)) {
+                const cppJson = convertToCppJson(results);
+                res.status(200).send(cppJson);
+            }
+
+            // Sort by expectedDepartureTime (parsed). Missing times go to the end.
+            departures.sort((a, b) => {
+                const ta = a.expectedDepartureTime ? new Date(a.expectedDepartureTime).getTime() : Number.POSITIVE_INFINITY;
+                const tb = b.expectedDepartureTime ? new Date(b.expectedDepartureTime).getTime() : Number.POSITIVE_INFINITY;
+                return ta - tb;
+            });
+
+            departures = convertDepartures({ departures: departures });
+
+
+
+
+            
+            
+            monitorsEntry = [];
+
+            let responseObject = {
+                data: {
+                    monitors: departures
+                },
+                status: {
+                    statusCode: 1,
+                    statusMessage: "Success",
+                }
+            };
+
+            res.status(200).send(responseObject);
+        }
+    } catch (error) {
+        res.status(500).send(`Error Code 004: ${error.message}`);
+    }
+
+});
 app.post('/departures', async (req, res) => {
     const stationId = req.body.stationId ? req.body.stationId : 'at:46:4044,at:46:4045';
     //const url = req.url ? req.query.url : 'http://ogdtrias.verbundlinie.at:8183/stv/trias';
@@ -308,7 +394,7 @@ app.post('/departures', async (req, res) => {
         </ServiceRequest>
     </Trias>`;
 
-    console.log("XML-Request URL: ", xml);  
+    console.log("XML-Request URL: ", xml);
 
     try {
         const departuresData = await xmlRequest(url, xml);
@@ -366,19 +452,20 @@ app.post('/departures', async (req, res) => {
                 return ta - tb;
             });
 
-            departures = convertDepartures({departures: departures});
+            departures = convertDepartures({ departures: departures });
 
 
 
 
 
-            let responseObject = { data: departures,
-                status:{
+            let responseObject = {
+                data: departures,
+                status: {
                     statusCode: 1,
                     statusMessage: "Success",
                 }
-             };
-            
+            };
+
             res.status(200).send(responseObject);
         }
     } catch (error) {
@@ -387,28 +474,28 @@ app.post('/departures', async (req, res) => {
 });
 
 function convertDepartures(oldData) {
-  const grouped = {};
+    const grouped = {};
 
-  oldData.departures.forEach(dep => {
-    if (!grouped[dep.line]) {
-      grouped[dep.line] = {
-        lineName: dep.line,
-        depatures: [],
-        infoText: null
-      };
-    }
+    oldData.departures.forEach(dep => {
+        if (!grouped[dep.line]) {
+            grouped[dep.line] = {
+                lineName: dep.line,
+                depatures: [],
+                infoText: null
+            };
+        }
 
-    grouped[dep.line].depatures.push({
-      line: dep.line,
-      destination: dep.destinationName,
-      countdown: dep.countdown,
-      infoText: null // kein equivalent im alten Format
+        grouped[dep.line].depatures.push({
+            line: dep.line,
+            destination: dep.destinationName,
+            countdown: dep.countdown,
+            infoText: null // kein equivalent im alten Format
+        });
     });
-  });
 
-  return {
-      lines: Object.values(grouped)
-  };
+    return {
+        lines: Object.values(grouped)
+    };
 }
 
 
@@ -573,8 +660,8 @@ async function insertDataofCSVFiles() {
                 }
 
                 if (!lines.some(l => l.lineID === lineId)) {
-                lines.push(line);
-                }                
+                    lines.push(line);
+                }
 
 
             })
@@ -720,8 +807,8 @@ async function insertCombos() {
 
 }
 async function setFalseIrregularStationCombos() {
-     const irregStations = await prisma.irregularStation.findMany({
-        where:{
+    const irregStations = await prisma.irregularStation.findMany({
+        where: {
             added: true
         }
     });
@@ -736,9 +823,9 @@ async function setFalseIrregularStationCombos() {
         });
     });
 }
-async function addIreggularStationCombos(){
+async function addIreggularStationCombos() {
     const irregStations = await prisma.irregularStation.findMany({
-        where:{
+        where: {
             added: false
         }
     });
@@ -773,7 +860,7 @@ async function insertIrregularStations(data) {
 }
 
 async function getIrregularStations() {
-   return await prisma.irregularStation.findMany()
+    return await prisma.irregularStation.findMany()
 }
 
 
@@ -794,7 +881,7 @@ app.listen(port, "0.0.0.0", async function () {
 */
     //addIreggularStationCombos();
     //insertIrregularStations();
-    
+
     /*
     await prisma.line.deleteMany();
     await prisma.lineStation.deleteMany();
@@ -811,19 +898,19 @@ app.listen(port, "0.0.0.0", async function () {
 
       /*  
     Schritt 2:*/
-        //await generatePriorities();
+    //await generatePriorities();
+    /*
+        Schritt 3:*/
+    /* await prisma.lineStation.deleteMany();
+
+     await insertCombos();
+     await getLastStationofLines();
+
+ /*
+ Schritt 4: */
+    /*await setFalseIrregularStationCombos();
 /*
-    Schritt 3:*/
-       /* await prisma.lineStation.deleteMany();
-
-        await insertCombos();
-        await getLastStationofLines();
-
-    /*
-    Schritt 4: */
-        /*await setFalseIrregularStationCombos();
-    /*
-    Schritt 5: *//*
+Schritt 5: *//*
     await addIreggularStationCombos();/**/
 
     console.log("Server is running on http://localhost:" + port);
