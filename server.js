@@ -277,13 +277,15 @@ app.get('/stationinfo', async (req, res) => {
 
 app.get('/departuresDienstag', async (req, res) => {
     //const stationId = req.query.stationId ? req.query.stationId : 'at:46:3047';
-    const stationId = 'at:46:3047';
+    const stationId = 'at:46:3047'; // Jakominiplatz
     //const url = req.url ? req.query.url : 'http://ogdtrias.verbundlinie.at:8183/stv/trias';
     const url = req.query.url ? req.query.url : 'http://ogdtrias.verbundlinie.at:8183/stv/trias';
     const currentTime = new Date().toISOString();
     let departures = [];
     const stationIds = stationId.split(',').map(id => id.trim());
     let stationRequest = '';
+
+    console.log("Station IDs: ", stationIds);
 
     stationIds.forEach(id => {
         stationRequest += `                
@@ -356,8 +358,8 @@ app.get('/departuresDienstag', async (req, res) => {
     }
 
 });
-app.post('/departures', async (req, res) => {
-    const stationId = req.body.stationId ? req.body.stationId : 'at:46:4044,at:46:4045';
+app.get('/departures', async (req, res) => {
+    const stationId = req.body.stationId ? req.body.stationId : 'at:46:3046';
     //const url = req.url ? req.query.url : 'http://ogdtrias.verbundlinie.at:8183/stv/trias';
     const url = req.body.url ? req.body.url : 'http://ogdtrias.verbundlinie.at:8183/stv/trias';
     const currentTime = new Date().toISOString();
@@ -399,7 +401,7 @@ app.post('/departures', async (req, res) => {
             console.error(`Error Code 001: Received status code ${departuresData.statusCode}`);
 
         } else {
-            //res.send(departuresData);
+            res.send(departuresData);
             const results = departuresData.json?.Trias?.ServiceDelivery?.DeliveryPayload?.StopEventResponse?.StopEventResult;
             if (Array.isArray(results)) {
                 results.forEach(departure => {
@@ -422,15 +424,15 @@ app.post('/departures', async (req, res) => {
                     //Kommentare aufgrund Kotlinserver
                     const departureEntry = {
                         tripId: departure.ResultId?._text ?? null,
-                        //originStopID: service?.OriginStopPointRef?._text ?? null,
-                        //originName: service?.OriginText?.Text?._text ?? null,
+                        originStopID: service?.OriginStopPointRef?._text ?? null,
+                        originName: service?.OriginText?.Text?._text ?? null,
                         line: lineName,
-                        //destinationStopID: service?.DestinationStopPointRef?._text ?? null,
+                        destinationStopID: service?.DestinationStopPointRef?._text ?? null,
                         destinationName: service?.DestinationText?.Text?._text ?? null,
                         scheduledDepartureTime: scheduledDepartureTime,
                         expectedDepartureTime: estimatedDepartureTime ?? null,
                         countdown: Number(timeDifferenceMin),
-                        //ptMode: service?.ServiceSection?.Mode?.PtMode?._text ?? null,
+                        ptMode: service?.ServiceSection?.Mode?.PtMode?._text ?? null,
                         travelMode: service?.ServiceSection?.Mode?.PtMode?._text ?? null,
                     };
 
@@ -448,7 +450,7 @@ app.post('/departures', async (req, res) => {
                 return ta - tb;
             });
 
-            departures = convertDepartures({ departures: departures });
+            //departures = convertDepartures({ departures: departures });
 
 
 
@@ -462,7 +464,7 @@ app.post('/departures', async (req, res) => {
                 }
             };
 
-            res.status(200).send(responseObject);
+            //res.status(200).send(responseObject);
         }
     } catch (error) {
         res.status(500).send(`Error Code 004: ${error.message}`);
