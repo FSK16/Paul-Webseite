@@ -19,15 +19,15 @@ function convertToCppJson(results) {
 
         const direction = service?.ServiceSection?.DirectionRef?._text ?? '';
         let directionIndex = 1; // Default value
-        if(direction !== '' && direction === 'inward'){
+        if (direction !== '' && direction === 'inward') {
             directionIndex = 1;
-        }else if (direction !== '' && direction === 'outward'){
+        } else if (direction !== '' && direction === 'outward') {
             directionIndex = 2;
         }
 
 
-        
-        if(plattFormName != ''){
+
+        if (plattFormName != '') {
             stopName += ' (' + plattFormName + ')';
         }
 
@@ -89,11 +89,11 @@ function convertToCppJson(results) {
 
     // Build final structure
     const monitors = Array.from(stopMap.values()).map(stop => ({
-        locationStop:{
+        locationStop: {
             properties: {
                 name: stop.stopId, //Sollte eogentlich DIVA Nummer sein
                 title: stop.stopName,
-                attributes:{
+                attributes: {
                     rbl: stop.stopId
                 }
             }
@@ -102,11 +102,15 @@ function convertToCppJson(results) {
     }));
     return {
         data: {
-            monitors
+            monitors,
+            trafficInfo: [],
+            trafficInfoCategories: [],
+            trafficInfoCategoryGroups: []
         },
-        trafficInfo: [],
-        trafficInfoCategories: [],
-        trafficInfoCategoryGroups: []
+        message: {
+            messageCode: 200,
+            serverTime: new Date().toISOString()
+        }
     };
 }
 module.exports = convertToCppJson;
