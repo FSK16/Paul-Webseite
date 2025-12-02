@@ -29,7 +29,7 @@ const cors = require("cors");
 // npm i -g nodemon
 // Zum Starten: nodemon server.js
 
-const port = 8080;
+const port = 8081;
 let app = express();
 
 app.use(express.json());
@@ -277,86 +277,78 @@ app.get('/stationinfo', async (req, res) => {
 
 app.get('/departuresDienstag', async (req, res) => {
     const stationId = req.query.stationId ? req.query.stationId : 'at:46:3047';
-    //const url = req.url ? req.query.url : 'http://ogdtrias.verbundlinie.at:8183/stv/trias';
     const url = req.query.url ? req.query.url : 'http://ogdtrias.verbundlinie.at:8183/stv/trias';
     const currentTime = new Date().toISOString();
-    let departures = [];
     const stationIds = stationId.split(',').map(id => id.trim());
-    let stationRequest = '';
 
     console.log("Station IDs: ", stationIds);
 
-    stationIds.forEach(id => {
-        stationRequest += `                
-        <StopEventRequest>
-            <Location>
-                <LocationRef>
-                    <StopPointRef>${id}</StopPointRef>
-                </LocationRef>
-            </Location>
-            <Params>
-                <IncludeRealtimeData>true</IncludeRealtimeData>
-            </Params>
-        </StopEventRequest>`;
-    });
-    const xml =
-        `<?xml version="1.0" encoding="UTF-8"?>
-        <Trias xmlns="http://www.vdv.de/trias" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2">
-        <ServiceRequest>
-            <siri:RequestTimestamp>${currentTime}</siri:RequestTimestamp>
-            <siri:RequestorRef></siri:RequestorRef>
-            <RequestPayload>
-                ${stationRequest}
-            </RequestPayload>
-        </ServiceRequest>
-    </Trias>`;
-
-    console.log("XML-Request URL: ", xml);
-
     try {
-        const departuresData = await xmlRequest(url, xml);
-        if (departuresData.statusCode !== 200) {
-            res.status(departuresData.statusCode).send(departuresData.parseError ? departuresData.parseError : `Unexpected status code ${departuresData.statusCode}`);
-            console.error(`Error Code 001: Received status code ${departuresData.statusCode}`);
+        // Alle StationRequests parallel ausführen
+        const monitorPromises = stationIds.map(async (id) => {
+            const xml = `<?xml version="1.0" encoding="UTF-8"?>
+                <Trias xmlns="http://www.vdv.de/trias" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2">
+                    <ServiceRequest>
+                        <siri:RequestTimestamp>${currentTime}</siri:RequestTimestamp>
+                        <siri:RequestorRef></siri:RequestorRef>
+                        <RequestPayload>
+                            <StopEventRequest>
+                                <Location>
+                                    <LocationRef>
+                                        <StopPointRef>${id}</StopPointRef>
+                                    </LocationRef>
+                                </Location>
+                                <Params>
+                                    <IncludeRealtimeData>true</IncludeRealtimeData>
+                                </Params>
+                            </StopEventRequest>
+                        </RequestPayload>
+                    </ServiceRequest>
+                </Trias>`;
 
-        } else {
-            //res.send(departuresData);
-            const results = departuresData.json?.Trias?.ServiceDelivery?.DeliveryPayload?.StopEventResponse?.StopEventResult;
-            let lineEntry = {};
+            const departuresData = await xmlRequest(url, xml);
 
-            if (Array.isArray(results)) {
-                const cppJson = convertToCppJson(results, stationId);
-                res.status(200).send(cppJson);
+            if (departuresData.statusCode !== 200) {
+                console.error(`Error fetching station ${id}:`, departuresData.parseError || departuresData.statusCode);
+                return []; // leeres Array bei Fehler
             }
 
-            // Sort by expectedDepartureTime (parsed). Missing times go to the end.
-            /*departures.sort((a, b) => {
-                const ta = a.expectedDepartureTime ? new Date(a.expectedDepartureTime).getTime() : Number.POSITIVE_INFINITY;
-                const tb = b.expectedDepartureTime ? new Date(b.expectedDepartureTime).getTime() : Number.POSITIVE_INFINITY;
-                return ta - tb;
-            });
+            const results = departuresData.json?.Trias?.ServiceDelivery?.DeliveryPayload?.StopEventResponse?.StopEventResult;
+            if (!results) return [];
 
-            departures = convertDepartures({ departures: departures });
-            
-            monitorsEntry = [];
+            // Konvertieren zu monitors
+            console.log(convertToCppJson(results, id));
+            return convertToCppJson(results, id).monitors || [];
+        });
 
-            let responseObject = {
-                data: {
-                    monitors: departures
-                },
-                status: {
-                    statusCode: 1,
-                    statusMessage: "Success",
-                }
-            };
+        // Warten bis alle Requests fertig sind
+        const monitorsArrays = await Promise.all(monitorPromises);
 
-            res.status(200).send(responseObject);*/
-        }
+        // Alle Monitors flach zusammenführen
+        const monitors = monitorsArrays.flat();
+
+        // Finales Response
+        const finalResponse = {
+            data: { 
+                monitors, 
+                trafficInfos: [], 
+                trafficInfoCategories: [], 
+                trafficInfoCategoryGroups: [] 
+            },
+            message: {
+                messageCode: 1,
+                serverTime: new Date().toISOString()
+            }
+        };
+
+        res.status(200).send(finalResponse);
+
     } catch (error) {
+        console.error("Error Code 004:", error);
         res.status(500).send(`Error Code 004: ${error.message}`);
     }
-
 });
+
 app.get('/departures', async (req, res) => {
     const stationId = req.body.stationId ? req.body.stationId : 'at:46:3046';
     //const url = req.url ? req.query.url : 'http://ogdtrias.verbundlinie.at:8183/stv/trias';
@@ -913,7 +905,7 @@ app.listen(port, "0.0.0.0", async function () {
     /*await setFalseIrregularStationCombos();
 /*
 Schritt 5: *//*
-    await addIreggularStationCombos();/**/
+                await addIreggularStationCombos();/**/
 
     console.log("Server is running on http://localhost:" + port);
     //await getLastStationofLines();

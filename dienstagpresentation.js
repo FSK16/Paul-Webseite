@@ -98,17 +98,6 @@ function convertToCppJson(results) {
         },
         lines: Array.from(stop.linesMap.values())
     }));
-    return {
-        data: {
-            monitors,
-            trafficInfos: [],
-            trafficInfoCategories: [],
-            trafficInfoCategoryGroups: []
-        },
-        message: {
-            messageCode: 1,
-            serverTime: new Date().toISOString()
-        }
-    };
+    return { monitors: monitors };
 }
 module.exports = convertToCppJson;
