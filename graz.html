@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="website_content">
-        <img src="/pics/background.jpg" alt="Hintergrund">
+        <img src="/pics/graz_background.jpg" alt="Hintergrund">
     </div>
     <div class="popup" id="menu">
       <div class="form_container_content" id="formContent">
@@ -30,31 +30,15 @@
             <div class="station_form">
               <form action="https://straba.local/config" method="post">
 
-              <div class="custom_input">
-                <label for="lineInput" class="straba_label">Linie:</label>
-                <label for="lineInput" class="straba_input_pfeil"><img src="pics/pfeiloben.svg" alt="Pfeil nach oben"></label>
-                <input type="text" name="lineText" id="lineInput" class="straba_input" onkeyup="searchLine()" onfocus="searchLine()">
-                <input type="hidden" name="line" id="lineInputID" class="straba_input">
 
-                <ul class="dropdown_items" id="list">
-                
-                </ul>
-              </div>
-              <div class="custom_input">
-                <label for="lineInput" class="straba_label">Richtung:</label>
-                <input type="text" name="direction" id="directionInput" class="straba_input">
-                <input type="hidden" name="direction" id="directionInputID" class="straba_input">
-                <ul class="dropdown_items" id="directionlist">
-
-              </div>
               <div class="custom_input">
                 <label for="lineInput" class="straba_label">Station:</label>
-                <input type="text" name="station" id="stationInput" class="straba_input">
+                <input type="text" name="station" id="stationInput" class="straba_input" onclick="toggleSuggestions('stationList')">
                 <input type="hidden" name="stop-id" id="stationInputID" class="straba_input">
                 <ul class="dropdown_items" id="stationlist">
               </div>
 
-              <button class="button_general mt-3" type="button" id="submitbutton" onclick="addStation()">
+              <button class="button_general mt-3" type="button" id="submitbutton" onclick="addStation()" style="background-color: rgb(13, 147, 23) !important">
                 <span id="submitbutton_notice">Station hinzufügen</span>
               </button>
 
@@ -103,11 +87,8 @@
       </div>
     </div>
   <script>
-    let stationData = [];
-    let station = document.getElementById('stationInput');
-
     window.onload = function(){
-        fetch(`https://straba-983965425140.europe-west3.run.app/search/`, {
+        fetch(`https://straba-983965425140.europe-west3.run.app/stationsGraz/`, {
           method: "GET"
       })
       .then(response => {
@@ -117,7 +98,7 @@
           return response.json();
       })
       .then(data => {
-          stationData = data;
+          insertDatatoSuggestions(data);
       })
       .catch(error => {
         console.error(error);
@@ -147,132 +128,13 @@
       });
     }
 
-    function searchLine(){
-      let lineSearch = document.getElementById('lineInput');
-      document.getElementById('list').innerHTML = "";
-      document.getElementById('list').innerHTML += `<span>Bitte wähle eine Linie:</span>`;
-
-      stationData.forEach(line => {
-
-        if (line.lineName.toLowerCase().includes(lineSearch.value.toLowerCase())) {
-          if (Array.isArray(line.lineStation)) {
-            if (line.lineStation.length !== 0) {
-              let lastItem = line.lineStation.length - 1;
-              let firstStation = line.lineStation[0].station.stationName;
-              let lastStationID = line.lineStation[0].patternID;
-              let lastStationPattern;
-              let currentStationPattern;
-              let lastStation;
-              let firstStationID;
-      
-              line.lineStation.forEach(station => {
-                if (currentStationPattern) {
-                  lastStationPattern = currentStationPattern;
-                  if (lastStationPattern != station.patternID) {
-                    lastStation = station.station.stationName;
-                    firstStationID = station.patternID
-                  }
-                }
-                currentStationPattern = station.patternID;
-              });
-
-
-              document.getElementById('list').innerHTML += `
-              <li onclick='insertLine("${line.lineName}", "${line.lineID}", "${firstStation}", "${firstStationID}", "${lastStation}", "${lastStationID}")'>
-                <span><b>${line.lineName}</b></span>
-                <span class="selection_note_directions">${firstStation} <-> ${lastStation}</span>
-              </li>`;
-            
-            } else {
-              document.getElementById('list').innerHTML += `
-                <li>
-                  <span>${line.lineName}</span>
-                </li>`;
-            }
-          } else {
-            document.getElementById('list').innerHTML += `
-              <li>
-                <span>${line.lineName}</span>
-              </li>`;
-          }
-      
-          document.getElementById('list').style.opacity = 1;
-        }
-      }); 
-    };
-
-    function insertLine(line, lineID, firstStation, firstStationID, lastStation, lastStationID){
-
-      document.getElementById('list').style.opacity = 0;
-      document.getElementById('list').innerHTML = "";
-      document.getElementById('lineInput').value = line;
-      document.getElementById('lineInputID').value = lineID;
-
-      getDirectiions(lineID, firstStation, firstStationID, lastStation, lastStationID)
-    }
-
-    function getDirectiions(lineID, firstStation, firstStationID, lastStation, lastStationID){  
-      
-      document.getElementById('directionlist').innerHTML += `
-              <span> Bitte wähle eine Richtung:</span>`;
-      document.getElementById('directionlist').innerHTML += `
-              <li onclick='insertDirection("${lineID}", "${firstStationID}", "${firstStation}")'>
-                <span><b>${firstStation}</b></span>
-              </li>`;
-
-      document.getElementById('directionlist').innerHTML += `
-      <li onclick='insertDirection("${lineID}", "${lastStationID}", "${lastStation}")'>
-        <span><b>${lastStation}</b></span>
-      </li>`;
-
-
-      document.getElementById('directionlist').style.opacity = 1;
-
-    }
-
-    function insertDirection(lineID, patternID, station){
-      document.getElementById('directionlist').style.opacity = 0;
-      document.getElementById('directionlist').innerHTML = "";
-
-      document.getElementById('directionInput').value = station;
-
-      getStation(lineID, patternID)
-    }
-
-    function getStation(lineID, patternID){
-      document.getElementById('stationlist').innerHTML += `<span>Bitte wähle eine Station:</span>`;
-      let stationAnzahl = 0;
-
-      stationData.forEach(line => {
-        if(line.lineID === Number(lineID)){
-          line.lineStation.forEach(station => {
-
-            if(station.patternID == Number(patternID)){
-              document.getElementById('stationlist').innerHTML += `
-              <li onclick='insertStation("${station.station.stationName}", "${station.station.stationID}")'>
-                <span><b>${station.station.stationName}</b></span>
-              </li>`;
-              stationAnzahl += 1;
-            }           
-          });
-        }
-      })
-      if(stationAnzahl == 0){
-          document.getElementById('stationlist').innerHTML += `<span>Es wurde keine Station gefunden.</span>`;
+    function toggleSuggestions(listId) {
+      const list = document.getElementById(listId);
+      if (list.style.display === "block") {
+        list.style.display = "none";
+      } else {
+        list.style.display = "block";
       }
-
-      document.getElementById('stationlist').style.opacity = 1;
-    }
-
-    function insertStation(name, stopID){
-      document.getElementById('stationlist').style.opacity = 0;
-      document.getElementById('stationlist').innerHTML = "";
-      document.getElementById('stationInput').value = name;
-
-      document.getElementById('submitbutton').onclick = function(){
-          addStation(name, stopID);
-      } 
-      //document.getElementById('stopNumber').innerHTML = "Gewählte StopID: " + stopID;
     }
 
     function sendtoStraba(){
@@ -300,7 +162,14 @@
       document.getElementById('formContent').style.opacity = 0;
       document.getElementById('returntoMenu').style.display = "block";
       document.getElementById('returntoMenu').style.opacity = 1;
+    }
 
+    function insertDatatoSuggestions(data){
+        let stationList = document.getElementById('stationlist');
+        stationList.innerHTML = "";
+        data.forEach(station => {
+            stationList.innerHTML += `<li onclick="selectStation('${station.stopID}', '${station.name}')">${station.name}</li>`;
+        })
     }
 
     function addStation(name, stopID){

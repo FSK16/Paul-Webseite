@@ -54,7 +54,6 @@ app.get("/search/:name", async function (req, res) {
 })
 
 app.get("/search", async function (req, res) {
-    console.log("Test");
     const stations = await prisma.line.findMany({
         include: {
             lineStation: {
@@ -89,6 +88,14 @@ app.get("/search", async function (req, res) {
     res.send(stations);
     console.log("Stations fetched successfully");
 });
+app.get("/searchGraz", async function (req, res) {
+    try{
+        res.status(200).json(await prisma.standaloneStation.findMany());
+    } catch (error) {
+        console.error("Error fetching standalone stations:", error);
+        res.status(500).send("Internal Server Error");
+    }
+})
 // Stöunrungskategorien
 app.get("/disruptions/disruptionCategories", async function (req, res) {
     try {
