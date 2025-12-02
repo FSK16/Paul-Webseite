@@ -80,7 +80,7 @@ function convertToCppJson(results) {
                 richtungsId: directionIndex.toString() ? directionIndex.toString() : "1",
             },
             departureTime: {
-                timePlabned: scheduled,
+                timePlanned: scheduled,
                 countdown: countdown,
                 timeReal: estimated
             }
@@ -93,9 +93,7 @@ function convertToCppJson(results) {
             properties: {
                 name: stop.stopId, //Sollte eogentlich DIVA Nummer sein
                 title: stop.stopName,
-                attributes: {
-                    rbl: stop.stopId
-                }
+                rblString: stop.stopId.split(":").slice(0, 3).join(":"),
             }
         },
         lines: Array.from(stop.linesMap.values())
@@ -103,12 +101,12 @@ function convertToCppJson(results) {
     return {
         data: {
             monitors,
-            trafficInfo: [],
+            trafficInfos: [],
             trafficInfoCategories: [],
             trafficInfoCategoryGroups: []
         },
         message: {
-            messageCode: 200,
+            messageCode: 1,
             serverTime: new Date().toISOString()
         }
     };
