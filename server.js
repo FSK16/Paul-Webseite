@@ -29,7 +29,7 @@ const cors = require("cors");
 // npm i -g nodemon
 // Zum Starten: nodemon server.js
 
-const port = 8081;
+const port = 8080;
 let app = express();
 
 app.use(express.json());
