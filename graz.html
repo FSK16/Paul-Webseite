@@ -88,7 +88,7 @@
     </div>
   <script>
     window.onload = function(){
-        fetch(`https://straba-983965425140.europe-west3.run.app/stationsGraz/`, {
+        fetch(`https://straba-983965425140.europe-west3.run.app/searchGraz/`, {
           method: "GET"
       })
       .then(response => {
@@ -114,14 +114,7 @@
           return response.json();
       })
       .then(data => {
-        console.log(data);
-          data.forEach(disruption => {
-              document.getElementById('currentDisruptions').innerHTML += `
-              <div class="container_100 red mt10">
-                    <span>${disruption.disruptionText}</span>
-                    <span>${disruption.endDate ? "Die Störung endet in " + calculateDuration(splitDateTime(disruption.endDate).day, splitDateTime(disruption.endDate).hours, splitDateTime(disruption.endDate).minutes) : 'Das Störungsende ist nicht absehbar.'}</span>
-              </div>`;
-          });
+        insertDatatoSuggestions(data);
       })
       .catch(error => {
           console.error(error);
@@ -167,9 +160,9 @@
     function insertDatatoSuggestions(data){
         let stationList = document.getElementById('stationlist');
         stationList.innerHTML = "";
-        data.forEach(station => {
-            stationList.innerHTML += `<li onclick="selectStation('${station.stopID}', '${station.name}')">${station.name}</li>`;
-        })
+        /*data.forEach(station => {
+            stationList.innerHTML += `<li onclick="selectStation('${station.stationID}', '${station.stationName}')">${station.stationName}</li>`;
+        })*/
     }
 
     function addStation(name, stopID){

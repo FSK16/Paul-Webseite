@@ -90,7 +90,14 @@ app.get("/search", async function (req, res) {
 });
 app.get("/searchGraz", async function (req, res) {
     try{
-        res.status(200).json(await prisma.standaloneStation.findMany());
+        res.status(200).json(await prisma.standaloneStation.findMany(
+            {
+                select:{
+                    stationID: true,
+                    stationName: true
+                }
+            }
+        ));
     } catch (error) {
         console.error("Error fetching standalone stations:", error);
         res.status(500).send("Internal Server Error");
