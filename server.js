@@ -852,6 +852,64 @@ async function getIrregularStations() {
     return await prisma.irregularStation.findMany()
 }
 
+async function insertGrazIDs() {
+    
+    var DataSheetCombinations = path.join(__dirname, "daten", "triasData.csv");
+    let inserts = 0;
+    let combos = [];
+    let errors = 0;
+    console.log("Funktion wird aufgerufen");
+
+    fs.createReadStream(DataSheetCombinations)
+        .pipe(
+            parse({
+                delimiter: ",",
+                from_line: 2,
+                relax_column_count: true,
+            })
+        )
+        .on("data", async function (row) {
+            let stationId = row[3];
+            let stationName = row[2];
+            let positionX = row[4];
+            let positionY = row[5];
+            let city = row[6];   
+            let strabaArea = "Graz";
+            let lines = row[10];
+
+            if(stationId.includes("at:46:")) {
+                let station = {
+                    stationID: stationId,
+                    stationName: stationName,
+                    city: city,
+                    strabaArea: strabaArea,
+                    longitude: parseFloat(positionX),
+                    latitude: parseFloat(positionY),
+                    lines: lines
+                }
+                combos.push(station);
+            }
+            console.log(combos);
+
+        })
+        .on("end", async function () {
+            try {
+                //Warte bis wirklich alle Stationen ausgelesen wurden!!
+                setTimeout(async function () {
+                    const newCombos = await prisma.standaloneStation.createMany({
+                        data: combos,
+                    });
+                    console.log(`${newCombos.count} Combos have been added to the database.`);
+                }, 5000)
+
+            } catch (error) {
+                console.error("Error inserting data into the database:", error);
+            }
+            console.log("Errors beim Integrieren der Daten:" + errors);
+
+        });
+}
+
 
 app.get('/', (req, res) => {
     res.redirect("echt.html");
@@ -909,6 +967,9 @@ Schritt 5: *//*
 
     console.log("Server is running on http://localhost:" + port);
     //await getLastStationofLines();
+
+    //Insert Graz:
+    //await insertGrazIDs();
 });
 
 app.get("/test/", async function () {

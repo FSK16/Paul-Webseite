@@ -13,6 +13,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model standaloneStation {
+  id          Int      @id @default(autoincrement())
+  stationID   String      @unique()
+  stationName String   @default("Keine Daten")
+  city        String?
+  strabaArea  String?
+  lines       String?
+  longitude   Decimal?
+  latitude    Decimal?
+}
+
 model Station {
   id          Int      @id @default(autoincrement())
   stationID   Int      @unique()
@@ -21,7 +32,6 @@ model Station {
   divaNr      Int      @default(99999999999999)
   longitude   Decimal?
   latitude    Decimal?
-
   stationLine LineStation[]
 }
 
