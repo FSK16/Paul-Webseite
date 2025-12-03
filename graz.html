@@ -33,7 +33,7 @@
 
               <div class="custom_input">
                 <label for="lineInput" class="straba_label">Station:</label>
-                <input type="text" name="station" id="stationInput" class="straba_input" onclick="toggleSuggestions('stationList')">
+                <input type="text" name="station" id="stationInput" class="straba_input" onkeyup="toggleSuggestions(this.value)">
                 <input type="hidden" name="stop-id" id="stationInputID" class="straba_input">
                 <ul class="dropdown_items" id="stationlist">
               </div>
@@ -87,6 +87,7 @@
       </div>
     </div>
   <script>
+    let stations = [];
     window.onload = function(){
         fetch(`https://straba-983965425140.europe-west3.run.app/searchGraz/`, {
           method: "GET"
@@ -98,13 +99,13 @@
           return response.json();
       })
       .then(data => {
-          insertDatatoSuggestions(data);
+           stations = data;
       })
       .catch(error => {
         console.error(error);
       });
 
-      fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/`, {
+      /*fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/`, {
           method: "GET"
       })
       .then(response => {
@@ -118,7 +119,7 @@
       })
       .catch(error => {
           console.error(error);
-      });
+      });*/
     }
 
     function toggleSuggestions(listId) {
@@ -165,32 +166,53 @@
         })*/
     }
 
+    function toggleSuggestions(value) {
+      let stationInserted = false
+      document.getElementById('stationlist').innerHTML = "";
+      if(value.trim().length > 2){
+        stations.forEach(station => {
+          stationInserted = true;
+          if(station.stationName.toLowerCase().includes(value.toLowerCase())){
+            document.getElementById('stationlist').innerHTML += `<li onclick="selectStation('${station.stationID}', '${station.stationName}')">${station.stationName}</li>`;
+          }
+          if(stationInserted){
+            document.getElementById('stationlist').style.display = "block";
+            document.getElementById('stationlist').style.opacity = 1;
+          }
+        });
+      } 
+    }
+
+    function selectStation(id, name){
+      document.getElementById('stationInput').value = name;
+      document.getElementById('stationInputID').value = id;
+      document.getElementById('stationlist').style.display = "none";
+      document.getElementById('submitbutton').onclick = function() { addStation(name, id); };
+    }
+
     function addStation(name, stopID){
       if(!name || !stopID){
         alert("Bitte wähle eine Station aus.");
         return;
       }
       if(document.getElementById('stationInputID').value.trim() !== ""){
+        /*if(document.getElementById('stationInputID').value.includes(stopID)){
+          alert("Diese Station wurde bereits hinzugefügt.");
+          return;
+        }*/
         document.getElementById('stationInputID').value += "," + stopID;
       }
       else{
         document.getElementById('stationInputID').value = stopID;
       }
 
-      line = document.getElementById('lineInput').value;
-      lastStation = document.getElementById('directionInput').value;
-      document.getElementById('stationAddedText').innerHTML += " " + name + " (" + line + " in Richtung " + lastStation + ") <br>";
+      document.getElementById('stationAddedText').innerHTML += " " + name + "<br>";
 
       setInputsNull();
     }
 
 
     function setInputsNull(){
-      document.getElementById('lineInput').value = "";
-      document.getElementById('lineInputID').value = "";
-
-      document.getElementById('directionInput').value = "";
-      document.getElementById('directionInputID').value = "";
 
       document.getElementById('stationInput').value = "";
     }
