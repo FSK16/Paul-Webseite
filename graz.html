@@ -88,6 +88,7 @@
     </div>
   <script>
     let stations = [];
+    let stationsToStraba = [];
     window.onload = function(){
         fetch(`https://straba-983965425140.europe-west3.run.app/searchGraz/`, {
           method: "GET"
@@ -132,7 +133,16 @@
     }
 
     function sendtoStraba(){
-      let stopID = document.getElementById('stationInputID').value
+      let stopID = "";
+      let first = true;
+      stationsToStraba.forEach(station => {
+        if(first){
+          stopID += station.stopID;
+          first = false;
+        } else {
+          stopID += "," + station.stopID;
+        }
+      });
       let zeile = document.getElementById('strabaZeile').value;
       let lines = document.getElementById('strabaLines').value;
 
@@ -195,16 +205,7 @@
         alert("Bitte wähle eine Station aus.");
         return;
       }
-      if(document.getElementById('stationInputID').value.trim() !== ""){
-        /*if(document.getElementById('stationInputID').value.includes(stopID)){
-          alert("Diese Station wurde bereits hinzugefügt.");
-          return;
-        }*/
-        document.getElementById('stationInputID').value += "," + stopID;
-      }
-      else{
-        document.getElementById('stationInputID').value = stopID;
-      }
+      stationsToStraba.push({name: name, stopID: stopID});
 
       document.getElementById('stationAddedText').innerHTML += " " + name + "<br>";
 
