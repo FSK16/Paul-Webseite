@@ -670,7 +670,6 @@ async function insertDataofCSVFiles() {
             })
             .on("end", async function () {
                 try {
-                    console.log(lines);
                     const newLines = await prisma.line.createMany({
                         data: lines,
                     });
@@ -872,7 +871,6 @@ async function insertGrazIDs() {
     let inserts = 0;
     let combos = [];
     let errors = 0;
-    console.log("Funktion wird aufgerufen");
 
     fs.createReadStream(DataSheetCombinations)
         .pipe(
@@ -903,7 +901,6 @@ async function insertGrazIDs() {
                 }
                 combos.push(station);
             }
-            console.log(combos);
 
         })
         .on("end", async function () {
@@ -952,17 +949,14 @@ app.listen(port, "0.0.0.0", async function () {
     // Warte auf das Einfügen von Daten und führe dann die Combo-Funktion aus
     await insertDataofCSVFiles();  // Warten, bis das Einfügen der Daten abgeschlossen ist
     
-    await insertCombos();
-
-    await generatePriorities();
     //Jetzt rufst du  auf, nachdem insertDataofCSVFiles() abgeschlossen ist
 
       /*  
-    Schritt 2:*/
-    //await generatePriorities();
+    Schritt 2:*//*
+    await generatePriorities();
     /*
-        Schritt 3:*/
-    /* await prisma.lineStation.deleteMany();
+        Schritt 3:*//*
+    await prisma.lineStation.deleteMany();
 
      await insertCombos();
      await getLastStationofLines();

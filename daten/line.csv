@@ -131,7 +131,6 @@ LineID;LineText;SortingHelp;Realtime;MeansOfTransport
 499;99A;499;1;ptBusCity
 205;5B;505;1;ptBusCity
 207;7B;507;1;ptBusCity
-211;11B;511;1;ptBusCity
 817;N17R;517;0;ptRufBus
 220;20B;520;1;ptBusCity
 824;N24R;524;0;ptRufBus
@@ -142,6 +141,7 @@ LineID;LineText;SortingHelp;Realtime;MeansOfTransport
 236;36B;536;1;ptBusCity
 836;N36R;536;0;ptRufBus
 238;38B;538;0;ptBusCity
+239;39B;539;0;ptBusCity
 243;43B;543;1;ptBusCity
 246;46B;546;1;ptBusCity
 247;47B;547;1;ptBusCity
@@ -180,7 +180,6 @@ LineID;LineText;SortingHelp;Realtime;MeansOfTransport
 520;N20;720;1;ptBusNight
 523;N23;723;1;ptBusNight
 525;N25;725;1;ptBusNight
-526;N26;726;1;ptBusNight
 529;N29;729;1;ptBusNight
 531;N31;731;1;ptBusNight
 535;N35;735;1;ptBusNight
