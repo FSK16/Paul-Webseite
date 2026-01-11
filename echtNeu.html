@@ -543,13 +543,19 @@
     loadConfig();
     updateNightmodeVisibility();
 
+    function loadConfig() {
+      console.log("Lade Konfiguration... (wird noch implementiert)");
+    }
+
 
     window.onload = function(){
       const urlParams = new URLSearchParams(window.location.search);
+      console.log("URL Parameters:", urlParams.toString());
       const stopID = urlParams.get('stop-id');
       console.log("Stop ID from URL:", stopID);
       if(stopID){
         document.getElementById('stopId').value = stopID;
+        
       }
     }
   </script>
