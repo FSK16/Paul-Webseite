@@ -942,7 +942,7 @@ app.get('/config', (req, res) => {
     res.sendFile(path.join(__dirname, 'echt.html'));
 });
 
-app.get2('/config2', (req, res) => {
+app.get('/config2', (req, res) => {
     res.sendFile(path.join(__dirname, 'echtNeu.html'));
 });
 
