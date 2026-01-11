@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style/style_echt.css">
+  <script src="script.js"></script>
+  <!--<link rel="icon" href="pics/straba.png" type="image/x-icon">-->
+
+  <title>Haltestellen wählen</title>
+</head>
+
+<body>
+  <div class="website_content">
+    <img src="/pics/background.jpg" alt="Hintergrund">
+  </div>
+  <div class="popup" id="menu">
+    <div class="form_container_content" id="formContent">
+      <div class="content_center">
+        <!--      
+          <div class="text_highlighted" id="title">
+            <span>Wähle nun deine Station, die dein Straba anzeigen soll!</span>
+          </div>
+          -->
+        <div id="mobile_container">
+          <span id="title_description"><b>Füge hier die Haltestelle hinzu, die auf deinem Straba erscheinen soll.
+            </b><br></span>
+          <div id="currentDisruptions">
+          </div>
+          <div class="station_form">
+            <form action="https://straba.local/config" method="post">
+
+              <div class="custom_input">
+                <label for="lineInput" class="straba_label">Linie:</label>
+                <label for="lineInput" class="straba_input_pfeil"><img src="pics/pfeiloben.svg"
+                    alt="Pfeil nach oben"></label>
+                <input type="text" name="lineText" id="lineInput" class="straba_input" onkeyup="searchLine()"
+                  onfocus="searchLine()">
+                <input type="hidden" name="line" id="lineInputID" class="straba_input">
+
+                <ul class="dropdown_items" id="list">
+
+                </ul>
+              </div>
+              <div class="custom_input">
+                <label for="lineInput" class="straba_label">Richtung:</label>
+                <input type="text" name="direction" id="directionInput" class="straba_input">
+                <input type="hidden" name="direction" id="directionInputID" class="straba_input">
+                <ul class="dropdown_items" id="directionlist">
+
+              </div>
+              <div class="custom_input">
+                <label for="lineInput" class="straba_label">Station:</label>
+                <input type="text" name="station" id="stationInput" class="straba_input">
+                <input type="hidden" name="stop-id" id="stationInputID" class="straba_input">
+                <ul class="dropdown_items" id="stationlist">
+              </div>
+
+              <button class="button_general mt-3" type="button" id="submitbutton" onclick="addStation()">
+                <span id="submitbutton_notice">Station hinzufügen</span>
+              </button>
+
+              <div id="addedStations" class="stations_container">
+                <span class="textSmall">Stationen, die hinzugefügt werden:<br></span>
+                <span id="stationAddedText" class="textSmall"></span>
+              </div>
+          </div>
+        </div>
+
+
+        <div class="container_dark">
+          <h5 id="extended_setting">&#9881 Erweiterte Einstellungen</h5>
+          <span id="new_note">Für Hilfe wirf einen Blick auf das Einrichtungsblatt.</span>
+        </div>
+
+        <a href="echtNeu.html?stop-id=${document.getElementById('stationInputID').value.trim()}">
+          <button class="button_general mt-3" type="button" id="sendbtn">
+            <span id="submitbutton_notice">Weiter zum nächsten Schritt</span>
+          </button>
+        </a>
+        <span id="stopNumber" class="mt-2"></span>
+        </form>
+      </div>
+
+      <div id="logo" class="mb-3">
+        <img src="pics/straba.png" alt="Starba Logo" class="straba_logo">
+      </div>
+
+    </div>
+  </div>
+  <div class="popup" id="returntoMenu">
+    <div class="pfeil_image">
+      <img src="pics/pfeil-nach-links.svg" alt="Pfeil nach unten">
+    </div>
+  </div>
+  <script>
+    let stationData = [];
+    let station = document.getElementById('stationInput');
+
+    window.onload = function () {
+      fetch(`https://straba-983965425140.europe-west3.run.app/search/`, {
+        method: "GET"
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then(data => {
+          stationData = data;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+
+      fetch(`https://straba-983965425140.europe-west3.run.app/disruptions/`, {
+        method: "GET"
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log(data);
+          data.forEach(disruption => {
+            document.getElementById('currentDisruptions').innerHTML += `
+              <div class="container_100 red mt10">
+                    <span>${disruption.disruptionText}</span>
+                    <span>${disruption.endDate ? "Die Störung endet in " + calculateDuration(splitDateTime(disruption.endDate).day, splitDateTime(disruption.endDate).hours, splitDateTime(disruption.endDate).minutes) : 'Das Störungsende ist nicht absehbar.'}</span>
+              </div>`;
+          });
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+
+    function searchLine() {
+      let lineSearch = document.getElementById('lineInput');
+      document.getElementById('list').innerHTML = "";
+      document.getElementById('list').innerHTML += `<span>Bitte wähle eine Linie:</span>`;
+
+      stationData.forEach(line => {
+
+        if (line.lineName.toLowerCase().includes(lineSearch.value.toLowerCase())) {
+          if (Array.isArray(line.lineStation)) {
+            if (line.lineStation.length !== 0) {
+              let lastItem = line.lineStation.length - 1;
+              let firstStation = line.lineStation[0].station.stationName;
+              let lastStationID = line.lineStation[0].patternID;
+              let lastStationPattern;
+              let currentStationPattern;
+              let lastStation;
+              let firstStationID;
+
+              line.lineStation.forEach(station => {
+                if (currentStationPattern) {
+                  lastStationPattern = currentStationPattern;
+                  if (lastStationPattern != station.patternID) {
+                    lastStation = station.station.stationName;
+                    firstStationID = station.patternID
+                  }
+                }
+                currentStationPattern = station.patternID;
+              });
+
+
+              document.getElementById('list').innerHTML += `
+              <li onclick='insertLine("${line.lineName}", "${line.lineID}", "${firstStation}", "${firstStationID}", "${lastStation}", "${lastStationID}")'>
+                <span><b>${line.lineName}</b></span>
+                <span class="selection_note_directions">${firstStation} <-> ${lastStation}</span>
+              </li>`;
+
+            } else {
+              document.getElementById('list').innerHTML += `
+                <li>
+                  <span>${line.lineName}</span>
+                </li>`;
+            }
+          } else {
+            document.getElementById('list').innerHTML += `
+              <li>
+                <span>${line.lineName}</span>
+              </li>`;
+          }
+
+          document.getElementById('list').style.opacity = 1;
+        }
+      });
+    };
+
+    function insertLine(line, lineID, firstStation, firstStationID, lastStation, lastStationID) {
+
+      document.getElementById('list').style.opacity = 0;
+      document.getElementById('list').innerHTML = "";
+      document.getElementById('lineInput').value = line;
+      document.getElementById('lineInputID').value = lineID;
+
+      getDirectiions(lineID, firstStation, firstStationID, lastStation, lastStationID)
+    }
+
+    function getDirectiions(lineID, firstStation, firstStationID, lastStation, lastStationID) {
+
+      document.getElementById('directionlist').innerHTML += `
+              <span> Bitte wähle eine Richtung:</span>`;
+      document.getElementById('directionlist').innerHTML += `
+              <li onclick='insertDirection("${lineID}", "${firstStationID}", "${firstStation}")'>
+                <span><b>${firstStation}</b></span>
+              </li>`;
+
+      document.getElementById('directionlist').innerHTML += `
+      <li onclick='insertDirection("${lineID}", "${lastStationID}", "${lastStation}")'>
+        <span><b>${lastStation}</b></span>
+      </li>`;
+
+
+      document.getElementById('directionlist').style.opacity = 1;
+
+    }
+
+    function insertDirection(lineID, patternID, station) {
+      document.getElementById('directionlist').style.opacity = 0;
+      document.getElementById('directionlist').innerHTML = "";
+
+      document.getElementById('directionInput').value = station;
+
+      getStation(lineID, patternID)
+    }
+
+    function getStation(lineID, patternID) {
+      document.getElementById('stationlist').innerHTML += `<span>Bitte wähle eine Station:</span>`;
+      let stationAnzahl = 0;
+
+      stationData.forEach(line => {
+        if (line.lineID === Number(lineID)) {
+          line.lineStation.forEach(station => {
+
+            if (station.patternID == Number(patternID)) {
+              document.getElementById('stationlist').innerHTML += `
+              <li onclick='insertStation("${station.station.stationName}", "${station.station.stationID}")'>
+                <span><b>${station.station.stationName}</b></span>
+              </li>`;
+              stationAnzahl += 1;
+            }
+          });
+        }
+      })
+      if (stationAnzahl == 0) {
+        document.getElementById('stationlist').innerHTML += `<span>Es wurde keine Station gefunden.</span>`;
+      }
+
+      document.getElementById('stationlist').style.opacity = 1;
+    }
+
+    function insertStation(name, stopID) {
+      document.getElementById('stationlist').style.opacity = 0;
+      document.getElementById('stationlist').innerHTML = "";
+      document.getElementById('stationInput').value = name;
+
+      document.getElementById('submitbutton').onclick = function () {
+        addStation(name, stopID);
+      }
+      //document.getElementById('stopNumber').innerHTML = "Gewählte StopID: " + stopID;
+    }
+
+    function sendtoStraba() {
+      let stopID = document.getElementById('stationInputID').value
+      let zeile = document.getElementById('strabaZeile').value;
+      let lines = document.getElementById('strabaLines').value;
+
+      if (stopID.trim() === "") {
+        alert("Bitte füge mindestens eine Station hinzu.");
+        return;
+      }
+
+      console.log(stopID);
+
+      let strabaData = { type: "setRBL", rbl: stopID, zeilen: zeile, filter: lines }
+      window.parent.postMessage(strabaData, "*")
+
+      document.getElementById('stationInputID').value = "";
+      document.getElementById('stationInput').value = "";
+
+      setInputsNull();
+      document.getElementById('stationInputID').value = "";
+      document.getElementById('stationAddedText').value = "";
+
+      document.getElementById('formContent').style.opacity = 0;
+      document.getElementById('returntoMenu').style.display = "block";
+      document.getElementById('returntoMenu').style.opacity = 1;
+
+    }
+
+    function addStation(name, stopID) {
+      if (!name || !stopID) {
+        alert("Bitte wähle eine Station aus.");
+        return;
+      }
+      if (document.getElementById('stationInputID').value.trim() !== "") {
+        document.getElementById('stationInputID').value += "," + stopID;
+      }
+      else {
+        document.getElementById('stationInputID').value = stopID;
+      }
+
+      line = document.getElementById('lineInput').value;
+      lastStation = document.getElementById('directionInput').value;
+      document.getElementById('stationAddedText').innerHTML += " " + name + " (" + line + " in Richtung " + lastStation + ") <br>";
+
+      setInputsNull();
+    }
+
+
+    function setInputsNull() {
+      document.getElementById('lineInput').value = "";
+      document.getElementById('lineInputID').value = "";
+
+      document.getElementById('directionInput').value = "";
+      document.getElementById('directionInputID').value = "";
+
+      document.getElementById('stationInput').value = "";
+    }
+
+    document.addEventListener('click', function (event) {
+      const dropdown = document.querySelector('.dropdown_items');
+      const inputs = document.querySelector('.straba_input');
+
+      // Prüfen, ob der Klick außerhalb des Dropdowns war
+      if (!dropdown.contains(event.target) && !inputs.contains(event.target)) {
+        dropdown.style.opacity = 0; // oder 'opacity: 0', je nach Umsetzung
+      }
+    });
+
+
+
+  </script>
+
+
+</body>
+
+</html>

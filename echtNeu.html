@@ -545,6 +545,15 @@
     });
     loadConfig();
     updateNightmodeVisibility();
+
+
+    window.onload = function(){
+      const urlParams = new URLSearchParams(window.location.search);
+      const stopID = urlParams.get('stop-id');
+      if(stopID){
+        document.getElementById('stopId').value = stopID;
+      }
+    }
   </script>
 </body>
 </html>
