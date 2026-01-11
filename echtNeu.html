@@ -547,6 +547,7 @@
     window.onload = function(){
       const urlParams = new URLSearchParams(window.location.search);
       const stopID = urlParams.get('stop-id');
+      console.log("Stop ID from URL:", stopID);
       if(stopID){
         document.getElementById('stopId').value = stopID;
       }

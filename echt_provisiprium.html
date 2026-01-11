@@ -77,13 +77,12 @@
         <div class="container_dark">
           <h5 id="extended_setting">&#9881 Erweiterte Einstellungen</h5>
           <span id="new_note">Für Hilfe wirf einen Blick auf das Einrichtungsblatt.</span>
+          
         </div>
 
-        <a href="echtNeu.html?stop-id=${document.getElementById('stationInputID').value.trim()}">
-          <button class="button_general mt-3" type="button" id="sendbtn">
-            <span id="submitbutton_notice">Weiter zum nächsten Schritt</span>
-          </button>
-        </a>
+        <button class="button_general mt-3" type="button" id="sendbtn" onclick="continueSetup()">
+          <span id="submitbutton_notice">Weiter zum nächsten Schritt</span>
+        </button>
         <span id="stopNumber" class="mt-2"></span>
         </form>
       </div>
@@ -339,6 +338,17 @@
         dropdown.style.opacity = 0; // oder 'opacity: 0', je nach Umsetzung
       }
     });
+
+    function continueSetup() {
+      let stopID = document.getElementById('stationInputID').value.trim();
+
+      if (stopID === "") {
+        alert("Bitte füge mindestens eine Station hinzu.");
+        return;
+      }
+
+      window.location.href = `echtNeu.html?stop-id=${stopID}`;
+    }
 
 
 
