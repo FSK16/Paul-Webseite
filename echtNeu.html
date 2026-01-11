@@ -526,9 +526,8 @@
         document.getElementById('loading').classList.add('visible');
         const strabaData = { 
             type: "setRBL", 
-            rbl: stopID, 
-            zeilen: zeile, 
-            filter: lines,
+            rbl: document.getElementById('stopId').value.trim(), 
+            zeilen: getSegmentValue('anzeige'), 
             'stop-id': document.getElementById('stopId').value.trim(),
             'filter': document.getElementById('filter').value.trim(),
             'anzeige': getSegmentValue('anzeige'),
