@@ -523,29 +523,27 @@
 
     // Speichern
     document.getElementById('saveBtn').addEventListener('click', async () => {
-      document.getElementById('loading').classList.add('visible');
-      const strabaData = { 
-        type: "setRBL", 
-        rbl: stopID, 
-        zeilen: zeile, 
-        filter: lines,
-        'stop-id': document.getElementById('stopId').value.trim(),
-        'filter': document.getElementById('filter').value.trim(),
-        'anzeige': getSegmentValue('anzeige'),
-        'sortmode': getSegmentValue('sortmode'),
-        'chopper': getSegmentValue('chopper'),
-        'silberpfeil': getSegmentValue('silberpfeil'),
-        'colour': getSegmentValue('colour'),
-        'displaylight': getSegmentValue('displaylight'),
-        'nightmode': document.getElementById('nightmodeToggle').classList.contains('checked') ? '1' : '0',
-        'nightstart': document.getElementById('nightstart').value,
-        'nightend': document.getElementById('nightend').value
-    }
-      window.parent.postMessage(strabaData, "*")
-
+        document.getElementById('loading').classList.add('visible');
+        const strabaData = { 
+            type: "setRBL", 
+            rbl: stopID, 
+            zeilen: zeile, 
+            filter: lines,
+            'stop-id': document.getElementById('stopId').value.trim(),
+            'filter': document.getElementById('filter').value.trim(),
+            'anzeige': getSegmentValue('anzeige'),
+            'sortmode': getSegmentValue('sortmode'),
+            'chopper': getSegmentValue('chopper'),
+            'silberpfeil': getSegmentValue('silberpfeil'),
+            'colour': getSegmentValue('colour'),
+            'displaylight': getSegmentValue('displaylight'),
+            'nightmode': document.getElementById('nightmodeToggle').classList.contains('checked') ? '1' : '0',
+            'nightstart': document.getElementById('nightstart').value,
+            'nightend': document.getElementById('nightend').value
+        };
+        console.log(strabaData);    
+        window.parent.postMessage(strabaData, "*");
     });
-
-    // Init
     loadConfig();
     updateNightmodeVisibility();
   </script>
