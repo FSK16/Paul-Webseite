@@ -943,7 +943,7 @@ app.get('/config', (req, res) => {
 });
 
 app.get('/config2', (req, res) => {
-    res.sendFile(path.join(__dirname, 'echtNeu.html'));
+    res.sendFile(path.join(__dirname, 'echt_provisiprium.html'));
 });
 
 app.listen(port, "0.0.0.0", async function () {
