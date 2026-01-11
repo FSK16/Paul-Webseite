@@ -942,6 +942,10 @@ app.get('/config', (req, res) => {
     res.sendFile(path.join(__dirname, 'echt.html'));
 });
 
+app.get2('/configNeu', (req, res) => {
+    res.sendFile(path.join(__dirname, 'echtNeu.html'));
+});
+
 app.listen(port, "0.0.0.0", async function () {
     /*
     Schritt 1:
