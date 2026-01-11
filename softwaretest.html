@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=375, initial-scale=1.0">
+  <title>Straba Settings</title>
+  <style>
+    :root {
+      --background: #0a0a0a;
+      --card: #161618;
+      --card-border: #2c2c2e;
+      --text-main: #f2f2f7;
+      --text-muted: #8e8e93;
+      --accent: #32d74b;
+      --accent-dim: rgba(50, 215, 75, 0.15);
+      --control-bg: #2c2c2e;
+      --control-active: #636366;
+      --danger: #ff453a;
+      --led-amber: #ffb340;
+      --led-white: #ffffff;
+      --led-orange: #ff9500;
+      --led-silver: #c0c0c0;
+      --led-blue: #87ceeb;
+      --font-family-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: "SF Mono", "Menlo", "Monaco", "Courier New", monospace;
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    body {
+      margin: 0; padding: 0;
+      background-color: var(--background);
+      color: var(--text-main);
+      font-family: var(--font-family-body);
+      font-size: 15px;
+    }
+    .header {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10, 10, 10, 0.9);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .brand {
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand-icon {
+      width: 28px; height: 28px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--accent);
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    .status-badge {
+      font-size: 11px;
+      background: var(--accent-dim);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+    .status-badge.error { background: rgba(255,69,58,0.15); color: var(--danger); }
+    .main-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .preview-section {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .preview-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .device-frame {
+      background: #000;
+      border-radius: 4px;
+      padding: 12px;
+      border: 2px solid #333;
+      font-family: var(--font-mono);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .led-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      line-height: 1.3;
+      letter-spacing: 0.5px;
+    }
+    .led-line { display: flex; gap: 10px; }
+    .led-number { font-weight: bold; min-width: 28px; }
+    .settings-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-left: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .control-card {
+      background: var(--card);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .control-item {
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--card-border);
+      gap: 12px;
+    }
+    .control-item:last-child { border-bottom: none; }
+    .control-label {
+      flex: 1;
+      font-weight: 500;
+    }
+    .control-label small {
+      display: block;
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+    input[type="text"] {
+      background: var(--control-bg);
+      border: none;
+      color: var(--text-main);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 15px;
+      width: 140px;
+      text-align: right;
+    }
+    input[type="text"]:focus {
+      outline: 2px solid var(--accent);
+    }
+    .segmented-control {
+      background: var(--control-bg);
+      padding: 3px;
+      border-radius: 8px;
+      display: inline-flex;
+    }
+    .segment-opt {
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 6px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .segment-opt:hover { color: var(--text-main); }
+    .segment-opt.active {
+      background: var(--control-active);
+      color: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+    .toggle {
+      width: 51px;
+      height: 31px;
+      background: var(--control-bg);
+      border-radius: 31px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .toggle.checked { background: var(--accent); }
+    .toggle::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 27px;
+      height: 27px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.3s cubic-bezier(0.3, 1.5, 0.7, 1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .toggle.checked::after { transform: translateX(20px); }
+    .color-options { display: flex; gap: 10px; }
+    .color-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .color-circle:hover { transform: scale(1.1); }
+    .color-circle.selected { border-color: var(--text-main); }
+    .footer-actions {
+      padding: 20px;
+      max-width: 500px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .btn-primary {
+      width: 100%;
+      padding: 16px;
+      background: var(--accent);
+      color: #000;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover { filter: brightness(1.1); }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-secondary {
+      width: 100%;
+      padding: 14px;
+      background: transparent;
+      color: var(--text-muted);
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 14px;
+      text-align: center;
+      border: 1px solid var(--card-border);
+      cursor: pointer;
+      margin-top: 12px;
+    }
+    .btn-secondary:hover { color: var(--text-main); border-color: var(--text-muted); }
+    .hint-box {
+      padding: 12px 16px;
+      background: rgba(255, 179, 64, 0.1);
+      border-radius: 8px;
+      color: var(--led-amber);
+      font-size: 13px;
+      display: flex;
+      align-items: start;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .hint-box.info { background: rgba(50,215,75,0.1); color: var(--accent); }
+    .loading-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .loading-overlay.visible { display: flex; }
+    .spinner {
+      width: 40px; height: 40px;
+      border: 3px solid var(--card-border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="brand">
+      <div class="brand-icon">🚋</div>
+      Straba Konfig
+    </div>
+    <div class="status-badge" id="statusBadge">Verbunden</div>
+  </div>
+
+  <div class="main-content">
+    <!-- Live Preview -->
+    <div class="preview-section">
+      <div class="preview-label">Vorschau</div>
+      <div class="device-frame" id="preview">
+        <div class="led-row" style="color: var(--led-amber);">
+          <div class="led-line"><span class="led-number">U2</span><span>Seestadt</span></div>
+          <span>3</span>
+        </div>
+        <div class="led-row" style="color: var(--led-amber);">
+          <div class="led-line"><span class="led-number">U2</span><span>Schottentor</span></div>
+          <span>5</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Haltestelle -->
+    <div class="settings-group">
+      <div class="section-title">📍 Haltestelle</div>
+      <div class="control-card">
+        <div class="control-item">
+          <span class="control-label">RBL / Stop-ID<small>Finde deine auf till.mabe.at/rbl</small></span>
+          <input type="text" id="stopId" placeholder="z.B. 4429">
+        </div>
+        <div class="control-item">
+          <span class="control-label">Linien-Filter<small>Leer = alle Linien</small></span>
+          <input type="text" id="filter" placeholder="U4,U2,49">
+        </div>
+      </div>
+    </div>
+
+    <!-- Anzeige -->
+    <div class="settings-group">
+      <div class="section-title">📺 Anzeige</div>
+      <div class="control-card">
+        <div class="control-item">
+          <span class="control-label">Anzahl Zeilen</span>
+          <div class="segmented-control" data-name="anzeige">
+            <div class="segment-opt" data-value="1">1</div>
+            <div class="segment-opt active" data-value="2">2</div>
+            <div class="segment-opt" data-value="3">3</div>
+          </div>
+        </div>
+        <div class="control-item">
+          <span class="control-label">Sortierung</span>
+          <div class="segmented-control" data-name="sortmode">
+            <div class="segment-opt" data-value="1">Statisch</div>
+            <div class="segment-opt active" data-value="2">Zeit</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barrierefreiheit -->
+    <div class="settings-group">
+      <div class="section-title">♿ Barrierefreiheit</div>
+      <div class="control-card">
+        <div class="control-item">
+          <span class="control-label">Hochflurer anzeigen<small>Blau markiert</small></span>
+          <div class="segmented-control" data-name="chopper">
+            <div class="segment-opt" data-value="0">Aus</div>
+            <div class="segment-opt active" data-value="1">An</div>
+          </div>
+        </div>
+        <div class="control-item">
+          <span class="control-label">Silberpfeil (U1-U4)<small>Silber markiert</small></span>
+          <div class="segmented-control" data-name="silberpfeil">
+            <div class="segment-opt" data-value="0">Aus</div>
+            <div class="segment-opt active" data-value="1">An</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Design -->
+    <div class="settings-group">
+      <div class="section-title">🎨 Design</div>
+      <div class="control-card">
+        <div class="control-item">
+          <span class="control-label">Textfarbe</span>
+          <div class="color-options" data-name="colour">
+            <div class="color-circle selected" data-value="1" style="background: var(--led-amber);" title="Gelb"></div>
+            <div class="color-circle" data-value="2" style="background: var(--led-white);" title="Weiss"></div>
+            <div class="color-circle" data-value="3" style="background: var(--led-orange);" title="Orange"></div>
+          </div>
+        </div>
+        <div class="control-item">
+          <span class="control-label">Helligkeit</span>
+          <div class="segmented-control" data-name="displaylight">
+            <div class="segment-opt" data-value="1">Dunkel</div>
+            <div class="segment-opt active" data-value="2">Mittel</div>
+            <div class="segment-opt" data-value="3">Hell</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nachtmodus -->
+    <div class="settings-group">
+      <div class="section-title">🌙 Nachtmodus</div>
+      <div class="control-card">
+        <div class="control-item">
+          <span class="control-label">Aktiviert</span>
+          <div class="toggle" id="nightmodeToggle" data-name="nightmode"></div>
+        </div>
+        <div class="control-item" id="nightStartRow">
+          <span class="control-label">Display aus ab</span>
+          <input type="text" id="nightstart" value="22" style="width: 60px; text-align: center;">
+        </div>
+        <div class="control-item" id="nightEndRow">
+          <span class="control-label">Display an ab</span>
+          <input type="text" id="nightend" value="7" style="width: 60px; text-align: center;">
+        </div>
+      </div>
+      <div class="hint-box">
+        ℹ️ Das Display schaltet sich im Zeitraum vollstaendig ab.
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-actions">
+    <button class="btn-primary" id="saveBtn">💾 Speichern & Neustarten</button>
+    <button class="btn-secondary" onclick="location.href='/update'">🔄 Firmware Update</button>
+  </div>
+
+  <div class="loading-overlay" id="loading">
+    <div class="spinner"></div>
+    <div style="color: var(--text-main);">Speichere & starte neu...</div>
+  </div>
+
+  <script>
+    // Segmented Controls
+    document.querySelectorAll('.segmented-control').forEach(control => {
+      control.querySelectorAll('.segment-opt').forEach(opt => {
+        opt.addEventListener('click', () => {
+          control.querySelectorAll('.segment-opt').forEach(o => o.classList.remove('active'));
+          opt.classList.add('active');
+          updatePreview();
+        });
+      });
+    });
+
+    // Color Circles
+    document.querySelectorAll('.color-options').forEach(container => {
+      container.querySelectorAll('.color-circle').forEach(circle => {
+        circle.addEventListener('click', () => {
+          container.querySelectorAll('.color-circle').forEach(c => c.classList.remove('selected'));
+          circle.classList.add('selected');
+          updatePreview();
+        });
+      });
+    });
+
+    // Toggle
+    document.querySelectorAll('.toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('checked');
+        updateNightmodeVisibility();
+      });
+    });
+
+    function updateNightmodeVisibility() {
+      const enabled = document.getElementById('nightmodeToggle').classList.contains('checked');
+      document.getElementById('nightStartRow').style.opacity = enabled ? '1' : '0.4';
+      document.getElementById('nightEndRow').style.opacity = enabled ? '1' : '0.4';
+    }
+
+    function getSegmentValue(name) {
+      const control = document.querySelector(`[data-name="${name}"]`);
+      const active = control.querySelector('.active, .selected');
+      return active ? active.dataset.value : '1';
+    }
+
+    function setSegmentValue(name, value) {
+      const control = document.querySelector(`[data-name="${name}"]`);
+      if (!control) return;
+      control.querySelectorAll('.segment-opt, .color-circle').forEach(opt => {
+        opt.classList.remove('active', 'selected');
+        if (opt.dataset.value === String(value)) {
+          opt.classList.add(opt.classList.contains('color-circle') ? 'selected' : 'active');
+        }
+      });
+    }
+
+    function updatePreview() {
+      const colourVal = getSegmentValue('colour');
+      const colors = { '1': 'var(--led-amber)', '2': 'var(--led-white)', '3': 'var(--led-orange)' };
+      const color = colors[colourVal] || 'var(--led-amber)';
+      document.querySelectorAll('#preview .led-row').forEach(row => {
+        row.style.color = color;
+      });
+    }
+
+    // Lade aktuelle Config
+    /*async function loadConfig() {
+      try {
+        const resp = await fetch('/debug');
+        const text = await resp.text();
+        const config = JSON.parse(text);
+        
+        document.getElementById('stopId').value = config.rbl_id || '';
+        document.getElementById('filter').value = config.lines_filter || '';
+        setSegmentValue('anzeige', config.lines_count || '2');
+        setSegmentValue('sortmode', config.sort_mode || '2');
+        setSegmentValue('chopper', config.chopper || '1');
+        setSegmentValue('silberpfeil', config.silberpfeil || '1');
+        setSegmentValue('colour', config.colour || '1');
+        setSegmentValue('displaylight', config.displaylight || '2');
+        
+        if (config.night_mode_enabled) {
+          document.getElementById('nightmodeToggle').classList.add('checked');
+        }
+        document.getElementById('nightstart').value = config.night_mode_start || '22';
+        document.getElementById('nightend').value = config.night_mode_end || '7';
+        
+        updatePreview();
+        updateNightmodeVisibility();
+        document.getElementById('statusBadge').textContent = 'Verbunden';
+      } catch (e) {
+        console.error('Load error:', e);
+        document.getElementById('statusBadge').textContent = 'Fehler';
+        document.getElementById('statusBadge').classList.add('error');
+      }
+    }*/
+
+    // Speichern
+    document.getElementById('saveBtn').addEventListener('click', async () => {
+      document.getElementById('loading').classList.add('visible');
+      
+      const formData = new FormData();
+      formData.append('stop-id', document.getElementById('stopId').value);
+      formData.append('filter', document.getElementById('filter').value);
+      formData.append('anzeige', getSegmentValue('anzeige'));
+      formData.append('sortmode', getSegmentValue('sortmode'));
+      formData.append('chopper', getSegmentValue('chopper'));
+      formData.append('silberpfeil', getSegmentValue('silberpfeil'));
+      formData.append('colour', getSegmentValue('colour'));
+      formData.append('displaylight', getSegmentValue('displaylight'));
+      formData.append('nightmode', document.getElementById('nightmodeToggle').classList.contains('checked') ? '1' : '0');
+      formData.append('nightstart', document.getElementById('nightstart').value);
+      formData.append('nightend', document.getElementById('nightend').value);
+
+      try {
+        await fetch('/config', { method: 'POST', body: formData });
+      } catch (e) {
+        // Neustart unterbricht Verbindung
+      }
+      
+      setTimeout(() => {
+        document.getElementById('loading').querySelector('div:last-child').textContent = 'Neustart... Seite neu laden';
+      }, 3000);
+    });
+
+    // Init
+    loadConfig();
+    updateNightmodeVisibility();
+  </script>
+</body>
+</html>

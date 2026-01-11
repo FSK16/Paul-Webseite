@@ -921,6 +921,15 @@ async function insertGrazIDs() {
         });
 }
 
+async function deleteSbahnen() {
+    const deleted = await prisma.line.deleteMany({
+        where: {
+            linetype: "TrainS"
+        }
+    });
+    console.log("Deleted S-Bahnen: " + deleted.count);
+}
+
 
 app.get('/', (req, res) => {
     res.redirect("echt.html");
@@ -971,13 +980,15 @@ app.listen(port, "0.0.0.0", async function () {
     /*await setFalseIrregularStationCombos();
 /*
 Schritt 5: *//*
-                await addIreggularStationCombos();/**/
+    await deleteSbahnen();
+    await addIreggularStationCombos();/**/
 
     console.log("Server is running on http://localhost:" + port);
     //await getLastStationofLines();
 
     //Insert Graz:
     //await insertGrazIDs();
+
 });
 
 app.get("/test/", async function () {
