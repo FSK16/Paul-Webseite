@@ -65,6 +65,25 @@
             </div>
           </div>
 
+
+            <div class="container_dark">
+              <h5 id="extended_setting">&#9881 Erweiterte Einstellungen</h5>
+              <span id="new_note">Für Hilfe wirf einen Blick auf das Einrichtungsblatt.</span>
+
+              <div class="custom_input w-50 fl">
+                <label for="strabaZeile" class="straba_label">Zeilen:</label>
+                <select name="station" id="strabaZeile" class="straba_input input_small">
+                  <option value="1">1</option>
+                  <option value="2" selected>2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+              <div class="custom_input w-50 fl">
+                <label for="strabaLines" class="straba_label">Linienfilter:</label>
+                <input type="text" name="station" id="strabaLines" class="straba_input input_small">
+              </div>
+            </div>
+            
           <button class="button_general mt-3" type="button" id="sendbtn" onclick="sendtoStraba()">
             <span id="submitbutton_notice">Einstellungen abschließen</span>
           </button>
