@@ -55,8 +55,19 @@ app.get("/search/:name", async function (req, res) {
 
 app.get("/search", async function (req, res) {
     const stations = await prisma.line.findMany({
-        include: {
+        select: {
+            lineID: true,
+            linetype: true,
+            lineName: true,
+            priority: true,
             lineStation: {
+                where: {
+                    patternID: { in: [1, 2] }
+                },
+                orderBy: [
+                    { patternID: "asc" },
+                    { stopSequenceNumber: "asc" }
+                ],
                 select: {
                     stopSequenceNumber: true,
                     direction: true,
@@ -68,16 +79,7 @@ app.get("/search", async function (req, res) {
                             stationName: true
                         }
                     },
-                    line: {  // Hier `line` explizit einbinden
-                        select: {
-                            linetype: true,
-                            lineID: true,
-                        }
-                    }
-                },
-                where: {
-                    patternID: { in: [1, 2] }
-                },
+                }
             }
         },
         orderBy: {
@@ -85,14 +87,14 @@ app.get("/search", async function (req, res) {
         }
     });
 
-    res.send(stations);
-    console.log("Stations fetched successfully");
+    res.json(stations);
 });
+
 app.get("/searchGraz", async function (req, res) {
-    try{
+    try {
         res.status(200).json(await prisma.standaloneStation.findMany(
             {
-                select:{
+                select: {
                     stationID: true,
                     stationName: true
                 }
@@ -343,11 +345,11 @@ app.get('/departuresDienstag', async (req, res) => {
 
         // Finales Response
         const finalResponse = {
-            data: { 
-                monitors, 
-                trafficInfos: [], 
-                trafficInfoCategories: [], 
-                trafficInfoCategoryGroups: [] 
+            data: {
+                monitors,
+                trafficInfos: [],
+                trafficInfoCategories: [],
+                trafficInfoCategoryGroups: []
             },
             message: {
                 messageCode: 1,
@@ -866,7 +868,7 @@ async function getIrregularStations() {
 }
 
 async function insertGrazIDs() {
-    
+
     var DataSheetCombinations = path.join(__dirname, "daten", "triasData.csv");
     let inserts = 0;
     let combos = [];
@@ -885,11 +887,11 @@ async function insertGrazIDs() {
             let stationName = row[2];
             let positionX = row[4];
             let positionY = row[5];
-            let city = row[6];   
+            let city = row[6];
             let strabaArea = "Graz";
             let lines = row[10];
 
-            if(stationId.includes("at:46:")) {
+            if (stationId.includes("at:46:")) {
                 let station = {
                     stationID: stationId,
                     stationName: stationName,
@@ -969,13 +971,13 @@ app.listen(port, "0.0.0.0", async function () {
     await generatePriorities();
     /*
         Schritt 3:*//*
-    await prisma.lineStation.deleteMany();
+await prisma.lineStation.deleteMany();
 
-     await insertCombos();
-     await getLastStationofLines();
+ await insertCombos();
+ await getLastStationofLines();
 
-    /*
-    Schritt 4: *//*
+/*
+Schritt 4: *//*
         await setFalseIrregularStationCombos();
     /*
     Schritt 5: *//*
@@ -984,8 +986,8 @@ app.listen(port, "0.0.0.0", async function () {
     /*await setFalseIrregularStationCombos();
 /*
 Schritt 5: *//*
-    await deleteSbahnen();
-    await addIreggularStationCombos();/**/
+        await deleteSbahnen();
+        await addIreggularStationCombos();/**/
 
     console.log("Server is running on http://localhost:" + port);
     //await getLastStationofLines();
