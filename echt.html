@@ -178,7 +178,7 @@
 
 
               document.getElementById('list').innerHTML += `
-              <li onclick='insertLine("${line.lineName}", "${line.lineID}", "${firstStation}", "${firstStationID}", "${lastStation}", "${lastStationID}")'>
+              <li data-line="${line.lineName}" data-lineid="${line.lineID}" data-firststation="${firstStation}" data-firststationid="${firstStationID}" data-laststation="${lastStation}" data-laststationid="${lastStationID}">
                 <span><b>${line.lineName}</b></span>
                 <span class="selection_note_directions">${firstStation} <-> ${lastStation}</span>
               </li>`;
@@ -216,12 +216,12 @@
       document.getElementById('directionlist').innerHTML += `
               <span> Bitte wähle eine Richtung:</span>`;
       document.getElementById('directionlist').innerHTML += `
-              <li onclick='insertDirection("${lineID}", "${firstStationID}", "${firstStation}")'>
+              <li data-lineid="${lineID}" data-patternid="${firstStationID}" data-station="${firstStation}">
                 <span><b>${firstStation}</b></span>
               </li>`;
 
       document.getElementById('directionlist').innerHTML += `
-      <li onclick='insertDirection("${lineID}", "${lastStationID}", "${lastStation}")'>
+      <li data-lineid="${lineID}" data-patternid="${lastStationID}" data-station="${lastStation}">
         <span><b>${lastStation}</b></span>
       </li>`;
 
@@ -249,7 +249,7 @@
 
             if(station.patternID == Number(patternID)){
               document.getElementById('stationlist').innerHTML += `
-              <li onclick='insertStation("${station.station.stationName}", "${station.station.stationID}")'>
+              <li data-name="${station.station.stationName}" data-stopid="${station.station.stationID}">
                 <span><b>${station.station.stationName}</b></span>
               </li>`;
               stationAnzahl += 1;
@@ -332,6 +332,35 @@
 
       document.getElementById('stationInput').value = "";
     }
+
+    (function() {
+      let isTouching = false;
+
+      function delegate(ulId, handler) {
+        const el = document.getElementById(ulId);
+        el.addEventListener('touchend', function(e) {
+          isTouching = true;
+          const li = e.target.closest('li');
+          if (li) handler(li.dataset);
+          setTimeout(() => { isTouching = false; }, 400);
+        });
+        el.addEventListener('click', function(e) {
+          if (isTouching) return;
+          const li = e.target.closest('li');
+          if (li) handler(li.dataset);
+        });
+      }
+
+      delegate('list', function(d) {
+        insertLine(d.line, d.lineid, d.firststation, d.firststationid, d.laststation, d.laststationid);
+      });
+      delegate('directionlist', function(d) {
+        insertDirection(d.lineid, d.patternid, d.station);
+      });
+      delegate('stationlist', function(d) {
+        insertStation(d.name, d.stopid);
+      });
+    })();
 
     document.addEventListener('click', function(event) {
       const dropdowns = document.querySelectorAll('.dropdown_items');
