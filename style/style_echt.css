@@ -149,6 +149,7 @@ body {
     list-style-type: none;
     margin-left: -10px;
     background-color: white;
+    cursor: pointer;
 }
 .dropdown_items li:hover{
     cursor: pointer;

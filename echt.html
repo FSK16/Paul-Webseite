@@ -107,7 +107,7 @@
     let station = document.getElementById('stationInput');
 
     window.onload = function(){
-        fetch(`http://localhost:8080/search/`, {
+        fetch(`https://straba-983965425140.europe-west3.run.app/search/`, {
           method: "GET"
       })
       .then(response => {
@@ -334,14 +334,17 @@
     }
 
     document.addEventListener('click', function(event) {
-      const dropdown = document.querySelector('.dropdown_items');
-      const inputs = document.querySelector('.straba_input');
-      
-          // Prüfen, ob der Klick außerhalb des Dropdowns war
-          if (!dropdown.contains(event.target) && !inputs.contains(event.target)) {
-              dropdown.style.opacity = 0; // oder 'opacity: 0', je nach Umsetzung
-          }
-      });
+      const dropdowns = document.querySelectorAll('.dropdown_items');
+      const inputs = document.querySelectorAll('.straba_input');
+
+      let clickedInside = false;
+      dropdowns.forEach(d => { if (d.contains(event.target)) clickedInside = true; });
+      inputs.forEach(i => { if (i.contains(event.target)) clickedInside = true; });
+
+      if (!clickedInside) {
+        dropdowns.forEach(d => { d.style.opacity = 0; });
+      }
+    });
 
     
     
