@@ -42,14 +42,14 @@
               </div>
               <div class="custom_input">
                 <label for="lineInput" class="straba_label">Richtung:</label>
-                <input type="text" name="direction" id="directionInput" class="straba_input">
+                <input type="text" name="direction" id="directionInput" class="straba_input" onfocus="showDirections()" onkeyup="showDirections()">
                 <input type="hidden" name="direction" id="directionInputID" class="straba_input">
                 <ul class="dropdown_items" id="directionlist">
 
               </div>
               <div class="custom_input">
                 <label for="lineInput" class="straba_label">Station:</label>
-                <input type="text" name="station" id="stationInput" class="straba_input">
+                <input type="text" name="station" id="stationInput" class="straba_input" onfocus="showStations()" onkeyup="showStations()">
                 <input type="hidden" name="stop-id" id="stationInputID" class="straba_input">
                 <ul class="dropdown_items" id="stationlist">
               </div>
@@ -105,6 +105,8 @@
   <script>
     let stationData = [];
     let station = document.getElementById('stationInput');
+    let storedDirections = [];
+    let storedStations = [];
 
     window.onload = function(){
         fetch(`https://straba-983965425140.europe-west3.run.app/search/`, {
@@ -211,23 +213,24 @@
       getDirectiions(lineID, firstStation, firstStationID, lastStation, lastStationID)
     }
 
-    function getDirectiions(lineID, firstStation, firstStationID, lastStation, lastStationID){  
-      
-      document.getElementById('directionlist').innerHTML += `
-              <span> Bitte wähle eine Richtung:</span>`;
-      document.getElementById('directionlist').innerHTML += `
-              <li data-lineid="${lineID}" data-patternid="${firstStationID}" data-station="${firstStation}">
-                <span><b>${firstStation}</b></span>
-              </li>`;
+    function getDirectiions(lineID, firstStation, firstStationID, lastStation, lastStationID){
+      storedDirections = [
+        { lineID, patternID: firstStationID, station: firstStation },
+        { lineID, patternID: lastStationID, station: lastStation }
+      ];
+      showDirections();
+    }
 
-      document.getElementById('directionlist').innerHTML += `
-      <li data-lineid="${lineID}" data-patternid="${lastStationID}" data-station="${lastStation}">
-        <span><b>${lastStation}</b></span>
-      </li>`;
-
-
-      document.getElementById('directionlist').style.opacity = 1;
-
+    function showDirections() {
+      const list = document.getElementById('directionlist');
+      const filter = document.getElementById('directionInput').value.toLowerCase();
+      list.innerHTML = '<span>Bitte wähle eine Richtung:</span>';
+      storedDirections.forEach(d => {
+        if (d.station.toLowerCase().includes(filter)) {
+          list.innerHTML += `<li data-lineid="${d.lineID}" data-patternid="${d.patternID}" data-station="${d.station}"><span><b>${d.station}</b></span></li>`;
+        }
+      });
+      if (storedDirections.length > 0) list.style.opacity = 1;
     }
 
     function insertDirection(lineID, patternID, station){
@@ -240,28 +243,32 @@
     }
 
     function getStation(lineID, patternID){
-      document.getElementById('stationlist').innerHTML += `<span>Bitte wähle eine Station:</span>`;
-      let stationAnzahl = 0;
-
+      storedStations = [];
       stationData.forEach(line => {
         if(line.lineID === Number(lineID)){
           line.lineStation.forEach(station => {
-
             if(station.patternID == Number(patternID)){
-              document.getElementById('stationlist').innerHTML += `
-              <li data-name="${station.station.stationName}" data-stopid="${station.station.stationID}">
-                <span><b>${station.station.stationName}</b></span>
-              </li>`;
-              stationAnzahl += 1;
-            }           
+              storedStations.push({ name: station.station.stationName, stopid: station.station.stationID });
+            }
           });
         }
-      })
-      if(stationAnzahl == 0){
-          document.getElementById('stationlist').innerHTML += `<span>Es wurde keine Station gefunden.</span>`;
-      }
+      });
+      showStations();
+    }
 
-      document.getElementById('stationlist').style.opacity = 1;
+    function showStations() {
+      const list = document.getElementById('stationlist');
+      const filter = document.getElementById('stationInput').value.toLowerCase();
+      list.innerHTML = '<span>Bitte wähle eine Station:</span>';
+      const matches = storedStations.filter(s => s.name.toLowerCase().includes(filter));
+      if (matches.length === 0) {
+        list.innerHTML += '<span>Es wurde keine Station gefunden.</span>';
+      } else {
+        matches.forEach(s => {
+          list.innerHTML += `<li data-name="${s.name}" data-stopid="${s.stopid}"><span><b>${s.name}</b></span></li>`;
+        });
+      }
+      if (storedStations.length > 0) list.style.opacity = 1;
     }
 
     function insertStation(name, stopID){
@@ -331,6 +338,9 @@
       document.getElementById('directionInputID').value = "";
 
       document.getElementById('stationInput').value = "";
+
+      storedDirections = [];
+      storedStations = [];
     }
 
     (function() {
