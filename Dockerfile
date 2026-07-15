@@ -18,7 +18,7 @@ COPY . .
 RUN npx prisma generate
 
 # Prisma init (optional, wenn du das brauchst)
-RUN npx prisma db push
+RUN npx prisma db push --accept-data-loss
 
 # Standardport
 EXPOSE 3000
