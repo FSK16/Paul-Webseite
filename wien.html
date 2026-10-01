@@ -136,6 +136,22 @@
     .abschnitt-titel { font-size: 12px; font-weight: 700; text-transform: uppercase;
       letter-spacing: .05em; color: var(--muted); margin: 18px 0 9px; }
 
+    /* Schritt-Anzeige: zwei Seiten, erst die Stationen, dann die Anzeige-Einstellungen */
+    .schritte { display: flex; gap: 8px; margin-bottom: 14px; }
+    .schritt {
+      flex: 1; display: flex; align-items: center; gap: 7px;
+      padding: 8px 10px; border: 2px solid var(--ink); border-radius: 8px;
+      background: #fff; font-size: 12px; font-weight: 700;
+    }
+    .schritt .nummer {
+      width: 20px; height: 20px; flex: 0 0 auto; border-radius: 50%;
+      background: #d9d2c2; color: var(--ink); font-size: 11px; font-weight: 800;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .schritt.aktiv { background: var(--ink); color: #fff; }
+    .schritt.aktiv .nummer { background: var(--amber); color: var(--ink); }
+    .schritt.fertig .nummer { background: #2f7d32; color: #fff; }
+
     /* ---------- Stationsliste ---------- */
     .stationzeile {
       display: flex; align-items: center; gap: 10px; padding: 11px 12px;
@@ -167,7 +183,12 @@
     }
     .knopf:active { transform: translate(2px,2px); box-shadow: 1px 1px 0 var(--ink); }
     .knopf.rot { background: var(--red); color: #fff; }
-    .knopf:disabled { opacity: .45; cursor: default; }
+    /* Der Knopf unten ist IMMER da und wird erst farbig, wenn es etwas zu tun gibt
+       (wie beim Vorgaenger am Geraet, Paul 01.10.2026). */
+    .knopf:disabled { cursor: default; }
+    .knopf.rot:disabled { background: #d9d2c2; color: #8d8679; border-color: #b8b1a1;
+      box-shadow: 3px 3px 0 #b8b1a1; }
+    .knopf.rot:disabled:active { transform: none; box-shadow: 3px 3px 0 #b8b1a1; }
 
     /* ---------- Stoerungen ---------- */
     #currentDisruptions:empty { display: none; }
@@ -187,6 +208,12 @@
     #fertig .haken { font-size: 44px; line-height: 1; margin-bottom: 12px; }
     #fertig .gross { font-size: 19px; font-weight: 800; margin-bottom: 6px; }
     #fertig .klein { font-size: 13px; color: var(--muted); line-height: 1.5; }
+    /* Pfeil wie beim Vorgaenger (pics/pfeil-nach-links.svg): zeigt nach dem Speichern
+       zurueck zum Geraet (Paul 01.10.2026). */
+    #fertig .pfeil { margin-top: 26px; }
+    #fertig .pfeil img { width: 180px; max-width: 70%; opacity: .9; }
+    #fertig .pfeil .pfeiltext { display: block; margin-top: 8px; font-size: 13px;
+      font-weight: 700; color: var(--muted); }
 
     .logo { text-align: center; margin: 22px 0 4px; }
     .logo img { height: 34px; opacity: .85; }
@@ -211,6 +238,12 @@
       </a>
 
       <div id="currentDisruptions"></div>
+
+      <!-- Zwei Seiten: 1 Stationen, 2 Anzeige -->
+      <div class="schritte" id="schrittAnzeige">
+        <div class="schritt aktiv" id="schritt1"><span class="nummer">1</span>Stationen</div>
+        <div class="schritt" id="schritt2"><span class="nummer">2</span>Anzeige</div>
+      </div>
 
       <!-- Schritt 1: Linie waehlen -->
       <div class="karte" id="kartenLinie">
@@ -244,9 +277,6 @@
           <div id="wienOtherLinesList"></div>
         </div>
 
-        <button class="knopf" type="button" id="wienAddStationBtn" onclick="addWienStation()" disabled>
-          + Station hinzufügen
-        </button>
       </div>
 
       <!-- Gewaehlte Stationen -->
@@ -256,11 +286,13 @@
         <button class="knopf" type="button" onclick="zeigeSchritt('linie')">+ Weitere Station hinzufügen</button>
       </div>
 
-      <!-- Anzeige-Einstellungen -->
-      <div class="karte hidden" id="kartenEinstellungen">
-        <h2>⚙ Anzeige</h2>
-        <p class="hinweis">Für Hilfe wirf einen Blick auf das Einrichtungsblatt.</p>
-        <div class="feld">
+      <!-- Seite 2: Übersicht der gewählten Stationen + Zeilen -->
+      <div class="karte hidden" id="kartenUebersicht">
+        <button class="zurueck" type="button" onclick="zeigeSchritt('linie')">‹ Zurück zu den Stationen</button>
+        <h2>Das kommt aufs Display</h2>
+        <p class="hinweis">Prüf die Liste und stell ein, wie viele Zeilen dein Display zeigen soll.</p>
+        <div id="uebersichtListe"></div>
+        <div class="feld" style="margin-top:16px;">
           <label for="strabaZeile">Zeilen auf dem Display</label>
           <select id="strabaZeile">
             <option value="1">1</option>
@@ -268,6 +300,7 @@
             <option value="3">3</option>
           </select>
         </div>
+        <p class="hinweis" id="zeilenHinweis" style="margin:9px 0 0;"></p>
       </div>
 
       <div class="logo">
@@ -279,13 +312,16 @@
       <div class="haken">✓</div>
       <div class="gross">Gespeichert</div>
       <div class="klein">Dein Display startet gleich neu und zeigt dann deine Stationen.</div>
+      <div class="pfeil">
+        <img src="pics/pfeil-nach-links.svg" alt="Pfeil">
+      </div>
     </div>
   </div>
 
-  <div class="leiste hidden" id="leiste">
+  <div class="leiste" id="leiste">
     <div class="inner">
-      <button class="knopf rot" type="button" id="sendbtn" onclick="sendtoStraba()">
-        Einstellungen abschließen
+      <button class="knopf rot" type="button" id="sendbtn" onclick="leistenKnopf()">
+        Weiter
       </button>
     </div>
   </div>
@@ -318,6 +354,7 @@
           wienData = data;
           document.getElementById('wienLaedt').classList.add('hidden');
           showWienLineDropdown('');
+          aktualisiereLeiste();
         })
         .catch(e => {
           console.error('Failed to load Wien data:', e);
@@ -345,16 +382,71 @@
     /* ------------------------------------------------------------------
        Schrittsteuerung
        ------------------------------------------------------------------ */
+    /* Zwei Seiten: Seite 1 sind die Stationen (Linie -> Station -> Richtung und die
+       Liste darunter), Seite 2 ist die Uebersicht mit den Zeilen. Der Knopf unten
+       heisst auf Seite 1 "Weiter" und auf Seite 2 "Einstellungen abschliessen". */
+    let aktuellerSchritt = 'linie';
+
     function zeigeSchritt(schritt) {
+      aktuellerSchritt = schritt;
       const hatStationen = addedStations.length > 0;
+      const aufSeite2 = (schritt === 'uebersicht');
+
       document.getElementById('kartenLinie').classList.toggle('hidden', schritt !== 'linie');
       document.getElementById('kartenStation').classList.toggle('hidden', schritt !== 'station');
       document.getElementById('kartenRichtung').classList.toggle('hidden', schritt !== 'richtung');
-      const listeZeigen = hatStationen && schritt === 'linie';
-      document.getElementById('kartenStationen').classList.toggle('hidden', !listeZeigen);
-      document.getElementById('kartenEinstellungen').classList.toggle('hidden', !listeZeigen);
-      document.getElementById('leiste').classList.toggle('hidden', !listeZeigen);
+      document.getElementById('kartenStationen').classList.toggle('hidden', !(hatStationen && schritt === 'linie'));
+      document.getElementById('kartenUebersicht').classList.toggle('hidden', !aufSeite2);
+
+      if (aufSeite2) renderUebersicht();
+
+      // Schritt-Anzeige
+      document.getElementById('schritt1').className = 'schritt' + (aufSeite2 ? ' fertig' : ' aktiv');
+      document.getElementById('schritt2').className = 'schritt' + (aufSeite2 ? ' aktiv' : '');
+
+      aktualisiereLeiste();
       window.scrollTo(0, 0);
+    }
+
+    /* Beschriftung und Zustand des Knopfes unten. Er bleibt immer sichtbar und wird
+       erst farbig, sobald der aktuelle Schritt etwas hergibt. */
+    function aktualisiereLeiste() {
+      const knopf = document.getElementById('sendbtn');
+      if (aktuellerSchritt === 'uebersicht') {
+        knopf.textContent = 'Einstellungen abschließen';
+        knopf.disabled = (addedStations.length === 0);
+      } else if (aktuellerSchritt === 'richtung') {
+        knopf.textContent = '+ Station hinzufügen';
+        knopf.disabled = (wienSelectedDirections.length === 0);
+      } else {
+        knopf.textContent = 'Weiter';
+        knopf.disabled = (addedStations.length === 0);
+      }
+    }
+
+    function leistenKnopf() {
+      if (aktuellerSchritt === 'uebersicht') sendtoStraba();
+      else if (aktuellerSchritt === 'richtung') addWienStation();
+      else zeigeSchritt('uebersicht');
+    }
+
+    /* Seite 2: dieselben Stationen noch einmal zum Durchsehen, ohne Entfernen-Knopf
+       waere es eine Sackgasse — der bleibt also drin. */
+    function renderUebersicht() {
+      document.getElementById('uebersichtListe').innerHTML = addedStations.map((s, i) => {
+        const detail = s.directions.map(d => d.line + ' → ' + d.towards).join(' · ');
+        return `<div class="stationzeile">
+                  <span class="nr">${i + 1}</span>
+                  <span class="inhalt">
+                    <span class="sname">${escHtml(s.name)}</span>
+                    <span class="sdetail">${escHtml(detail)}</span>
+                  </span>
+                  <button type="button" class="weg" onclick="stationEntfernen(${i})" aria-label="Entfernen">✕</button>
+                </div>`;
+      }).join('');
+      const zeilen = addedStations.reduce((n, s) => n + s.directions.length, 0);
+      document.getElementById('zeilenHinweis').textContent =
+        zeilen + ' Richtungen gewählt. Das Display zeigt immer die nächsten Abfahrten davon.';
     }
 
     /* ------------------------------------------------------------------
@@ -567,7 +659,7 @@
               <span class="fest">✓ Ausgewählt</span>
             </div>
           </div>`;
-        document.getElementById('wienAddStationBtn').disabled = false;
+        aktualisiereLeiste();
         showWienOtherLines();
       } else {
         dirList.innerHTML = `
@@ -583,7 +675,7 @@
                       </div>`;
             }).join('')}
           </div>`;
-        document.getElementById('wienAddStationBtn').disabled = wienSelectedDirections.length === 0;
+        aktualisiereLeiste();
         if (wienSelectedDirections.length > 0) showWienOtherLines();
       }
 
@@ -599,7 +691,7 @@
       if (an) wienSelectedDirections.push({ patternID, stopId, towards });
       else wienSelectedDirections = wienSelectedDirections.filter(d => d.patternID !== patternID);
 
-      document.getElementById('wienAddStationBtn').disabled = wienSelectedDirections.length === 0;
+      aktualisiereLeiste();
       if (wienSelectedDirections.length > 0) showWienOtherLines();
       else document.getElementById('wienOtherLinesSection').style.display = 'none';
     }
@@ -735,7 +827,9 @@
     function stationEntfernen(idx) {
       addedStations.splice(idx, 1);
       renderStationen();
-      zeigeSchritt('linie');
+      // Auf Seite 2 dort bleiben, solange noch etwas drin ist
+      if (aktuellerSchritt === 'uebersicht' && addedStations.length) zeigeSchritt('uebersicht');
+      else zeigeSchritt('linie');
     }
 
     function renderStationen() {
