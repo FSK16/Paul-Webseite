@@ -933,15 +933,17 @@ async function deleteSbahnen() {
 }
 
 
+// Neues Layout im catch-it-Look (wien.html). Die alte Seite bleibt als echt.html
+// liegen: fuer ein Rollback hier und bei /config wieder auf "echt.html" zeigen.
 app.get('/', (req, res) => {
-    res.redirect("echt.html");
+    res.redirect("wien.html");
 });
 
 app.get('/newpriority', (req, res) => {
     generatePriorities();
 })
 app.get('/config', (req, res) => {
-    res.sendFile(path.join(__dirname, 'echt.html'));
+    res.sendFile(path.join(__dirname, 'wien.html'));
 });
 
 app.get('/config2', (req, res) => {

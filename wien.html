@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haltestellen wählen</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- splitDateTime + calculateDuration fuer die Stoerungs-Anzeige -->
+  <script src="script.js"></script>
+
+  <style>
+    /* ==================================================================
+       Wiener-Linien-Seite im Ablauf der neuen catchit-cities.html:
+       erst die Station suchen, dann je Linie die Richtungen anhaken,
+       dann die Stationsliste, dann die Einstellungen. Optik = catch-it
+       (cremiges Papier mit Gitter, dicke Tinten-Rahmen, versetzter
+       Schatten, Poppins).
+
+       WICHTIG: Was am Ende ans Geraet geht, ist unveraendert das alte
+       Format der alten Strabas:
+           postMessage({ type:'setRBL', rbl:'<ids,komma>', zeilen, filter })
+       Die ids sind dieselben stationIDs wie bisher, naemlich pro Linie
+       UND Richtung (jede Richtung hat ihre eigene Nummer).
+       ================================================================== */
+    :root {
+      --font-main: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --ink: #1b1b1b;
+      --paper: #efe7d3;
+      --card: #faf6ec;
+      --red: #eb3924;
+      --amber: #f5b301;
+      --wl: #e20613;
+      --muted: #6b6258;
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-main);
+      color: var(--ink);
+      min-height: 100vh; min-height: 100dvh;
+      padding: 18px 16px;
+      padding-bottom: calc(118px + env(safe-area-inset-bottom));
+      background-color: var(--paper);
+      background-image:
+        linear-gradient(rgba(27,27,27,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(27,27,27,.045) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    input, select, button, textarea { font-family: inherit; }
+    .wrap { max-width: 440px; margin: 0 auto; }
+
+    /* ---------- Kopf ---------- */
+    .kopf { text-align: center; margin-bottom: 14px; }
+    .kopf h1 { font-size: 22px; font-weight: 800; margin: 0 0 4px; }
+    .kopf p { font-size: 13px; color: var(--muted); margin: 0; }
+    .netz-chip { display: inline-block; margin-bottom: 10px; padding: 4px 12px; border-radius: 999px;
+      background: var(--wl); color: #fff; font-size: 12px; font-weight: 700; }
+
+    /* ---------- Banner ---------- */
+    .mehr-banner {
+      display: block; text-decoration: none; color: var(--ink); background: var(--amber);
+      border: 3px solid var(--ink); border-radius: 8px; box-shadow: 5px 5px 0 var(--ink);
+      padding: 13px 15px; margin-bottom: 18px;
+    }
+    .mehr-banner .titel { font-size: 14px; font-weight: 800; margin-bottom: 3px; }
+    .mehr-banner .text { font-size: 12.5px; line-height: 1.45; font-weight: 500; }
+    .mehr-banner .adresse { font-weight: 800; text-decoration: underline; white-space: nowrap; }
+    .mehr-banner:active { transform: translate(2px,2px); box-shadow: 3px 3px 0 var(--ink); }
+
+    /* ---------- Karten ---------- */
+    .karte {
+      background: var(--card); border: 3px solid var(--ink); border-radius: 8px;
+      box-shadow: 6px 6px 0 var(--ink); padding: 18px; margin-bottom: 18px;
+    }
+    .karte h2 { font-size: 16px; font-weight: 700; margin: 0 0 4px; }
+    .karte .hinweis { font-size: 12px; color: var(--muted); margin: 0 0 14px; line-height: 1.45; }
+    .karte.hidden, .hidden { display: none !important; }
+
+    .zurueck {
+      background: none; border: none; padding: 0 0 12px; cursor: pointer;
+      font-size: 13px; font-weight: 600; color: var(--muted);
+    }
+    .zurueck:hover { color: var(--ink); }
+
+    /* ---------- Suche ---------- */
+    .suchfeld {
+      width: 100%; padding: 12px 13px; font-size: 15px; font-weight: 600; color: var(--ink);
+      background: #fff; border: 2px solid var(--ink); border-radius: 6px; outline: none;
+    }
+    .suchfeld:focus { border-color: var(--red); }
+    .suchfeld::placeholder { color: #a9a296; font-weight: 500; }
+    .treffer { list-style: none; margin: 10px 0 0; padding: 0; max-height: 320px; overflow-y: auto; }
+    .treffer li {
+      padding: 11px 12px; cursor: pointer; border: 2px solid var(--ink); border-radius: 6px;
+      background: #fff; margin-bottom: 8px;
+    }
+    .treffer li:active { transform: translate(1px,1px); }
+    .treffer .tname { font-size: 15px; font-weight: 700; }
+    .treffer .tlinien { font-size: 11.5px; color: var(--muted); font-weight: 500; margin-top: 3px; }
+    .leer { font-size: 13px; color: var(--muted); font-style: italic; padding: 6px 2px; }
+
+    /* ---------- Linien-Karten (wie catch-it) ---------- */
+    .stationkopf { font-size: 17px; font-weight: 800; color: var(--red); margin-bottom: 2px; }
+    .stationmeta { font-size: 11.5px; color: var(--muted); margin-bottom: 14px; }
+    .alle-zeile { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .alle-zeile .titel { font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .05em; color: var(--muted); }
+    .alle-zeile button { background: none; border: none; cursor: pointer; padding: 0;
+      font-size: 12.5px; font-weight: 700; color: #0055a4; }
+
+    .linienkarte { border: 1px solid #e3ddcd; border-radius: 8px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+    .linienkopf { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: #f7f3e9; }
+    .badge {
+      min-width: 42px; padding: 5px 10px; border-radius: 6px; border: 2px solid var(--ink);
+      color: #fff; font-size: 14px; font-weight: 800; text-align: center;
+    }
+    .linienkopf .lname { font-size: 13.5px; font-weight: 700; flex: 1; }
+    .linienkopf .lalle { background: none; border: none; cursor: pointer; padding: 0;
+      font-size: 12px; font-weight: 700; color: #0055a4; }
+    .richtung {
+      display: flex; align-items: center; gap: 10px; padding: 10px 12px; cursor: pointer;
+      border-top: 1px solid #f0ece2; font-size: 14px;
+    }
+    .richtung:hover { background: #fbf8f1; }
+    .kasten {
+      width: 20px; height: 20px; flex: 0 0 auto; border: 2px solid #c6ccd4; border-radius: 5px;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 13px; color: #fff; font-weight: 800;
+    }
+    .richtung.an .kasten { background: var(--red); border-color: var(--red); }
+
+    /* ---------- Stationsliste ---------- */
+    .stationzeile {
+      display: flex; align-items: center; gap: 10px; padding: 11px 12px;
+      border: 2px solid var(--ink); border-radius: 6px; background: #fff; margin-bottom: 9px;
+    }
+    .stationzeile .nr { width: 22px; height: 22px; flex: 0 0 auto; border-radius: 5px;
+      background: var(--ink); color: #fff; font-size: 12px; font-weight: 800;
+      display: inline-flex; align-items: center; justify-content: center; }
+    .stationzeile .inhalt { flex: 1; min-width: 0; }
+    .stationzeile .sname { font-size: 14px; font-weight: 700; }
+    .stationzeile .sdetail { font-size: 11.5px; color: var(--muted); font-weight: 500; margin-top: 2px; }
+    .stationzeile .weg { background: none; border: none; cursor: pointer; font-size: 17px;
+      color: var(--red); font-weight: 700; padding: 0 2px; }
+
+    /* ---------- Einstellungen ---------- */
+    .feld { margin-bottom: 13px; }
+    .feld:last-child { margin-bottom: 0; }
+    .feld label { display: block; font-size: 11px; font-weight: 700; letter-spacing: .05em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+    .feld input, .feld select {
+      width: 100%; padding: 12px 13px; font-size: 15px; font-weight: 600; color: var(--ink);
+      background: #fff; border: 2px solid var(--ink); border-radius: 6px; outline: none;
+    }
+    .feld input:focus, .feld select:focus { border-color: var(--red); }
+
+    /* ---------- Knoepfe ---------- */
+    .knopf {
+      display: block; width: 100%; padding: 13px 16px; font-size: 14px; font-weight: 700;
+      cursor: pointer; border: 2px solid var(--ink); border-radius: 8px;
+      background: #fff; color: var(--ink); box-shadow: 3px 3px 0 var(--ink); margin-top: 12px;
+    }
+    .knopf:active { transform: translate(2px,2px); box-shadow: 1px 1px 0 var(--ink); }
+    .knopf.rot { background: var(--red); color: #fff; }
+    .knopf:disabled { opacity: .45; cursor: default; box-shadow: 3px 3px 0 var(--ink); }
+
+    /* ---------- Stoerungen ---------- */
+    #currentDisruptions:empty { display: none; }
+    .stoerung { background: #fff; border: 2px solid var(--red); border-left-width: 6px;
+      border-radius: 6px; padding: 10px 12px; margin-bottom: 10px; font-size: 12.5px; line-height: 1.5; }
+    .stoerung .dauer { display: block; margin-top: 3px; color: var(--muted); font-weight: 600; }
+
+    /* ---------- Leiste unten ---------- */
+    .leiste { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(239,231,211,.95); border-top: 3px solid var(--ink); backdrop-filter: blur(6px); }
+    .leiste .inner { max-width: 440px; margin: 0 auto; }
+    .leiste .knopf { margin-top: 0; }
+
+    /* ---------- Fertig ---------- */
+    #fertig { display: none; opacity: 0; transition: opacity .4s; text-align: center; padding: 50px 10px; }
+    #fertig .haken { font-size: 44px; line-height: 1; margin-bottom: 12px; }
+    #fertig .gross { font-size: 19px; font-weight: 800; margin-bottom: 6px; }
+    #fertig .klein { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    .logo { text-align: center; margin: 22px 0 4px; }
+    .logo img { height: 34px; opacity: .85; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div id="inhalt">
+      <div class="kopf">
+        <div class="netz-chip">Wiener Linien</div>
+        <h1>Deine Station einstellen</h1>
+        <p>Such die Haltestelle, dann hak die Richtungen an.</p>
+      </div>
+
+      <a class="mehr-banner" href="https://update.straba.at" target="_blank" rel="noopener">
+        <div class="titel">Mehr als Wiener Linien?</div>
+        <div class="text">
+          Dieses Gerät kennt nur die Wiener Linien. Für alle anderen Städte und Netze
+          öffne <span class="adresse">update.straba.at</span> und folge dort der Anleitung.
+        </div>
+      </a>
+
+      <div id="currentDisruptions"></div>
+
+      <!-- Schritt 1: Station suchen -->
+      <div class="karte" id="kartenSuche">
+        <h2>Station suchen</h2>
+        <p class="hinweis">Tipp den Namen der Haltestelle ein, zum Beispiel Westbahnhof oder Schottenring.</p>
+        <input type="text" class="suchfeld" id="sucheInput" placeholder="Stationsname eingeben…"
+               autocomplete="off" oninput="sucheStationen()">
+        <ul class="treffer" id="trefferListe"></ul>
+        <div class="leer hidden" id="sucheLaedt">Lade die Wiener Linien…</div>
+      </div>
+
+      <!-- Schritt 2: Linien und Richtungen -->
+      <div class="karte hidden" id="kartenLinien">
+        <button class="zurueck" type="button" onclick="zurueckZurSuche()">‹ Zurück</button>
+        <div class="stationkopf" id="gewaehlteStation"></div>
+        <div class="stationmeta" id="gewaehlteStationMeta"></div>
+        <div class="alle-zeile">
+          <span class="titel">Linien auswählen</span>
+          <button type="button" onclick="alleRichtungen(true)">Alle auswählen</button>
+        </div>
+        <div id="linienListe"></div>
+        <button class="knopf" type="button" id="hinzufuegenBtn" onclick="stationHinzufuegen()" disabled>
+          + Station hinzufügen
+        </button>
+      </div>
+
+      <!-- Schritt 3: Gewaehlte Stationen -->
+      <div class="karte hidden" id="kartenStationen">
+        <h2 id="stationenTitel">Deine Stationen</h2>
+        <div id="stationenListe"></div>
+        <button class="knopf" type="button" onclick="weitereStation()">+ Weitere Station hinzufügen</button>
+      </div>
+
+      <!-- Schritt 4: Erweiterte Einstellungen -->
+      <div class="karte hidden" id="kartenEinstellungen">
+        <h2>⚙ Erweiterte Einstellungen</h2>
+        <p class="hinweis">Für Hilfe wirf einen Blick auf das Einrichtungsblatt.</p>
+        <div class="feld">
+          <label for="strabaZeile">Zeilen</label>
+          <select id="strabaZeile">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="feld">
+          <label for="strabaLines">Linienfilter</label>
+          <input type="text" id="strabaLines" placeholder="leer = alle Linien" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="logo">
+        <img src="pics/straba.png" alt="catch-it">
+      </div>
+    </div>
+
+    <div id="fertig">
+      <div class="haken">✓</div>
+      <div class="gross">Gespeichert</div>
+      <div class="klein">Dein Display startet gleich neu und zeigt dann deine Stationen.</div>
+    </div>
+  </div>
+
+  <div class="leiste hidden" id="leiste">
+    <div class="inner">
+      <button class="knopf rot" type="button" id="sendbtn" onclick="sendtoStraba()">
+        Einstellungen abschließen
+      </button>
+    </div>
+  </div>
+
+  <script>
+    /* ==================================================================
+       Datenquelle unveraendert: dieselbe Datenbank wie die alte Seite.
+       ================================================================== */
+    const STRABA_API = 'https://straba-983965425140.europe-west3.run.app';
+
+    let stationData = [];          // Rohdaten (Linien mit ihren Halten)
+    let stationIndex = [];         // daraus gebaut: je Haltestelle die Linien und Richtungen
+    let aktuelleStation = null;    // gerade geoeffnete Haltestelle
+    let gewaehlt = new Set();      // angehakte Richtungen der offenen Haltestelle (Schluessel s.u.)
+    let addedStations = [];        // { name, eintraege:[{lineName, richtung, stationID}] }
+
+    /* Badge-Farben der Wiener Linien. Metro nach Linie, sonst nach Typ. */
+    const U_FARBEN = { U1: '#e20613', U2: '#a862a4', U3: '#ef7c00', U4: '#009640', U6: '#9a6b3f' };
+    const TYP_FARBEN = { Metro: '#e20613', Tram: '#e20613', TramWLB: '#4fa8d8',
+                         BusCity: '#0069b4', BusNight: '#1a1a4b', RufBus: '#6b7f8c' };
+    function badgeFarbe(lineName, linetype) {
+      return U_FARBEN[lineName] || TYP_FARBEN[linetype] || '#444';
+    }
+
+    function escHtml(s) {
+      return String(s == null ? '' : s).replace(/[&<>"]/g, c =>
+        ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    }
+
+    /* ------------------------------------------------------------------
+       Index bauen: aus den Linien je Haltestelle die Richtungen ableiten.
+       Richtungsname = Endstation des Patterns (hoechste stopSequenceNumber),
+       das ist derselbe Text, den die alte Seite als Richtung angeboten hat.
+       Die stationID haengt an (Linie, Pattern) — jede Richtung hat ihre
+       eigene Nummer, und genau die geht als rbl ans Geraet.
+       ------------------------------------------------------------------ */
+    function baueIndex() {
+      const proStation = new Map();   // Name -> { name, eintraege: Map(key -> eintrag) }
+
+      stationData.forEach(line => {
+        const halte = Array.isArray(line.lineStation) ? line.lineStation : [];
+        if (!halte.length) return;
+
+        // Endstation je Pattern bestimmen
+        const ende = {};   // patternID -> { seq, name }
+        halte.forEach(h => {
+          const p = h.patternID;
+          const seq = Number(h.stopSequenceNumber);
+          if (!ende[p] || seq > ende[p].seq) ende[p] = { seq: seq, name: h.station.stationName };
+        });
+
+        halte.forEach(h => {
+          const name = h.station.stationName;
+          const richtung = (ende[h.patternID] || {}).name;
+          if (!richtung || richtung === name) return;   // Endhalt selbst: keine Richtung anbieten
+          if (!proStation.has(name)) proStation.set(name, { name: name, eintraege: new Map() });
+          const key = line.lineID + '|' + h.patternID;
+          proStation.get(name).eintraege.set(key, {
+            key: key,
+            lineID: line.lineID,
+            lineName: line.lineName,
+            linetype: line.linetype,
+            patternID: h.patternID,
+            richtung: richtung,
+            stationID: h.station.stationID
+          });
+        });
+      });
+
+      stationIndex = Array.from(proStation.values()).map(s => ({
+        name: s.name,
+        eintraege: Array.from(s.eintraege.values()).sort(linienSortierung)
+      })).sort((a, b) => a.name.localeCompare(b.name, 'de'));
+    }
+
+    /* U-Bahn zuerst, dann Tram, dann Bus — innerhalb nach Liniennummer. */
+    function typRang(t) {
+      if (t === 'Metro') return 0;
+      if (t === 'Tram' || t === 'TramWLB') return 1;
+      if (t === 'BusNight') return 3;
+      if (t === 'RufBus') return 4;
+      return 2;
+    }
+    function linienSortierung(a, b) {
+      const ra = typRang(a.linetype), rb = typRang(b.linetype);
+      if (ra !== rb) return ra - rb;
+      const na = parseInt(String(a.lineName).replace(/\D/g, ''), 10) || 999;
+      const nb = parseInt(String(b.lineName).replace(/\D/g, ''), 10) || 999;
+      if (na !== nb) return na - nb;
+      return String(a.lineName).localeCompare(String(b.lineName), 'de');
+    }
+
+    /* ------------------------------------------------------------------
+       Laden: Linien-/Stationsdaten und Stoerungen (wie bisher).
+       ------------------------------------------------------------------ */
+    window.onload = function() {
+      document.getElementById('sucheLaedt').classList.remove('hidden');
+
+      fetch(`${STRABA_API}/search/`, { method: 'GET' })
+        .then(r => { if (!r.ok) throw new Error('Network response was not ok'); return r.json(); })
+        .then(data => {
+          stationData = data;
+          baueIndex();
+          document.getElementById('sucheLaedt').classList.add('hidden');
+          sucheStationen();
+        })
+        .catch(error => {
+          console.error(error);
+          document.getElementById('sucheLaedt').textContent =
+            'Die Stationsliste konnte nicht geladen werden. Bitte die Seite neu laden.';
+        });
+
+      fetch(`${STRABA_API}/disruptions/`, { method: 'GET' })
+        .then(r => { if (!r.ok) throw new Error('Network response was not ok'); return r.json(); })
+        .then(data => {
+          data.forEach(disruption => {
+            document.getElementById('currentDisruptions').innerHTML += `
+              <div class="stoerung">
+                <span>${disruption.disruptionText}</span>
+                <span class="dauer">${disruption.endDate
+                  ? 'Die Störung endet in ' + calculateDuration(splitDateTime(disruption.endDate).day,
+                      splitDateTime(disruption.endDate).hours, splitDateTime(disruption.endDate).minutes)
+                  : 'Das Störungsende ist nicht absehbar.'}</span>
+              </div>`;
+          });
+        })
+        .catch(error => { console.error(error); });
+    };
+
+    /* ------------------------------------------------------------------
+       Schritt 1: Station suchen
+       ------------------------------------------------------------------ */
+    function sucheStationen() {
+      const q = document.getElementById('sucheInput').value.trim().toLowerCase();
+      const liste = document.getElementById('trefferListe');
+      if (!stationIndex.length) { liste.innerHTML = ''; return; }
+      if (q.length < 2) {
+        liste.innerHTML = '<div class="leer">Mindestens zwei Buchstaben eingeben.</div>';
+        return;
+      }
+      const treffer = stationIndex.filter(s => s.name.toLowerCase().includes(q)).slice(0, 40);
+      if (!treffer.length) {
+        liste.innerHTML = '<div class="leer">Es wurde keine Station gefunden.</div>';
+        return;
+      }
+      liste.innerHTML = treffer.map(s => {
+        const linien = [];
+        s.eintraege.forEach(e => { if (linien.indexOf(e.lineName) < 0) linien.push(e.lineName); });
+        return `<li onclick="stationOeffnen('${escHtml(s.name).replace(/'/g, "\\'")}')">
+                  <div class="tname">${escHtml(s.name)}</div>
+                  <div class="tlinien">${escHtml(linien.slice(0, 10).join(', '))}${linien.length > 10 ? ' …' : ''}</div>
+                </li>`;
+      }).join('');
+    }
+
+    /* ------------------------------------------------------------------
+       Schritt 2: Linien und Richtungen der Station
+       ------------------------------------------------------------------ */
+    function stationOeffnen(name) {
+      aktuelleStation = stationIndex.filter(s => s.name === name)[0] || null;
+      if (!aktuelleStation) return;
+      gewaehlt = new Set();
+      // Schon gewaehlte Richtungen dieser Station wieder anhaken (Bearbeiten)
+      addedStations.forEach(st => {
+        if (st.name === name) st.eintraege.forEach(e => gewaehlt.add(e.key));
+      });
+      document.getElementById('gewaehlteStation').textContent = name;
+      document.getElementById('gewaehlteStationMeta').textContent =
+        'Wiener Linien · ' + aktuelleStation.eintraege.length + ' Richtungen';
+      zeigeSchritt('linien');
+      renderLinien();
+    }
+
+    function renderLinien() {
+      const nachLinie = new Map();
+      aktuelleStation.eintraege.forEach(e => {
+        if (!nachLinie.has(e.lineName)) nachLinie.set(e.lineName, []);
+        nachLinie.get(e.lineName).push(e);
+      });
+      let html = '';
+      nachLinie.forEach((eintraege, lineName) => {
+        const farbe = badgeFarbe(lineName, eintraege[0].linetype);
+        html += `<div class="linienkarte">
+          <div class="linienkopf">
+            <span class="badge" style="background:${farbe};">${escHtml(lineName)}</span>
+            <span class="lname">Linie ${escHtml(lineName)}</span>
+            <button type="button" class="lalle" onclick="alleEinerLinie('${escHtml(lineName).replace(/'/g, "\\'")}')">Alle</button>
+          </div>`;
+        eintraege.forEach(e => {
+          const an = gewaehlt.has(e.key);
+          html += `<div class="richtung ${an ? 'an' : ''}" onclick="richtungSchalten('${e.key}')">
+                     <span class="kasten">${an ? '✓' : ''}</span>
+                     <span>→ ${escHtml(e.richtung)}</span>
+                   </div>`;
+        });
+        html += '</div>';
+      });
+      document.getElementById('linienListe').innerHTML = html;
+      document.getElementById('hinzufuegenBtn').disabled = (gewaehlt.size === 0);
+    }
+
+    function richtungSchalten(key) {
+      if (gewaehlt.has(key)) gewaehlt.delete(key); else gewaehlt.add(key);
+      renderLinien();
+    }
+    function alleEinerLinie(lineName) {
+      const eintraege = aktuelleStation.eintraege.filter(e => e.lineName === lineName);
+      const alleAn = eintraege.every(e => gewaehlt.has(e.key));
+      eintraege.forEach(e => { if (alleAn) gewaehlt.delete(e.key); else gewaehlt.add(e.key); });
+      renderLinien();
+    }
+    function alleRichtungen(an) {
+      const alleSchon = aktuelleStation.eintraege.every(e => gewaehlt.has(e.key));
+      aktuelleStation.eintraege.forEach(e => { if (alleSchon) gewaehlt.delete(e.key); else gewaehlt.add(e.key); });
+      renderLinien();
+    }
+
+    /* ------------------------------------------------------------------
+       Schritt 3: Stationsliste
+       ------------------------------------------------------------------ */
+    function stationHinzufuegen() {
+      if (!aktuelleStation || gewaehlt.size === 0) {
+        alert('Bitte wähle mindestens eine Richtung aus.');
+        return;
+      }
+      const eintraege = aktuelleStation.eintraege.filter(e => gewaehlt.has(e.key));
+      // Dieselbe Station nicht doppelt: bestehenden Eintrag ersetzen
+      addedStations = addedStations.filter(s => s.name !== aktuelleStation.name);
+      addedStations.push({ name: aktuelleStation.name, eintraege: eintraege });
+      aktuelleStation = null;
+      gewaehlt = new Set();
+      document.getElementById('sucheInput').value = '';
+      sucheStationen();
+      zeigeSchritt('stationen');
+      renderStationen();
+    }
+
+    function stationEntfernen(idx) {
+      addedStations.splice(idx, 1);
+      renderStationen();
+      if (!addedStations.length) zeigeSchritt('suche');
+    }
+
+    function renderStationen() {
+      document.getElementById('stationenTitel').textContent =
+        'Deine Stationen (' + addedStations.length + ')';
+      document.getElementById('stationenListe').innerHTML = addedStations.map((s, i) => {
+        const detail = s.eintraege.map(e => e.lineName + ' → ' + e.richtung).join(' · ');
+        return `<div class="stationzeile">
+                  <span class="nr">${i + 1}</span>
+                  <span class="inhalt">
+                    <span class="sname">${escHtml(s.name)}</span>
+                    <span class="sdetail">${escHtml(detail)}</span>
+                  </span>
+                  <button type="button" class="weg" onclick="stationEntfernen(${i})" aria-label="Entfernen">✕</button>
+                </div>`;
+      }).join('');
+      // Linienfilter wie in catch-it aus der Auswahl vorbelegen, bleibt aenderbar
+      const linien = [];
+      addedStations.forEach(s => s.eintraege.forEach(e => {
+        if (linien.indexOf(e.lineName) < 0) linien.push(e.lineName);
+      }));
+      const filterFeld = document.getElementById('strabaLines');
+      if (!filterFeld.dataset.handgesetzt) filterFeld.value = linien.join(',');
+    }
+
+    function weitereStation() { zeigeSchritt('suche'); }
+    function zurueckZurSuche() { aktuelleStation = null; gewaehlt = new Set(); zeigeSchritt(addedStations.length ? 'stationen' : 'suche'); }
+
+    /* Schrittsteuerung: Suche / Linien / Stationen. Die Stationsliste und die
+       Einstellungen bleiben sichtbar, sobald mindestens eine Station drin ist. */
+    function zeigeSchritt(schritt) {
+      const suche = document.getElementById('kartenSuche');
+      const linien = document.getElementById('kartenLinien');
+      const stationen = document.getElementById('kartenStationen');
+      const einst = document.getElementById('kartenEinstellungen');
+      const leiste = document.getElementById('leiste');
+
+      suche.classList.toggle('hidden', schritt !== 'suche');
+      linien.classList.toggle('hidden', schritt !== 'linien');
+      const hatStationen = addedStations.length > 0;
+      stationen.classList.toggle('hidden', !hatStationen || schritt === 'linien');
+      einst.classList.toggle('hidden', !hatStationen || schritt === 'linien');
+      leiste.classList.toggle('hidden', !hatStationen || schritt === 'linien');
+      window.scrollTo(0, 0);
+    }
+
+    /* ------------------------------------------------------------------
+       Abschluss: EXAKT das alte Format ans Geraet.
+       ------------------------------------------------------------------ */
+    function sendtoStraba() {
+      const ids = [];
+      addedStations.forEach(s => s.eintraege.forEach(e => {
+        const id = String(e.stationID);
+        if (ids.indexOf(id) < 0) ids.push(id);
+      }));
+
+      if (!ids.length) {
+        alert('Bitte füge mindestens eine Station hinzu.');
+        return;
+      }
+
+      const strabaData = {
+        type: 'setRBL',
+        rbl: ids.join(','),
+        zeilen: document.getElementById('strabaZeile').value,
+        filter: document.getElementById('strabaLines').value
+      };
+      window.parent.postMessage(strabaData, '*');
+
+      document.getElementById('inhalt').style.display = 'none';
+      document.getElementById('leiste').classList.add('hidden');
+      document.getElementById('fertig').style.display = 'block';
+      setTimeout(() => { document.getElementById('fertig').style.opacity = 1; }, 10);
+    }
+
+    // Von Hand geaenderter Linienfilter wird nicht mehr ueberschrieben
+    document.addEventListener('DOMContentLoaded', function() {
+      const f = document.getElementById('strabaLines');
+      f.addEventListener('input', function() { f.dataset.handgesetzt = '1'; });
+    });
+  </script>
+</body>
+</html>
